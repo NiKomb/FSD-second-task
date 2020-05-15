@@ -1,0 +1,19 @@
+{
+  "name": "fsd-second-task",
+  "version": "1.0.0",
+  "description": "The second task of the FSD training course",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development ./webpack/webpack.base.config.js"
+  },
+  "keywords": [
+    "html",
+    "course",
+    "FSD"
+  ],
+  "author": "Nikolai Kombin <5362798@gmail.com>",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {}
+}
