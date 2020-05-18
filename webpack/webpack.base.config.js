@@ -8,24 +8,27 @@ const isProd = !isDev
 
 const filename = (ext) => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
 
-
+const paths = {
+  src: path.resolve(__dirname, '../src'),
+  dist: path.resolve(__dirname, '../dist')
+}
 
 module.exports = {
-  context: path.resolve(__dirname, '../src'),
   mode: 'development',
   entry: {
-    main: ['./entry.js'],
+    main: ['@babel/polyfill', './src/index.js'],
   },
   output: {
     filename: filename('js'),
-    path: path.join(__dirname, '../dist'),
+    path: paths.dist,
     publicPath: '/'
   },
   resolve: {
-    extensions: ['js', 'pug', 'scss', 'svg'],
+    extensions: ['.js', '.pug', '.scss', '.svg'],
     alias: {
-      '@': path.resolve(__dirname, '../src'),
-      '@pages': path.resolve(__dirname, '../src/pages')
+      '@layouts': path.resolve(__dirname, '../src/layouts'),
+      '@pages': path.resolve(__dirname, '../src/pages'),
+      '@': path.resolve(__dirname, '../src')
     }
   },
 
@@ -36,7 +39,8 @@ module.exports = {
     overlay: {
       warning: true,
       errors: true,
-    }
+    },
+    // openPage: 'pages/colors-and-types/colors-and-types.pug'
   },
 
   devtool: isDev ? 'source-map' : '',
@@ -47,7 +51,10 @@ module.exports = {
       filename: '[name].css'
     }),
     new HTMLWebpackPlugin({
-      template: 'pages/colors-and-types/colors-and-types.pug'
+      template: path.resolve(__dirname, '../src/pages/colors-and-types/colors-and-types.pug'),
+      minify: {
+        collapseWhitespace: isProd
+      }
     })
   ],
 
