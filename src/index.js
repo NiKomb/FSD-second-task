@@ -1,3 +1,5 @@
-import './pages/colors-and-types/colors-and-types'
+// import './pages/colors-and-types/colors-and-types'
 
-import './babel'
+// import './babel'
+import './js/babel'
+import './theme/global.scss'

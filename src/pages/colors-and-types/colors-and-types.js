@@ -1,5 +1,5 @@
-import '@layouts/ui-base/ui-base'
+// import '@layouts/ui-base/ui-base'
 
 
-import './colors-and-types.scss'
-import '@/theme/global.scss'
+// import './colors-and-types.scss'
+// import '@/theme/global.scss'

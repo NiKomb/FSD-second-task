@@ -35,7 +35,6 @@ module.exports = {
   devServer: {
     port: 4200,
     hot: isDev,
-    open: true,
     overlay: {
       warning: true,
       errors: true,
