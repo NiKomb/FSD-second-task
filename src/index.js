@@ -2,4 +2,4 @@
 
 // import './babel'
 import './js/babel'
-import './theme/global.scss'
+import './theme/main.scss'

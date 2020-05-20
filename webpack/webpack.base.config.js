@@ -1,108 +1,115 @@
 const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+const PATHS = {
+  src: path.resolve(__dirname, '../src'),
+  dist: path.resolve(__dirname, '../dist'),
+  assets: 'assets/'
+}
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
-const filename = (ext) => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
 
-const paths = {
-  src: path.resolve(__dirname, '../src'),
-  dist: path.resolve(__dirname, '../dist')
-}
+const createDistPath = (ext) => isDev
+  ? `${PATHS.assets}/${ext}/[name].${ext}`
+  : `${PATHS.assets}/${ext}/[name].[hash].${ext}`
 
 module.exports = {
-  mode: 'development',
-  entry: {
-    main: ['@babel/polyfill', './src/index.js'],
+
+  externals: {
+    paths: PATHS
   },
+
+  context: path.resolve(__dirname, 'src'),
+
+  entry: {
+    main: ['@babel/polyfill', PATHS.src]
+  },
+
   output: {
-    filename: filename('js'),
-    path: paths.dist,
+    filename: createDistPath('js'),
+    path: PATHS.dist,
     publicPath: '/'
   },
-  resolve: {
-    extensions: ['.js', '.pug', '.scss', '.svg'],
-    alias: {
-      '@layouts': path.resolve(__dirname, '../src/layouts'),
-      '@pages': path.resolve(__dirname, '../src/pages'),
-      '@': path.resolve(__dirname, '../src')
+
+  optimization: {
+    // runtimeChunk: true,
+    splitChunks: {
+      chunks: 'all'
     }
   },
-
-  devServer: {
-    port: 4200,
-    hot: isDev,
-    overlay: {
-      warning: true,
-      errors: true,
-    },
-    // openPage: 'pages/colors-and-types/colors-and-types.pug'
-  },
-
-  devtool: isDev ? 'source-map' : '',
-
-  plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].css'
-    }),
-    new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, '../src/pages/colors-and-types/colors-and-types.pug'),
-      minify: {
-        collapseWhitespace: isProd
-      }
-    })
-  ],
 
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: '/node_modules/',
-        use: [{
+        loader: [{
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
-            plugins: [
-              '@babel/plugin-proposal-class-properties'
-            ]
+            plugins: ['@babel/plugin-proposal-class-properties'],
           }
         }]
       },
       {
-        test: /\.pug$/,
-        loader: 'pug-loader'
-      },
-      {
-        test: /\.css$i/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDev,
-              reloadAll: true
-            },
-          },
-          'css-loader'
-        ],
-      },
-      {
         test: /\.scss$/,
-        use: [
+        exclude: '/node_modules/',
+        loader: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: isDev,
               reloadAll: true
-            },
+            }
           },
-          'css-loader',
-          'sass-loader'
+          {
+            loader: 'css-loader',
+            options: { sourceMap: isDev }
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: isDev }
+          },
         ]
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif|png)$/i,
+        exclude: '/node_modules/',
+        loader: 'file-loader',
+      },
     ]
   },
+
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: createDistPath('css'),
+      chunkFilename: '[id].css',
+    }),
+    new HTMLWebpackPlugin({
+      minify: {
+        collapseWhitespace: isProd,
+        removeComments: isProd
+      },
+      template: `${PATHS.src}/index.html`,
+      favicon: `${PATHS.src}/favicon/favicon.ico`,
+      filename: './index.html',
+    }),
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: `${PATHS.src}/images`, to: `${PATHS.assets}images` },
+      ]
+    }),
+    new webpack.HashedModuleIdsPlugin({
+      hashFunction: 'md4',
+      hashDigest: 'base64',
+      hashDigestLength: 8,
+    }),
+  ],
 }

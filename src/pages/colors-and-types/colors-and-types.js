@@ -2,4 +2,4 @@
 
 
 // import './colors-and-types.scss'
-// import '@/theme/global.scss'
+import '@/theme/main.scss'
