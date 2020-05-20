@@ -1,23 +1,35 @@
 const path = require('path')
+const fs = require('fs')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+const isDev = process.env.NODE_ENV === 'development'
+const isProd = !isDev
+
 const PATHS = {
-  src: path.resolve(__dirname, '../src'),
+  src: path.join(__dirname, '../src'),
   dist: path.resolve(__dirname, '../dist'),
   assets: 'assets/'
 }
 
-const isDev = process.env.NODE_ENV === 'development'
-const isProd = !isDev
+const PAGES_DIR = `${PATHS.src}/pages/`
+const PAGES = fs.readdirSync(PAGES_DIR)
 
+const createEntry = (pagesDir) => {
+  const entryPoints = {}
 
-const createDistPath = (ext) => isDev
-  ? `${PATHS.assets}/${ext}/[name].${ext}`
-  : `${PATHS.assets}/${ext}/[name].[hash].${ext}`
+  fs.readdirSync(pagesDir)
+    .forEach((pageSubDir) => {
+      (entryPoints[pageSubDir] = path.join(pagesDir, pageSubDir, `${pageSubDir}.js`))
+    })
+
+  return entryPoints
+}
+
+const filename = (ext) => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
 
 module.exports = {
 
@@ -26,15 +38,23 @@ module.exports = {
   },
 
   context: path.resolve(__dirname, 'src'),
-
-  entry: {
-    main: ['@babel/polyfill', PATHS.src]
-  },
+  // '@babel/polyfill',
+  entry: createEntry(PAGES_DIR),
 
   output: {
-    filename: createDistPath('js'),
+    filename: filename('js'),
     path: PATHS.dist,
     publicPath: '/'
+  },
+
+  resolve: {
+    extensions: ['.js', '.scss', '.pug', 'png'],
+    alias: {
+      '@': PATHS.src,
+      '@components': PATHS.src + '/components',
+      '@layout': PATHS.src + '/layouts',
+      '@fonts': PATHS.src + '/fonts',
+    },
   },
 
   optimization: {
@@ -88,18 +108,20 @@ module.exports = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: createDistPath('css'),
+      filename: filename('css'),
       chunkFilename: '[id].css',
     }),
-    new HTMLWebpackPlugin({
+
+    ...PAGES.map(page => new HTMLWebpackPlugin({
+      template: `${PAGES_DIR}/${page}/${page}.pug`,
+      filename: `./${page}.html`,
+      favicon: `${PATHS.src}/favicon/favicon.ico`,
       minify: {
         collapseWhitespace: isProd,
-        removeComments: isProd
+        removeComments: isProd,
       },
-      template: `${PATHS.src}/index.html`,
-      favicon: `${PATHS.src}/favicon/favicon.ico`,
-      filename: './index.html',
-    }),
+    })),
+
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
