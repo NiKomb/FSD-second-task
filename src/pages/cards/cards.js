@@ -1,5 +1,4 @@
-// import '@layouts/ui-base/ui-base'
+import '@layouts/ui-base/ui-base'
 
-
-// import './cards.scss'
+import './cards.scss'
 import '@/theme/main.scss'

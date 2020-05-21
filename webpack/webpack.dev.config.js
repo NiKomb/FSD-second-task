@@ -10,8 +10,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: 4200,
     overlay: true,
     hot: true,
-    // open: true,
-    openPage: '',
+    openPage: 'colors-and-types.html',
   },
 
   devtool: '#@cheap-eval-source-map',

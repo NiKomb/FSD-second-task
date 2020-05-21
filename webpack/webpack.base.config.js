@@ -22,10 +22,9 @@ const createEntry = (pagesDir) => {
   const entryPoints = {}
 
   fs.readdirSync(pagesDir)
-    .forEach((pageSubDir) => {
-      (entryPoints[pageSubDir] = path.join(pagesDir, pageSubDir, `${pageSubDir}.js`))
+    .forEach(pageSubDir => {
+      entryPoints[pageSubDir] = ['@babel/polyfill', path.join(pagesDir, pageSubDir, `${pageSubDir}.js`)]
     })
-
   return entryPoints
 }
 
@@ -38,7 +37,7 @@ module.exports = {
   },
 
   context: path.resolve(__dirname, 'src'),
-  // '@babel/polyfill',
+
   entry: createEntry(PAGES_DIR),
 
   output: {
@@ -51,17 +50,10 @@ module.exports = {
     extensions: ['.js', '.scss', '.pug', 'png'],
     alias: {
       '@': PATHS.src,
-      '@components': PATHS.src + '/components',
-      '@layout': PATHS.src + '/layouts',
-      '@fonts': PATHS.src + '/fonts',
+      '@components': `${PATHS.src}/components`,
+      '@layouts': `${PATHS.src}/layouts`,
+      '@fonts': `${PATHS.src}/fonts`,
     },
-  },
-
-  optimization: {
-    // runtimeChunk: true,
-    splitChunks: {
-      chunks: 'all'
-    }
   },
 
   module: {
@@ -69,7 +61,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: '/node_modules/',
-        loader: [{
+        use: [{
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
@@ -80,23 +72,37 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: '/node_modules/',
-        loader: [
+        use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: isDev,
-              reloadAll: true
+              reloadAll: true,
+              sourceMap: isDev
             }
           },
           {
             loader: 'css-loader',
-            options: { sourceMap: isDev }
+            options: {
+              sourceMap: isDev
+            }
           },
           {
             loader: 'sass-loader',
-            options: { sourceMap: isDev }
+            options: {
+              sourceMap: isDev
+            }
           },
         ]
+      },
+      {
+        test: /\.pug$/,
+        use: {
+          loader: 'pug-loader',
+          options: {
+            root: PATHS.src,
+          }
+        },
       },
       {
         test: /\.(png|jpe?g|gif|png)$/i,
@@ -120,6 +126,7 @@ module.exports = {
         collapseWhitespace: isProd,
         removeComments: isProd,
       },
+      chunks: [page],
     })),
 
     new CleanWebpackPlugin(),
