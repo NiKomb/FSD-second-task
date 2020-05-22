@@ -1,0 +1,8 @@
+mixin color(colors = [])
+  .color
+    each item in colors
+      .color__item
+        .color__box(class= item.classColor)
+        .color__info
+          p.color__text= item.text
+          span.color__code= item.code

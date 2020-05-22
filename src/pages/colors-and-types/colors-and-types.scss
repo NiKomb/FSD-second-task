@@ -1,4 +1,6 @@
 @import "@layouts/ui-base/ui-base";
+@import "@/components/color/color";
+
 @import "@/theme/main";
 
 .container {
@@ -11,4 +13,28 @@
   padding-left: 150px;
   padding-right: 191px;
   padding-bottom: 145px;
+
+  &__color-item {
+    &_ds100 {
+      background-color: $dark-shade;
+    }
+    &_ds75 {
+      background-color: $dark-shade-75;
+    }
+    &_ds50 {
+      background-color: $dark-shade-50;
+    }
+    &_ds25 {
+      background-color: $dark-shade-25;
+    }
+    &_ds5 {
+      background-color: $dark-shade-5;
+    }
+    &_prime {
+      background-color: $prime-color;
+    }
+    &_second {
+      background-color: $second-color;
+    }
+  }
 }

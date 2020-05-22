@@ -1,0 +1,22 @@
+@import "@/theme/main.scss";
+
+.color {
+  &__item {
+    width: 270px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__box {
+    font-family: "Quicksand-Regular";
+    height: 70px;
+    width: 70px;
+    margin-right: 40px;
+    border-radius: 6px;
+  }
+  &__info {
+    font-size: 19px;
+    line-height: 29px;
+  }
+}

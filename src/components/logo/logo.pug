@@ -2,13 +2,13 @@
   options.color - цветное лого (true/false)
   options.text - наличие текстового лого (true/false)
 
-mixin logo(options)
-  if !options
-    - options = {}
-  if !options.color
-    -options.color = false
-  if !options.text
-    -options.text = false
+mixin logo(options={})
+  //- if !options
+  //-   - options = {}
+  //- if !options.color
+  //-   -options.color = false
+  //- if !options.text
+  //-   -options.text = false
 
   //- .logo
     case options.color
