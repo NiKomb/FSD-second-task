@@ -1,4 +1,1 @@
-import '@layouts/ui-base/ui-base'
-
-
-import '@/theme/main'
+import './header-footer.scss'

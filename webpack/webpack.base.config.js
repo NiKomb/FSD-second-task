@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
 const PATHS = {
-  src: path.join(__dirname, '../src'),
+  src: path.resolve(__dirname, '../src'),
   dist: path.resolve(__dirname, '../dist'),
   assets: 'assets/'
 }
@@ -105,9 +105,13 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif|png)$/i,
+        test: /\.(png|jpe?g|svg|ttf|eot|woff|woff2)$/,
         exclude: '/node_modules/',
         loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'assets/images',
+        },
       },
     ]
   },
@@ -132,7 +136,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: `${PATHS.src}/images`, to: `${PATHS.assets}images` },
+        { from: `${PATHS.src}/images`, to: `${PATHS.assets}/images` },
       ]
     }),
     new webpack.HashedModuleIdsPlugin({
