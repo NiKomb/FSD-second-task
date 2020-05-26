@@ -1,0 +1,39 @@
+@import "./variables.scss";
+
+%container {
+  max-width: 85rem;
+  // margin: 0 auto;
+}
+
+%h1 {
+  font: bold $fs-h1 Quicksand, Arial, sans-serif;
+  line-height: 30px;
+  line-height: 100%;
+  vertical-align: top;
+  color: $dark-shade;
+}
+
+%h2 {
+  font: bold $fs-h2 Quicksand, Arial, sans-serif;
+  line-height: 23.75px;
+  line-height: 100%;
+  vertical-align: top;
+  color: $dark-shade;
+}
+
+%h3 {
+  font: bold $fs-h3 Montserrat, Arial, sans-serif;
+  line-height: 14.63px;
+  line-height: 100%;
+  vertical-align: top;
+  text-transform: uppercase;
+  color: $dark-shade;
+}
+
+%body {
+  font: normal $fs-body Montserrat, Arial, sans-serif;
+  line-height: 24px;
+  line-height: 140%;
+  vertical-align: top;
+  color: $dark-shade;
+}

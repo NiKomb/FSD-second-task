@@ -6,10 +6,11 @@
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+    color: $dark-shade;
+    font-family: Quicksand, sans-serif;
   }
 
   &__box {
-    font-family: "Quicksand-Regular";
     height: 70px;
     width: 70px;
     margin-right: 40px;
@@ -18,5 +19,8 @@
   &__info {
     font-size: 19px;
     line-height: 29px;
+  }
+  &__text {
+    @extend %h2;
   }
 }

@@ -1,9 +1,11 @@
 @import "@layouts/ui-base/ui-base";
 @import "@/components/color/color";
+@import "@/components/type/type";
 
 @import "@/theme/main";
 
 .container {
+  @extend %container;
   display: flex;
   justify-content: space-between;
   align-content: space-around;
@@ -35,6 +37,20 @@
     }
     &_second {
       background-color: $second-color;
+    }
+  }
+  &__type-item {
+    &_h1 {
+      @extend %h1;
+    }
+    &_h2 {
+      @extend %h2;
+    }
+    &_h3 {
+      @extend %h3;
+    }
+    &_body {
+      @extend %body;
     }
   }
 }
