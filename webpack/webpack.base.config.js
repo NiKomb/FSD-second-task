@@ -47,7 +47,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.scss', '.pug', 'png'],
+    extensions: ['.js', '.scss', '.pug', '.png'],
     alias: {
       '@': PATHS.src,
       '@components': `${PATHS.src}/components`,
@@ -107,11 +107,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|svg|ttf|eot|woff|woff2)$/,
         exclude: '/node_modules/',
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'assets/images',
-        },
+        loader: 'file-loader?name=[path][name].[ext]',
       },
     ]
   },
@@ -124,7 +120,7 @@ module.exports = {
 
     ...PAGES.map(page => new HTMLWebpackPlugin({
       template: `${PAGES_DIR}/${page}/${page}.pug`,
-      filename: `./${page}.html`,
+      filename: `${page}.html`,
       favicon: `${PATHS.src}/favicon/favicon.ico`,
       minify: {
         collapseWhitespace: isProd,
