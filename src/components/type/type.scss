@@ -1,9 +1,17 @@
 @import "@/theme/main.scss";
 
 .type {
+  width: 336px;
+
   &__item {
     position: relative;
     margin-bottom: 50px;
-    width: 25rem;
+  }
+  &__tag {
+    text-align: right;
+    position: absolute;
+    left: -50px;
+    color: $dark-shade-25;
+    font-weight: 400;
   }
 }
