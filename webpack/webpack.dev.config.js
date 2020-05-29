@@ -11,8 +11,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     overlay: true,
     hot: true,
     openPage: [
-      'colors-and-types.html',
-      // 'headers-footers.html'
+      // 'colors-and-types.html',
+      'headers-footers.html'
     ]
   },
 

@@ -1,0 +1,15 @@
+include /components/logo/logo
+
+mixin footer (options={})
+  if options.type === 'simple'
+    footer__main
+      footer__logo
+        +logo({color:true, text: true})
+      footer__info Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+      ul.footer__icons
+        li.footer__icon
+          img.footer__icon-network(src=require('@components/footer/img/twitter.svg').default, alt='Twitter')
+        li.footer__icon
+          img.footer__icon-network(src=require('@components/footer/img/facebook.svg').default, alt="Facebook")
+        li.footer__icon
+          img.footer__icon-network(src=require('@components/footer/img/instagram.svg').default, alt="Instagram")

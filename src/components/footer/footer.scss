@@ -1,0 +1,30 @@
+@import "@/theme/main.scss";
+
+.footer {
+  &__main {
+    @extend %container;
+    border-top: 1px solid $dark-shade-25;
+    background-color: #fff;
+    display: flex;
+    padding: 440px 100px 440px;
+  }
+  &__logo {
+    display: inline-block;
+  }
+  &__info {
+  }
+  &__icons {
+    width: 18.5714rem;
+  }
+
+  &__icon {
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+    display: inline-block;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "@layouts/ui-base/ui-base";
+@import "@components/footer/footer";
+
+@import "@/theme/main";
+
+.headers-footers {
+  background-color: #e5e5e5;
+
+  &__item {
+    z-index: 0;
+    position: relative;
+    margin-bottom: 50px;
+  }
+}
