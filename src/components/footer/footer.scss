@@ -1,29 +1,66 @@
 @import "@/theme/main.scss";
 
 .footer {
+  $switch: &;
+
   &__main {
     border-top: 1px solid $dark-shade-25;
     background-color: #fff;
-    padding: 100px 440px 110px;
-    box-shadow: 0px 10px 20px $dark-shade-5;
     margin: 0 auto;
+    box-shadow: 0px 10px 20px $dark-shade-5;
+  }
+
+  &_simple-version {
+    #{$switch}__container {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 560px;
+      padding: 100px 440px 110px;
+    }
+
+    #{$switch}__description {
+      text-align: center;
+      width: auto;
+    }
+
+    #{$switch}__logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    #{$switch}__icons {
+      margin: 0 auto;
+    }
+  }
+
+  // complex footer main
+
+  &__main-container {
+    display: flex;
+    margin: 0 auto;
+    padding: 100px 140px 110px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__description {
+    width: 260px;
+    height: 156px;
+    margin-right: 40px;
   }
 
   &__logo {
     margin-bottom: 20px;
-    justify-content: center;
-    display: flex;
   }
 
   &__info {
-    text-align: center;
-    justify-content: center;
+    @extend %body;
     margin-bottom: 25px;
   }
 
   &__icons {
     width: 112px;
-    margin: 0 auto;
   }
 
   &__icon {
@@ -35,5 +72,81 @@
     &:first-child {
       margin-left: 0;
     }
+  }
+
+  &__navigation {
+    display: flex;
+  }
+
+  &__group {
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+
+    &:nth-child(2) {
+      padding-left: 119px;
+      padding-right: 118px;
+    }
+  }
+
+  &__group-title {
+    font: bold 12px Montserrat, Arial;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $dark-shade;
+  }
+
+  &__group-item {
+    margin-top: 20px;
+    display: list-item;
+  }
+
+  &__group-link {
+    font: normal 12px Montserrat, Arial;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 17px;
+    color: $dark-shade-50;
+  }
+
+  &__subscription {
+    margin-left: 51px;
+    width: 260px;
+  }
+
+  &__subscription-title {
+    font: bold 12px Montserrat, Arial;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $dark-shade;
+  }
+
+  &__subscription-info {
+    @extend %body;
+  }
+  //- add customizable field
+  &__subscription-email {
+    margin-top: 20px;
+  }
+
+  // complex footer sub
+
+  &__sub {
+    background-color: #fff;
+    border-top: 1px solid $dark-shade-25;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    padding: 26px 140px;
+  }
+
+  &__sub-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  &__copyright {
+    @extend %body;
+    line-height: 17px;
   }
 }

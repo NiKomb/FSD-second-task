@@ -9,6 +9,66 @@ block body
     .headers-footers__item
     .headers-footers__item
     .headers-footers__item
-      +footer({type:"complex"})
+      +footer({type:"complex"}, [
+        {
+          groupTitle: "Навигация",
+          groupItems: [
+            {
+            itemText: 'О нас',
+            itemHref:'#!'
+            },
+            {
+            itemText: 'Новости',
+            itemHref:'#!'
+            },
+            {
+            itemText: 'Служба поддержки',
+            itemHref:'#!'
+            },
+            {
+            itemText: 'Услуги',
+            itemHref:'#!'
+            },
+          ]
+        },
+        {
+          groupTitle: "О нас",
+          groupItems: [
+            {
+            itemText: 'О сервисе',
+            itemHref:'#!'
+            },
+            {
+            itemText: 'Наша команда',
+            itemHref:'#!'
+            },
+            {
+            itemText: 'Вакансии',
+            itemHref:'#!'
+            },
+            {
+            itemText: 'Инвесторы',
+            itemHref:'#!'
+            },
+          ]
+        },
+        {
+          groupTitle: "Служба поддержки",
+          groupItems: [
+            {
+            itemText: 'Соглашения',
+            itemHref:'#!'
+            },
+            {
+            itemText: 'Сообщества',
+            itemHref:'#!'
+            },
+            {
+            itemText: 'Связь с нами',
+            itemHref:'#!'
+            },
+          ]
+        },
+      ])
     .headers-footers__item
       +footer({type:"simple"})
