@@ -10,5 +10,9 @@
     z-index: 0;
     position: relative;
     margin-bottom: 50px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }
