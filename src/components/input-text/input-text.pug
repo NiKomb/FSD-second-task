@@ -1,0 +1,10 @@
+mixin input-text({view, placeholder, name, type} ="")
+  case view
+    when "arrowLeft"
+      .input
+        .input__container_view-arrowLeft
+          input.input__field(placeholder=placeholder, name=name, type=type)
+    default
+      .input
+        .input__container_view-default
+          input.input__field(placeholder="Sorry, not working." name="default" type=text disabled)
