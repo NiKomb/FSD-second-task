@@ -1,7 +1,7 @@
 @import "@/theme/main.scss";
 
 .footer {
-  $switch: &;
+  // $switch: &;
 
   &__main {
     border-top: 1px solid $dark-shade-25;
@@ -10,28 +10,33 @@
     box-shadow: 0px 10px 20px $dark-shade-5;
   }
 
-  &_simple-version {
-    #{$switch}__container {
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-      max-width: 560px;
-      padding: 100px 440px 110px;
-    }
+  &__container_simle {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 560px;
+    padding: 100px 440px 110px;
+  }
 
-    #{$switch}__description {
-      text-align: center;
-      width: auto;
-    }
+  &__description_simle {
+    text-align: center;
+    width: auto;
+  }
 
-    #{$switch}__logo {
-      display: flex;
-      justify-content: center;
-    }
+  &__info_simle {
+    font: normal 14px Montserrat, Arial;
+    color: $dark-shade-75;
+    margin-bottom: 25px;
+  }
 
-    #{$switch}__icons {
-      margin: 0 auto;
-    }
+  &__logo_simle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  &__icons_simle {
+    margin: 0 auto;
   }
 
   // complex footer main
@@ -55,7 +60,8 @@
   }
 
   &__info {
-    @extend %body;
+    font: normal 14px Montserrat, Arial;
+    color: $dark-shade-75;
     margin-bottom: 25px;
   }
 
@@ -84,8 +90,8 @@
     white-space: nowrap;
 
     &:nth-child(2) {
-      padding-left: 119px;
-      padding-right: 118px;
+      padding-left: 57px;
+      padding-right: 92px;
     }
   }
 
@@ -102,7 +108,7 @@
   }
 
   &__group-link {
-    font: normal 12px Montserrat, Arial;
+    font: normal 14px Montserrat, Arial;
     white-space: nowrap;
     text-decoration: none;
     line-height: 17px;
@@ -122,7 +128,11 @@
   }
 
   &__subscription-info {
-    @extend %body;
+    font: normal 14px Montserrat, Arial;
+    color: $dark-shade-50;
+    margin-top: 20px;
+    line-height: 17px;
+    display: block;
   }
   //- add customizable field
   &__subscription-email {
@@ -146,7 +156,8 @@
     margin: 0 auto;
   }
   &__copyright {
-    @extend %body;
+    font: normal 14px Montserrat, Arial;
+    color: $dark-shade-75;
     line-height: 17px;
   }
 }
