@@ -1,0 +1,54 @@
+@import "@/theme/main.scss";
+
+@import "@layouts/ui-base/ui-base";
+@import "@components/input-text/input-text";
+
+.form-elements {
+  margin-top: 65px;
+}
+
+.form-element {
+  &__container {
+    @extend %container;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    margin-bottom: 100px;
+    width: 320px;
+  }
+
+  &__item-list {
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    display: inline-block;
+    font: bold 12px Montserrat, Arial, sans-serif;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $dark-shade;
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 21px;
+
+    &::after {
+      content: attr(extra-name);
+      font: normal 12px Montserrat, Arial, sans-serif;
+      text-transform: uppercase;
+      color: $dark-shade-50;
+      line-height: 15px;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &_with-date {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
