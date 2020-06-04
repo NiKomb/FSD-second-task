@@ -4,9 +4,13 @@
 
 @import "@/theme/main";
 
-.headers-footers {
-  background-color: #e5e5e5;
+.body {
+  &_colored {
+    background-color: #e5e5e5;
+  }
+}
 
+.headers-footers {
   &__item {
     z-index: 0;
     position: relative;
