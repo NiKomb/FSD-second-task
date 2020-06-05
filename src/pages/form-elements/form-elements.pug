@@ -14,13 +14,22 @@ block body
             .form-element__item(extra-name="Default")="text field"
               +input-text
             .form-element__item(extra-name="Hover / Focus")="text field"
-              +input-text
+              +input-text({view:"demo", placeholder: "This is pretty awesome", name:"demo", type:"email"})
             .form-element__item(extra-name="Default")="text field"
               +input-text
             .form-element__item(extra-name="Default")="masked text field"
-              +input-text
+              +input-text({view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked", type:"email"})
           .form-element__item-list
-            .form-element__item_with-date
+            .form-element__list-group
+              .form-element__item(extra-name="")="Date dropdown"
+                +input-text
+              .form-element__item(extra-name="")="Date dropdown"
+                +input-text
+          .form-element__item-list
+            .form-element__item(extra-name="")="filter date dropdown"
+              +input-text
+            .form-element__item(extra-name="")="subscription text field"
+              +input-text({view:"arrowLeft", placeholder: "Email", name:"email", type:"email"})
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Checkbox buttons"

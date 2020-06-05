@@ -22,17 +22,17 @@
   &__item-list {
     position: relative;
     margin-bottom: 40px;
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 21px;
     width: 100%;
     display: inline-block;
     font: bold 12px Montserrat, Arial, sans-serif;
     line-height: 15px;
     text-transform: uppercase;
     color: $dark-shade;
-  }
-
-  &__item {
-    position: relative;
-    margin-bottom: 21px;
 
     &::after {
       content: attr(extra-name);
@@ -45,10 +45,10 @@
       top: 0;
       right: 0;
     }
+  }
 
-    &_with-date {
-      display: flex;
-      justify-content: space-between;
-    }
+  &__list-group {
+    display: flex;
+    justify-content: space-between;
   }
 }

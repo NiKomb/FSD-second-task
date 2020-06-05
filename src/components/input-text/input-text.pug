@@ -3,8 +3,16 @@ mixin input-text({view, placeholder, name, type} ="")
     when "arrowLeft"
       .input
         .input__container_view-arrowLeft
-          input.input__field_active(placeholder=placeholder, name=name, type=type)
+          input.input__field(placeholder=placeholder, name=name, type=type)
+    when "demo"
+      .input
+        .input__container_view-demo
+          input.input__field(placeholder=placeholder, name=name, type=type)
+    when "masked"
+      .input.input_view-masked
+        .input__container_view-masked
+          input.input__field(disabled placeholder=placeholder, name=name, type=type)
     default
       .input
         .input__container_view-default
-          input.input__field_inactive(placeholder="Email" name="default" type=text disabled)
+          input.input__field(readonly placeholder="Email" name="default" type=text )
