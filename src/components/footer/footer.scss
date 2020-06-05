@@ -1,3 +1,6 @@
+@import "@components/logo/logo";
+@import "@components/input-text/input-text";
+
 @import "@/theme/main.scss";
 
 .footer {
@@ -11,6 +14,7 @@
   }
 
   &__container_simle {
+    @extend %container;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -53,9 +57,10 @@
   // complex footer
 
   &__container_complex {
+    @extend %container;
     display: flex;
     margin: 0 auto;
-    padding: 100px 20px 110px;
+    padding: 100px 10px 110px;
     display: flex;
     justify-content: center;
   }
@@ -138,12 +143,12 @@
   // sub footer
 
   &__container_sub {
+    @extend %container;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1154px;
     margin: 0 auto;
-    padding: 26px 20px;
+    padding: 26px 10px;
 
     @media screen and (max-width: 1100px) {
       flex-direction: column;

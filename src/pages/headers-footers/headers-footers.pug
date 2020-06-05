@@ -1,5 +1,7 @@
 extends /layouts/ui-base/ui-base
+
 include /components/footer/footer
+include /components/header/header
 
 block head
   title Headers and footers
@@ -8,6 +10,13 @@ block body
   body.body_colored
     .headers-footers
       .headers-footers__item
+        +header("auth",[
+          {name: "О нас", alt: "О нас"},
+          {name: "Услуги", menu: true, alt: "Услуги"},
+          {name: "Вакансии", alt: "Вакансии"},
+          {name: "Новости", alt: "Новости"},
+          {name: "Соглашения", alt: "Соглашения" },
+    ])
       .headers-footers__item
       .headers-footers__item
         +footer({type:"complex"}, [

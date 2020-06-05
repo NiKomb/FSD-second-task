@@ -1,0 +1,17 @@
+include /components/logo/logo
+
+mixin header (auth, nav)
+  header.header
+    .header__main
+      .header__container
+        a.header__logo(href="/form-elements.html" alt="Toxin")
+          +logo({color:true, text: true})
+        nav.header__nav
+          ul.header__menu
+            each item in nav
+              if item.menu
+                li.header__item_menu
+                  a.header__link(href="#" alt=item.alt)=item.name
+              else
+                li.header__item
+                  a.header__link(href="#" alt=item.alt)=item.name

@@ -1,6 +1,7 @@
 @import "@layouts/ui-base/ui-base";
+
 @import "@components/footer/footer";
-@import "@components/input-text/input-text";
+@import "@components/header/header";
 
 @import "@/theme/main";
 
@@ -14,7 +15,7 @@
   &__item {
     z-index: 0;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 
     &:last-of-type {
       margin-bottom: 0;
