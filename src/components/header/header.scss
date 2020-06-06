@@ -1,4 +1,5 @@
 @import "@components/logo/logo";
+@import "@components/button/button";
 
 @import "@/theme/main.scss";
 
@@ -18,9 +19,6 @@
     align-items: center;
     justify-content: space-between;
     flex-flow: row wrap;
-  }
-
-  &__logo {
   }
 
   &__nav {

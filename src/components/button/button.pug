@@ -1,0 +1,6 @@
+mixin button({type, text="Button", href="#"}="")
+  case type
+    when "gradient"
+      a(class="button button_type-gradient" href=href)= text
+    default
+      a(class="button" href=href)= text
