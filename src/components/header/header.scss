@@ -11,6 +11,7 @@
   }
   &__container {
     @extend %container;
+    @extend %body;
     padding: 0 10px;
     position: relative;
     display: flex;
@@ -36,15 +37,50 @@
 
   &__item {
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 20px;
 
     &_menu {
       display: inline-block;
-      margin-right: 44px;
+      margin-right: 20px;
+
+      ::after {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-left: 9px;
+        margin-bottom: -2px;
+        border: 2px solid $dark-shade-50;
+        border-top: 0;
+        border-left: 0;
+        transform: translateY(-50%) rotate(45deg);
+      }
+      &:hover ::after {
+        border: 2px solid $dark-shade-25;
+        border-top: 0;
+        border-left: 0;
+      }
     }
   }
 
   &__link {
     text-decoration: none;
+
+    &:not(.button) {
+      color: $dark-shade-50;
+    }
+
+    &:hover {
+      color: $dark-shade-25;
+    }
+  }
+
+  &__user-menu {
+    padding: 0;
+  }
+
+  &__user-name {
+    border-left: 1px solid $dark-shade-10;
+    padding: 6px 0 7px 29px;
   }
 }

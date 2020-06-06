@@ -15,9 +15,16 @@ block body
           {name: "Услуги", menu: true, alt: "Услуги"},
           {name: "Вакансии", alt: "Вакансии"},
           {name: "Новости", alt: "Новости"},
-          {name: "Соглашения", alt: "Соглашения" },
+          {name: "Соглашения", menu: true, alt: "Соглашения" },
     ])
       .headers-footers__item
+        +header("non-auth",[
+          {name: "О нас", alt: "О нас"},
+          {name: "Услуги", menu: true, alt: "Услуги"},
+          {name: "Вакансии", alt: "Вакансии"},
+          {name: "Новости", alt: "Новости"},
+          {name: "Соглашения", menu: true, alt: "Соглашения" },
+    ])
       .headers-footers__item
         +footer({type:"complex"}, [
           {

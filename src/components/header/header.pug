@@ -15,3 +15,13 @@ mixin header (auth, nav)
               else
                 li.header__item
                   a.header__link(href="#" alt=item.alt)=item.name
+          ul.header__user-menu
+            if auth === "non-auth"
+              li.header__item
+                //- button
+              li.header__item
+                //- button
+            else if auth === "auth"
+              li.header__item
+                span.header__user-name
+                  a.header__link(href="#")="Константин Константинов"

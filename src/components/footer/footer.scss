@@ -18,7 +18,6 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    max-width: 560px;
     padding: 100px 20px 110px;
   }
 
@@ -27,16 +26,17 @@
     width: auto;
   }
 
+  &__logo_simle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
   &__info_simle {
     font: normal 14px Montserrat, Arial;
     color: $dark-shade-75;
     margin-bottom: 25px;
-  }
-
-  &__logo_simle {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    line-height: 24px;
   }
 
   &__icons_simle {
@@ -58,11 +58,11 @@
 
   &__container_complex {
     @extend %container;
-    display: flex;
+    height: 370px;
     margin: 0 auto;
     padding: 100px 10px 110px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
   }
 
   &__description_complex {
@@ -72,16 +72,18 @@
   }
 
   &__logo_complex {
-    margin-bottom: 20px;
+    margin-bottom: 17px;
   }
 
   &__info {
     font: normal 14px Montserrat, Arial;
     color: $dark-shade-75;
     margin-bottom: 25px;
+    line-height: 24px;
   }
 
   &__navigation {
+    padding-top: 4px;
     display: flex;
   }
 
@@ -117,7 +119,8 @@
   }
 
   &__subscription {
-    margin-left: 51px;
+    margin-left: 53px;
+    padding-top: 3px;
     width: 260px;
   }
 
@@ -132,12 +135,12 @@
     font: normal 14px Montserrat, Arial;
     color: $dark-shade-50;
     margin-top: 20px;
-    line-height: 17px;
+    line-height: 24px;
     display: block;
   }
   //- add customizable field
   &__subscription-email {
-    margin-top: 20px;
+    margin-top: 22px;
   }
 
   // sub footer
@@ -148,7 +151,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    padding: 26px 10px;
+    padding: 23px 22px;
 
     @media screen and (max-width: 1100px) {
       flex-direction: column;
