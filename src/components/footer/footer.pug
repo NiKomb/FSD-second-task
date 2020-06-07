@@ -42,7 +42,7 @@ mixin footer (options={}, navigation = [])
             h3.footer__subscription-title Подписка
             label.footer__subscription-info Получайте специальные предложения и новости сервиса
             .footer__subscription-email
-              +input-text({view:"arrowLeft", placeholder: "Email", name:"email", type:"email"})
+              +input-text({view:"arrow", placeholder: "Email", name:"email", type:"email"})
   else if options.type === 'sub'
     footer.footer
       .footer__main

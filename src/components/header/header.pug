@@ -1,7 +1,7 @@
 include /components/logo/logo
 include /components/button/button
 
-mixin header (auth, nav)
+mixin header (auth, nav=[])
   header.header
     .header__main
       .header__container
@@ -21,7 +21,7 @@ mixin header (auth, nav)
               li.header__item
                 +button({text:"login"})
               li.header__item
-                +button({text:"register",type: "gradient"})
+                +button({type:"gradient", text:"register"})
             else if auth === "auth"
               li.header__item
                 span.header__user-name

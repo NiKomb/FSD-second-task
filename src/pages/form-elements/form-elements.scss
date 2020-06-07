@@ -1,7 +1,9 @@
-@import "@/theme/main.scss";
-
 @import "@layouts/ui-base/ui-base";
+
 @import "@components/input-text/input-text";
+@import "@components/button/button";
+
+@import "@/theme/main.scss";
 
 .form-elements {
   margin-top: 65px;
@@ -44,6 +46,14 @@
       position: absolute;
       top: 0;
       right: 0;
+    }
+
+    &_input {
+      padding: 7px 0 0 0;
+    }
+
+    &_btn {
+      padding: 16px 0 14px 0;
     }
   }
 

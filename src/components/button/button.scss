@@ -2,14 +2,14 @@
 
 .button {
   display: inline-block;
-  padding: 9px 19px;
+  padding: 9px 20px 10px 20px;
   border-radius: 22px;
   text-transform: uppercase;
   font: bold 12px Montserrat, Arial, sans-serif;
+  line-height: 15px;
   color: $prime-color;
   text-decoration: none;
   position: relative;
-  // z-index: 1;
   background-color: #fff;
 
   &:hover {
@@ -30,12 +30,39 @@
     background-image: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
   }
 
-  &_type-gradient {
-    color: #fff;
-    background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
+  &_type {
+    &_gradient {
+      color: #fff;
+      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
 
-    &:hover {
-      background-image: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
+      &:hover {
+        background-image: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
+      }
+    }
+
+    &_arrow {
+      padding: 9px 40px 10px 20px;
+      width: 100%;
+      text-align: center;
+
+      &_svg {
+        position: absolute;
+        fill: #fff;
+        top: 8px;
+        right: 14px;
+      }
+    }
+
+    &_line {
+      padding: 0;
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        color: $dark-shade-50;
+      }
     }
   }
 }

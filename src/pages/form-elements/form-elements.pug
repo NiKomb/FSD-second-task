@@ -1,6 +1,7 @@
 extends /layouts/ui-base/ui-base
 
 include /components/input-text/input-text
+include /components/button/button
 
 block head
   title Form elements
@@ -12,24 +13,32 @@ block body
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="Default")="text field"
-              +input-text
+              .form-element__item_input
+                +input-text
             .form-element__item(extra-name="Hover / Focus")="text field"
-              +input-text({view:"demo", placeholder: "This is pretty awesome", name:"demo", type:"email"})
+              .form-element__item_input
+                +input-text({view:"demo", placeholder: "This is pretty awesome", name:"demo", type:"email"})
             .form-element__item(extra-name="Default")="text field"
-              +input-text
+              .form-element__item_input
+                +input-text
             .form-element__item(extra-name="Default")="masked text field"
-              +input-text({view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked", type:"email"})
+              .form-element__item_input
+                +input-text({view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked", type:"email"})
           .form-element__item-list
             .form-element__list-group
               .form-element__item(extra-name="")="Date dropdown"
-                +input-text
+                .form-element__item_input
+                  +input-text
               .form-element__item(extra-name="")="Date dropdown"
-                +input-text
+                .form-element__item_input
+                  +input-text
           .form-element__item-list
             .form-element__item(extra-name="")="filter date dropdown"
-              +input-text
+              .form-element__item_input
+                +input-text
             .form-element__item(extra-name="")="subscription text field"
-              +input-text({view:"arrowLeft", placeholder: "Email", name:"email", type:"email"})
+              .form-element__item_input
+                +input-text({view:"arrow", placeholder: "Email", name:"email", type:"email"})
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Checkbox buttons"
@@ -41,6 +50,14 @@ block body
           .form-element__item-list
             .form-element__item(extra-name="5 000р-10000р")="Range slider"
             .form-element__item(extra-name="")="Buttons"
+              .form-element__item_btn
+                +button({text:"click me"})
+              .form-element__item_btn
+                +button({type:"gradient", text:"click me"})
+              .form-element__item_btn
+                +button({type: "line", text:"click me"})
+              .form-element__item_btn
+                +button({type: "arrow", text:"Перейти к оплате"})
             .form-element__item(extra-name="")="Pagination"
       .form-element__container
         .form-element__col

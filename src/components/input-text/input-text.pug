@@ -1,9 +1,11 @@
 mixin input-text({view, placeholder, name, type} ="")
   case view
-    when "arrowLeft"
+    when "arrow"
       .input
-        .input__container_view-arrowLeft
+        .input__container_view-arrow
           input.input__field(placeholder=placeholder, name=name, type=type)
+          svg.input__field_view-arrow_svg
+            include ./img/arrow-forward.svg
     when "demo"
       .input
         .input__container_view-demo
