@@ -1,20 +1,41 @@
-mixin input-text({view, placeholder, name, type} ="")
+mixin input-text({title, subtitle, view, placeholder="", name, type} ="")
   case view
-    when "arrow"
-      .input
-        .input__container_view-arrow
+    when "hover"
+      .input.input_view-hover
+        .input__container_view-hover
+          if title||subtitle
+            label.input__title(subtitle=subtitle)= title
           input.input__field(placeholder=placeholder, name=name, type=type)
-          svg.input__field_view-arrow_svg
+    when "arrow"
+      .input.input_view-arrow
+        .input__container_view-arrow
+          if title||subtitle
+            label.input__title(subtitle=subtitle)= title
+          input.input__field(placeholder=placeholder, name=name, type=type)
+          svg.input__field_svg
             include ./img/arrow-forward.svg
-    when "demo"
-      .input
-        .input__container_view-demo
+    when "guest"
+      .input.input_view-guest
+        .input__container_view-guest
+          if title||subtitle
+            label.input__title(subtitle=subtitle)= title
           input.input__field(placeholder=placeholder, name=name, type=type)
     when "masked"
       .input.input_view-masked
         .input__container_view-masked
+          if title||subtitle
+            label.input__title(subtitle=subtitle)= title
           input.input__field(disabled placeholder=placeholder, name=name, type=type)
+    when "dropdown"
+      .input.input_view-dropdown
+        .input__container_view-dropdown
+          if title||subtitle
+            label.input__title(subtitle=subtitle)= title
+          .input__field-wrapper
+            input.input__field(placeholder=placeholder, name=name, type=type)
     default
       .input
         .input__container_view-default
-          input.input__field(readonly placeholder="Email" name="default" type=text )
+          if title||subtitle
+            label.input__title(subtitle=subtitle)= title
+          input.input__field(placeholder=placeholder name="default" type=type)

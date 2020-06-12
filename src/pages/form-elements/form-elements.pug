@@ -12,33 +12,25 @@ block body
       .form-element__container
         .form-element__col
           .form-element__item-list
-            .form-element__item(extra-name="Default")="text field"
-              .form-element__item_input
-                +input-text
-            .form-element__item(extra-name="Hover / Focus")="text field"
-              .form-element__item_input
-                +input-text({view:"demo", placeholder: "This is pretty awesome", name:"demo", type:"email"})
-            .form-element__item(extra-name="Default")="text field"
-              .form-element__item_input
-                +input-text
-            .form-element__item(extra-name="Default")="masked text field"
-              .form-element__item_input
-                +input-text({view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked", type:"email"})
+            .form-element__item
+              +input-text({title:"text field",subtitle:"default",placeholder:"Email", type:"email"})
+            .form-element__item
+              +input-text({title:"text field", subtitle: "Hover / Focus", view:"hover", placeholder: "This is pretty awesome", name:"hover"})
+            .form-element__item
+              +input-text({title:"text field", subtitle: "default",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+            .form-element__item
+              +input-text({title:"masked text field", subtitle: "default", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
           .form-element__item-list
             .form-element__list-group
-              .form-element__item(extra-name="")="Date dropdown"
-                .form-element__item_input
-                  +input-text
-              .form-element__item(extra-name="")="Date dropdown"
-                .form-element__item_input
-                  +input-text
+              .form-element__item
+                +input-text({title:"date dropdown", subtitle: "dropdown", view:"dropdown"})
+              .form-element__item
+                +input-text({title:"date dropdown", subtitle: "", view:"dropdown"})
           .form-element__item-list
-            .form-element__item(extra-name="")="filter date dropdown"
-              .form-element__item_input
-                +input-text
-            .form-element__item(extra-name="")="subscription text field"
-              .form-element__item_input
-                +input-text({view:"arrow", placeholder: "Email", name:"email", type:"email"})
+            .form-element__item
+              +input-text({title:"filter date dropdown", subtitle: "",view: "dropdown",})
+            .form-element__item
+              +input-text({title:"subriction text field", subtitle: "",view:"arrow", placeholder: "Email", name:"email", type:"email"})
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Checkbox buttons"
