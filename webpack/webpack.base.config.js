@@ -70,7 +70,7 @@ module.exports = {
         }]
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         exclude: '/node_modules/',
         use: [
           {
@@ -116,6 +116,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: filename('css'),
       chunkFilename: '[id].css',
+    }),
+
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.$': 'jquery',
+      'window.jQuery': 'jquery',
     }),
 
     ...PAGES.map(page => new HTMLWebpackPlugin({

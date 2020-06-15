@@ -20,12 +20,12 @@ block body
               +input-text({title:"text field", subtitle: "default",view:"guest",placeholder: "Сколько гостей",name:"guests",})
             .form-element__item
               +input-text({title:"masked text field", subtitle: "default", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
-          .form-element__item-list
+          .form-element__item-list.form-element__item-list_calendar
             .form-element__list-group
-              .form-element__item
-                +input-text({title:"date dropdown", subtitle: "dropdown", view:"dropdown"})
-              .form-element__item
-                +input-text({title:"date dropdown", subtitle: "", view:"dropdown"})
+              .form-element__item.form-element__item_arrival
+                +input-text({title:"date dropdown", subtitle: "", view:"dropdown", type:"text"})
+              .form-element__item.form-element__item_check-out
+                +input-text({title:"date dropdown", subtitle: "", view:"dropdown", type:"text"})
           .form-element__item-list
             .form-element__item
               +input-text({title:"filter date dropdown", subtitle: "",view: "dropdown",})
