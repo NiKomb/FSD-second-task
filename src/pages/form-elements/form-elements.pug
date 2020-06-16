@@ -38,6 +38,12 @@ block body
             .form-element__item(extra-name="")="Toogle"
             .form-element__item(extra-name="")="Like buttons"
             .form-element__item(extra-name="")="Rate button"
+          .form-element__item-list.form-element__item-list_calendar
+            .form-element__list-group
+              .form-element__item.form-element__item_arrival
+                +input-text({title:"date dropdown", subtitle: "", view:"dropdown", type:"text"})
+              .form-element__item.form-element__item_check-out
+                +input-text({title:"date dropdown", subtitle: "", view:"dropdown", type:"text"})
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="5 000р-10000р")="Range slider"
