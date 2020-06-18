@@ -31,8 +31,8 @@ mixin input-text({title, subtitle, view, placeholder="", name, type} ="")
         .input__container_view-dropdown
           if title||subtitle
             label.input__title(subtitle=subtitle)= title
-          .input__field-wrapper
-            input.input__field(placeholder=placeholder, name=name, type=type)
+          .input__field-wrapper(data-field="calendar")
+            input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
     default
       .input
         .input__container_view-default

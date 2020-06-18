@@ -46,18 +46,30 @@ class Calendar {
   }
 
   addEventListeners() {
-    $(this.calendarField).on("click", this.showCalendar.bind(this));
-    $('span[data-action="today"]').on("click", this.hideCalendar.bind(this));
-    $(document.body).on("mouseup", this.hideCalendar.bind(this));
+    const switchCalendar = this.clickOn.bind(this);
+
+    document.addEventListener("click", switchCalendar);
   }
 
-  showCalendar(event) {
-    this.calendar.show();
-  }
+  clickOn(event) {
+    const clickOnField = event.target.dataset.field;
+    const clickOnButton = event.target.dataset.action;
+    const clickOnDocument = event.target.className.match(/(datepicker)/g);
+    console.log(clickOnDocument);
 
-  hideCalendar(event) {
-    event.stopPropagation();
-    this.calendar.hide();
+    console.log(event.target);
+
+    if (clickOnField === "calendar") {
+      this.calendar.show();
+    } else if (clickOnButton === "today") {
+      this.calendar.hide();
+      document.removeEventListener("click", this.switchCalendar);
+    } else {
+      if (!clickOnDocument) {
+        this.calendar.hide();
+        document.removeEventListener("click", this.switchCalendar);
+      }
+    }
   }
 }
 
