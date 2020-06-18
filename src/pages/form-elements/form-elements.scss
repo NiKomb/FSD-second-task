@@ -34,16 +34,9 @@
     text-transform: uppercase;
     color: $dark-shade;
     color: yellow;
-    // for &__list-group
-    flex-basis: 150px;
 
     &_btn {
       padding: 16px 0 14px 0;
     }
-  }
-
-  &__list-group {
-    display: flex;
-    justify-content: space-between;
   }
 }

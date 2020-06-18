@@ -1,4 +1,4 @@
-mixin input-text({title, subtitle, view, placeholder="", name, type} ="")
+mixin input-text({title, title1, subtitle, subtitle1, view, placeholder="", name, type} ="")
   case view
     when "hover"
       .input.input_view-hover
@@ -25,13 +25,25 @@ mixin input-text({title, subtitle, view, placeholder="", name, type} ="")
         .input__container_view-masked
           if title||subtitle
             label.input__title(subtitle=subtitle)= title
-          input.input__field(disabled placeholder=placeholder, name=name, type=type)
-    when "dropdown"
-      .input.input_view-dropdown
-        .input__container_view-dropdown
+        input.input__field(disabled placeholder=placeholder, name=name, type=type)
+    when "filterDate"
+      .input.input_with-filter-date
+        .input__container_view-filter-date.input_with-filter-date-calendar
           if title||subtitle
             label.input__title(subtitle=subtitle)= title
           .input__field-wrapper(data-field="calendar")
+            input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
+    when "rangeDate"
+      .input.input_view-range
+        .input__container_view-range.input_view-range_calendar
+          if title||subtitle
+            label.input__title(subtitle=subtitle)= title
+          .input__field-wrapper(data-field="calendar").input_view-range_arrival
+            input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
+        .input__container_view-range
+          if title1||subtitle1
+            label.input__title(subtitle=subtitle1)= title1
+          .input__field-wrapper(data-field="calendar").input_view-range_check-out
             input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
     default
       .input

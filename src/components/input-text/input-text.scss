@@ -90,17 +90,49 @@
     }
   }
 
-  &__container_view-dropdown {
-    position: relative;
-  }
-
-  &_view-dropdown {
+  &_with-filter-date {
     #{$switch}__field {
       padding-right: 40px;
       cursor: pointer;
     }
 
     #{$switch}__field-wrapper {
+      position: relative;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        bottom: 13px;
+        right: 18px;
+        width: 10px;
+        height: 10px;
+        border: 2px solid $dark-shade-50;
+        border-top: 0;
+        border-left: 0;
+        transform: translateY(-50%) rotate(45deg);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__container_view-range {
+    flex-basis: 150px;
+  }
+
+  &_view-range {
+    display: flex;
+    justify-content: space-between;
+
+    #{$switch}__field {
+      padding-right: 40px;
+      cursor: pointer;
+      flex-basis: 150px;
+    }
+
+    #{$switch}__field-wrapper {
+      position: relative;
+
       &::after {
         content: "";
         display: inline-block;

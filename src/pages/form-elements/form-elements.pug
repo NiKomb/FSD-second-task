@@ -20,17 +20,13 @@ block body
               +input-text({title:"text field", subtitle: "default",view:"guest",placeholder: "Сколько гостей",name:"guests",})
             .form-element__item
               +input-text({title:"masked text field", subtitle: "default", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
-          .form-element__item-list.form-element__item-list_calendar
-            .form-element__list-group
-              .form-element__item.form-element__item_arrival
-                +input-text({title:"date dropdown", subtitle: "", view:"dropdown", type:"text", placeholder:"ДД.ММ.ГГГГ"})
-              .form-element__item.form-element__item_check-out
-                +input-text({title:"date dropdown", subtitle: "", view:"dropdown", type:"text", placeholder:"ДД.ММ.ГГГГ"})
+          .form-element__item-list
+            +input-text({title:"прибытие", title1:"выезд", view:"rangeDate",  placeholder:"ДД.ММ.ГГГГ"})
           .form-element__item-list
             .form-element__item
-              +input-text({title:"filter date dropdown", subtitle: "",view: "dropdown",})
+              //- +input-text({title:"filter date dropdown", subtitle: "",view: "filterDate",})
             .form-element__item
-              +input-text({title:"subriction text field", subtitle: "",view:"arrow", placeholder: "Email", name:"email", type:"email"})
+              +input-text({title:"subscription text field", subtitle: "",view:"arrow", placeholder: "Email", name:"email", type:"email"})
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Checkbox buttons"
@@ -38,12 +34,8 @@ block body
             .form-element__item(extra-name="")="Toogle"
             .form-element__item(extra-name="")="Like buttons"
             .form-element__item(extra-name="")="Rate button"
-          .form-element__item-list.form-element__item-list_calendar
-            .form-element__list-group
-              .form-element__item.form-element__item_arrival
-                +input-text({title:"date dropdown", subtitle: "", view:"dropdown", type:"text"})
-              .form-element__item.form-element__item_check-out
-                +input-text({title:"date dropdown", subtitle: "", view:"dropdown", type:"text"})
+              +input-text({view:"filterDate", title: "Dropdown"})
+          .form-element__item-list
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="5 000р-10000р")="Range slider"
