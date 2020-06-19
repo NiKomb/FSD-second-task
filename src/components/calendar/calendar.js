@@ -4,10 +4,10 @@ import "air-datepicker/dist/css/datepicker.min.css";
 import "./calendar.scss";
 
 class Calendar {
-  constructor(calendarField, options) {
+  constructor(calendarField, additionalOptions) {
     this.calendarField = calendarField;
 
-    this.initDatePicker(options);
+    this.initDatePicker(additionalOptions);
     this.changeButtonsNames();
 
     this.addEventListeners();
@@ -17,17 +17,20 @@ class Calendar {
     this.calendar.hide();
   }
 
-  initDatePicker(options) {
+  initDatePicker(additionalOptions) {
     const defaultOptions = {
-      classes: options.className,
-      inline: false,
+      classes: additionalOptions.className,
+      inline: true,
       range: true,
       minDate: new Date(),
       clearButton: true,
       todayButton: true,
     };
 
-    $(this.calendarField).datepicker({ ...defaultOptions, ...options });
+    $(this.calendarField).datepicker({
+      ...defaultOptions,
+      ...additionalOptions,
+    });
   }
 
   changeButtonsNames() {
@@ -46,29 +49,26 @@ class Calendar {
   }
 
   addEventListeners() {
-    const switchCalendar = this.clickOn.bind(this);
+    const clickOn = this.switchCalendar.bind(this);
 
-    document.addEventListener("click", switchCalendar);
+    document.addEventListener("click", clickOn);
   }
 
-  clickOn(event) {
+  switchCalendar(event) {
     const clickOnField = event.target.dataset.field;
     const clickOnButton = event.target.dataset.action;
     const clickOnDocument = event.target.className.match(/(datepicker)/g);
-    console.log(clickOnDocument);
-
-    console.log(event.target);
 
     if (clickOnField === "calendar") {
-      this.calendar.show();
+      if (this.calendar[0].style.display === "") {
+        this.calendar.hide();
+      } else {
+        this.calendar.show();
+      }
     } else if (clickOnButton === "today") {
       this.calendar.hide();
-      document.removeEventListener("click", this.switchCalendar);
-    } else {
-      if (!clickOnDocument) {
-        this.calendar.hide();
-        document.removeEventListener("click", this.switchCalendar);
-      }
+    } else if (!clickOnDocument) {
+      this.calendar.hide();
     }
   }
 }

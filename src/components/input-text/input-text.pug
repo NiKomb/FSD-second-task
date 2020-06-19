@@ -6,6 +6,7 @@ mixin input-text({title, title1, subtitle, subtitle1, view, placeholder="", name
           if title||subtitle
             label.input__title(subtitle=subtitle)= title
           input.input__field(placeholder=placeholder, name=name, type=type)
+
     when "arrow"
       .input.input_view-arrow
         .input__container_view-arrow
@@ -14,18 +15,21 @@ mixin input-text({title, title1, subtitle, subtitle1, view, placeholder="", name
           input.input__field(placeholder=placeholder, name=name, type=type)
           svg.input__field_svg
             include ./img/arrow-forward.svg
+
     when "guest"
       .input.input_view-guest
         .input__container_view-guest
           if title||subtitle
             label.input__title(subtitle=subtitle)= title
           input.input__field(placeholder=placeholder, name=name, type=type)
+
     when "masked"
       .input.input_view-masked
         .input__container_view-masked
           if title||subtitle
             label.input__title(subtitle=subtitle)= title
-        input.input__field(disabled placeholder=placeholder, name=name, type=type)
+        input.input__field(disabled placeholder=placeholder, name=name, type="type")
+
     when "filterDate"
       .input.input_with-filter-date
         .input__container_view-filter-date.input_with-filter-date-calendar
@@ -33,18 +37,20 @@ mixin input-text({title, title1, subtitle, subtitle1, view, placeholder="", name
             label.input__title(subtitle=subtitle)= title
           .input__field-wrapper(data-field="calendar")
             input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
+
     when "rangeDate"
       .input.input_view-range
-        .input__container_view-range.input_view-range_calendar
+        .input__container_view-range.input_with-range-calendar
           if title||subtitle
             label.input__title(subtitle=subtitle)= title
-          .input__field-wrapper(data-field="calendar").input_view-range_arrival
+          .input__field-wrapper.input_with-range-calendar_arrival
             input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
         .input__container_view-range
           if title1||subtitle1
             label.input__title(subtitle=subtitle1)= title1
-          .input__field-wrapper(data-field="calendar").input_view-range_check-out
+          .input__field-wrapper(data-field="calendar").input_with-range-calendar_check-out
             input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
+
     default
       .input
         .input__container_view-default

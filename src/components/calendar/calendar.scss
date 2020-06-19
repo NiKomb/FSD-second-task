@@ -3,7 +3,7 @@
 .datepicker-inline {
   .datepicker {
     position: absolute;
-    top: 85px;
+    top: 74px;
     width: 100%;
     padding: 20px;
     background: #fff;
@@ -12,10 +12,136 @@
     box-shadow: 0px 10px 20px $dark-shade-5;
     border-radius: 4px;
 
+    &--nav {
+      border-bottom: 0;
+      padding: 0;
+
+      &-title {
+        font: bold 19px Quicksand, Arial, sans-serif;
+        color: $dark-shade;
+        text-transform: none;
+        i {
+          color: inherit;
+        }
+      }
+    }
+
+    &--content {
+      padding: 30px 0 20px;
+    }
+
+    &--days {
+      &-names {
+        margin-top: 0;
+      }
+    }
+
+    &--day {
+      &-name {
+        font: bold 12px Montserrat, Arial, sans-serif;
+        color: $prime-color;
+        text-transform: none;
+        margin: 0;
+        height: 40px;
+      }
+    }
+
+    &--cell {
+      &-day {
+        font: 12px Montserrat, Arial, sans-serif;
+        height: 40px;
+        border-radius: 50%;
+        color: $dark-shade-50;
+
+        &.-current- {
+          color: white;
+          font-weight: bold;
+          background: linear-gradient(
+            180deg,
+            $second-color,
+            rgba(139, 164, 249, 0.25)
+          );
+        }
+
+        &.-selected- {
+          font-weight: bold;
+          background: linear-gradient(180deg, $prime-color, $sub-prime-color);
+          color: white;
+        }
+
+        &.-other-month- {
+          color: $dark-shade-25;
+        }
+
+        &.-range-from-::after,
+        &.-range-to-::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          background: linear-gradient(
+            180deg,
+            rgba(188, 156, 255, 0.25),
+            rgba(139, 164, 249, 0.25)
+          );
+          z-index: -1;
+        }
+
+        &.-range {
+          &-from- {
+            border: 0;
+
+            &::after {
+              border-radius: 50% 0 0 50%;
+            }
+          }
+          &-to- {
+            border: 0;
+
+            &::after {
+              border-radius: 0 50% 50% 0;
+            }
+          }
+        }
+
+        &.-in-range- {
+          background: linear-gradient(
+            180deg,
+            rgba(188, 156, 255, 0.25),
+            rgba(139, 164, 249, 0.25)
+          );
+          color: $dark-shade-50;
+          border-radius: 0;
+        }
+      }
+    }
+
     &--buttons {
       border-top: 0;
       padding: 0;
-      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &--button {
+      flex: none;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      font-family: montserrat, sans-serif;
+      font-weight: 700;
+      color: $dark-shade-50;
+
+      &[data-action="today"] {
+        color: $prime-color;
+      }
+
+      &:hover {
+        color: lighten($prime-color, 10%);
+        background: 0;
+      }
     }
   }
 }

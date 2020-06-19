@@ -21,12 +21,18 @@ block body
             .form-element__item
               +input-text({title:"masked text field", subtitle: "default", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
           .form-element__item-list
-            +input-text({title:"прибытие", title1:"выезд", view:"rangeDate",  placeholder:"ДД.ММ.ГГГГ"})
+            +input-text({
+            view:"rangeDate",
+            title:"прибытие",
+            subtitle:"",
+            title1:"выезд",
+            subtitle1:"",
+            placeholder:"ДД.ММ.ГГГГ"})
           .form-element__item-list
             .form-element__item
-              //- +input-text({title:"filter date dropdown", subtitle: "",view: "filterDate",})
+              //- +input-text({view:"filterDate", title:"filter date dropdown", subtitle: "",})
             .form-element__item
-              +input-text({title:"subscription text field", subtitle: "",view:"arrow", placeholder: "Email", name:"email", type:"email"})
+              +input-text({view:"arrow", title:"subscription text field", subtitle: "", placeholder: "Email", name:"email", type:"email"})
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Checkbox buttons"
@@ -49,6 +55,7 @@ block body
               .form-element__item_btn
                 +button({type: "arrow", text:"Перейти к оплате"})
             .form-element__item(extra-name="")="Pagination"
+              //- +input-text({view:"rangeDate", title:"приезд", title1:"выезд"})
       .form-element__container
         .form-element__col
           .form-element__item-list
