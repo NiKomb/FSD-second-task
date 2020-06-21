@@ -91,6 +91,8 @@
   }
 
   &_with-filter-date {
+    position: relative;
+
     #{$switch}__field {
       padding-right: 40px;
       cursor: pointer;
@@ -122,6 +124,7 @@
 
   &_view-range {
     display: flex;
+    position: relative;
     justify-content: space-between;
 
     #{$switch}__field {

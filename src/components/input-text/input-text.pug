@@ -39,11 +39,11 @@ mixin input-text({title, title1, subtitle, subtitle1, view, placeholder="", name
             input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
 
     when "rangeDate"
-      .input.input_view-range
-        .input__container_view-range.input_with-range-calendar
+      .input.input_view-range.input_with-range-calendar
+        .input__container_view-range
           if title||subtitle
             label.input__title(subtitle=subtitle)= title
-          .input__field-wrapper.input_with-range-calendar_arrival
+          .input__field-wrapper(data-field="calendar").input_with-range-calendar_arrival
             input.input__field(placeholder=placeholder, name=name, type=type)(data-field="calendar")
         .input__container_view-range
           if title1||subtitle1

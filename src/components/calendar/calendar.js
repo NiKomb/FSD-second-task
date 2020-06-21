@@ -25,6 +25,10 @@ class Calendar {
       minDate: new Date(),
       clearButton: true,
       todayButton: true,
+      prevHtml:
+        '<svg><path d="M16.1755 8.01562V9.98438H3.98801L9.56613 15.6094L8.15988 17.0156L0.144258 9L8.15988 0.984375L9.56613 2.39062L3.98801 8.01562H16.1755Z"></path></svg>',
+      nextHtml:
+        '<svg><path d="M8.36301 0.984375L16.3786 9L8.36301 17.0156L6.95676 15.6094L12.5349 9.98438H0.347383V8.01562H12.5349L6.95676 2.39062L8.36301 0.984375Z"></path></svg>',
     };
 
     $(this.calendarField).datepicker({
@@ -49,15 +53,26 @@ class Calendar {
   }
 
   addEventListeners() {
-    const clickOn = this.switchCalendar.bind(this);
+    const clickOnCalendar = this.showCalendar.bind(this);
+    const clickOnDocument = this.hideCalendar.bind(this);
 
-    document.addEventListener("click", clickOn);
+    $(this.calendarField).on("click", clickOnCalendar);
+    $(document).on("click", clickOnDocument);
   }
 
-  switchCalendar(event) {
+  hideCalendar(event) {
+    const clickOnDocument = event.target.className.match(/(datepicker|input)/g);
+
+    if (!clickOnDocument) {
+      this.calendar.hide();
+    }
+  }
+
+  showCalendar(event) {
     const clickOnField = event.target.dataset.field;
     const clickOnButton = event.target.dataset.action;
-    const clickOnDocument = event.target.className.match(/(datepicker)/g);
+
+    console.log(event.target.className);
 
     if (clickOnField === "calendar") {
       if (this.calendar[0].style.display === "") {
@@ -66,8 +81,6 @@ class Calendar {
         this.calendar.show();
       }
     } else if (clickOnButton === "today") {
-      this.calendar.hide();
-    } else if (!clickOnDocument) {
       this.calendar.hide();
     }
   }
