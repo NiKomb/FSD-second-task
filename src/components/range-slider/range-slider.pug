@@ -1,0 +1,6 @@
+mixin range-slider({title, subtitle, max, min, from, to})
+  .slider
+    .slider__container
+      if title||subtitle
+        label.slider__title(subtitle=subtitle)= title
+        input.slider__item_with-range-slider(type='text' value='' data-max=max data-min=min data-from=from, data-to=to)

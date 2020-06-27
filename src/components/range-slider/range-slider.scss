@@ -1,0 +1,60 @@
+@import "@/theme/main.scss";
+
+.slider {
+  &__title {
+    font: bold 12px Montserrat, Arial, sans-serif;
+    text-transform: uppercase;
+    color: $dark-shade;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 7px;
+
+    &::after {
+      content: attr(subtitle);
+      font: normal 12px Montserrat, Arial, sans-serif;
+      color: $dark-shade-50;
+    }
+  }
+}
+
+.irs {
+  &-bar {
+    background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+  }
+
+  &-handle {
+    position: absolute !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    cursor: default !important;
+    z-index: 1 !important;
+  }
+
+  &--flat &-handle > i:first-child {
+    background: none !important;
+  }
+
+  &--flat &-single {
+    font: normal 12px Montserrat, Arial, sans-serif !important;
+    color: $dark-shade-50 !important;
+    position: absolute !important;
+    right: 0px !important;
+  }
+
+  &-single {
+    display: block !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    cursor: default;
+    white-space: nowrap;
+    visibility: visible !important;
+    pointer-events: none;
+  }
+
+  &--flat &-from,
+  &--flat &-to {
+    display: none;
+  }
+}
