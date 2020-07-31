@@ -1,0 +1,108 @@
+@import "@/theme/main.scss";
+
+.checkbox {
+  $switch: &;
+  display: block;
+  margin-bottom: 10px;
+  min-height: 20px;
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__input {
+    position: absolute;
+    appearance: none;
+    padding-left: 30px;
+
+    // checked
+    &:checked {
+      + #{$switch}__box {
+        width: 20px;
+        height: 20px;
+        border: 1px solid $prime-color;
+        border-radius: 4px;
+        background-color: #fff;
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          height: 6px;
+          width: 9px;
+          left: 5px;
+          top: 4px;
+          border-left: 2px solid $prime-color;
+          border-bottom: 2px solid $prime-color;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    // focused
+    &:focus {
+      + .checkbox__box {
+        width: 20px;
+        height: 20px;
+        border: 1px solid $dark-shade-25;
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: 0 0 0 1px $dark-shade-5;
+      }
+    }
+
+    &:checked:focus {
+      + .checkbox__box {
+        width: 20px;
+        height: 20px;
+        border: 1px solid $prime-color;
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: 0 0 0 1px $dark-shade-5;
+      }
+    }
+
+    // disabled
+    &:disabled {
+      + .checkbox__box {
+        width: 20px;
+        height: 20px;
+        border: 1px solid $dark-shade-25;
+        border-radius: 4px;
+        background-color: $dark-shade-5;
+      }
+    }
+
+    // &:checked:disabled {
+    //   + .checkbox__box {
+    //     background-color: $dark-shade-75;
+    //   }
+    // }
+  }
+
+  &__box {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $dark-shade-25;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+
+  &__info {
+    font: normal 12px Montserrat, Arial, sans-serif;
+    color: $dark-shade-50;
+    text-transform: initial;
+    padding-left: 30px;
+    line-height: 18px;
+  }
+
+  &__name {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    color: $dark-shade-75;
+    margin-bottom: 5px;
+  }
+}

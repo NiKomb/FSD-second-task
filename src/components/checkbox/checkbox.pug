@@ -1,0 +1,16 @@
+mixin checkbox({richName, text, type}="")
+  label.checkbox
+    case type
+      when "check"
+        input(type="checkbox" checked).checkbox__input
+        span.checkbox__box
+      when "dis"
+        input(type="checkbox" disabled).checkbox__input
+        span.checkbox__box
+      default
+        input(type="checkbox").checkbox__input
+        span.checkbox__box
+    .checkbox__info
+      if richName
+        .checkbox__name= richName
+      p.checkbox__text=text

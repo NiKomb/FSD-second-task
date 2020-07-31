@@ -3,6 +3,7 @@ extends /layouts/ui-base/ui-base
 include /components/input-text/input-text
 include /components/button/button
 include /components/range-slider/range-slider
+include /components/checkbox-list/checkbox-list
 
 block head
   title Form elements
@@ -37,6 +38,26 @@ block body
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Checkbox buttons"
+              +checkbox-list({
+                title:"Checkbox buttons",
+                subtitle: "Доп имя",
+                expand:false,
+                items: [
+                    {
+                      richName: "",
+                      text: "Можно курить"
+                    },
+                    {
+                      richName: "",
+                      text: "Можно с питомцами",
+                      type: "check"
+                    },
+                    {
+                      text: "Можно пригласить гостей (до 10 человек)",
+                      type: "check"
+                    }
+                  ]
+                })
             .form-element__item(extra-name="")="Radio buttons"
             .form-element__item(extra-name="")="Toogle"
             .form-element__item(extra-name="")="Like buttons"
@@ -71,7 +92,41 @@ block body
       .form-element__container
         .form-element__col
           .form-element__item-list
-            .form-element__item(extra-name="Default")="Dropdown"
+            .form-element__item(extra-name="Default")="Дополнительные удобства"
+              +checkbox-list({
+                title:"Дополнительные удобства",
+                subtitle: "Default",
+                expand:true,
+                items:[
+                      {
+                        text: "Завтрак"
+                      },
+                      {
+                        text: "Письменный стол",
+                        type: "check"
+                      },
+                      {
+                        text: "Стул для кормления",
+                        type: "check"
+                      },
+                      {
+                        text: "Кроватка",
+                        type: "check"
+                      },
+                      {
+                        text: "Телевизор"
+                      },
+                      {
+                        text: "Шампунь"
+                      },
+                      {
+                        text: "Интернет"
+                      },
+                      {
+                        text: "Связь с космосом"
+                      }
+                    ]
+                })
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Rich Checkbox Buttons"
