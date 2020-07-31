@@ -5,7 +5,7 @@ import "./range-slider";
 document.addEventListener(
   "DOMContentLoaded",
   function () {
-    const slider = $(".slider__item_with-range-slider");
+    const slider = $(".js-slider__item_with-range-slider");
     const sliderTitle = document.querySelector(".slider__title");
 
     slider.ionRangeSlider({

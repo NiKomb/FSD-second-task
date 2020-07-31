@@ -1,6 +1,10 @@
 @import "@/theme/main.scss";
 
 .slider {
+  &__container {
+    position: relative;
+  }
+
   &__title {
     font: bold 12px Montserrat, Arial, sans-serif;
     text-transform: uppercase;
@@ -19,6 +23,12 @@
 }
 
 .irs {
+  &--flat {
+    // if ionslider`s option {hide_min_max:true,hide_from_to:true}
+    top: -20px;
+    height: 20px !important;
+  }
+
   &-bar {
     height: 6px !important;
     background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
@@ -48,14 +58,5 @@
 
   &--flat &-handle > i:first-child {
     background: none !important;
-  }
-
-  &-single {
-    visibility: hidden !important;
-  }
-
-  &--flat &-from,
-  &--flat &-to {
-    display: none;
   }
 }
