@@ -4,6 +4,8 @@
 
 .checkbox-list {
   position: relative;
+  $switch: &;
+
   &__title {
     font: bold 12px Montserrat, Arial, sans-serif;
     text-transform: uppercase;
@@ -11,7 +13,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-bottom: 7px;
 
     &::after {
       content: attr(subtitle);
@@ -20,7 +21,7 @@
     }
   }
 
-  &_expandable {
+  &__mark {
     &::after {
       content: "";
       display: inline-block;
@@ -31,9 +32,44 @@
       height: 10px;
       border: 2px solid $dark-shade-50;
       border-top: 0;
+      transform: translateY(0%) rotate(-135deg);
       border-left: 0;
-      transform: translateY(-50%) rotate(45deg);
       transition: 0.3s;
+    }
+  }
+  &__items {
+    padding-top: 9px;
+  }
+
+  &__expand {
+    cursor: pointer;
+
+    #{$switch}__toggle {
+      appearance: none;
+      position: absolute;
+      right: 1px;
+      top: 1px;
+
+      // &:focus {
+      //   width: 15px;
+      //   height: 15px;
+      // }
+
+      &:checked {
+        ~ #{$switch}__items {
+          display: none;
+        }
+
+        ~ #{$switch}__mark {
+          &::after {
+            transform: translateY(-50%) rotate(45deg);
+          }
+        }
+      }
+
+      #{$switch}__items {
+        display: block;
+      }
     }
   }
 }

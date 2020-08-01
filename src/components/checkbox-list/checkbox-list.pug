@@ -2,14 +2,15 @@ include /components/checkbox/checkbox
 
 mixin checkbox-list({expand, items, title, subtitle})
   .checkbox-list
-    if title||subtitle
-      label.checkbox-list__title(subtitle=subtitle)= title
-    if expand === true
-      .checkbox-list_expandable
-          ul.checkbox-list__items
-            each item in items
-              +checkbox(item)
+    if expand===true&&title
+      label.checkbox-list__expand.checkbox-list__title= title
+        input.checkbox-list__toggle(type="checkbox" )
+        .checkbox-list__mark
+        ul.checkbox-list__items
+          each item in items
+            +checkbox(item)
     else
+      label.checkbox-list__title(subtitle=subtitle)= title
       ul.checkbox-list__items
         each item in items
           +checkbox(item)
