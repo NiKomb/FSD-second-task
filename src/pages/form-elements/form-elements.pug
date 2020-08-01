@@ -130,6 +130,19 @@ block body
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Rich Checkbox Buttons"
+              +checkbox-list({
+                title:"Rich Checkbox Buttons",
+                items:[
+                     {
+                      richName: "Широкий коридор",
+                      text: "Ширина коридоров в номере не менее 91 см."
+                    },
+                    {
+                      richName: "Помощник для инвалидов",
+                      text: "На 1 этаже вас встретит специалист  и проводит до номера."
+                    }
+                    ]
+                })
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Bullet list"
