@@ -4,6 +4,7 @@ include /components/input-text/input-text
 include /components/button/button
 include /components/range-slider/range-slider
 include /components/checkbox-list/checkbox-list
+include /components/radio/radio
 
 block head
   title Form elements
@@ -32,7 +33,7 @@ block body
             placeholder:"ДД.ММ.ГГГГ"})
           .form-element__item-list
             .form-element__item
-              //- +input-text({view:"filterDate", title:"filter date dropdown", subtitle: "",})
+              +input-text({view:"filterDate", title:"filter date dropdown", subtitle: "",})
             .form-element__item
               +input-text({view:"arrow", title:"subscription text field", subtitle: "", placeholder: "Email", name:"email", type:"email"})
         .form-element__col
@@ -59,26 +60,27 @@ block body
                   ]
                 })
             .form-element__item(extra-name="")="Radio buttons"
+              .form-element__item_with-radio
+                +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
+                +radio({text:"Женщина",name:"gender",value:"female"})
             .form-element__item(extra-name="")="Toogle"
             .form-element__item(extra-name="")="Like buttons"
             .form-element__item(extra-name="")="Rate button"
-              +input-text({view:"filterDate", title: "Dropdown"})
           .form-element__item-list
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="5 000р-10000р")="Range slider"
               +range-slider({title:"Range slider", subtitle:"5 000р-10000р", min:0, max:15000, from:5000,to:10000})
             .form-element__item(extra-name="")="Buttons"
-              .form-element__item_btn
+              .form-element__item_with-btn
                 +button({text:"click me"})
-              .form-element__item_btn
+              .form-element__item_with-btn
                 +button({type:"gradient", text:"click me"})
-              .form-element__item_btn
+              .form-element__item_with-btn
                 +button({type: "line", text:"click me"})
-              .form-element__item_btn
+              .form-element__item_with-btn
                 +button({type: "arrow", text:"Перейти к оплате"})
             .form-element__item(extra-name="")="Pagination"
-              +input-text({view:"rangeDate", title:"приезд", title1:"выезд"})
       .form-element__container
         .form-element__col
           .form-element__item-list

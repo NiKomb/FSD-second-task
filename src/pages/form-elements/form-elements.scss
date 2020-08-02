@@ -4,6 +4,7 @@
 @import "@components/button/button";
 @import "@components/range-slider/range-slider";
 @import "@components/checkbox-list/checkbox-list";
+@import "@components/radio/radio";
 
 @import "@/theme/main.scss";
 
@@ -37,8 +38,12 @@
     color: $dark-shade;
     color: yellow;
 
-    &_btn {
+    &_with-btn {
       padding: 16px 0 14px 0;
+    }
+    &_with-radio {
+      display: flex;
+      padding-top: 16px;
     }
   }
 }

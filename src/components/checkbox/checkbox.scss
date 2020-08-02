@@ -3,18 +3,26 @@
 .checkbox {
   $switch: &;
   display: block;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
   min-height: 20px;
   cursor: pointer;
 
   &:last-child {
-    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &__box {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $dark-shade-25;
+    border-radius: 4px;
+    background-color: #fff;
   }
 
   &__input {
     position: absolute;
     appearance: none;
-    padding-left: 30px;
 
     // checked
     &:checked {
@@ -25,16 +33,27 @@
         border-radius: 4px;
         background-color: #fff;
 
+        &::before {
+          content: "";
+          position: absolute;
+          display: inline-block;
+          height: 6px;
+          width: 8px;
+          left: 5px;
+          top: 5px;
+          background-image: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
+          transform: rotate(-45deg);
+        }
+
         &::after {
           content: "";
           position: absolute;
           display: inline-block;
           height: 6px;
-          width: 9px;
+          width: 8px;
           left: 5px;
-          top: 4px;
-          border-left: 2px solid $prime-color;
-          border-bottom: 2px solid $prime-color;
+          top: 2px;
+          background: #fff;
           transform: rotate(-45deg);
         }
       }
@@ -42,7 +61,7 @@
 
     // focused
     &:focus {
-      + .checkbox__box {
+      + #{$switch}__box {
         width: 20px;
         height: 20px;
         border: 1px solid $dark-shade-25;
@@ -53,7 +72,7 @@
     }
 
     &:checked:focus {
-      + .checkbox__box {
+      + #{$switch}__box {
         width: 20px;
         height: 20px;
         border: 1px solid $prime-color;
@@ -65,7 +84,7 @@
 
     // disabled
     &:disabled {
-      + .checkbox__box {
+      + #{$switch}__box {
         width: 20px;
         height: 20px;
         border: 1px solid $dark-shade-25;
@@ -79,15 +98,6 @@
     //     background-color: $dark-shade-75;
     //   }
     // }
-  }
-
-  &__box {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 1px solid $dark-shade-25;
-    border-radius: 4px;
-    background-color: #fff;
   }
 
   &__info {
@@ -104,5 +114,10 @@
     font-weight: bold;
     color: $dark-shade-75;
     margin-bottom: 5px;
+  }
+
+  &__text {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
