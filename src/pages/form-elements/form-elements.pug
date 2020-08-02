@@ -5,6 +5,7 @@ include /components/button/button
 include /components/range-slider/range-slider
 include /components/checkbox-list/checkbox-list
 include /components/radio/radio
+include /components/toggle/toggle
 
 block head
   title Form elements
@@ -64,6 +65,10 @@ block body
                 +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
                 +radio({text:"Женщина",name:"gender",value:"female"})
             .form-element__item(extra-name="")="Toogle"
+              .form-element__item_with-toggle
+                +toggle({text:"Получать спецпредложение", checked:true})
+              .form-element__item_with-toggle
+                +toggle({text:"Получать спецпредложение"})
             .form-element__item(extra-name="")="Like buttons"
             .form-element__item(extra-name="")="Rate button"
           .form-element__item-list

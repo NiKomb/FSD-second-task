@@ -5,6 +5,7 @@
 @import "@components/range-slider/range-slider";
 @import "@components/checkbox-list/checkbox-list";
 @import "@components/radio/radio";
+@import "@components/toggle/toggle";
 
 @import "@/theme/main.scss";
 
@@ -44,6 +45,9 @@
     &_with-radio {
       display: flex;
       padding-top: 16px;
+    }
+    &_with-toggle {
+      padding: 15px 0 0 0;
     }
   }
 }
