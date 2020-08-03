@@ -7,6 +7,7 @@ include /components/checkbox-list/checkbox-list
 include /components/radio/radio
 include /components/toggle/toggle
 include /components/rating/rating
+include /components/like/like
 
 block head
   title Form elements
@@ -71,6 +72,10 @@ block body
               .form-element__item_with-toggle
                 +toggle({text:"Получать спецпредложение"})
             .form-element__item(extra-name="")="Like buttons"
+              .form-element__item_with-like
+                +like({count:10})
+              .form-element__item_with-like
+                +like({like:true, count:12})
             .form-element__item(extra-name="")="Rate button"
               .form-element__item_with-rating
                 +rating({title:"", rate:4, name: "рейтинг 1 номера"})

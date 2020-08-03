@@ -7,6 +7,7 @@
 @import "@components/radio/radio";
 @import "@components/toggle/toggle";
 @import "@components/rating/rating";
+@import "@components/like/like";
 
 @import "@/theme/main.scss";
 
@@ -56,6 +57,11 @@
     &_with-rating {
       display: flex;
       justify-content: space-between;
+    }
+
+    &_with-like {
+      padding-top: 16px;
+      display: flex;
     }
   }
 }
