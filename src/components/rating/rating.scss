@@ -1,0 +1,77 @@
+@import "@/theme/main.scss";
+
+.rating {
+  $switch: &;
+  padding: 0;
+  border: 0;
+
+  &__caption {
+    color: $dark-shade;
+    padding-bottom: 16px;
+    padding: 0;
+  }
+
+  &__group {
+    position: relative;
+    width: 150px;
+    height: 24px;
+    background-image: url(../../components/rating/images/off.svg);
+    background-size: 30px 24px;
+    background-repeat: repeat-x;
+
+    &:focus-within {
+      box-shadow: 0 0 0 1px $dark-shade-10;
+    }
+  }
+}
+
+.rating__star {
+  position: absolute;
+  appearance: none;
+  top: 0;
+  left: 0;
+  height: 24px;
+  margin: 0;
+  background-size: 30px 24px;
+  background-repeat: repeat-x;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:checked,
+  &:hover {
+    background-image: url(../../components/rating/images/on.svg);
+    background-size: 30px 24px;
+  }
+
+  &:hover ~ .rating__star {
+    background-image: url(../../components/rating/images/off.svg);
+  }
+
+  // start from 1 to 5
+  &:nth-of-type(1) {
+    z-index: 5;
+    width: 30px;
+  }
+
+  &:nth-of-type(2) {
+    z-index: 4;
+    width: 60px;
+  }
+
+  &:nth-of-type(3) {
+    z-index: 3;
+    width: 90px;
+  }
+
+  &:nth-of-type(4) {
+    z-index: 2;
+    width: 120px;
+  }
+
+  &:nth-of-type(5) {
+    z-index: 1;
+    width: 150px;
+  }
+}

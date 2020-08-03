@@ -6,6 +6,7 @@
 @import "@components/checkbox-list/checkbox-list";
 @import "@components/radio/radio";
 @import "@components/toggle/toggle";
+@import "@components/rating/rating";
 
 @import "@/theme/main.scss";
 
@@ -42,12 +43,19 @@
     &_with-btn {
       padding: 16px 0 14px 0;
     }
+
     &_with-radio {
       display: flex;
       padding-top: 16px;
     }
+
     &_with-toggle {
       padding: 15px 0 0 0;
+    }
+
+    &_with-rating {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

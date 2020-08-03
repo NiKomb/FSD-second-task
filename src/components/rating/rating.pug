@@ -1,0 +1,16 @@
+mixin rating({title, rate=3, name}='')
+  fieldset.rating
+    legend.rating__caption=title
+    .rating__group
+      - for (var i = 1; i <= 5; i++)
+        if (i <= rate)
+          input.rating__star(
+            type="radio"
+            name=name value=`${i}`
+            aria-label= i==1 ?"Ужасный": i==2 ? "Плохой": i==3 ? "Средний": i==4 ? "Хороший": "Отличный"
+            checked)
+        else
+          input.rating__star(
+            type="radio"
+            name=name value=`${i}`
+            aria-label= i==1 ?"Ужасный": i==2 ? "Плохой": i==3 ? "Средний": i==4 ? "Хороший": "Отличный")
