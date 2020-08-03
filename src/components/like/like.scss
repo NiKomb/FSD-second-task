@@ -17,7 +17,7 @@
   &__box {
     display: inline-block;
     padding: 3px 7px 3px 22px;
-    border-radius: 10px 10px;
+    border-radius: 10px;
     border: solid 1px transparent;
     background-color: #fff;
     background-clip: padding-box;
@@ -26,7 +26,7 @@
       content: "";
       position: absolute;
       z-index: -1;
-      border-radius: 10px 10px;
+      border-radius: 10px;
       top: 0;
       left: 0;
       bottom: 0;
@@ -64,13 +64,19 @@
     // focused
     &:focus {
       + #{$switch}__box {
-        box-shadow: 0 0 2px 1px $dark-shade-10;
+        &::before {
+          background-color: $dark-shade-25;
+          box-shadow: 0 0 2px 1px $dark-shade-10;
+        }
       }
     }
 
     &:checked:focus {
       + #{$switch}__box {
-        box-shadow: 0 0 2px 1px $dark-shade-10;
+        &::before {
+          background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+          box-shadow: 0 0 2px 1px $dark-shade-10;
+        }
       }
     }
   }

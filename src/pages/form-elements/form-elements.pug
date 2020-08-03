@@ -49,16 +49,18 @@ block body
                 items: [
                     {
                       richName: "",
-                      text: "Можно курить"
+                      text: "Можно курить",
+                      dis:false,
                     },
                     {
                       richName: "",
                       text: "Можно с питомцами",
-                      type: "check"
+                      check: true
                     },
                     {
                       text: "Можно пригласить гостей (до 10 человек)",
-                      type: "check"
+                      check: true,
+                      dis:true,
                     }
                   ]
                 })
@@ -75,7 +77,7 @@ block body
               .form-element__item_with-like
                 +like({count:10})
               .form-element__item_with-like
-                +like({like:true, count:12})
+                +like({name:"количество лайков", like:true, count:12})
             .form-element__item(extra-name="")="Rate button"
               .form-element__item_with-rating
                 +rating({title:"", rate:4, name: "рейтинг 1 номера"})
@@ -119,15 +121,15 @@ block body
                       },
                       {
                         text: "Письменный стол",
-                        type: "check"
+                        check: true
                       },
                       {
                         text: "Стул для кормления",
-                        type: "check"
+                        check: true
                       },
                       {
                         text: "Кроватка",
-                        type: "check"
+                        check: true
                       },
                       {
                         text: "Телевизор"

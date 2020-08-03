@@ -29,11 +29,7 @@
     // checked
     &:checked {
       + #{$switch}__box {
-        width: 20px;
-        height: 20px;
         border: 1px solid $prime-color;
-        border-radius: 10px;
-        background-color: #fff;
 
         &::before {
           content: "";
@@ -55,22 +51,12 @@
     // focused
     &:focus {
       + #{$switch}__box {
-        width: 20px;
-        height: 20px;
-        border: 1px solid $dark-shade-25;
-        border-radius: 10px;
-        background-color: #fff;
         box-shadow: 0 0 2px 1px $dark-shade-10;
       }
     }
 
     &:checked:focus {
       + #{$switch}__box {
-        width: 20px;
-        height: 20px;
-        border: 1px solid $prime-color;
-        border-radius: 10px;
-        background-color: #fff;
         box-shadow: 0 0 2px 1px $dark-shade-10;
       }
     }
