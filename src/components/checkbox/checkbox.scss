@@ -41,7 +41,11 @@
           width: 8px;
           left: 5px;
           top: 5px;
-          background-image: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
+          background-image: linear-gradient(
+            180deg,
+            $prime-color 0%,
+            $sub-prime-color 100%
+          );
           transform: rotate(-45deg);
         }
 
@@ -67,7 +71,7 @@
         border: 1px solid $dark-shade-25;
         border-radius: 4px;
         background-color: #fff;
-        box-shadow: 0 0 0 1px $dark-shade-10;
+        box-shadow: 0 0 2px 1px $dark-shade-10;
       }
     }
 
@@ -78,7 +82,7 @@
         border: 1px solid $prime-color;
         border-radius: 4px;
         background-color: #fff;
-        box-shadow: 0 0 0 1px $dark-shade-10;
+        box-shadow: 0 0 2px 1px $dark-shade-10;
       }
     }
 

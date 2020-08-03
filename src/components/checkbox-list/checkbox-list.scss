@@ -67,6 +67,14 @@
         }
       }
 
+      &:focus {
+        ~ #{$switch}__mark {
+          &::after {
+            filter: drop-shadow(0 0 1px $dark-shade-50);
+          }
+        }
+      }
+
       #{$switch}__items {
         display: block;
       }
