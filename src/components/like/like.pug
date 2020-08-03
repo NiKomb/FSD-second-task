@@ -2,5 +2,4 @@ mixin like({count=1, name, like=false}='')
   span.like
     label.like__label
       input.like__input(type="checkbox" name=name checked=like)
-      span.like__box
-      span.like__count= count
+      span.like__box= count

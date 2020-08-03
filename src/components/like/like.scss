@@ -6,8 +6,6 @@
 
   &__label {
     display: inline-block;
-    height: 20px;
-    width: 40px;
     position: relative;
     font: normal 10px Montserrat, Arial, sans-serif;
     line-height: 12px;
@@ -17,18 +15,30 @@
   }
 
   &__box {
-    position: absolute;
-    width: 40px;
-    height: 20px;
+    display: inline-block;
+    padding: 3px 7px 3px 22px;
     border-radius: 10px 10px;
-    border: 1px solid $dark-shade-25;
-    z-index: -1;
+    border: solid 1px transparent;
+    background-color: #fff;
+    background-clip: padding-box;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 10px 10px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: $dark-shade-25;
+    }
 
     &::after {
       content: url(../../components/like/images/favorite_border.svg);
       position: absolute;
-      top: 4px;
-      left: 4px;
+      top: 5px;
+      left: 5px;
     }
   }
 
@@ -39,37 +49,14 @@
     // checked
     &:checked {
       + #{$switch}__box {
-        width: 40px;
-        height: 20px;
-        border-radius: 10px 10px;
-        border: 0;
-        background-image: linear-gradient(
-          180deg,
-          $prime-color 0%,
-          $sub-prime-color 100%
-        );
-
-        + #{$switch}__count {
-          color: $prime-color;
-        }
+        color: $prime-color;
 
         &::before {
-          content: "";
-          position: absolute;
-          display: inline-block;
-          width: 38px;
-          height: 18px;
-          left: 1px;
-          top: 1px;
-          border-radius: 10px;
-          background-color: #fff;
+          background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
         }
 
         &::after {
           content: url(../../components/like/images/favorite.svg);
-          position: absolute;
-          top: 5px;
-          left: 5px;
         }
       }
     }
@@ -77,33 +64,14 @@
     // focused
     &:focus {
       + #{$switch}__box {
-        width: 40px;
-        height: 20px;
-        border: 1px solid $dark-shade-25;
-        border-radius: 10px 10px;
-        background-color: #fff;
         box-shadow: 0 0 2px 1px $dark-shade-10;
       }
     }
 
     &:checked:focus {
       + #{$switch}__box {
-        width: 40px;
-        height: 20px;
-        border: 0;
-        border-radius: 10px 10px;
-        background-image: linear-gradient(
-          180deg,
-          $prime-color 0%,
-          $sub-prime-color 100%
-        );
         box-shadow: 0 0 2px 1px $dark-shade-10;
       }
     }
-  }
-
-  &__count {
-    padding: 4px 0px 0px 20px;
-    display: block;
   }
 }
