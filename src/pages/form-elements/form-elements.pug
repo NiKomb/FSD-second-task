@@ -85,17 +85,21 @@ block body
           .form-element__item-list
         .form-element__col
           .form-element__item-list
-            .form-element__item(extra-name="5 000р-10000р")="Range slider"
+            .form-element__item(extra-name="")="Range slider"
               +range-slider({title:"Range slider", subtitle:"5 000р-10000р", min:0, max:15000, from:5000,to:10000})
             .form-element__item(extra-name="")="Buttons"
               .form-element__item_with-btn
+                +button({theme:"fill",text:"click me"})
+                +button({theme:"fill", text:"click me", size:"big",})
+              .form-element__item_with-btn
                 +button({text:"click me"})
+                +button({text:"click me", size:"little",})
               .form-element__item_with-btn
-                +button({type:"gradient", text:"click me"})
+                +button({theme: "string", text:"click me"})
               .form-element__item_with-btn
-                +button({type: "line", text:"click me"})
-              .form-element__item_with-btn
-                +button({type: "arrow", text:"Перейти к оплате"})
+                +button({theme: "arrow", size:" ", text:"Перейти к оплате"})
+                +button({theme: "arrow", size:"big", text:"Перейти к оплате"})
+                +button({theme: "arrow", size:"little", text:"Перейти к оплате"})
             .form-element__item(extra-name="")="Pagination"
       .form-element__container
         .form-element__col
