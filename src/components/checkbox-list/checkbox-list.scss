@@ -37,8 +37,18 @@
       transition: 0.3s;
     }
   }
-  &__items {
-    padding-top: 9px;
+
+  &__item {
+    display: block;
+    padding-bottom: 10px;
+
+    &:first-child {
+      padding-top: 17px;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 
   &__expand {
@@ -49,11 +59,6 @@
       position: absolute;
       right: 1px;
       top: 1px;
-
-      // &:focus {
-      //   width: 15px;
-      //   height: 15px;
-      // }
 
       &:checked {
         ~ #{$switch}__items {
@@ -70,7 +75,7 @@
       &:focus {
         ~ #{$switch}__mark {
           &::after {
-            filter: drop-shadow(0 0 1px $dark-shade-50);
+            filter: drop-shadow(0 0 2px $dark-shade-50);
           }
         }
       }

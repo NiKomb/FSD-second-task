@@ -8,9 +8,11 @@ mixin checkbox-list({expand, items, title, subtitle})
         .checkbox-list__mark
         ul.checkbox-list__items
           each item in items
-            +checkbox(item)
+            li.checkbox-list__item
+              +checkbox(item)
     else
       label.checkbox-list__title(subtitle=subtitle)= title
       ul.checkbox-list__items
-        each item in items
-          +checkbox(item)
+          each item in items
+            li.checkbox-list__item
+              +checkbox(item)

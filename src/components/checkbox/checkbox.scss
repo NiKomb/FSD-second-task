@@ -3,15 +3,10 @@
 .checkbox {
   $switch: &;
   display: block;
-  padding-bottom: 10px;
   min-height: 20px;
-  cursor: pointer;
-
-  &:last-child {
-    padding-bottom: 0;
-  }
 
   &__box {
+    cursor: pointer;
     position: absolute;
     width: 20px;
     height: 20px;
@@ -75,12 +70,18 @@
     // disabled
     &:disabled {
       + #{$switch}__box {
+        cursor: default;
         background-color: $dark-shade-5;
+      }
+
+      + #{$switch}__info {
+        cursor: default;
       }
     }
 
     &:checked:disabled {
       + #{$switch}__box {
+        cursor: default;
         border: 1px solid $dark-shade-25;
         color: #f4f4f5;
 
@@ -90,11 +91,16 @@
         &::before {
           background: #bfbfc8;
         }
+
+        + #{$switch}__info {
+          cursor: default;
+        }
       }
     }
   }
 
   &__info {
+    cursor: pointer;
     font: normal 12px Montserrat, Arial, sans-serif;
     color: $dark-shade-50;
     text-transform: initial;
