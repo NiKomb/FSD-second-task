@@ -8,6 +8,7 @@ include /components/radio/radio
 include /components/toggle/toggle
 include /components/rating/rating
 include /components/like/like
+include /components/pagination/pagination
 
 block head
   title Form elements
@@ -101,6 +102,8 @@ block body
                 +button({theme: "arrow", size:"big", text:"Перейти к оплате"})
                 +button({theme: "arrow", size:"little", text:"Перейти к оплате"})
             .form-element__item(extra-name="")="Pagination"
+              .form-element__item_with-pagination
+                +pagination({current:1, total:15, variant:100})
       .form-element__container
         .form-element__col
           .form-element__item-list

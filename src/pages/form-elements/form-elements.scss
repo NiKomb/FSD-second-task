@@ -8,6 +8,7 @@
 @import "@components/toggle/toggle";
 @import "@components/rating/rating";
 @import "@components/like/like";
+@import "@components/pagination/pagination";
 
 @import "@/theme/main.scss";
 
@@ -60,6 +61,11 @@
     }
 
     &_with-like {
+      padding-top: 16px;
+      display: flex;
+    }
+
+    &_with-pagination {
       padding-top: 16px;
       display: flex;
     }

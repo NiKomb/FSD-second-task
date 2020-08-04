@@ -1,0 +1,89 @@
+@import "@/theme/main.scss";
+
+.pagination {
+  text-align: center;
+  position: relative;
+  font: normal 12px Montserrat, Arial, sans-serif;
+  color: $dark-shade-50;
+
+  &__pages {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__page {
+    cursor: pointer;
+    display: block;
+    outline: none;
+
+    color: $dark-shade-50;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+
+    &:focus {
+      filter: drop-shadow(0 0 2px $dark-shade-50);
+    }
+
+    &:active {
+      color: $dark-shade;
+    }
+
+    &:hover:not(.pagination__page_current):not(.pagination__page_next):not(.pagination__page_skip) {
+      background: linear-gradient(
+        180deg,
+        lighten($prime-color, 10%) 0%,
+        lighten($sub-prime-color, 10%) 100%
+      );
+      color: #fff;
+    }
+
+    // &:visited {
+
+    // }
+
+    &_current {
+      background: linear-gradient(
+        180deg,
+        $prime-color 0%,
+        $sub-prime-color 100%
+      );
+      font-weight: bold;
+      color: #fff;
+    }
+
+    &_skip {
+      cursor: default;
+    }
+
+    &_next {
+      position: relative;
+      display: block;
+      background: linear-gradient(180deg, $second-color 0%, #66d2ea 100%);
+
+      &::after {
+        display: inline-block;
+        vertical-align: -webkit-baseline-middle;
+        content: url(../../components/pagination/images/arrow_forward.svg);
+      }
+
+      &:hover {
+        background: linear-gradient(
+          180deg,
+          lighten($second-color, 10%) 0%,
+          lighten(#66d2ea, 10%) 100%
+        );
+      }
+    }
+  }
+
+  &__total {
+    padding-top: 11px;
+    text-transform: none;
+    color: $dark-shade-75;
+  }
+}
