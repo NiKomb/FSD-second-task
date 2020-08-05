@@ -9,6 +9,7 @@ include /components/toggle/toggle
 include /components/rating/rating
 include /components/like/like
 include /components/pagination/pagination
+include /components/details/details
 
 block head
   title Form elements
@@ -174,7 +175,27 @@ block body
       .form-element__container
         .form-element__col
           .form-element__item(extra-name="")
-            //- room-details
+            +details({
+                title:"Сведения о номере",
+                subtitle: "",
+                items: [
+                    {
+                      icon:"smile",
+                      name: "Комфорт",
+                      text:"Шумопоглощающие стены",
+                    },
+                    {
+                      icon: "city",
+                      name: "Удобство",
+                      text: "Окно в каждой из спален"
+                    },
+                    {
+                      icon: "fire",
+                      name: "Удобство",
+                      text: "Окно в каждой из спален"
+                    },
+                  ]
+                })
         .form-element__col
           .form-element__item(extra-name="")
-            //- visitor-review
+            visitor-review

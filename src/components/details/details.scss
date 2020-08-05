@@ -1,0 +1,63 @@
+@import "@/theme/main.scss";
+
+.details {
+  position: relative;
+  $switch: &;
+
+  &__title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font: bold 19px Quicksand;
+    color: $dark-shade;
+    line-height: 24px;
+    text-transform: none;
+
+    &::after {
+      content: attr(subtitle);
+      color: $dark-shade-50;
+    }
+  }
+
+  &__list {
+    display: block;
+  }
+
+  &__item {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid $dark-shade-10;
+  }
+
+  &__icon {
+    padding: 4px;
+    width: 48x;
+    height: 48px;
+
+    &_with-smile {
+      content: url(../../components/details/images/insert_emoticon.svg);
+    }
+
+    &_with-city {
+      content: url(../../components/details/images/location_city.svg);
+    }
+
+    &_with-fire {
+      content: url(../../components/details/images/whatshot.svg);
+    }
+  }
+
+  &__info {
+    font: normal 12px Montserrat, Arial, sans-serif;
+    text-transform: none;
+    line-height: 24px;
+    color: $dark-shade-75;
+    margin-left: 10px;
+  }
+
+  &__name {
+  }
+
+  &__text {
+  }
+}

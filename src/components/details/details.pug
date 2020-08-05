@@ -1,0 +1,10 @@
+mixin details({title, subtitle, items=[]}="")
+  .details
+    label.details__title(subtitle=subtitle)= title
+    ul.details__list
+        each item in items
+          li.details__item
+            .details__icon(class=`details__icon_with-${item.icon ? item.icon:"smile"}`)
+            .details__info
+              b.details__name=item.name
+              p.details__text=item.text
