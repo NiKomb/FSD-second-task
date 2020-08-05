@@ -10,6 +10,7 @@ include /components/rating/rating
 include /components/like/like
 include /components/pagination/pagination
 include /components/details/details
+include /components/reviews/reviews
 
 block head
   title Form elements
@@ -196,6 +197,27 @@ block body
                     },
                   ]
                 })
-        .form-element__col
+        .form-element__col_expanded
           .form-element__item(extra-name="")
-            visitor-review
+            +reviews({
+                title:"Отзывы посетителей номера",
+                subtitle: "2 отзыва",
+                review: [
+                    {
+                      avatar:'author_1',
+                      like:true,
+                      count: 12,
+                      author:"Мурад Сарафанов",
+                      time:"5 дней назад ",
+                      text:"Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.  "
+                    },
+                    {
+                      avatar:'author_2',
+                      like:false ,
+                      count: 2,
+                      author:"Патрисия Стёклышкова",
+                      time:"Неделю назад",
+                      text:"Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"
+                    },
+                  ]
+                })

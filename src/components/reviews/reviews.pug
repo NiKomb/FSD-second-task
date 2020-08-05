@@ -1,0 +1,16 @@
+include /components/like/like
+
+mixin reviews({title, subtitle, review=[]}="")
+  .reviews
+    label.reviews__title(subtitle=subtitle)= title
+    ul.reviews__list
+      each item in review
+        li.reviews__item
+          .reviews__guest
+            img.reviews__avatar(src=require(`./images/${item.avatar}`).default, alt='avatar')
+            .reviews__like
+              +like({like:item.like, count:item.count})
+          .reviews__info
+            b.reviews__name=item.author
+            p.reviews__time=item.time
+            p.reviews__text=item.text

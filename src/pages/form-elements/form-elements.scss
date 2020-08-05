@@ -10,6 +10,7 @@
 @import "@components/like/like";
 @import "@components/pagination/pagination";
 @import "@components/details/details";
+@import "@components/reviews/reviews";
 
 @import "@/theme/main.scss";
 
@@ -27,6 +28,10 @@
   &__col {
     margin-bottom: 100px;
     width: 320px;
+
+    &_expanded {
+      width: 640px;
+    }
   }
 
   &__item-list {
