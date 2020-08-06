@@ -11,6 +11,7 @@ include /components/like/like
 include /components/pagination/pagination
 include /components/details/details
 include /components/reviews/reviews
+include /components/info/info
 
 block head
   title Form elements
@@ -173,6 +174,34 @@ block body
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Bullet list"
+              +info({
+                title:"Правила",
+                subtitle:" ",
+                items:[
+                  {
+                    bullet:true,
+                    text:"Нельзя с питомцами"
+                  },
+                  {
+                    bullet:true,
+                    text:"Без вечеринок и мероприятий"
+                  },
+                  {
+                    bullet:true,
+                    text:"Время прибытия — после 13:00,а выезд до 12:00"
+                  },
+                  ]
+                })
+              +info({
+                title:"Отмена",
+                subtitle:"",
+                items:[
+                  {
+                    bullet:false,
+                    text:"Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
+                  },
+                  ]
+                })
       .form-element__container
         .form-element__col
           .form-element__item(extra-name="")

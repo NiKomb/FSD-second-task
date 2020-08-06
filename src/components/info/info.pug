@@ -1,0 +1,9 @@
+mixin info({title="info", subtitle, items=[]}='')
+  article.info
+    h3.info__title(data-subtitle=subtitle)= title
+    ul.info__list
+      for item in items
+        if item.bullet==true
+          li.info__text_with-bullet=item.text
+        else
+          li.info__text=item.text
