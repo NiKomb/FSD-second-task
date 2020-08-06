@@ -21,6 +21,7 @@
     border: solid 1px transparent;
     background-color: #fff;
     background-clip: padding-box;
+    min-width: 40px;
 
     &::before {
       content: "";

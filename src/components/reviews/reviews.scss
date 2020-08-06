@@ -8,10 +8,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: baseline;
+
     font: bold 19px Quicksand;
-    color: $dark-shade;
     line-height: 24px;
+    color: $dark-shade;
     text-transform: none;
+
     padding-bottom: 23px;
 
     &::after {
@@ -22,8 +25,8 @@
   }
 
   &__item {
-    padding-bottom: 23px;
     display: flex;
+    padding-bottom: 23px;
   }
 
   &__avatar {
