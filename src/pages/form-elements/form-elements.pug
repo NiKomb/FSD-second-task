@@ -12,6 +12,7 @@ include /components/pagination/pagination
 include /components/details/details
 include /components/reviews/reviews
 include /components/info/info
+include /components/pie-chart/pie-chart
 
 block head
   title Form elements
@@ -87,6 +88,12 @@ block body
                 +rating({title:"", rate:4, name: "рейтинг 1 номера"})
                 +rating({title:"", rate:5, name: "рейтинг 2 номера"})
           .form-element__item-list
+            .form-element__item(extra-name="")="Pie chart"
+              +pie-chart({
+                title:"Впечатления от номера",
+                subtitle:"доп имя",
+                items:[]
+              })
         .form-element__col
           .form-element__item-list
             .form-element__item(extra-name="")="Range slider"

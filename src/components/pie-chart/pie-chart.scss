@@ -1,0 +1,233 @@
+@import "@/theme/main.scss";
+
+.pie-chart {
+  position: relative;
+  $switch: &;
+  display: block;
+
+  &__title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    font: bold 19px Quicksand;
+    line-height: 24px;
+    color: $dark-shade;
+    text-transform: none;
+
+    padding-bottom: 23px;
+
+    &::after {
+      content: attr(data-subtitle);
+      color: $dark-shade-50;
+      font: normal 14px Montserrat, Arial, sans-serif;
+    }
+  }
+
+  &__box {
+    position: relative;
+  }
+
+  &__circle {
+    display: inline-block;
+    position: relative;
+    // cursor: pointer;
+
+    // font: bold 12px Montserrat, Arial, sans-serif;
+    // line-height: 15px;
+    // text-align: center;
+    // text-transform: uppercase;
+    // color: $prime-color;
+
+    // width: 121px;
+    // height: 121px;
+    // padding: 49px 0;
+    // border-radius: 50%;
+    // border: solid 4px transparent;
+    // background-color: rgba(255, 255, 255, 0.527);
+    // background-clip: padding-box;
+
+    &::before {
+      // content: "";
+      // position: absolute;
+      // z-index: -1;
+      // border-radius: 50%;
+      // top: 0;
+      // left: 0;
+      // bottom: 0;
+      // right: 0;
+      // background: conic-gradient(
+      //   #fff 0%,
+      //   #fff 0.5%,
+      //   #bc9cff 0%,
+      //   #8ba4f9 24.5%,
+      //   #fff 0%,
+      //   #fff 25.5%,
+      //   #6fcf97 0,
+      //   #66d2ea 49.5%,
+      //   #fff 0%,
+      //   #fff 50.5%,
+      //   #ffba9c 0%,
+      //   #ffe39c 99.5%,
+      //   #fff 0%
+      // );
+    }
+
+    &_1 {
+      width: 121px;
+      height: 121px;
+      border-radius: 50%;
+      border: solid 4px transparent;
+      background-color: rgba(255, 255, 255, 0.527);
+      background-clip: padding-box;
+      z-index: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: conic-gradient(
+          #fff0 0.5%,
+          #bc9cff 0.5%,
+          #8ba4f9 24.5%,
+          #fff0 0.5%
+        );
+      }
+    }
+
+    &_2 {
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: conic-gradient(
+          #fff0 25.5%,
+          #6fcf97 0,
+          #66d2ea 49.5%,
+          #fff0 25.5%
+        );
+      }
+    }
+
+    &_3 {
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: conic-gradient(
+          #fff0 50.5%,
+          #ffba9c 50.5%,
+          #ffe39c 99.5%,
+          #fff0 0%
+        );
+      }
+    }
+
+    // &:hover {
+    //   border: solid 8px transparent;
+    //   &::before {
+    //     filter: drop-shadow(0 0 2px $dark-shade-25);
+    //   }
+    // }
+  }
+
+  &__round {
+    position: relative;
+    display: inline-block;
+
+    &_1 {
+      z-index: 3;
+      position: absolute;
+      width: 121px;
+      min-height: 121px;
+      background: radial-gradient(
+          circle closest-side,
+          white 10%,
+          white 80%,
+          transparent 0%,
+          transparent 100%,
+          white 0
+        ),
+        conic-gradient(#fff0 0.5%, #bc9cff 0.5%, #8ba4f9 24.5%, #fff0 0.5%);
+    }
+
+    &_2 {
+      z-index: 2;
+      position: absolute;
+      width: 121px;
+      min-height: 121px;
+      background: radial-gradient(
+          circle closest-side,
+          white 10%,
+          white 93%,
+          transparent 0%,
+          transparent 100%,
+          white 0
+        ),
+        conic-gradient(#fff0 25.5%, #6fcf97 0, #66d2ea 49.5%, #fff0 25.5%);
+    }
+
+    &_3 {
+      z-index: 1;
+      position: absolute;
+      width: 121px;
+      min-height: 121px;
+      background: radial-gradient(
+          circle closest-side,
+          white 10%,
+          white 93%,
+          transparent 0%,
+          transparent 100%,
+          white 0
+        ),
+        conic-gradient(#fff0 50.5%, #ffba9c 50.5%, #ffe39c 99.5%, #fff0 0%);
+    }
+  }
+}
+
+.donut {
+  display: inline-block;
+  &__circle {
+    width: 121px;
+    height: 121px;
+  }
+}
+//  {
+//   position: relative;
+//   width: 121px;
+//   min-height: 121px;
+//   background: radial-gradient(
+//       circle closest-side,
+//       white 10%,
+//       white 80%,
+//       transparent 80%,
+//       transparent 100%,
+//       white 0
+//     ),
+//     conic-gradient(
+//       #bc9cff 0,
+//       #8ba4f9 25%,
+//       #6fcf97 0,
+//       #66d2ea 50%,
+//       #ffe39c 0,
+//       #ffba9c 75%,
+//       #909090 0,
+//       #3d4975 100%
+//     );
+// }
