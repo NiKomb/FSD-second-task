@@ -1,0 +1,40 @@
+include /components/input-text/input-text
+include /components/button/button
+
+
+mixin reservation({title, number=888, luxury=true, pay=9990, days=4, discount=2109,service=0, addService=300}='')
+  form.reservation
+    h1.reservation__title
+      .reservation__title-item
+        b.reservation__num-icon №
+        | #{number}
+        if luxury
+          +button({theme: "string",text:"Люкс"})
+      .reservation__title-item
+        b.reservation__price 9 990₽
+        .reservation__price_with-day сутки
+    .reservation__arrive
+      +input-text({
+            view:"rangeDate",
+            title:"прибытие",
+            subtitle:"",
+            title1:"выезд",
+            subtitle1:"",
+            placeholder:"ДД.ММ.ГГГГ"})
+    .reservation__guest
+      +input-text({title:"гости", subtitle: " ",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+    .reservation__summary
+      .reservation__summary-item #{pay}₽ х #{days} суток
+      .reservation__summary-item #{pay * days}₽
+    .reservation__summary
+      .reservation__summary-item_with-mark Сбор за услуги: скидка #{discount}₽
+      .reservation__summary-item #{service}₽
+    .reservation__summary
+      .reservation__summary-item_with-mark Сбор за дополнительные услуги
+      .reservation__summary-item #{addService}₽
+    .reservation__total
+      .reservation__total_with-name Итого
+      .reservation__total_with-line
+      .reservation__total_with-num 38 081₽
+    .reservation__button
+       +button({theme: "arrow", size:" ", text:"Подобрать номер"})

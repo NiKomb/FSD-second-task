@@ -1,2 +1,39 @@
 @import "@layouts/ui-base/ui-base";
+
 @import "@/theme/main";
+
+@import "@components/find-room/find-room";
+@import "@components/reservation/reservation";
+
+.body {
+  &_colored {
+    background-color: #e5e5e5;
+  }
+}
+
+.cards {
+  padding-top: 72px;
+  background-color: #e5e5e5;
+
+  &__container {
+    display: flex;
+    position: relative;
+    max-width: 1190px;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &__item {
+    margin-bottom: 40px;
+    display: flex;
+  }
+}

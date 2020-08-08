@@ -1,7 +1,24 @@
 extends /layouts/ui-base/ui-base
 
+include /components/find-room/find-room
+include /components/reservation/reservation
+
+
 block head
   title Cards
 
 block body
-  .container
+  body.body_colored
+    .cards
+      .cards__grid
+        .cards__container
+          .cards__item
+            +find-room({title:"Найдём номера под ваши пожелания"})
+          .cards__item
+        .cards__container
+          .cards__item
+            +reservation({})
+          .cards__item
+        .cards__container
+          .cards__item
+          .cards__item
