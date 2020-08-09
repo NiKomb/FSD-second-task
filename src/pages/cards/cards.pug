@@ -3,7 +3,7 @@ extends /layouts/ui-base/ui-base
 include /components/find-room/find-room
 include /components/reservation/reservation
 include /components/registration/registration
-include /components/toggle/toggle
+include /components/sign-in/sign-in
 
 
 block head
@@ -35,6 +35,7 @@ block body
               addService:300
             })
           .cards__item
+            +sign-in({title:"Войти", auth:false})
         .cards__container
           .cards__item
           .cards__item

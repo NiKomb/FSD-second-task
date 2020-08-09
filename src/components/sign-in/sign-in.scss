@@ -2,29 +2,21 @@
 
 @import "@components/input-text/input-text";
 @import "@components/button/button";
-@import "@components/radio/radio";
-@import "@components/toggle/toggle";
 
-.registration {
-  display: block;
-
+.sign-in {
   max-width: 380px;
-  padding: 40px 30px 30px 30px;
-
+  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-
-  background-color: #fff;
+  padding: 40px 30px 30px 30px;
 
   &__title {
-    display: block;
-    padding-bottom: 20px;
-    margin: 0;
-
     font: bold 24px Quicksand;
     line-height: 30px;
     color: $dark-shade;
+    padding-bottom: 20px;
+    margin: 0;
   }
 
   &__field {
@@ -44,7 +36,6 @@
   }
 
   &__item {
-    display: block;
     padding-bottom: 10px;
 
     &:last-child {

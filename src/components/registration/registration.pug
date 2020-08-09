@@ -1,12 +1,13 @@
 include /components/input-text/input-text
 include /components/button/button
 include /components/radio/radio
+include /components/toggle/toggle
 
 
 
 mixin registration({ title, form, auth=true }='')
   form.registration(name=form)
-    h3.registration__title=title
+    h1.registration__title=title
     fieldset.registration__field
       .registration__item
         +input-text({title:"",subtitle:"",placeholder:"Имя", type:"text"})
