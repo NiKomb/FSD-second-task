@@ -2,6 +2,8 @@ extends /layouts/ui-base/ui-base
 
 include /components/find-room/find-room
 include /components/reservation/reservation
+include /components/registration/registration
+include /components/toggle/toggle
 
 
 block head
@@ -15,6 +17,11 @@ block body
           .cards__item
             +find-room({title:"Найдём номера под ваши пожелания"})
           .cards__item
+            +registration({
+              title:"Регистрация номера",
+              form:"registration",
+              auth:true,
+            })
         .cards__container
           .cards__item
             +reservation({

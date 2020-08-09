@@ -1,0 +1,52 @@
+@import "@/theme/main.scss";
+
+@import "@components/input-text/input-text";
+@import "@components/button/button";
+@import "@components/radio/radio";
+@import "@components/toggle/toggle";
+
+.registration {
+  display: block;
+
+  max-width: 380px;
+  padding: 40px 30px 30px 30px;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  background-color: #fff;
+
+  &__title {
+    display: block;
+
+    font: bold 24px Quicksand;
+    line-height: 30px;
+    color: $dark-shade;
+    padding-bottom: 20px;
+  }
+
+  &__field {
+    padding: 0 0 20px 0;
+    border: none;
+  }
+
+  &__group {
+    padding: 0;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: block;
+    padding-bottom: 10px;
+  }
+  &__btn {
+    padding-bottom: 30px;
+  }
+  &__account {
+    display: flex;
+    align-items: center;
+  }
+}

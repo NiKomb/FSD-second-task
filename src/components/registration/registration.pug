@@ -1,0 +1,53 @@
+include /components/input-text/input-text
+include /components/button/button
+include /components/radio/radio
+
+
+
+mixin registration({ title, form, auth=true }='')
+  form.registration(name=form)
+    h3.registration__title=title
+    fieldset.registration__field
+      .registration__item
+        +input-text({title:"",subtitle:"",placeholder:"Имя", type:"text"})
+      .registration__item
+        +input-text({title:"",subtitle:"",placeholder:"Фамилия", type:"text"})
+      .registration__group
+        +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
+        +radio({text:"Женщина",name:"gender",value:"female"})
+    fieldset.registration__field
+      .registration__item
+        +input-text({title:"дата рождения", subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
+    fieldset.registration__field
+      .registration__item
+        +input-text({title:"данные для входа в сервис",subtitle:"",placeholder:"email", type:"email"})
+      .registration__item
+        +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
+      .registration__item
+        +toggle({text:"Получать спецпредложение", checked:false})
+    .registration__btn
+       +button({
+         type:"submit",
+         form:form,
+         theme: "arrow",
+         size:" ",
+         text:"перейти к оплате"
+         })
+    fieldset.registration__field
+      .registration__group
+        if auth===true
+          .registration__account Уже есть аккаунт на Toxin
+          +button({
+          type:"botton",
+          form:form,
+          size:" ",
+          text:"Войти"
+          })
+        else
+          .registration__account Нет аккаунта на Toxin
+          +button({
+          type:"botton",
+          form:form,
+          size:" ",
+          text:"Создать"
+          })

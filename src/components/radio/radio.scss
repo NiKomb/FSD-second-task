@@ -6,7 +6,6 @@
 
   &__label {
     position: relative;
-    padding-right: 20px;
     font: normal 14px Montserrat, Arial, sans-serif;
     color: $dark-shade-50;
     text-transform: initial;
@@ -40,11 +39,7 @@
           left: 3px;
           top: 3px;
           border-radius: 10px;
-          background-image: linear-gradient(
-            180deg,
-            $prime-color 0%,
-            $sub-prime-color 100%
-          );
+          background-image: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
         }
       }
     }
