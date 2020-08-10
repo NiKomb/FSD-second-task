@@ -1,0 +1,27 @@
+include /components/button/button
+include /components/rating/rating
+include /components/room-slider/room-slider
+
+
+mixin room({ form, srcIMG, dotIMG=1, quantityIMG, href="#", number=1, luxury=true, price=0, rate=4, reviews=0}='')
+  form.room(name=`${form} № ${number} `)
+    fieldset.room__field
+      a.room__link(href=href)
+        img.room__img(src=require(`./images/${srcIMG}`).default,alt="Фотография номера")
+      .room__slider
+        +room-slider({dot:true, items:quantityIMG, check:dotIMG})
+    fieldset.room__field
+      .room__title
+        h3.room__title_onleft
+          | №
+          span.room__title_with-num #{number}
+          if luxury
+            +button({theme: "string", text:"Люкс"})
+        h3.room__title_onright
+          b.room__title_with-price #{price}₽
+          |в сутки
+      .room__group
+        +rating({title:"", rate:rate, name: `${form} № ${number} `})
+        .room__reviews
+          b.room__reviews_bold| #{reviews}
+          |Отзывов

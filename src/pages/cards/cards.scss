@@ -6,6 +6,7 @@
 @import "@components/reservation/reservation";
 @import "@components/registration/registration";
 @import "@components/sign-in/sign-in";
+@import "@components/room/room";
 
 .body {
   &_colored {
@@ -38,4 +39,10 @@
     margin-bottom: 40px;
     display: flex;
   }
+}
+
+.js-cards__calendar {
+  left: 0 !important;
+  width: 22.7143rem !important;
+  position: static !important;
 }
