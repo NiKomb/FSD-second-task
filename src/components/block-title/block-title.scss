@@ -1,0 +1,17 @@
+@import "@/theme/main.scss";
+
+.block-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  font: bold 12px Montserrat, Arial, sans-serif;
+  text-transform: uppercase;
+  color: $dark-shade;
+
+  &::after {
+    content: attr(data-subtitle);
+    font-weight: normal;
+    color: $dark-shade-50;
+  }
+}

@@ -1,24 +1,14 @@
 @import "@/theme/main.scss";
 
+@import "@components/block-title/block-title";
+
 .slider {
   &__container {
     position: relative;
   }
 
   &__title {
-    font: bold 12px Montserrat, Arial, sans-serif;
-    text-transform: uppercase;
-    color: $dark-shade;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     padding-bottom: 7px;
-
-    &::after {
-      content: attr(data-subtitle);
-      font: normal 12px Montserrat, Arial, sans-serif;
-      color: $dark-shade-50;
-    }
   }
 }
 

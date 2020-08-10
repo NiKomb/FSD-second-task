@@ -6,7 +6,7 @@ document.addEventListener(
   "DOMContentLoaded",
   function () {
     const slider = $(".js-slider__item_with-range-slider");
-    const sliderTitle = document.querySelector(".slider__title");
+    const sliderTitle = document.querySelector(".slider__title > h3");
 
     slider.ionRangeSlider({
       type: "double",
