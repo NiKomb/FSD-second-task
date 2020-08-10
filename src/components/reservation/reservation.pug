@@ -1,18 +1,16 @@
 include /components/input-text/input-text
 include /components/button/button
+include /components/card-number/card-number
 
 
-mixin reservation({ form, number=1, luxury=false, price=0, days=0, discount=0, service=0, addService=0 }='')
+mixin reservation({ form, number, luxury, price, days=0, discount=0, service=0, addService=0 }='')
   form.reservation(name=form)
-    .reservation__title
-      h3.reservation__title_onleft
-        | №
-        span.reservation__title_with-num #{number}
-        if luxury
-          +button({theme: "string", text:"Люкс"})
-      h3.reservation__title_onright
-        b.reservation__title_with-price #{price}₽
-        | в сутки
+    .reservation__number
+      +card-number({
+        number:number,
+        luxury:luxury,
+        price:price
+        })
     .reservation__arrive
       +input-text({
         view:"rangeDate",

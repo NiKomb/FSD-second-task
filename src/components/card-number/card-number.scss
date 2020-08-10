@@ -1,0 +1,33 @@
+@import "@/theme/main";
+
+.card-number {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+
+    color: $dark-shade;
+
+    &_onleft {
+      display: flex;
+      align-items: flex-end;
+      font: bold 14px Quicksand, Arial, sans-serif;
+      line-height: 1;
+    }
+
+    &_with-num {
+      margin: 0 4px 0 4px;
+      font-size: 24px;
+    }
+
+    &_onright {
+      display: flex;
+      align-items: flex-end;
+      font: normal 14px Montserrat, Arial, sans-serif;
+      color: $dark-shade-50;
+    }
+
+    &_with-price {
+      margin-right: 4px;
+    }
+  }
+}

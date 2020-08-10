@@ -2,6 +2,7 @@
 
 @import "@components/input-text/input-text";
 @import "@components/button/button";
+@import "@components/card-number/card-number";
 
 .reservation {
   max-width: 380px;
@@ -12,34 +13,8 @@
   border-radius: 4px;
   background-color: #fff;
 
-  &__title {
-    display: flex;
-    justify-content: space-between;
+  &__number {
     padding-bottom: 20px;
-    color: $dark-shade;
-
-    &_onleft {
-      display: flex;
-      align-items: flex-end;
-      font: bold 14px Quicksand, Arial, sans-serif;
-    }
-
-    &_with-num {
-      margin-left: 4px;
-      font-size: 24px;
-      line-height: 1.1;
-    }
-
-    &_onright {
-      display: flex;
-      align-items: flex-end;
-      font: normal 14px Montserrat, Arial, sans-serif;
-      color: $dark-shade-50;
-    }
-
-    &_with-price {
-      margin-right: 4px;
-    }
   }
 
   &__arrive {

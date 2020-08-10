@@ -1,0 +1,10 @@
+mixin card-number({ number=1, price=1, luxury=false}='')
+  .card-number__title
+    h3.card-number__title_onleft
+      | №
+      span.card-number__title_with-num #{number}
+      if luxury
+        +button({theme: "string", text:"Люкс"})
+    h3.card-number__title_onright
+      b.card-number__title_with-price #{price}₽
+      |в сутки

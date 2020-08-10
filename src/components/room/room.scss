@@ -3,6 +3,7 @@
 @import "@components/button/button";
 @import "@components/rating/rating";
 @import "@components/room-slider/room-slider";
+@import "@components/card-number/card-number";
 
 .room {
   $switch: &;
@@ -21,49 +22,6 @@
     }
   }
 
-  &__title {
-    display: flex;
-    justify-content: space-between;
-
-    padding-bottom: 10px;
-    border-bottom: 1px solid $dark-shade-10;
-
-    color: $dark-shade;
-
-    &_onleft {
-      display: flex;
-      align-items: flex-end;
-      font: bold 14px Quicksand, Arial, sans-serif;
-      line-height: 1;
-    }
-
-    &_with-num {
-      margin: 0 4px 0 4px;
-      font-size: 24px;
-    }
-
-    &_onright {
-      display: flex;
-      align-items: flex-end;
-      font: normal 14px Montserrat, Arial, sans-serif;
-      color: $dark-shade-50;
-    }
-
-    &_with-price {
-      margin-right: 4px;
-    }
-  }
-
-  &__link {
-    display: inline-grid;
-    position: relative;
-  }
-
-  &__slider {
-    transition: opacity 0.3s ease;
-    opacity: 0;
-  }
-
   &__field {
     position: relative;
     padding: 20px;
@@ -74,15 +32,31 @@
     }
   }
 
+  &__link {
+    display: inline-grid;
+    position: relative;
+  }
+
   &__img {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+  }
+
+  &__slider {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  &__number {
+    padding-bottom: 10px;
   }
 
   &__group {
     padding-top: 8px;
     display: flex;
     justify-content: space-between;
+
+    border-top: 1px solid $dark-shade-10;
   }
 
   &__reviews {
