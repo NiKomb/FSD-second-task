@@ -1,41 +1,13 @@
-//-
-  options.color - цветное лого (true/false)
-  options.text - наличие текстового лого (true/false)
-
-mixin logo(options={})
-  //- if !options
-  //-   - options = {}
-  //- if !options.color
-  //-   -options.color = false
-  //- if !options.text
-  //-   -options.text = false
-
-  //- .logo
-    case options.color
-      when true
-        .logo__color
-        include ./images/colored-logo.svg
-      when false
-        .logo__gray
-        include ./images/grayed-logo.svg
-    case options.text
-      when true
-        img.logo__text
-        include ./images/text-logo.svg
-
+mixin logo({ view}='')
   .logo
-    if options.color
-      img.logo__color(
-      src=require('@components/logo/images/colored-logo.svg').default,
-      alt='color logo'
-      )
-    else
-      img.logo__gray(
-      src=require('@components/logo/images/grayed-logo.svg').default,
-      alt='grey logo'
-      )
-    if options.text
-      img.logo__text(
-      src=require('@components/logo/images/text-logo.svg').default,
-      alt='text logo'
-      )
+    case view
+      when "color"
+        img.logo__color(src=require('@components/logo/images/colored-logo.svg').default, alt='color logo')
+      when "gray"
+        img.logo__gray(src=require('@components/logo/images/grayed-logo.svg').default, alt='grey logo')
+      when "grayText"
+        img.logo__gray(src=require('@components/logo/images/grayed-logo.svg').default, alt='grey logo')
+        img.logo__text(src=require('@components/logo/images/text-logo.svg').default, alt='text logo' )
+      default
+        img.logo__color(src=require('@components/logo/images/colored-logo.svg').default, alt='color logo')
+        img.logo__text(src=require('@components/logo/images/text-logo.svg').default, alt='text logo' )

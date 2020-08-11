@@ -1,12 +1,9 @@
-include /components/logo/logo
-include /components/button/button
-
-mixin header (auth, nav=[])
+mixin header({ auth=false, nav=[]})
   header.header
     .header__main
       .header__container
         a.header__logo(href="/form-elements.html" alt="Toxin")
-          +logo({color:true, text: true})
+          +logo
         nav.header__nav
           ul.header__menu
             each item in nav
@@ -17,12 +14,12 @@ mixin header (auth, nav=[])
                 li.header__item
                   a.header__link(href="#" alt=item.alt)=item.name
           ul.header__user-menu
-            if auth === "non-auth"
-              li.header__item
-                +button({text:"login"})
-              li.header__item
-                +button({type:"gradient", text:"register"})
-            else if auth === "auth"
+            if auth === true
               li.header__item
                 span.header__user-name
-                  a.header__link(href="#")="Константин Константинов"
+                  a.header__link(href="#")="Юлий Цезарь"
+            else
+              li.header__item
+                +button({text:"Войти"})
+              li.header__item
+                +button({theme:"fill", text:"Зарегистрироваться"})

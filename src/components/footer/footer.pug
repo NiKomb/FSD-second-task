@@ -1,54 +1,42 @@
-include /components/logo/logo
-include /components/input-text/input-text
-
-//- options.type = simple/complex/sub
-//- groupTitle
-    groupItems
-      itemText and itemHref
-    groupItems
-      itemText and itemHref
-    groupItems
-      itemText and itemHref
-      ...
-
 mixin footer (options={}, navigation = [])
-  if options.type === 'simple'
-    footer.footer
-      .footer__main
-        .footer__container_simle
-          .footer__description_simle
-            .footer__logo_simle
-              +logo({color:true, text: true})
-            p.footer__info_simle Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-            ul.footer__icons_simle
-              li.footer__icon: a.footer__icon-link(href="https://twitter.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/twit.svg').default, alt='Twitter')
-              li.footer__icon: a.footer__icon-link(href="https://facebook.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/faceb.svg').default, alt="Facebook")
-              li.footer__icon: a.footer__icon-link(href="https://instagram.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/instagram.svg').default, alt="Instagram")
-  else if options.type === 'complex'
-    footer.footer
-      .footer__main
-        .footer__container_complex
-          .footer__description_complex
-            .footer__logo_complex
-              +logo({color:true, text: true})
-            p.footer__info Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-          nav.footer__navigation
-            each navGroup in navigation
-              ul.footer__group
-                h3.footer__group-title= navGroup.groupTitle
-                each group in navGroup.groupItems
-                  li.footer__group-item: a.footer__group-link(href=`${group.itemHref}`)= group.itemText
-          form.footer__subscription
-            h3.footer__subscription-title Подписка
-            label.footer__subscription-info Получайте специальные предложения и новости сервиса
-            .footer__subscription-email
-              +input-text({view:"arrow", placeholder: "Email", name:"email", type:"email"})
-  else if options.type === 'sub'
-    footer.footer
-      .footer__main
-        .footer__container_sub
-          p.footer__copyright Copyright © 2019 Toxin отель. Все права зачищены.
-          ul.footer__icons_sub
-              li.footer__icon: a.footer__icon-link(href="https://twitter.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/twit.svg').default, alt='Twitter')
-              li.footer__icon: a.footer__icon-link(href="https://facebook.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/faceb.svg').default, alt="Facebook")
-              li.footer__icon: a.footer__icon-link(href="https://instagram.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/instagram.svg').default, alt="Instagram")
+  case options.view
+    when "simple"
+      footer.footer
+        .footer__main
+          .footer__container_simle
+            .footer__description_simle
+              .footer__logo_simle
+                +logo
+              p.footer__info_simle Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+              ul.footer__icons_simle
+                li.footer__icon: a.footer__icon-link(href="https://twitter.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/twit.svg').default, alt='Twitter')
+                li.footer__icon: a.footer__icon-link(href="https://facebook.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/faceb.svg').default, alt="Facebook")
+                li.footer__icon: a.footer__icon-link(href="https://instagram.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/instagram.svg').default, alt="Instagram")
+    when "complex"
+      footer.footer
+        .footer__main
+          .footer__container_complex
+            .footer__description_complex
+              .footer__logo_complex
+                +logo
+              p.footer__info Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+            nav.footer__navigation
+              each navGroup in navigation
+                ul.footer__group
+                  h3.footer__group-title= navGroup.groupTitle
+                  each group in navGroup.groupItems
+                    li.footer__group-item: a.footer__group-link(href=`${group.itemHref}`)= group.itemText
+            form.footer__subscription
+              h3.footer__subscription-title Подписка
+              label.footer__subscription-info Получайте специальные предложения и новости сервиса
+              .footer__subscription-email
+                +input-text({view:"arrow", placeholder: "Email", name:"email", type:"email"})
+    default
+      footer.footer
+        .footer__main
+          .footer__container_sub
+            p.footer__copyright Copyright © 2019 Toxin отель. Все права зачищены.
+            ul.footer__icons_sub
+                li.footer__icon: a.footer__icon-link(href="https://twitter.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/twit.svg').default, alt='Twitter')
+                li.footer__icon: a.footer__icon-link(href="https://facebook.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/faceb.svg').default, alt="Facebook")
+                li.footer__icon: a.footer__icon-link(href="https://instagram.com" alt='Twitter' target='_blank ' rel='noreferrer'): img.footer__icon-network(src=require('@components/footer/img/instagram.svg').default, alt="Instagram")

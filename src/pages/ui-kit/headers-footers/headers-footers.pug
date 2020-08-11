@@ -1,47 +1,124 @@
 .headers-footers
   .headers-footers__item
-    +header("auth",[
-      {name: "О нас", alt: "О нас"},
-      {name: "Услуги", menu: true, alt: "Услуги"},
-      {name: "Вакансии", alt: "Вакансии"},
-      {name: "Новости", alt: "Новости"},
-      {name: "Соглашения", menu: true, alt: "Соглашения" },])
+    +header({
+      auth:false,
+      nav:[
+        {
+          name: "О нас",
+          alt: "О нас"
+        },
+        {
+          name: "Услуги",
+          menu: true,
+          alt: "Услуги"
+        },
+        {
+          name: "Вакансии",
+          alt: "Вакансии"
+        },
+        {
+          name: "Новости",
+          alt: "Новости"
+        },
+        {
+          name: "Соглашения",
+          menu: true,
+          alt: "Соглашения"
+        },
+      ]
+    })
   .headers-footers__item
-    +header("non-auth",[
-      {name: "О нас", alt: "О нас"},
-      {name: "Услуги", menu: true, alt: "Услуги"},
-      {name: "Вакансии", alt: "Вакансии"},
-      {name: "Новости", alt: "Новости"},
-      {name: "Соглашения", menu: true, alt: "Соглашения" },])
+    +header({
+      auth:true,
+      nav:[
+        {
+          name: "О нас", alt: "О нас"
+        },
+        {
+          name: "Услуги",
+          menu: true,
+          alt: "Услуги"
+        },
+        {
+          name: "Вакансии",
+          alt: "Вакансии"
+        },
+        {
+          name: "Новости",
+          alt: "Новости"
+        },
+        {
+          name: "Соглашения",
+          menu: true,
+          alt: "Соглашения"
+        }
+      ]
+    })
   .headers-footers__item
-    +footer({type:"complex"}, [
+    +footer({
+      view:"complex"
+      },
+      [
       {
         groupTitle: "Навигация",
         groupItems: [
-          {itemText: 'О нас', itemHref:'#!'},
-          {itemText: 'Новости', itemHref:'#!'},
-          {itemText: 'Служба поддержки', itemHref:'#!'},
-          {itemText: 'Услуги', itemHref:'#!'},
+          {
+            itemText: 'О нас',
+            itemHref:'#!'
+          },
+          {
+            itemText: 'Новости',
+            itemHref:'#!'
+          },
+          {
+            itemText: 'Служба поддержки',
+            itemHref:'#!'
+          },
+          {
+            itemText: 'Услуги',
+            itemHref:'#!'
+          },
         ]
       },
       {
         groupTitle: "О нас",
         groupItems: [
-          {itemText: 'О сервисе', itemHref:'#!'},
-          {itemText: 'Наша команда', itemHref:'#!'},
-          {itemText: 'Вакансии', itemHref:'#!'},
-          {itemText: 'Инвесторы', itemHref:'#!'},
+          {
+            itemText: 'О сервисе',
+            itemHref:'#!'
+          },
+          {
+            itemText: 'Наша команда',
+            itemHref:'#!'
+          },
+          {
+            itemText: 'Вакансии',
+            itemHref:'#!'
+          },
+          {
+            itemText: 'Инвесторы',
+            itemHref:'#!'
+          },
         ]
       },
       {
         groupTitle: "Служба поддержки",
         groupItems: [
-          {itemText: 'Соглашения', itemHref:'#!'},
-          {itemText: 'Сообщества', itemHref:'#!'},
-          {itemText: 'Связь с нами', itemHref:'#!'},
+          {
+            itemText: 'Соглашения',
+            itemHref:'#!'
+          },
+          {
+            itemText: 'Сообщества',
+            itemHref:'#!'
+          },
+          {
+            itemText: 'Связь с нами',
+            itemHref:'#!'
+          },
         ]
       },
     ])
-    +footer({type:"sub"})
+    +footer
   .headers-footers__item
-    +footer({type:"simple"})
+    +footer({view:"simple"})
