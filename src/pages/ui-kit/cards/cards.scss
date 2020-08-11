@@ -1,23 +1,4 @@
-@import "@layouts/ui-base/ui-base";
-
-@import "@/theme/main";
-
-@import "@components/find-room/find-room";
-@import "@components/reservation/reservation";
-@import "@components/registration/registration";
-@import "@components/sign-in/sign-in";
-@import "@components/room/room";
-
-.body {
-  &_colored {
-    background-color: #e5e5e5;
-  }
-}
-
 .cards {
-  padding-top: 72px;
-  background-color: #e5e5e5;
-
   &__container {
     display: flex;
     position: relative;

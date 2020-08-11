@@ -1,0 +1,47 @@
+//- colors and types
+@import "@components/color/color";
+@import "@components/type/type";
+//- headers-footers
+@import "@components/footer/footer";
+@import "@components/header/header";
+//- forms
+@import "@components/input-text/input-text";
+@import "@components/button/button";
+@import "@components/range-slider/range-slider";
+@import "@components/checkbox-list/checkbox-list";
+@import "@components/radio/radio";
+@import "@components/toggle/toggle";
+@import "@components/rating/rating";
+@import "@components/like/like";
+@import "@components/pagination/pagination";
+@import "@components/details/details";
+@import "@components/reviews/reviews";
+@import "@components/info/info";
+@import "@components/pie-chart/pie-chart";
+@import "@components/block-title/block-title";
+//- cards
+@import "@components/find-room/find-room";
+@import "@components/reservation/reservation";
+@import "@components/registration/registration";
+@import "@components/sign-in/sign-in";
+@import "@components/room/room";
+@import "@components/room-slider/room-slider";
+@import "@components/card-number/card-number";
+// ui-kit blocks
+@import "@/pages/ui-kit/colors-and-types/colors-and-types";
+@import "@/pages/ui-kit/headers-footers/headers-footers";
+@import "@/pages/ui-kit/form-elements/form-elements";
+@import "@/pages/ui-kit/cards/cards";
+
+@import "../../theme/main.scss";
+
+.ui-kit {
+  &__logo {
+    margin: 30px 0 60px 30px;
+  }
+  &__section {
+    &_colored {
+      background-color: $dark-shade-10;
+    }
+  }
+}

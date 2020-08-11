@@ -1,9 +1,9 @@
-const merge = require('webpack-merge')
-const webpack = require('webpack')
-const baseWebpackConfig = require('./webpack.base.config.js')
+const merge = require("webpack-merge");
+const webpack = require("webpack");
+const baseWebpackConfig = require("./webpack.base.config.js");
 
 const devWebpackConfig = merge(baseWebpackConfig, {
-  mode: 'development',
+  mode: "development",
 
   devServer: {
     contentBase: baseWebpackConfig.externals.paths.dist,
@@ -11,21 +11,20 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     overlay: true,
     hot: true,
     openPage: [
-      // 'colors-and-types.html',
-      'headers-footers.html'
-    ]
+      // 'rooms-page.html',
+      "ui-kit.html",
+    ],
   },
 
-  devtool: '#@cheap-eval-source-map',
+  devtool: "#@cheap-eval-source-map",
 
   plugins: [
     new webpack.SourceMapDevToolPlugin({
-      filename: '[file].map'
+      filename: "[file].map",
     }),
-  ]
-})
-
+  ],
+});
 
 module.exports = new Promise((res, rej) => {
-  res(devWebpackConfig)
-})
+  res(devWebpackConfig);
+});

@@ -1,21 +1,3 @@
-@import "@layouts/ui-base/ui-base";
-
-@import "@components/input-text/input-text";
-@import "@components/button/button";
-@import "@components/range-slider/range-slider";
-@import "@components/checkbox-list/checkbox-list";
-@import "@components/radio/radio";
-@import "@components/toggle/toggle";
-@import "@components/rating/rating";
-@import "@components/like/like";
-@import "@components/pagination/pagination";
-@import "@components/details/details";
-@import "@components/reviews/reviews";
-@import "@components/info/info";
-@import "@components/pie-chart/pie-chart";
-
-@import "@/theme/main.scss";
-
 .form-elements {
   margin-top: 65px;
 }

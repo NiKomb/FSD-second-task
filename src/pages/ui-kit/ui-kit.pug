@@ -1,0 +1,50 @@
+//- colors and types
+include /components/color/color
+include /components/type/type
+//- headers-footers
+include /components/footer/footer
+include /components/header/header
+//- forms
+include /components/input-text/input-text
+include /components/button/button
+include /components/range-slider/range-slider
+include /components/checkbox-list/checkbox-list
+include /components/radio/radio
+include /components/toggle/toggle
+include /components/rating/rating
+include /components/like/like
+include /components/pagination/pagination
+include /components/details/details
+include /components/reviews/reviews
+include /components/info/info
+include /components/pie-chart/pie-chart
+include /components/block-title/block-title
+//- cards
+include /components/find-room/find-room
+include /components/reservation/reservation
+include /components/registration/registration
+include /components/sign-in/sign-in
+include /components/room/room
+include /components/room-slider/room-slider
+include /components/card-number/card-number
+
+block title
+  title Ui-kit
+
+block styles
+  link(rel="stylesheet" href="ui-kit.sass")
+
+block content
+  main.ui-kit
+    .ui-kit__section
+      img.ui-kit__logo(src=require('./images/gray-logo.svg').default, alt='color logo')
+      include colors-and-types/colors-and-types
+    .ui-kit__section.ui-kit__section_colored
+      img.ui-kit__logo(src=require('./images/gray-logo.svg').default, alt='color logo')
+      include headers-footers/headers-footers
+    .ui-kit__section
+      img.ui-kit__logo(src=require('./images/gray-logo.svg').default, alt='color logo')
+      include form-elements/form-elements
+    .ui-kit__section.ui-kit__section_colored
+      img.ui-kit__logo(src=require('./images/gray-logo.svg').default, alt='color logo')
+      include cards/cards
