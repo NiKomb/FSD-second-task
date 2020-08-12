@@ -1,8 +1,7 @@
-mixin rating({title, rate=3, name}='')
+mixin rating({ rate=3, name}='')
   fieldset.rating
-    legend.rating__caption=title
     .rating__group
-      - for (var i = 1; i <= 5; i++)
+      - for (var i = 1; i <= 5; i+=1)
         if (i <= rate)
           input.rating__star(
             type="radio"

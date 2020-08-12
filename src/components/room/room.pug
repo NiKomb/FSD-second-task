@@ -4,11 +4,25 @@ include /components/room-slider/room-slider
 include /components/card-number/card-number
 
 
-mixin room({ form, srcIMG, dotIMG=1, quantityIMG, href="#", number, luxury, price, rate=4, reviews=0}='')
+mixin room(options)
+  -
+    const {
+      form,
+      srcIMG="#",
+      dotIMG=1,
+      quantityIMG,
+      href="#",
+      number=1,
+      luxury=false,
+      price=0,
+      rate=3,
+      reviews=0
+    } = options;
+
   form.room(name=`${form} № ${number} `)
     fieldset.room__field
       a.room__link(href=href)
-        img.room__img(src=require(`./images/${srcIMG}`).default,alt="Фотография номера")
+        img.room__img(src=srcIMG, alt="Фотография номера")
       .room__slider
         +room-slider({dot:true, items:quantityIMG, check:dotIMG})
     fieldset.room__field
