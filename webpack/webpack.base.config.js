@@ -1,58 +1,59 @@
-const path = require('path')
-const fs = require('fs')
-const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require("path");
+const fs = require("fs");
+const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-const isDev = process.env.NODE_ENV === 'development'
-const isProd = !isDev
+const isDev = process.env.NODE_ENV === "development";
+const isProd = !isDev;
 
 const PATHS = {
-  src: path.resolve(__dirname, '../src'),
-  dist: path.resolve(__dirname, '../dist'),
-  assets: 'assets/'
-}
+  src: path.resolve(__dirname, "../src"),
+  dist: path.resolve(__dirname, "../dist"),
+  assets: "assets/",
+};
 
-const PAGES_DIR = `${PATHS.src}/pages/`
-const PAGES = fs.readdirSync(PAGES_DIR)
+const PAGES_DIR = `${PATHS.src}/pages/`;
+const PAGES = fs.readdirSync(PAGES_DIR);
 
 const createEntry = (pagesDir) => {
-  const entryPoints = {}
+  const entryPoints = {};
 
-  fs.readdirSync(pagesDir)
-    .forEach(pageSubDir => {
-      entryPoints[pageSubDir] = ['@babel/polyfill', path.join(pagesDir, pageSubDir, `${pageSubDir}.js`)]
-    })
-  return entryPoints
-}
+  fs.readdirSync(pagesDir).forEach((pageSubDir) => {
+    entryPoints[pageSubDir] = [
+      "@babel/polyfill",
+      path.join(pagesDir, pageSubDir, `${pageSubDir}.js`),
+    ];
+  });
+  return entryPoints;
+};
 
-const filename = (ext) => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
+const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
 
 module.exports = {
-
   externals: {
-    paths: PATHS
+    paths: PATHS,
   },
 
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, "src"),
 
   entry: createEntry(PAGES_DIR),
 
   output: {
-    filename: filename('js'),
+    filename: filename("js"),
     path: PATHS.dist,
-    publicPath: '/'
+    publicPath: "/",
   },
 
   resolve: {
-    extensions: ['.js', '.scss', '.pug', '.png'],
+    extensions: [".js", ".scss", ".pug", ".png"],
     alias: {
-      '@': PATHS.src,
-      '@components': `${PATHS.src}/components`,
-      '@layouts': `${PATHS.src}/layouts`,
-      '@fonts': `${PATHS.src}/fonts`,
+      "@": PATHS.src,
+      "@components": `${PATHS.src}/components`,
+      "@layouts": `${PATHS.src}/layouts`,
+      "@fonts": `${PATHS.src}/fonts`,
     },
   },
 
@@ -60,92 +61,104 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: '/node_modules/',
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-class-properties'],
-          }
-        }]
+        exclude: "/node_modules/",
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+              plugins: ["@babel/plugin-proposal-class-properties"],
+            },
+          },
+        ],
       },
       {
         test: /\.(scss|css)$/,
-        exclude: '/node_modules/',
+        exclude: "/node_modules/",
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: isDev,
               reloadAll: true,
-              sourceMap: isDev
-            }
+              sourceMap: isDev,
+            },
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              sourceMap: isDev
-            }
+              sourceMap: isDev,
+            },
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
-              sourceMap: isDev
-            }
+              sourceMap: isDev,
+            },
           },
-        ]
+          {
+            loader: "sass-resources-loader",
+            options: {
+              resources: [
+                `${PATHS.src}/theme/variables.scss`,
+                `${PATHS.src}/theme/mixins.scss`,
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.pug$/,
         use: {
-          loader: 'pug-loader',
+          loader: "pug-loader",
           options: {
             root: PATHS.src,
-          }
+          },
         },
       },
       {
         test: /\.(png|jpe?g|svg|ttf|eot|woff|woff2)$/,
-        exclude: '/node_modules/',
-        loader: 'file-loader?name=[path][name].[ext]',
+        exclude: "/node_modules/",
+        loader: "file-loader?name=[path][name].[ext]",
       },
-    ]
+    ],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: filename('css'),
-      chunkFilename: '[id].css',
+      filename: filename("css"),
+      chunkFilename: "[id].css",
     }),
 
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.$': 'jquery',
-      'window.jQuery': 'jquery',
+      $: "jquery",
+      jQuery: "jquery",
+      "window.$": "jquery",
+      "window.jQuery": "jquery",
     }),
 
-    ...PAGES.map(page => new HTMLWebpackPlugin({
-      template: `${PAGES_DIR}/${page}/${page}.pug`,
-      filename: `${page}.html`,
-      favicon: `${PATHS.src}/favicon/favicon.ico`,
-      minify: {
-        collapseWhitespace: isProd,
-        removeComments: isProd,
-      },
-      chunks: [page],
-    })),
+    ...PAGES.map(
+      (page) =>
+        new HTMLWebpackPlugin({
+          template: `${PAGES_DIR}/${page}/${page}.pug`,
+          filename: `${page}.html`,
+          favicon: `${PATHS.src}/favicon/favicon.ico`,
+          minify: {
+            collapseWhitespace: isProd,
+            removeComments: isProd,
+          },
+          chunks: [page],
+        })
+    ),
 
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
-      patterns: [
-        { from: `${PATHS.src}/images`, to: `${PATHS.assets}/images` },
-      ]
+      patterns: [{ from: `${PATHS.src}/images`, to: `${PATHS.assets}/images` }],
     }),
     new webpack.HashedModuleIdsPlugin({
-      hashFunction: 'md4',
-      hashDigest: 'base64',
+      hashFunction: "md4",
+      hashDigest: "base64",
       hashDigestLength: 8,
     }),
   ],
-}
+};

@@ -1,5 +1,3 @@
-@import "@/theme/main.scss";
-
 .button {
   display: inline-block;
   position: sticky;
@@ -30,7 +28,11 @@
       left: 0;
       bottom: 0;
       right: 0;
-      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
+      background: linear-gradient(
+        180deg,
+        $prime-color 0%,
+        $sub-prime-color 100%
+      );
     }
 
     &:focus-within {
@@ -42,7 +44,11 @@
     &:hover {
       // color: lighten($prime-color, 10%);
       &::before {
-        background-image: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
+        background-image: linear-gradient(
+          180deg,
+          lighten($prime-color, 10%) 0%,
+          lighten($sub-prime-color, 10%) 100%
+        );
       }
     }
 
@@ -70,7 +76,11 @@
 
       &:hover {
         &::before {
-          background-image: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
+          background-image: linear-gradient(
+            180deg,
+            lighten($prime-color, 10%) 0%,
+            lighten($sub-prime-color, 10%) 100%
+          );
         }
       }
     }

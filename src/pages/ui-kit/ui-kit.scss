@@ -2,6 +2,7 @@
 @import "@components/color/color";
 @import "@components/type/type";
 //- headers-footers
+@import "@components/logo/logo";
 @import "@components/footer/footer";
 @import "@components/header/header";
 //- forms
@@ -9,6 +10,7 @@
 @import "@components/button/button";
 @import "@components/range-slider/range-slider";
 @import "@components/checkbox-list/checkbox-list";
+@import "@components/checkbox/checkbox";
 @import "@components/radio/radio";
 @import "@components/toggle/toggle";
 @import "@components/rating/rating";
@@ -32,8 +34,6 @@
 @import "@/pages/ui-kit/headers-footers/headers-footers";
 @import "@/pages/ui-kit/form-elements/form-elements";
 @import "@/pages/ui-kit/cards/cards";
-
-@import "../../theme/main.scss";
 
 .ui-kit {
   &__logo {

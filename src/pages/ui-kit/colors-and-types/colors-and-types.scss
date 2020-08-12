@@ -1,9 +1,3 @@
-@import "@layouts/ui-base/ui-base";
-@import "@/components/color/color";
-@import "@/components/type/type";
-
-@import "@/theme/main";
-
 .container {
   @extend %container;
   padding: 145px 0;
