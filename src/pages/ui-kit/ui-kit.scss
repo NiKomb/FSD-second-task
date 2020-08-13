@@ -35,6 +35,8 @@
 @import "@/pages/ui-kit/form-elements/form-elements";
 @import "@/pages/ui-kit/cards/cards";
 
+@import "../../theme/main.scss";
+
 .ui-kit {
   &__logo {
     margin: 30px 0 60px 30px;

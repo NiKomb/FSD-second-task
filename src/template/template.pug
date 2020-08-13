@@ -1,0 +1,101 @@
+extends /template/head
+
+include /components/logo/logo
+include /components/button/button
+include /components/input-text/input-text
+include /components/footer/footer
+include /components/header/header
+
+block content
+  +header({
+        auth:false,
+        nav:[
+          {
+            name: "О нас",
+            alt: "О нас"
+          },
+          {
+            name: "Услуги",
+            menu: true,
+            alt: "Услуги"
+          },
+          {
+            name: "Вакансии",
+            alt: "Вакансии"
+          },
+          {
+            name: "Новости",
+            alt: "Новости"
+          },
+          {
+            name: "Соглашения",
+            menu: true,
+            alt: "Соглашения"
+          },
+        ]
+      })
+  block main
+  +footer({
+      view:"complex"
+      },
+      [
+        {
+          groupTitle: "Навигация",
+          groupItems: [
+            {
+              itemText: 'О нас',
+              itemHref:'#!'
+            },
+            {
+              itemText: 'Новости',
+              itemHref:'#!'
+            },
+            {
+              itemText: 'Служба поддержки',
+              itemHref:'#!'
+            },
+            {
+              itemText: 'Услуги',
+              itemHref:'#!'
+            },
+          ]
+        },
+        {
+          groupTitle: "О нас",
+          groupItems: [
+            {
+              itemText: 'О сервисе',
+              itemHref:'#!'
+            },
+            {
+              itemText: 'Наша команда',
+              itemHref:'#!'
+            },
+            {
+              itemText: 'Вакансии',
+              itemHref:'#!'
+            },
+            {
+              itemText: 'Инвесторы',
+              itemHref:'#!'
+            },
+          ]
+        },
+        {
+          groupTitle: "Служба поддержки",
+          groupItems: [
+            {
+              itemText: 'Соглашения',
+              itemHref:'#!'
+            },
+            {
+              itemText: 'Сообщества',
+              itemHref:'#!'
+            },
+            {
+              itemText: 'Связь с нами',
+              itemHref:'#!'
+            },
+          ]
+        },
+      ])
