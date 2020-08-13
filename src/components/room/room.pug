@@ -30,7 +30,8 @@ mixin room(options)
         +card-number({
           number:number,
           price:price,
-          luxury:luxury})
+          luxury:luxury,
+          isMiddleNumber:true})
       .room__group
         +rating({title:"", rate:rate, name: `${form} № ${number} `})
         .room__reviews

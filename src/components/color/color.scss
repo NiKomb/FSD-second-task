@@ -19,6 +19,6 @@
     line-height: 29px;
   }
   &__text {
-    @extend %h2;
+    @include font-h2;
   }
 }

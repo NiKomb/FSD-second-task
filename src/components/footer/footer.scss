@@ -9,7 +9,7 @@
   }
 
   &__container_simle {
-    @extend %container;
+    @include container;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -52,7 +52,7 @@
   // complex footer
 
   &__container_complex {
-    @extend %container;
+    @include container;
     height: 370px;
     margin: 0 auto;
     padding: 100px 10px 110px;
@@ -141,7 +141,7 @@
   // sub footer
 
   &__container_sub {
-    @extend %container;
+    @include container;
     display: flex;
     align-items: center;
     justify-content: space-between;

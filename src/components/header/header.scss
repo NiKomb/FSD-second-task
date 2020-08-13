@@ -6,8 +6,8 @@
     padding: 15px 0;
   }
   &__container {
-    @extend %container;
-    @extend %body;
+    @include container;
+    @include font-body;
     padding: 0 10px;
     position: relative;
     display: flex;

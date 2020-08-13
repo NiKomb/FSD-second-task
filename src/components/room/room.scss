@@ -1,14 +1,14 @@
 .room {
   $switch: &;
 
-  max-width: 380px;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  max-width: 270px;
+  box-shadow: 0px 0.7142rem 1.4285rem rgba(31, 32, 65, 0.05);
   border-radius: 4px;
   background-color: #fff;
   transition: 0.25s;
 
   &:hover {
-    box-shadow: 0 0 25px $dark-shade-25;
+    box-shadow: 0 0 1.7857rem $dark-shade-25;
 
     #{$switch}__slider {
       opacity: 1;
@@ -17,7 +17,7 @@
 
   &__field {
     position: relative;
-    padding: 20px;
+    padding: 1.2286rem 1.2143rem 1.4286rem 1.4286rem;
     border: 0;
 
     &:first-child {
@@ -31,6 +31,7 @@
   }
 
   &__img {
+    width: 100%;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
@@ -41,11 +42,11 @@
   }
 
   &__number {
-    padding-bottom: 10px;
+    padding-bottom: 0.47rem;
   }
 
   &__group {
-    padding-top: 8px;
+    padding-top: 0.5714rem;
     display: flex;
     justify-content: space-between;
 
@@ -53,15 +54,13 @@
   }
 
   &__reviews {
+    @include font-body;
     display: flex;
     align-items: center;
-
-    font: normal 14px Montserrat, Arial, sans-serif;
     color: $dark-shade-50;
-    line-height: 1;
 
     &_bold {
-      margin-right: 4px;
+      margin-right: 0.2857rem;
     }
   }
 }

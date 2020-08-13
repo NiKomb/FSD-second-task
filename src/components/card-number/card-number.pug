@@ -1,10 +1,10 @@
-mixin card-number({ number=1, price=1, luxury=false}='')
-  .card-number__title
-    h3.card-number__title_onleft
+mixin card-number({ number=1, price=1,luxury=false,isMiddleNumber  }='')
+  .card-number
+    h3.card-number__left-title
       | №
-      span.card-number__title_with-num #{number}
+      span.card-number__number(class=isMiddleNumber ? "card-number__number_size_h2" : "") #{number}
       if luxury
         +button({theme: "string", text:"Люкс"})
-    h3.card-number__title_onright
-      b.card-number__title_with-price #{price}₽
-      |в сутки
+    h3.card-number__right-title
+      b.card-number__price #{price}₽
+      | в сутки

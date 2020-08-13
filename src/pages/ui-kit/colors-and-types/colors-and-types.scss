@@ -1,5 +1,5 @@
 .container {
-  @extend %container;
+  @include container;
   padding: 145px 0;
   display: flex;
   justify-content: space-between;
@@ -31,16 +31,16 @@
   }
   &__type-item {
     &_h1 {
-      @extend %h1;
+      @include font-h1;
     }
     &_h2 {
-      @extend %h2;
+      @include font-h2;
     }
     &_h3 {
-      @extend %h3;
+      @include font-h3;
     }
     &_body {
-      @extend %body;
+      @include font-body;
     }
   }
 }

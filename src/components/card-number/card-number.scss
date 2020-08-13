@@ -1,31 +1,37 @@
 .card-number {
-  &__title {
+  @include font-h3;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__left-title {
+    font-family: Quicksand;
+  }
+
+  &__number {
+    @include font-h1;
+    margin: 0 0.2857rem 0 0.2857rem;
+
+    &_size_h2 {
+      font-size: $fs-h2;
+    }
+  }
+
+  &__right-title {
+    @include font-h3;
+    font-weight: normal;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 
-    color: $dark-shade;
+    color: $dark-shade-50;
+  }
 
-    &_onleft {
-      display: flex;
-      align-items: flex-end;
-      font: bold 14px Quicksand, Arial, sans-serif;
-      line-height: 1;
-    }
+  &__price {
+    @include font-body;
+    font-weight: bold;
 
-    &_with-num {
-      margin: 0 4px 0 4px;
-      font-size: 24px;
-    }
-
-    &_onright {
-      display: flex;
-      align-items: flex-end;
-      font: normal 14px Montserrat, Arial, sans-serif;
-      color: $dark-shade-50;
-    }
-
-    &_with-price {
-      margin-right: 4px;
-    }
+    margin-right: 4px;
+    color: $dark-shade-50;
   }
 }

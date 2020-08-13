@@ -1,32 +1,64 @@
 @import "./variables.scss";
 
-%container {
+@mixin container {
+  width: 100%;
+  min-width: 320px;
   max-width: 1190px;
   margin: 0 auto;
+  padding: 1.0714rem;
 }
 
-%h1 {
-  font: bold $fs-h1 Quicksand, Arial, sans-serif;
-  line-height: 30px;
+%mixin reset-link {
+  text-decoration: none;
+
+  &:active,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+@mixin font-h1 {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  font-size: $fs-h1;
+  line-height: 2.1429rem;
+  font-family: Quicksand, Arial, sans-serif;
   color: $dark-shade;
 }
 
-%h2 {
-  font: bold $fs-h2 Quicksand, Arial, sans-serif;
-  line-height: 23.75px;
+@mixin font-h2 {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  font-size: $fs-h2;
+  line-height: 1.7142rem;
+  font-family: Quicksand, Arial, sans-serif;
   color: $dark-shade;
 }
 
-%h3 {
-  font: bold $fs-h3 Montserrat, Arial, sans-serif;
-  line-height: 14.63px;
-  vertical-align: top;
-  text-transform: uppercase;
+@mixin font-h3 {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  font-size: $fs-h3;
+  line-height: 1.0714rem;
+  font-family: Montserrat, Arial, sans-serif;
   color: $dark-shade;
 }
 
-%body {
-  font: normal $fs-body Montserrat, Arial, sans-serif;
-  line-height: 24px;
-  color: $dark-shade;
+@mixin font-body {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-size: $fs-body;
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 1.7143rem;
+  color: $dark-shade-75;
 }
