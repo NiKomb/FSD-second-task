@@ -29,9 +29,11 @@
       .cards__item
         +room({
           form:"room-card",
-          srcIMG:require("./cards/images/image-1.png").default,
-          dotIMG:1,
-          quantityIMG:4,
+          images:[
+            require("./cards/images/image-1").default,
+            require("./cards/images/image-2").default,
+          ],
+          dotIMG:3,
           href:"/../page-room/page-room.pug",
           number:888,
           luxury:true,
@@ -42,9 +44,11 @@
       .cards__item
         +room({
           form:"room-card",
-          srcIMG:require("./cards/images/image-2.png").default,
+          images:[
+            require("./cards/images/image-2").default,
+            require("./cards/images/image-1").default,
+          ],
           dotIMG:2,
-          quantityIMG:5,
           href:"/../page-room/page-room.pug",
           number:840,
           luxury:false,
@@ -52,3 +56,16 @@
           rate:4,
           reviews: 65,
           })
+      //- .cards__item
+      //-   +room({
+      //-     form:"room-card",
+      //-     srcIMG:require("./cards/images/image-2.png").default,
+      //-     dotIMG:2,
+      //-     quantityIMG:5,
+      //-     href:"/../page-room/page-room.pug",
+      //-     number:840,
+      //-     luxury:false,
+      //-     price:9900,
+      //-     rate:4,
+      //-     reviews: 65,
+      //-     })

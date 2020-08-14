@@ -9,10 +9,6 @@
 
   &:hover {
     box-shadow: 0 0 1.7857rem $dark-shade-25;
-
-    #{$switch}__slider {
-      opacity: 1;
-    }
   }
 
   &__field {
@@ -23,22 +19,6 @@
     &:first-child {
       padding: 0;
     }
-  }
-
-  &__link {
-    display: inline-grid;
-    position: relative;
-  }
-
-  &__img {
-    width: 100%;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-
-  &__slider {
-    transition: opacity 0.3s ease;
-    opacity: 0;
   }
 
   &__number {
@@ -58,9 +38,8 @@
     display: flex;
     align-items: center;
     color: $dark-shade-50;
-
-    &_bold {
-      margin-right: 0.2857rem;
-    }
+  }
+  &__reviews-bold {
+    margin-right: 0.2857rem;
   }
 }

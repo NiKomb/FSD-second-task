@@ -1,15 +1,21 @@
-mixin room-slider({ dot=true, items=5, check=1}='')
+mixin room-slider({ dot=true, items, href, check=1}='')
   .room-slider
-    .room-slider__hover.room-slider__hover_onleft
-    .room-slider__hover.room-slider__hover_onright
-    if dot==true
-      .room-slider__dots
-        - for (var i = 1; i <= items; i++)
-          if (i===check)
-            label.room-slider__label
-              input.room-slider__input(type="radio", name="dot",checked=true)
-              .room-slider__dot
-          else
-            label.room-slider__label
-              input.room-slider__input(type="radio", name="dot",checked=false)
-              .room-slider__dot
+    .room-slider__gallery
+      .room-slider__scroll
+        for image in items
+          a.room-slider__link(href=href)
+            img.room-slider__img(src=image, alt="Фотография номера")
+    .room-slider__ui
+      .room-slider__btn.room-slider__btn_prev
+      .room-slider__btn.room-slider__btn_next
+      if dot==true
+        .room-slider__dots
+          - for (let i = 1; i <= items.length; i+=1)
+            if (i===check)
+              label.room-slider__label
+                input.room-slider__input(type="radio", name="dot", checked=true data-index=i)
+                .room-slider__dot
+            else
+              label.room-slider__label
+                input.room-slider__input(type="radio", name="dot" checked=false data-index=i)
+                .room-slider__dot

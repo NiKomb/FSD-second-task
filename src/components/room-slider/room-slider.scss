@@ -1,5 +1,41 @@
 .room-slider {
-  &__hover {
+  $switch: &;
+
+  &__gallery {
+    overflow-x: overlay;
+    overflow-y: hidden;
+    width: 270px;
+    height: 100%;
+  }
+
+  &__scroll {
+    width: max-content;
+    height: 100%;
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    width: 270px;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+  }
+
+  &__ui {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__btn {
     display: block;
     position: absolute;
     top: 0;
@@ -22,7 +58,7 @@
       transform: rotate(135deg);
     }
 
-    &_onleft {
+    &_prev {
       left: 0;
       border-top-left-radius: 4px;
       background: linear-gradient(
@@ -33,14 +69,10 @@
       );
     }
 
-    &_onright {
+    &_next {
       right: 0;
       border-top-right-radius: 4px;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 40%,
-        rgba(0, 0, 0, 0.1824930655856093) 100%
-      );
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.1824930655856093) 100%);
 
       &::before {
         transform: rotate(-45deg);
