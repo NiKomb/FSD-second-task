@@ -1,9 +1,33 @@
-//- headers-footers
-@import "@components/logo/logo";
-@import "@components/footer/footer";
-@import "@components/header/header";
-//- forms
-@import "@components/input-text/input-text";
-@import "@components/button/button";
-
 @import "../../theme/main.scss";
+
+.landing-page {
+  &__background {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 830px;
+    display: block;
+    background-image: url("../landing-page/image/landing-page.jpg");
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__content {
+    @include container;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 5rem;
+  }
+
+  &__description {
+    @include font-body;
+    width: 100%;
+    max-width: 290px;
+    position: absolute;
+    right: 0.5714rem;
+    bottom: 1.5rem;
+    text-align: right;
+  }
+}

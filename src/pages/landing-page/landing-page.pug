@@ -1,8 +1,14 @@
 extends /template/template
 
+include /components/find-room/find-room
+
 block pageTitle
   title Landing page
 
 block main
   main.landing-page
-    .landing-page__banner
+    .landing-page__background
+      .landing-page__content
+        .landing-page__selection
+          +find-room({})
+        p.landing-page__description Лучшие номера для вашей работы, отдыха и просто вдохновения

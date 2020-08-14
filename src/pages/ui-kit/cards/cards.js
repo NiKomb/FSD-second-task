@@ -1,4 +1,4 @@
-import Calendar from "../../components/calendar/calendar";
+// import Calendar from "../../components/calendar/calendar";
 
 const cardsCalendar = new Calendar(
   ".cards__item_with-calendar",
