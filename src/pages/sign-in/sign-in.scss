@@ -1,0 +1,25 @@
+@import "../../theme/main.scss";
+
+.sign-in {
+  &__background {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 684px;
+    display: block;
+    background-image: url("../sign-in/images/sign-in.jpg");
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__content {
+    @include container;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
