@@ -8,6 +8,8 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
 
   optimization: {
     minimizer: [new OptimizeCssAssetsPlugin(), new TerserWebpackPlugin()],
+    minimize: true,
+    runtimeChunk: true,
     splitChunks: {
       cacheGroups: {
         vendor: {

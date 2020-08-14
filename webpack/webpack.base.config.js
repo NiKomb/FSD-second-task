@@ -30,7 +30,8 @@ const createEntry = (pagesDir) => {
   return entryPoints;
 };
 
-const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
+const filename = (ext) =>
+  isDev ? `[name].${ext}` : `pages/[name].[hash].${ext}`;
 
 module.exports = {
   externals: {
@@ -48,7 +49,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".js", ".scss", ".pug", ".png"],
+    extensions: [".js", ".scss", ".pug", ".png", ".jpg"],
     alias: {
       "@": PATHS.src,
       "@components": `${PATHS.src}/components`,
@@ -117,9 +118,45 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|svg|ttf|eot|woff|woff2)$/,
-        exclude: "/node_modules/",
-        loader: "file-loader?name=[path][name].[ext]",
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file-loader",
+        exclude: ["/node_modules/", /image?/, /img?/],
+        options: {
+          name: "[folder]/[name].[ext]",
+          outputPath: "./assets/fonts",
+        },
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        exclude: [/fonts?/, "/node_modules/"],
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "./assets/images",
+            },
+          },
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 70,
+              },
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+            },
+          },
+        ],
       },
     ],
   },
@@ -141,7 +178,7 @@ module.exports = {
       (page) =>
         new HTMLWebpackPlugin({
           template: `${PAGES_DIR}/${page}/${page}.pug`,
-          filename: `${page}.html`,
+          filename: `pages/${page}.html`,
           favicon: `${PATHS.src}/favicon/favicon.ico`,
           minify: {
             collapseWhitespace: isProd,
@@ -153,7 +190,9 @@ module.exports = {
 
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
-      patterns: [{ from: `${PATHS.src}/images`, to: `${PATHS.assets}/images` }],
+      patterns: [
+        { from: `${PATHS.src}/favicon`, to: `${PATHS.assets}/favicon` },
+      ],
     }),
     new webpack.HashedModuleIdsPlugin({
       hashFunction: "md4",

@@ -12,8 +12,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     hot: true,
     openPage: [
       // 'rooms-page.html',
-      "ui-kit.html",
+      "pages/ui-kit.html",
     ],
+  },
+
+  watchOptions: {
+    aggregateTimeout: 100,
+    ignored: /node_modules/,
   },
 
   devtool: "#@cheap-eval-source-map",
