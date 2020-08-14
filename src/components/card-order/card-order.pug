@@ -3,15 +3,15 @@ include /components/button/button
 include /components/card-number/card-number
 
 
-mixin reservation({ form, number, luxury, price, days=0, discount=0, service=0, addService=0 }='')
-  form.reservation(name=form)
-    .reservation__number
+mixin card-order({ form, number, luxury, price, days=0, discount=0, service=0, addService=0 }='')
+  form.card-order(name=form)
+    .card-order__number
       +card-number({
         number:number,
         luxury:luxury,
         price:price
         })
-    .reservation__arrive
+    .card-order__arrive
       +input-text({
         view:"rangeDate",
         title:"прибытие",
@@ -20,7 +20,7 @@ mixin reservation({ form, number, luxury, price, days=0, discount=0, service=0, 
         subtitle1:"",
         placeholder:"ДД.ММ.ГГГГ"
         })
-    .reservation__guest
+    .card-order__guest
       +input-text({
         title:"гости",
         subtitle: " ",
@@ -28,24 +28,24 @@ mixin reservation({ form, number, luxury, price, days=0, discount=0, service=0, 
         placeholder: "Сколько гостей",
         name:"guests"
         })
-    .reservation__summary
-      .reservation__summary-item #{price}₽ х #{days} суток
-      .reservation__summary-item #{price * days}₽
-    .reservation__summary
-      .reservation__summary-item
+    .card-order__summary
+      .card-order__summary-item #{price}₽ х #{days} суток
+      .card-order__summary-item #{price * days}₽
+    .card-order__summary
+      .card-order__summary-item
         | Сбор за услуги: скидка #{discount}₽
-        .reservation__summary-mark i
-      .reservation__summary-item #{service}₽
-    .reservation__summary
-      .reservation__summary-item
+        .card-order__summary-mark i
+      .card-order__summary-item #{service}₽
+    .card-order__summary
+      .card-order__summary-item
         | Сбор за дополнительные услуги
-        .reservation__summary-mark i
-      .reservation__summary-item #{addService}₽
-    .reservation__total
+        .card-order__summary-mark i
+      .card-order__summary-item #{addService}₽
+    .card-order__total
       | Итого
-      .reservation__total-line
+      .card-order__total-line
       | #{(price * days) + service + addService - discount}₽
-    .reservation__button
+    .card-order__button
        +button({
          type:"submit",
          form:form,

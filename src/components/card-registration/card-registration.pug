@@ -3,30 +3,28 @@ include /components/button/button
 include /components/radio/radio
 include /components/toggle/toggle
 
-
-
-mixin registration({ title, form, auth=true }='')
-  form.registration(name=form)
-    h1.registration__title=title
-    fieldset.registration__field
-      .registration__item
+mixin card-registration({ title, form, auth=true }='')
+  form.card-registration(name=form)
+    h1.card-registration__title=title
+    fieldset.card-registration__field
+      .card-registration__item
         +input-text({title:"",subtitle:"",placeholder:"Имя", type:"text"})
-      .registration__item
+      .card-registration__item
         +input-text({title:"",subtitle:"",placeholder:"Фамилия", type:"text"})
-      .registration__group
+      .card-registration__group
         +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
         +radio({text:"Женщина",name:"gender",value:"female"})
-    fieldset.registration__field
-      .registration__item
+    fieldset.card-registration__field
+      .card-registration__item
         +input-text({title:"дата рождения", subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
-    fieldset.registration__field
-      .registration__item
+    fieldset.card-registration__field
+      .card-registration__item
         +input-text({title:"данные для входа в сервис",subtitle:"",placeholder:"email", type:"email"})
-      .registration__item
+      .card-registration__item
         +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
-      .registration__item
+      .card-registration__item
         +toggle({text:"Получать спецпредложение", checked:false})
-    .registration__btn
+    .card-registration__btn
        +button({
          type:"submit",
          form:form,
@@ -34,10 +32,10 @@ mixin registration({ title, form, auth=true }='')
          size:" ",
          text:"перейти к оплате"
          })
-    fieldset.registration__field
-      .registration__group
+    fieldset.card-registration__field
+      .card-registration__group
         if auth===true
-          .registration__account Уже есть аккаунт на Toxin
+          .card-registration__account Уже есть аккаунт на Toxin
           +button({
           type:"botton",
           form:form,
@@ -45,7 +43,7 @@ mixin registration({ title, form, auth=true }='')
           text:"Войти"
           })
         else
-          .registration__account Нет аккаунта на Toxin
+          .card-registration__account Нет аккаунта на Toxin
           +button({
           type:"botton",
           form:form,

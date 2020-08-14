@@ -1,4 +1,4 @@
-.room-slider {
+.card-slider {
   $switch: &;
 
   &__gallery {
@@ -72,7 +72,11 @@
     &_next {
       right: 0;
       border-top-right-radius: 4px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.1824930655856093) 100%);
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(0, 0, 0, 0.1824930655856093) 100%
+      );
 
       &::before {
         transform: rotate(-45deg);
@@ -94,7 +98,7 @@
     overflow: hidden;
     clip: rect(0 0 0 0);
 
-    &:checked + .room-slider__dot {
+    &:checked + .card-slider__dot {
       background-color: #fff;
     }
   }

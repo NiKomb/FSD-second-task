@@ -1,0 +1,21 @@
+mixin card-slider({ dot=true, items, href, check=1}='')
+  .card-slider
+    .card-slider__gallery
+      .card-slider__scroll
+        for image in items
+          a.card-slider__link(href=href)
+            img.card-slider__img(src=image, alt="Фотография номера")
+    .card-slider__ui
+      .card-slider__btn.card-slider__btn_prev
+      .card-slider__btn.card-slider__btn_next
+      if dot==true
+        .card-slider__dots
+          - for (let i = 1; i <= items.length; i+=1)
+            if (i===check)
+              label.card-slider__label
+                input.card-slider__input(type="radio", name="dot", checked=true data-index=i)
+                .card-slider__dot
+            else
+              label.card-slider__label
+                input.card-slider__input(type="radio", name="dot" checked=false data-index=i)
+                .card-slider__dot

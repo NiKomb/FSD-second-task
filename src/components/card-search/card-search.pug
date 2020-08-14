@@ -2,10 +2,10 @@ include /components/input-text/input-text
 include /components/button/button
 
 
-mixin find-room({title}='')
-  form.find-room
-    h1.find-room__title=title
-    .find-room__arrive
+mixin card-search({title}='')
+  form.card-search
+    h1.card-search__title=title
+    .card-search__arrive
       +input-text({
             view:"rangeDate",
             title:"прибытие",
@@ -13,7 +13,7 @@ mixin find-room({title}='')
             title1:"выезд",
             subtitle1:"",
             placeholder:"ДД.ММ.ГГГГ"})
-    .find-room__guest
+    .card-search__guest
       +input-text({title:"гости", subtitle: " ",view:"guest",placeholder: "Сколько гостей",name:"guests",})
-    .find-room__button
+    .card-search__button
        +button({theme: "arrow", size:" ", text:"Подобрать номер"})

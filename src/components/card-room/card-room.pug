@@ -1,10 +1,10 @@
 include /components/button/button
 include /components/rating/rating
-include /components/room-slider/room-slider
+include /components/card-slider/card-slider
 include /components/card-number/card-number
 
 
-mixin room(options)
+mixin card-room(options)
   -
     const {
       form,
@@ -19,18 +19,18 @@ mixin room(options)
       reviews=0
     } = options;
 
-  form.room(name=`${form} № ${number} `)
-    fieldset.room__field
-      +room-slider({dot:true, items:images, href:href, check:dotIMG})
-    fieldset.room__field
-      .room__number
+  form.card-room(name=`${form} № ${number} `)
+    fieldset.card-room__field
+      +card-slider({dot:true, items:images, href:href, check:dotIMG})
+    fieldset.card-room__field
+      .card-room__number
         +card-number({
           number:number,
           price:price,
           luxury:luxury,
           isMiddleNumber:true})
-      .room__group
+      .card-room__group
         +rating({title:"", rate:rate, name: `${form} № ${number} `})
-        .room__reviews
-          b.room__reviews-bold| #{reviews}
+        .card-room__reviews
+          b.card-room__reviews-bold| #{reviews}
           |Отзывов

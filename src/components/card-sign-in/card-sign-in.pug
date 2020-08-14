@@ -1,20 +1,20 @@
 include /components/input-text/input-text
 include /components/button/button
 
-mixin sign-in({ title, auth=true}='')
-  form.sign-in
-    h1.sign-in__title=title
-    fieldset.sign-in__field
-      .sign-in__item
+mixin card-sign-in({ title, auth=true}='')
+  form.card-sign-in
+    h1.card-sign-in__title=title
+    fieldset.card-sign-in__field
+      .card-sign-in__item
         +input-text({title:"",subtitle:"",placeholder:"email", type:"email"})
-      .sign-in__item
+      .card-sign-in__item
         +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
-    .sign-in__btn
+    .card-sign-in__btn
        +button({theme: "arrow", size:" ", text:"Подобрать номер"})
-    fieldset.sign-in__field
-      .sign-in__group
+    fieldset.card-sign-in__field
+      .card-sign-in__group
         if auth===true
-          .sign-in__account Уже есть аккаунт на Toxin
+          .card-sign-in__account Уже есть аккаунт на Toxin
           +button({
           type:"botton",
           form:form,
@@ -22,7 +22,7 @@ mixin sign-in({ title, auth=true}='')
           text:"Войти"
           })
         else
-          .sign-in__account Нет аккаунта на Toxin
+          .card-sign-in__account Нет аккаунта на Toxin
           +button({
           type:"botton",
           form:form,
