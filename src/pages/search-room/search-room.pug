@@ -1,0 +1,120 @@
+extends /template/template
+
+include /components/input-text/input-text
+include /components/range-slider/range-slider
+include /components/range-slider/range-slider
+include /components/checkbox-list/checkbox-list
+include /components/card-room/card-room
+include /components/pagination/pagination
+
+block pageTitle
+  title Search room
+
+block main
+  main.search-room
+      .search-room__content
+        aside.search-room__preference
+          .search-room__parameters
+            +input-text({view:"filterDate", title:"Даты пребывания в отеле", subtitle: "",})
+          .search-room__parameters
+            +input-text({title:"Гости", subtitle: "",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+          .search-room__parameters
+             +range-slider({title:"Диапазон цены", subtitle:"5 000р-10000р", min:0, max:15000, from:5000,to:10000})
+          .search-room__parameters
+            +checkbox-list({
+            title:"Checkbox buttons",
+            subtitle: "",
+            expand:false,
+            items: [
+                {
+                  richName: "",
+                  text: "Можно курить",
+                  dis:false,
+                },
+                {
+                  richName: "",
+                  text: "Можно с питомцами",
+                  check: true
+                },
+                {
+                  text: "Можно пригласить гостей (до 10 человек)",
+                  check: true,
+                  dis:false,
+                }
+              ]
+            })
+          .search-room__parameters
+            +checkbox-list({
+            title:"Доступность",
+            items:[
+                {
+                  richName: "Широкий коридор",
+                  text: "Ширина коридоров в номере не менее 91 см."
+                },
+                {
+                  richName: "Помощник для инвалидов",
+                  text: "На 1 этаже вас встретит специалист  и проводит до номера."
+                }
+              ]
+            })
+          .search-room__parameters
+            +input-text({title:"Удобства номера", subtitle: "",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+          .search-room__parameters
+            +checkbox-list({
+            title:"Дополнительные удобства",
+            subtitle: "",
+            expand:true,
+            items:[
+                  {
+                    text: "Завтрак"
+                  },
+                  {
+                    text: "Письменный стол",
+                    check: true
+                  },
+                  {
+                    text: "Стул для кормления",
+                    check: true
+                  },
+                  {
+                    text: "Кроватка",
+                    check: true
+                  },
+                  {
+                    text: "Телевизор"
+                  },
+                  {
+                    text: "Шампунь"
+                  },
+                  {
+                    text: "Интернет"
+                  },
+                  {
+                    text: "Связь с космосом"
+                  }
+                ]
+            })
+        .search-room__result
+          .search-room__title Номера, которые мы для вас подобрали
+          .search-room__items
+            - for (var i = 1; i <= 12; i+=1)
+              .search-room__item
+                +card-room({
+                  form:"card-room",
+                  images:[
+                    require(`./images/room-${i}`).default,
+                    require("./images/room-2").default,
+                    require("./images/room-3").default,
+                    require("./images/room-5").default,
+                    require("./images/room-4").default,
+                  ],
+                  dotIMG:3,
+                  href:"/../page-room/page-room.pug",
+                  number:888,
+                  luxury:true,
+                  price:9990,
+                  rate:5,
+                  reviews: 145,
+                })
+          .search-room__pagination
+            +pagination({current:1, total:15, variant:100})

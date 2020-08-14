@@ -1,4 +1,4 @@
-mixin pagination({ current, total, variant=1, href='#'} = "" )
+mixin pagination({ current=1, total, variant=1, href='#'} = "" )
   .pagination
     .pagination__pages
       a(tabindex=0 href=href).pagination__page.pagination__page_current=current

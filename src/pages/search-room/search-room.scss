@@ -1,0 +1,35 @@
+@import "../../theme/main.scss";
+
+.search-room {
+  &__content {
+    @include container;
+    display: flex;
+    margin: auto;
+    padding-top: 30px;
+  }
+
+  &__preference {
+    min-width: 266px;
+    margin: 0 60px 15px 0;
+  }
+
+  &__parameters {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    @include font-h1;
+  }
+  &__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__item {
+    margin-top: 19px;
+  }
+  &__pagination {
+    margin-top: 40px;
+  }
+}
