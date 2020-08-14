@@ -1,0 +1,12 @@
+extends /template/template
+
+include /components/card-registration/card-registration
+
+block pageTitle
+  title Registration
+
+block main
+  main.registration
+    .registration__background
+      .registration__content
+          +card-registration({title:"Регистрация аккаунта"})

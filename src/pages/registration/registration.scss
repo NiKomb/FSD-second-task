@@ -1,13 +1,13 @@
 @import "../../theme/main.scss";
 
-.landing-page {
+.registration {
   &__background {
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
-    height: 830px;
+    height: 684px;
     display: block;
-    background-image: url("../landing-page/images/landing-page.jpg");
+    background-image: url("../registration/images/registration.jpg");
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,16 +18,8 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding-top: 5rem;
-  }
-
-  &__description {
-    @include font-body;
-    width: 100%;
-    max-width: 290px;
-    position: absolute;
-    right: 0.5714rem;
-    bottom: 1.5rem;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
