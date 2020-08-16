@@ -1,14 +1,25 @@
-mixin header({ auth=false, nav=[]})
+mixin header(options)
+  -
+    const {
+      auth=false,
+      nav=[],
+      logoRef="/mock-address/change-me",
+      btnRefEnter="/mock-address/change-me",
+      btnRefRegister="/mock-address/change-me",
+    }=options
+
   header.header
     .header__main
       .header__container
-        a.header__logo(href="/form-elements.html" alt="Toxin")
+        a.header__logo(href=logoRef alt="Toxin")
           +logo
+        input.header__input(type="checkbox" id="header-input")
+        label.header__toggle(label for="header-input")
         nav.header__nav
           ul.header__menu
             each item in nav
               if item.menu
-                li.header__item_menu
+                li.header__item.header__item_marked
                   a.header__link(href="#" alt=item.alt)=item.name
               else
                 li.header__item
@@ -17,9 +28,11 @@ mixin header({ auth=false, nav=[]})
             if auth === true
               li.header__item
                 span.header__user-name
-                  a.header__link(href="#")="Юлий Цезарь"
+                  a.header__link(href="/mock-address/change-me")="Юлий Цезарь"
             else
               li.header__item
-                +button({text:"Войти"})
+                a.header__button(href=btnRefEnter alt="Sign-In")
+                  +button({text:"Войти"})
               li.header__item
-                +button({theme:"fill", text:"Зарегистрироваться"})
+                a.header__button(href=btnRefRegister alt="Register")
+                  +button({theme:"fill", text:"Зарегистрироваться"})

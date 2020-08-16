@@ -4,14 +4,14 @@ include /components/block-title/block-title
 mixin checkbox-list({expand, items, title, subtitle})
   .checkbox-list
     if expand===true&&title
-      label.checkbox-list__expand
+      input.checkbox-list__toggle(type="checkbox" id="checkbox-list-toggle")
+      label.checkbox-list__title(for="checkbox-list-toggle")
         +block-title({title:title, subtitle:subtitle})
-        input.checkbox-list__toggle(type="checkbox" )
         .checkbox-list__mark
-        ul.checkbox-list__items
-          each item in items
-            li.checkbox-list__item
-              +checkbox(item)
+      ul.checkbox-list__items
+        each item in items
+          li.checkbox-list__item
+            +checkbox(item)
     else
       +block-title({title:title, subtitle:subtitle})
       ul.checkbox-list__items

@@ -2,28 +2,49 @@
   position: relative;
   $switch: &;
 
+  &__toggle {
+    appearance: none;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+
+    &:checked {
+      ~ #{$switch}__items {
+        display: none;
+      }
+
+      ~ #{$switch}__title {
+        #{$switch}__mark {
+          transform: translateY(-50%) rotate(45deg);
+        }
+      }
+    }
+
+    &:focus {
+      ~ #{$switch}__title {
+        #{$switch}__mark {
+          filter: drop-shadow(0 0 2px $dark-shade-75);
+        }
+      }
+    }
+  }
+
   &__title {
-    font: bold 12px Montserrat, Arial, sans-serif;
-    text-transform: uppercase;
-    color: $dark-shade;
     cursor: pointer;
   }
 
   &__mark {
-    &::after {
-      content: "";
-      display: inline-block;
-      position: absolute;
-      right: 1px;
-      top: 5px;
-      width: 10px;
-      height: 10px;
-      border: 2px solid $dark-shade-50;
-      border-top: 0;
-      transform: translateY(0%) rotate(-135deg);
-      border-left: 0;
-      transition: 0.3s;
-    }
+    display: inline-block;
+    position: absolute;
+    right: 1px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid $dark-shade-50;
+    border-top: 0;
+    transform: translateY(0%) rotate(-135deg);
+    border-left: 0;
+    transition: 0.3s;
   }
 
   &__item {
@@ -36,41 +57,6 @@
 
     &:last-child {
       padding-bottom: 0;
-    }
-  }
-
-  &__expand {
-    cursor: pointer;
-
-    #{$switch}__toggle {
-      appearance: none;
-      position: absolute;
-      right: 1px;
-      top: 1px;
-
-      &:checked {
-        ~ #{$switch}__items {
-          display: none;
-        }
-
-        ~ #{$switch}__mark {
-          &::after {
-            transform: translateY(-50%) rotate(45deg);
-          }
-        }
-      }
-
-      &:focus {
-        ~ #{$switch}__mark {
-          &::after {
-            filter: drop-shadow(0 0 2px $dark-shade-50);
-          }
-        }
-      }
-
-      #{$switch}__items {
-        display: block;
-      }
     }
   }
 }

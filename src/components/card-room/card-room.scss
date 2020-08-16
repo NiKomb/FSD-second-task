@@ -1,7 +1,7 @@
 .card-room {
   $switch: &;
 
-  max-width: 270px;
+  min-width: 270px;
   box-shadow: 0px 0.7142rem 1.4285rem rgba(31, 32, 65, 0.05);
   border-radius: 4px;
   background-color: #fff;
