@@ -20,10 +20,10 @@ mixin card-slider(options)
         .card-slider__controls
           label.card-slider__control.card-slider__control_prev(for=(i === 0) ? `${ID}-${items.length - 1}` : `${ID}-${i-1}`)
           label.card-slider__control.card-slider__control_next(for=(i === items.length - 1) ? `${ID}-${0}` : `${ID}-${i+1}`)
-      .card-slider__track
+      a.card-slider__track(href=href, target="_blank", aria-label="open link view")
         for image in items
-          a.card-slider__slide(href=href)
-            img.card-slider__img(src=image, alt="Фотография номера")
+          .card-slider__slide(data-subtitle="➦")
+            img.card-slider__img(src=image, alt="Room View")
       .card-slider__dots(hidden=isHideDots)
         for image, i in items
-          label.card-slider__dot(for=`${ID}-${i}`)
+          label.card-slider__dot(for=`${ID}-${i}` aria-label="Room views")

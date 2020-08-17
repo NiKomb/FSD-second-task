@@ -19,7 +19,7 @@ mixin card-room(options)
       reviews=0
     } = options;
 
-  form.card-room(name=`${form} № ${number} `)
+  form.card-room(name=`${form} № ${number}` aria-label=`${form} № ${number}`)
     fieldset.card-room__field
       +card-slider({dot:true, items:images, href:href, check:dotIMG})
     fieldset.card-room__field

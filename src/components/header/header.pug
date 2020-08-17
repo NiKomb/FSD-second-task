@@ -20,10 +20,10 @@ mixin header(options)
             each item in nav
               if item.menu
                 li.header__item.header__item_marked
-                  a.header__link(href="#" alt=item.alt)=item.name
+                  a.header__link(href="/mock-address/change-me" alt=item.alt)=item.name
               else
                 li.header__item
-                  a.header__link(href="#" alt=item.alt)=item.name
+                  a.header__link(href="/mock-address/change-me" alt=item.alt)=item.name
           ul.header__user-menu
             if auth === true
               li.header__item
@@ -31,8 +31,8 @@ mixin header(options)
                   a.header__link(href="/mock-address/change-me")="Юлий Цезарь"
             else
               li.header__item
-                a.header__button(href=btnRefEnter alt="Sign-In")
+                a.header__button(href=btnRefEnter alt="Sign-In" tabindex=-1)
                   +button({text:"Войти"})
               li.header__item
-                a.header__button(href=btnRefRegister alt="Register")
+                a.header__button(href=btnRefRegister alt="Register" tabindex=-1)
                   +button({theme:"fill", text:"Зарегистрироваться"})

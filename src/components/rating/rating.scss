@@ -1,70 +1,72 @@
 .rating {
   $switch: &;
-  padding: 2px 0 3px 0;
+  $width: 24;
+  $height: 19;
+  padding: 2px 0 2px 2px;
   border: 0;
 
   &__group {
     position: relative;
-    width: 120px;
-    height: 19px;
+    width: #{$width * 5}px;
+    height: #{$height}px;
     background-image: url(../../components/rating/images/off.svg);
-    background-size: 24px 19px;
+    background-size: #{$width}px #{$height}px;
     background-repeat: repeat-x;
 
     &:focus-within {
       filter: drop-shadow(0 0 2px $dark-shade-25);
     }
   }
-}
 
-.rating__star {
-  cursor: pointer;
-  position: absolute;
-  appearance: none;
-  top: 0;
-  left: 0;
-  height: 19px;
-  margin: 0;
-  background-size: 24px 19px;
-  background-repeat: repeat-x;
+  &__star {
+    cursor: pointer;
+    position: absolute;
+    appearance: none;
+    top: 0;
+    left: 0;
+    height: #{$height}px;
+    margin: 0;
+    background-size: #{$width}px #{$height}px;
+    background-repeat: repeat-x;
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+      outline: none;
+    }
 
-  &:checked,
-  &:hover {
-    background-image: url(../../components/rating/images/on.svg);
-    background-size: 24px 19px;
-  }
+    &:checked,
+    &:hover {
+      background-image: url(../../components/rating/images/on.svg);
+      background-size: #{$width}px #{$height}px;
+    }
 
-  &:hover ~ .rating__star {
-    background-image: url(../../components/rating/images/off.svg);
-  }
+    &:hover ~ .rating__star {
+      background-image: url(../../components/rating/images/off.svg);
+    }
 
-  // start from 1 to 5
-  &:nth-of-type(1) {
-    z-index: 5;
-    width: 24px;
-  }
+    // stars from 1 to 5
+    &:nth-of-type(1) {
+      z-index: 5;
+      width: #{$width * 1}px;
+    }
 
-  &:nth-of-type(2) {
-    z-index: 4;
-    width: 48px;
-  }
+    &:nth-of-type(2) {
+      z-index: 4;
+      width: #{$width * 2}px;
+    }
 
-  &:nth-of-type(3) {
-    z-index: 3;
-    width: 72px;
-  }
+    &:nth-of-type(3) {
+      z-index: 3;
+      width: #{$width * 3}px;
+    }
 
-  &:nth-of-type(4) {
-    z-index: 2;
-    width: 96px;
-  }
+    &:nth-of-type(4) {
+      z-index: 2;
+      width: #{$width * 4}px;
+    }
 
-  &:nth-of-type(5) {
-    z-index: 1;
-    width: 120px;
+    &:nth-of-type(5) {
+      z-index: 1;
+      width: #{$width * 5}px;
+    }
   }
 }
