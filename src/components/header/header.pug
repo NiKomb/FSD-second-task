@@ -8,13 +8,14 @@ mixin header(options)
       btnRefRegister="/mock-address/change-me",
     }=options
 
+  - const ID = Math.random().toFixed(5)
+
   header.header
     .header__main
       .header__container
         a.header__logo(href=logoRef alt="Toxin")
           +logo
-        input.header__input(type="checkbox" id="header-input")
-        label.header__toggle(label for="header-input")
+        input.header__input(type="checkbox" id=ID )
         nav.header__nav
           ul.header__menu
             each item in nav
@@ -36,3 +37,4 @@ mixin header(options)
               li.header__item
                 a.header__button(href=btnRefRegister alt="Register" tabindex=-1)
                   +button({theme:"fill", text:"Зарегистрироваться"})
+        label.header__toggle(label for=ID)
