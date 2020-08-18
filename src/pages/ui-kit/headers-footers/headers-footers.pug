@@ -8,52 +8,58 @@
       nav:[
         {
           name: "О нас",
-          alt: "О нас"
+          isBig: true,
+          title: "О нас"
         },
         {
           name: "Услуги",
-          menu: true,
-          alt: "Услуги"
+          submenu: true,
+          title: "Услуги"
         },
         {
           name: "Вакансии",
-          alt: "Вакансии"
+          title: "Вакансии"
         },
         {
           name: "Новости",
-          alt: "Новости"
+          title: "Новости"
         },
         {
           name: "Соглашения",
-          menu: true,
-          alt: "Соглашения"
+          submenu: true,
+          title: "Соглашения"
         },
       ]
     })
   .headers-footers__item
     +header({
       auth:true,
+      logoRef:"./landing-page.html",
+      btnRefEnter:"./sign-in.html",
+      btnRefRegister:"./registration.html",
       nav:[
         {
-          name: "О нас", alt: "О нас"
+          name: "О нас",
+          isBig: true,
+          title: "О нас"
         },
         {
           name: "Услуги",
-          menu: true,
-          alt: "Услуги"
+          submenu: true,
+          title: "Услуги"
         },
         {
           name: "Вакансии",
-          alt: "Вакансии"
+          title: "Вакансии"
         },
         {
           name: "Новости",
-          alt: "Новости"
+          title: "Новости"
         },
         {
           name: "Соглашения",
-          menu: true,
-          alt: "Соглашения"
+          submenu: true,
+          title: "Соглашения"
         }
       ]
     })

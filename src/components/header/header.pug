@@ -6,35 +6,36 @@ mixin header(options)
       logoRef="/mock-address/change-me",
       btnRefEnter="/mock-address/change-me",
       btnRefRegister="/mock-address/change-me",
-    }=options
+      userRef="/mock-address/change-me",
+    } = options
 
+  //- create a unique id for the toggle
   - const ID = Math.random().toFixed(5)
 
   header.header
     .header__main
       .header__container
-        a.header__logo(href=logoRef alt="Toxin")
+        a.header__logo(href=logoRef title="Toxin")
           +logo
         input.header__input(type="checkbox" id=ID )
         nav.header__nav
           ul.header__menu
-            each item in nav
-              if item.menu
-                li.header__item.header__item_marked
-                  a.header__link(href="/mock-address/change-me" alt=item.alt)=item.name
-              else
-                li.header__item
-                  a.header__link(href="/mock-address/change-me" alt=item.alt)=item.name
-          ul.header__user-menu
+            for item in nav
+              li.header__item(
+                class=((item.submenu===true) ? 'header__item_with-menu' : ''),
+                class=((item.isBig===true) ? 'header__item_bold' : ''))
+                  a.header__link(href="/mock-address/change-me" title=item.title)=item.name
+          ul.header__menu.header__menu_with-buttons
             if auth === true
               li.header__item
-                span.header__user-name
-                  a.header__link(href="/mock-address/change-me")="Юлий Цезарь"
+                span.header__user
+                  a.header__link(href=userRef)="Юлий Цезарь"
             else
               li.header__item
                 a.header__button(href=btnRefEnter alt="Sign-In" tabindex=-1)
-                  +button({text:"Войти"})
+                  +button({text:"Войти", size:"little"})
               li.header__item
                 a.header__button(href=btnRefRegister alt="Register" tabindex=-1)
-                  +button({theme:"fill", text:"Зарегистрироваться"})
-        label.header__toggle(label for=ID)
+                  +button({theme:"fill", text:"Зарегистрироваться", size:"little"})
+        label.header__toggle(label for=ID).header__toggle_with-cross
+          include ./images/icon.svg

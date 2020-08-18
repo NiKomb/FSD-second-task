@@ -22,34 +22,56 @@
     }
   }
 
-  &__input {
-    position: relative;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
+  &__logo {
+    display: block;
     outline: none;
 
+    &:focus-within {
+      filter: drop-shadow(0px 0px 5px $sub-prime-color);
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:focus {
+      ~ #{$switch}__toggle {
+        filter: drop-shadow(0px 0px 5px $sub-prime-color);
+      }
+    }
+
     &:checked {
+      ~ #{$switch}__toggle {
+        &_with-cross {
+          path {
+            &#top,
+            &#bottom {
+              stroke-dashoffset: -650px;
+              stroke-dashoffset: -650px;
+            }
+            &#middle {
+              stroke-dashoffset: -115px;
+              stroke-dasharray: 1px 220px;
+            }
+          }
+        }
+      }
+
       @media (max-width: 950px) {
         ~ #{$switch}__nav {
           display: block;
         }
       }
-
-      ~ #{$switch}__toggle {
-        mask-image: url("../../components/header/images/close.svg");
-        -webkit-mask-image: url("../../components/header/images/close.svg");
-        background-color: $dark-shade-75;
-        margin: 0;
-        top: 6px;
-      }
     }
 
-    &:focus {
-      ~ #{$switch}__toggle {
-        box-shadow: 10px 10px 10px $dark-shade-50;
-      }
+    @media (max-width: 950px) {
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      outline: none;
     }
   }
 
@@ -67,20 +89,16 @@
     align-items: center;
 
     @media (max-width: 950px) {
+      padding-top: 10px;
       flex-direction: column;
       align-items: flex-start;
-    }
-  }
 
-  &__user-menu {
-    display: flex;
-    align-items: center;
+      &_with-buttons {
+        flex-direction: row;
 
-    @media (max-width: 950px) {
-      justify-content: space-between;
-
-      > .header__item {
-        margin: 0;
+        // > #{$switch}__item {
+        //   margin-right: 20px;
+        // }
       }
     }
   }
@@ -89,7 +107,7 @@
     display: inline-block;
     margin-right: 20px;
 
-    &_marked {
+    &_with-menu {
       ::after {
         content: "";
         display: inline-block;
@@ -110,46 +128,77 @@
       }
     }
 
-    @media (max-width: 950px) {
-      margin: 0 0 5px 0;
+    &_bold {
+      font-weight: bold;
+
+      > #{$switch}__link {
+        color: $dark-shade-75;
+      }
     }
+
+    // @media (max-width: 950px) {
+    //   margin: 0;
+    // }
   }
 
-  &__user-name {
+  &__user {
     border-left: 1px solid $dark-shade-10;
     padding: 6px 0 7px 29px;
 
     @media (max-width: 950px) {
       border: 0;
+      border-top: 1px solid $dark-shade-10;
+      padding: 3px 0 0 0;
     }
   }
 
   &__link {
     text-decoration: none;
-
-    &:not(.button) {
-      color: $dark-shade-50;
-    }
+    color: $dark-shade-50;
+    outline: none;
 
     &:hover {
       color: $dark-shade-25;
     }
+
+    &:focus {
+      filter: drop-shadow(1px 1px 5px $sub-prime-color);
+    }
   }
 
   &__toggle {
-    mask-image: url("../../components/header/images/menu.svg");
-    -webkit-mask-image: url("../../components/header/images/menu.svg");
+    $easeOutBack: cubic-bezier(0.25, -0.25, 0.75, 1.25);
+    $easing: $easeOutBack;
+    $duration: 0.5s;
+
     display: none;
     position: absolute;
-    background-color: $dark-shade-75;
-    background-repeat: no-repeat;
-    // margin: auto;
-    width: 30px;
-    height: 30px;
-    top: 6px;
-    bottom: 0;
-    right: 15px;
-    user-select: none;
+    right: 2px;
+    width: 59px;
+    top: -3px;
+
+    & svg {
+      cursor: pointer;
+      transform: translate3d(0, 0, 0);
+    }
+
+    & path {
+      fill: none;
+      transition: stroke-dashoffset $duration $easing, stroke-dasharray $duration $easing;
+      stroke-width: 40px;
+      stroke-linecap: round;
+      stroke: $dark-shade;
+      stroke-dashoffset: 0px;
+
+      &#top,
+      &#bottom {
+        stroke-dasharray: 240px 1000px;
+      }
+
+      &#middle {
+        stroke-dasharray: 240px 240px;
+      }
+    }
 
     @media (max-width: 950px) {
       display: block;
