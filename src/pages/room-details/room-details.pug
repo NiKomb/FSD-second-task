@@ -1,0 +1,108 @@
+extends /template/template
+
+include /components/details/details
+include /components/pie-chart/pie-chart
+include /components/reviews/reviews
+include /components/info/info
+include /components/card-order/card-order
+
+block pageTitle
+  title Room details
+
+block main
+  main.room-details
+    .room-details__gallery
+    .room-details__summary
+      .room-details__description
+        .room-details__item
+          +details({
+          title:"Сведения о номере",
+          subtitle: "",
+          items: [
+              {
+                icon:"smile",
+                name: "Комфорт",
+                text:"Шумопоглощающие стены",
+              },
+              {
+                icon: "city",
+                name: "Удобство",
+                text: "Окно в каждой из спален"
+              },
+              {
+                icon: "fire",
+                name: "Удобство",
+                text: "Окно в каждой из спален"
+              },
+            ]
+          })
+        .room-details__item
+          +pie-chart({
+          title:"Впечатления от номера",
+          subtitle:"доп имя",
+          items:[]
+        })
+        .room-details__group
+          +reviews({
+            title:"Отзывы посетителей номера",
+            subtitle: "2 отзыва",
+            review: [
+                {
+                  avatar:require("../ui-kit/form-elements/images/author_1.png").default,
+                  like:true,
+                  count: 12,
+                  author:"Мурад Сарафанов",
+                  time:"5 дней назад ",
+                  text:"Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.  "
+                },
+                {
+                  avatar:require("../ui-kit/form-elements/images/author_2.png").default,
+                  like:false ,
+                  count: 2,
+                  author:"Патрисия Стёклышкова",
+                  time:"Неделю назад",
+                  text:"Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"
+                },
+              ]
+            })
+        .room-details__item
+          +info({
+          title:"Правила",
+          subtitle:" ",
+          items:[
+            {
+              bullet:true,
+              text:"Нельзя с питомцами"
+            },
+            {
+              bullet:true,
+              text:"Без вечеринок и мероприятий"
+            },
+            {
+              bullet:true,
+              text:"Время прибытия — после 13:00,а выезд до 12:00"
+            },
+            ]
+          })
+        .room-details__item
+          +info({
+          title:"Отмена",
+          subtitle:"",
+          items:[
+            {
+              bullet:false,
+              text:"Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
+            },
+            ]
+          })
+      .room-details__card
+        +card-order({
+          form:"Order room",
+          number:888,
+          luxury:true,
+          price:9990,
+          days:4,
+          discount:2179,
+          service:0,
+          addService:300
+        })

@@ -1,0 +1,29 @@
+@import "../../theme/main.scss";
+
+.room-details {
+  &__gallery {
+    height: 34.8571rem;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 104.2857rem;
+  }
+
+  &__summary {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr 1fr minmax(auto, 27.1429rem);
+    grid-column-gap: 5rem;
+  }
+
+  &__description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.2143rem;
+    grid-row-gap: 1.5714rem;
+    grid-column: 1 / 3;
+  }
+
+  &__group {
+    grid-column: 1 / -1;
+  }
+}

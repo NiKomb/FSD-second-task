@@ -3,8 +3,20 @@ include /components/button/button
 include /components/card-number/card-number
 
 
-mixin card-order({ form, number, luxury, price, days=0, discount=0, service=0, addService=0 }='')
-  form.card-order(name=form)
+mixin card-order(options)
+  -
+    const {
+      form= "Order",
+      number=1,
+      luxury=false,
+      price=0,
+      days=0,
+      discount=0,
+      service=0,
+      addService=0,
+    } = options
+
+  form.card-order(name=`${form} № ${number}`)
     .card-order__number
       +card-number({
         number:number,
@@ -51,5 +63,5 @@ mixin card-order({ form, number, luxury, price, days=0, discount=0, service=0, a
          form:form,
          theme: "arrow",
          size:" ",
-         text:"Подобрать номер"
+         text:"Забронировать"
          })
