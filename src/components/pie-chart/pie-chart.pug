@@ -1,34 +1,56 @@
 mixin pie-chart({title, subtitle, items=[]=''})
   article.pie-chart
     h3.pie-chart__title(data-subtitle=subtitle)=title
-    .pie-chart__box
-      .pie-chart__circle
-        .pie-chart__circle_1
-        .pie-chart__circle_2
-        .pie-chart__circle_3
-      .pie-chart__round
-        .pie-chart__round_1
-        .pie-chart__round_2
-        .pie-chart__round_3
-      .donut__circle
-        svg.donut__svg(width="100%" height="100%")
-          circle(r="56" cx="60" cy="55" stroke="url(#orange-gradient)" stroke-width="5" fill="none" stroke-dasharray="172 400" transform="rotate(90 58 58)")
-          defs
-            linearGradient(id="orange-gradient")
-              stop(offset="0" stop-color="#FFE29C")
-              stop(offset="1" stop-color="#FFBA9C")
-          circle(r="56" cx="54" cy="60" stroke="url(#purple-gradient)" stroke-width="10" fill="none" stroke-dasharray="79 300" transform="rotate(-90 58 58)")
-          defs
-            linearGradient(id="purple-gradient")
-              stop(offset="0" stop-color="#BA9CFE")
-              stop(offset="1" stop-color="#A59FFC")
-          circle(r="60" cx="57" cy="56" fill="transparent" stroke="url(#green-gradient)" stroke-width="5" stroke-dasharray="87 400")
-          defs
-            linearGradient(id="green-gradient")
-              stop(offset="0" stop-color="#6cd1c1")
-              stop(offset="1" stop-color="#6ecf99")
-          g(class="donut__text")
-            text(x="38px", y="60px") #{votes}
-            text(x="29px", y="62px" transform="translate(0 31)") голосов
-      figcaption.pie-chart__legend
-        ul.pie-chart__
+    .pie-chart__container
+      .pie-chart__graph
+        svg.pie-chart__svg.js-pie-chart__svg(fill="none" preserveAspectRatio="xMinYMin meet" viewBox="0 0 36 36")
+          circle.pie-chart__circle(
+            r="15.9"
+            cx="50%"
+            cy="50%"
+            fill="none"
+            stroke="url(#linear-gradient-fine)"
+            stroke-width="1"
+            stroke-dasharray= "24 100"
+            stroke-dashoffset= "-0.5"
+            ).js-pie-chart__circle
+          circle.pie-chart__circle(
+            r="15.9"
+            cx="50%"
+            cy="50%"
+            fill="none"
+            stroke="url(#linear-gradient-good)"
+            stroke-width="1"
+            stroke-dasharray= "24 100"
+            stroke-dashoffset= "-25.5"
+            ).js-pie-chart__circle
+          circle.pie-chart__circle(
+            r="15.9"
+            cx="50%"
+            cy="50%"
+            fill="none"
+            stroke="url(#linear-gradient-excellent)"
+            stroke-width="1"
+            stroke-dasharray= "49 100"
+            stroke-dashoffset= "-50.5"
+            ).js-pie-chart__circle
+
+          linearGradient(id="linear-gradient-fine")
+            stop(stop-color="#BC9CFF")
+            stop(offset="1" stop-color="#8BA4F9")
+
+          linearGradient(id="linear-gradient-good")
+            stop(stop-color="#66D2EA")
+            stop(offset="1" stop-color="#6FCF97")
+
+          linearGradient(id="linear-gradient-excellent")
+            stop(stop-color="#FFBA9C")
+            stop(offset="1" stop-color="#FFE39C")
+      ul.pie-chart__legend
+        li.pie-chart__item.js-pie-chart__item Великолепно
+
+        li.pie-chart__item.js-pie-chart__item Хорошо
+
+        li.pie-chart__item.js-pie-chart__item Удовлетворительно
+
+        li.pie-chart__item.js-pie-chart__item Разочарован
