@@ -1,17 +1,16 @@
 .button {
   display: inline-block;
-  position: sticky;
+  position: relative;
+  z-index: 1;
 
   &__box {
     display: block;
     outline: none;
     cursor: pointer;
 
-    font: bold 12px Montserrat, Arial, sans-serif;
-    line-height: 15px;
-    text-align: center;
-    text-transform: uppercase;
+    @include font-h3;
     color: $prime-color;
+    text-transform: uppercase;
 
     padding: 10px 18px;
     border-radius: 22px;
@@ -28,11 +27,7 @@
       left: 0;
       bottom: 0;
       right: 0;
-      background: linear-gradient(
-        180deg,
-        $prime-color 0%,
-        $sub-prime-color 100%
-      );
+      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
     }
 
     &:focus-within {
@@ -44,11 +39,7 @@
     &:hover {
       // color: lighten($prime-color, 10%);
       &::before {
-        background-image: linear-gradient(
-          180deg,
-          lighten($prime-color, 10%) 0%,
-          lighten($sub-prime-color, 10%) 100%
-        );
+        background-image: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
       }
     }
 
@@ -76,11 +67,7 @@
 
       &:hover {
         &::before {
-          background-image: linear-gradient(
-            180deg,
-            lighten($prime-color, 10%) 0%,
-            lighten($sub-prime-color, 10%) 100%
-          );
+          background-image: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
         }
       }
     }
@@ -104,12 +91,12 @@
       }
     }
 
-    &_little {
-      padding-top: 1px;
-      padding-bottom: 1px;
+    &_size_little {
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
 
-    &_big {
+    &_size_big {
       padding-top: 20px;
       padding-bottom: 20px;
     }
