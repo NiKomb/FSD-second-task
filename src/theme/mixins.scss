@@ -28,7 +28,7 @@
   font-variant: normal;
   font-weight: bold;
   font-size: $fs-h1;
-  line-height: 2.1429rem;
+  line-height: $lh-h1;
   font-family: Quicksand, Arial, sans-serif;
   color: $dark-shade;
 }
@@ -38,7 +38,7 @@
   font-variant: normal;
   font-weight: bold;
   font-size: $fs-h2;
-  line-height: 1.7142rem;
+  line-height: $lh-h2;
   font-family: Quicksand, Arial, sans-serif;
   color: $dark-shade;
 }
@@ -48,7 +48,7 @@
   font-variant: normal;
   font-weight: bold;
   font-size: $fs-h3;
-  line-height: 1.0714rem;
+  line-height: $lh-h3;
   font-family: Montserrat, Arial, sans-serif;
   color: $dark-shade;
 }
@@ -58,7 +58,7 @@
   font-variant: normal;
   font-weight: normal;
   font-size: $fs-body;
+  line-height: $lh-body;
   font-family: Montserrat, Arial, sans-serif;
-  line-height: 1.7143rem;
   color: $dark-shade-75;
 }

@@ -30,6 +30,7 @@
     display: none;
   }
 
+  // special thanks to https://codepen.io/jh3y/pen/WwVKLN?editors=1100
   @for $num from 1 through 10 {
     &__input:nth-of-type(#{$num}) {
       &:checked ~ .card-slider__track {
@@ -77,23 +78,13 @@
     &_prev {
       left: 0;
       background: #000;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0) 99.99%,
-        rgba(255, 255, 255, 0) 100%
-      );
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
       z-index: 4;
     }
 
     &_next {
       right: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0) 99.99%,
-        rgba(255, 255, 255, 0) 100%
-      );
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
       transform: rotate(-180deg);
       z-index: 4;
     }

@@ -12,8 +12,20 @@ $prime-color: #bc9cff;
 $sub-prime-color: #8ba4f9;
 $second-color: #6fcf97;
 
+$gradient-excellent: linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%);
+$gradient-good: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+$gradient-satisfied: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+$gradient-disappointed: linear-gradient(180deg, #919191 0%, #3d4975 100%);
+
 // Fonts sizes
 $fs-h1: 1.7143rem;
+$lh-h1: 2.1429rem;
+
 $fs-h2: 1.3571rem;
+$lh-h2: 1.7142rem;
+
 $fs-h3: 0.8571rem;
+$lh-h3: 1.0714rem;
+
 $fs-body: 1rem;
+$lh-body: 1.7143rem;
