@@ -8,7 +8,13 @@ mixin pie-chart(options)
       items=[]
     }=options
 
+    //- dash`s length in in percent
+    const dashLength=0.5
+
     const totalVotes= items.reduce((total, item) => total + item.votes, 0);
+    const votes= items
+      .filter(item=>item.votes>=0)
+      .map(item=>(((typeof(item.votes) === "number")? item.votes: 0)*100/totalVotes))
 
   article.pie-chart
     .pie-chart__title(data-subtitle=subtitle)=title
@@ -23,8 +29,8 @@ mixin pie-chart(options)
             fill="none"
             stroke="url(#linear-gradient-excellent)"
             stroke-width="1"
-            stroke-dasharray= "49 100"
-            stroke-dashoffset= "-50.5"
+            stroke-dasharray= `${(votes[0])?votes[0]:0} 100`
+            stroke-dashoffset= `${-dashLength}`
             ).js-pie-chart__circle
 
           circle.pie-chart__circle(
@@ -34,8 +40,8 @@ mixin pie-chart(options)
             fill="none"
             stroke="url(#linear-gradient-good)"
             stroke-width="1"
-            stroke-dasharray= "24 100"
-            stroke-dashoffset= "-25.5"
+            stroke-dasharray= `${(votes[1])?votes[1]:0} 100`
+            stroke-dashoffset= `${-(votes[0])-dashLength*2}`
             ).js-pie-chart__circle
 
           circle.pie-chart__circle(
@@ -45,8 +51,8 @@ mixin pie-chart(options)
             fill="none"
             stroke="url(#linear-gradient-satisfied)"
             stroke-width="1"
-            stroke-dasharray= "24 100"
-            stroke-dashoffset= "-0.5"
+            stroke-dasharray= `${(votes[2])?votes[2]:0} 100`
+            stroke-dashoffset= `${-votes[0]-votes[1]-dashLength*3}`
             ).js-pie-chart__circle
 
           circle.pie-chart__circle(
@@ -56,8 +62,8 @@ mixin pie-chart(options)
               fill="none"
               stroke="url(#linear-gradient-disappointed)"
               stroke-width="1"
-              stroke-dasharray= "0 100"
-              stroke-dashoffset= "-0.5"
+              stroke-dasharray= `${(votes[3])?votes[3]:0} 100`
+              stroke-dashoffset= `${-votes[0]-votes[1]-votes[2]-dashLength*4}`
               ).js-pie-chart__circle
 
           linearGradient(id="linear-gradient-excellent")
