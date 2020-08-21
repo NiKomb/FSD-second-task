@@ -32,11 +32,7 @@
     }
 
     &:hover:not(.pagination__page_current):not(.pagination__page_next):not(.pagination__page_skip) {
-      background: linear-gradient(
-        180deg,
-        lighten($prime-color, 10%) 0%,
-        lighten($sub-prime-color, 10%) 100%
-      );
+      background: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
       color: #fff;
     }
 
@@ -45,11 +41,7 @@
     // }
 
     &_current {
-      background: linear-gradient(
-        180deg,
-        $prime-color 0%,
-        $sub-prime-color 100%
-      );
+      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
       font-weight: bold;
       color: #fff;
     }
@@ -64,17 +56,21 @@
       background: linear-gradient(180deg, $second-color 0%, #66d2ea 100%);
 
       &::after {
-        display: inline-block;
-        vertical-align: -webkit-baseline-middle;
-        content: url(../../components/pagination/images/arrow_forward.svg);
+        content: url(../../components/pagination/images/arrow.svg);
+        position: absolute;
+        margin: auto;
+
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        width: min-content;
+        height: min-content;
       }
 
       &:hover {
-        background: linear-gradient(
-          180deg,
-          lighten($second-color, 10%) 0%,
-          lighten(#66d2ea, 10%) 100%
-        );
+        background: linear-gradient(180deg, lighten($second-color, 10%) 0%, lighten(#66d2ea, 10%) 100%);
       }
     }
   }

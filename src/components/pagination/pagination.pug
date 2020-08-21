@@ -1,10 +1,10 @@
-mixin pagination({ current=1, total, variant=1, href='#'} = "" )
+mixin pagination({ current=1, total, variant=1, href="/mock-address/change-me"} = "" )
   .pagination
     .pagination__pages
-      a(tabindex=0 href=href).pagination__page.pagination__page_current=current
-      a(tabindex=0 href=href).pagination__page=current+1
-      a(tabindex=0 href=href).pagination__page=current+2
-      a(tabindex=0 href=href).pagination__page.pagination__page_skip="..."
-      a(tabindex=0 href=href).pagination__page=total
-      a(tabindex=0 href=href).pagination__page.pagination__page_next
+      a(tabindex=0 href=href, target="_blank").pagination__page.pagination__page_current=current
+      a(tabindex=0 href=href, target="_blank").pagination__page=current+1
+      a(tabindex=0 href=href, target="_blank").pagination__page=current+2
+      a(tabindex=0 href=href, target="_blank").pagination__page.pagination__page_skip="..."
+      a(tabindex=0 href=href, target="_blank").pagination__page=total
+      a(tabindex=0 href=href, target="_blank").pagination__page.pagination__page_next
     .pagination__total=`1 – 12 из ${variant}+ вариантов аренды`

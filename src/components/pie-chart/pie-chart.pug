@@ -29,11 +29,15 @@ mixin pie-chart(options)
     const validItems=items
       .filter(item=>isCorrectItem(item))
     const percentDash=0.5
-    const gradients= [
-      "linear-gradient-excellent",
-      "linear-gradient-good",
-      "linear-gradient-satisfied",
-      "linear-gradient-disappointed",
+    const colors= [
+      "excellent",
+      "good",
+      "satisfied",
+      "disappointed",
+      "excellent",
+      "good",
+      "satisfied",
+      "disappointed",
     ]
 
   article.pie-chart
@@ -48,7 +52,7 @@ mixin pie-chart(options)
                   cx="50%"
                   cy="50%"
                   fill="none"
-                  stroke=`url(#${gradients[i]})`
+                  stroke=`url(#linear-gradient-${colors[i]})`
                   stroke-width="1"
                   stroke-dasharray= `${(percents[i]) ? percents[i] - percentDash : 0} 100`
                   stroke-dashoffset= `${-makeDashOffset(i) - percentDash/2}`
@@ -72,6 +76,6 @@ mixin pie-chart(options)
 
       ul.pie-chart__legend
         for item,i in validItems
-          li.pie-chart__item(title=`${percents[i]}%`).js-pie-chart__item #{item.name}
-          p.pie-chart__votes(data-votes= item.value).js-pie-chart__votes #{itemsName}
-        .pie-chart__total(data-votes=total).js-pie-chart__total #{itemsName}
+          li.pie-chart__item(class=`pie-chart__item_color_${colors[i]}`, title=`${percents[i]}%`).js-pie-chart__item #{item.name}
+          p.pie-chart__votes(class=`pie-chart__votes_color_${colors[i]}`, data-votes= item.value).js-pie-chart__votes #{itemsName}
+        .pie-chart__total(class=`pie-chart__total_color_${colors[i]}`, data-votes=total).js-pie-chart__total #{itemsName}
