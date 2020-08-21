@@ -5,16 +5,36 @@ mixin pie-chart(options)
     const {
       title,
       subtitle,
+      itemsName= "голосов",
       items=[]
     }=options
 
-    //- dash`s length in in percent
-    const dashLength=0.5
+    const isCorrectItem = function isCorrectItem(item) {
+      const isNumber = typeof item.value === "number";
+      return isNumber && item.value >= 0;
+    };
 
-    const totalVotes= items.reduce((total, item) => total + item.votes, 0);
-    const votes= items
-      .filter(item=>item.votes>=0)
-      .map(item=>(((typeof(item.votes) === "number")? item.votes: 0)*100/totalVotes))
+    const total= items
+      .filter(item=>isCorrectItem(item))
+      .reduce((total, item) => total + item.value, 0);
+
+    const percents= items
+      .filter(item=>isCorrectItem(item))
+      .map(item=>(+(item.value * 100 / total).toFixed(1)))
+
+    const makeDashOffset = function dashoffset(i){
+      return percents.slice(0,i).reduce((acc, val)=> acc+val ,0)
+    }
+
+    const validItems=items
+      .filter(item=>isCorrectItem(item))
+    const percentDash=0.5
+    const gradients= [
+      "linear-gradient-excellent",
+      "linear-gradient-good",
+      "linear-gradient-satisfied",
+      "linear-gradient-disappointed",
+    ]
 
   article.pie-chart
     .pie-chart__title(data-subtitle=subtitle)=title
@@ -22,53 +42,21 @@ mixin pie-chart(options)
       .pie-chart__graph
         svg.pie-chart__svg.js-pie-chart__svg(fill="none" preserveAspectRatio="xMinYMin meet" viewBox="0 0 35 35")
 
-          circle.pie-chart__circle(
-            r="15.9"
-            cx="50%"
-            cy="50%"
-            fill="none"
-            stroke="url(#linear-gradient-excellent)"
-            stroke-width="1"
-            stroke-dasharray= `${(votes[0])?votes[0]:0} 100`
-            stroke-dashoffset= `${-dashLength}`
-            ).js-pie-chart__circle
-
-          circle.pie-chart__circle(
-            r="15.9"
-            cx="50%"
-            cy="50%"
-            fill="none"
-            stroke="url(#linear-gradient-good)"
-            stroke-width="1"
-            stroke-dasharray= `${(votes[1])?votes[1]:0} 100`
-            stroke-dashoffset= `${-(votes[0])-dashLength*2}`
-            ).js-pie-chart__circle
-
-          circle.pie-chart__circle(
-            r="15.9"
-            cx="50%"
-            cy="50%"
-            fill="none"
-            stroke="url(#linear-gradient-satisfied)"
-            stroke-width="1"
-            stroke-dasharray= `${(votes[2])?votes[2]:0} 100`
-            stroke-dashoffset= `${-votes[0]-votes[1]-dashLength*3}`
-            ).js-pie-chart__circle
-
-          circle.pie-chart__circle(
-              r="15.9"
-              cx="50%"
-              cy="50%"
-              fill="none"
-              stroke="url(#linear-gradient-disappointed)"
-              stroke-width="1"
-              stroke-dasharray= `${(votes[3])?votes[3]:0} 100`
-              stroke-dashoffset= `${-votes[0]-votes[1]-votes[2]-dashLength*4}`
-              ).js-pie-chart__circle
+          for item, i in percents
+            circle.pie-chart__circle(
+                  r="15.9"
+                  cx="50%"
+                  cy="50%"
+                  fill="none"
+                  stroke=`url(#${gradients[i]})`
+                  stroke-width="1"
+                  stroke-dasharray= `${(percents[i]) ? percents[i] - percentDash : 0} 100`
+                  stroke-dashoffset= `${-makeDashOffset(i) - percentDash/2}`
+                  ).js-pie-chart__circle
 
           linearGradient(id="linear-gradient-excellent")
-            stop(stop-color="#FFBA9C")
-            stop(offset="1" stop-color="#FFE39C")
+            stop(stop-color="#FFE39C")
+            stop(offset="1" stop-color="#FFBA9C")
 
           linearGradient(id="linear-gradient-good")
             stop(stop-color="#66D2EA")
@@ -83,7 +71,7 @@ mixin pie-chart(options)
             stop(offset="1" stop-color="#3d4975")
 
       ul.pie-chart__legend
-        for item in items
-          li.pie-chart__item.js-pie-chart__item #{item.name}
-          p.pie-chart__votes(data-votes=item.votes).js-pie-chart__votes голосов
-        .pie-chart__total(data-votes=totalVotes).js-pie-chart__total голосов
+        for item,i in validItems
+          li.pie-chart__item(title=`${percents[i]}%`).js-pie-chart__item #{item.name}
+          p.pie-chart__votes(data-votes= item.value).js-pie-chart__votes #{itemsName}
+        .pie-chart__total(data-votes=total).js-pie-chart__total #{itemsName}
