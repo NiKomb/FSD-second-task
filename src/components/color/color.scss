@@ -1,11 +1,17 @@
 .color {
   &__item {
-    width: 270px;
-    margin-bottom: 20px;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
+
+    width: 270px;
+
     color: $dark-shade;
     font-family: Quicksand, sans-serif;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__box {
@@ -13,12 +19,44 @@
     width: 70px;
     margin-right: 40px;
     border-radius: 6px;
+
+    &_theme {
+      &_dark-shade {
+        background-color: $dark-shade;
+      }
+
+      &_dark-shade-75 {
+        background-color: $dark-shade-75;
+      }
+
+      &_dark-shade-50 {
+        background-color: $dark-shade-50;
+      }
+
+      &_dark-shade-25 {
+        background-color: $dark-shade-25;
+      }
+
+      &_dark-shade-5 {
+        background-color: $dark-shade-5;
+      }
+
+      &_prime {
+        background-color: $prime-color;
+      }
+
+      &_second {
+        background-color: $second-color;
+      }
+    }
   }
+
   &__info {
-    font-size: 19px;
-    line-height: 29px;
-  }
-  &__text {
     @include font-h2;
+  }
+
+  &__code {
+    margin-top: 0.4rem;
+    font-weight: normal;
   }
 }

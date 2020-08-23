@@ -1,6 +1,6 @@
-.cards
+.cards__section
   .cards__grid
-    .cards__container
+    .cards__column
       .cards__item
         +card-search({title:"Найдём номера под ваши пожелания"})
       .cards__item
@@ -9,7 +9,7 @@
           form:"registration",
           auth:true,
         })
-    .cards__container
+    .cards__column
       .cards__item
         +card-order({
           form:"Order",
@@ -23,7 +23,7 @@
         })
       .cards__item
         +card-sign-in({title:"Войти", auth:false})
-    .cards__container
+    .cards__column
       .cards__item
         .cards__item_with-calendar
       .cards__item

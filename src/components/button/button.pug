@@ -6,8 +6,8 @@ mixin button({theme, size, type="button", form=1, href='#', text="Button"}="")
           type=type,
           form=form,
           class='button__box button__box_with-string',
-          class=`${size==="big" ? 'button__box_big':''}`,
-          class=`${size==="little" ? 'button__box_little':''}`,
+          class=`${size==="big" ? 'button__size_big':''}`,
+          class=`${size==="little" ? 'button__size_little':''}`,
           href=href
           )=text
       when "fill"

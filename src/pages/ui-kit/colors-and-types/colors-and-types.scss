@@ -1,46 +1,13 @@
-.container {
-  @include container;
-  padding: 145px 0;
-  display: flex;
-  justify-content: space-between;
-  align-content: space-around;
-  flex-wrap: wrap;
-
-  &__color-item {
-    &_ds100 {
-      background-color: $dark-shade;
-    }
-    &_ds75 {
-      background-color: $dark-shade-75;
-    }
-    &_ds50 {
-      background-color: $dark-shade-50;
-    }
-    &_ds25 {
-      background-color: $dark-shade-25;
-    }
-    &_ds5 {
-      background-color: $dark-shade-5;
-    }
-    &_prime {
-      background-color: $prime-color;
-    }
-    &_second {
-      background-color: $second-color;
-    }
+.color-and-types {
+  &__section {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
-  &__type-item {
-    &_h1 {
-      @include font-h1;
-    }
-    &_h2 {
-      @include font-h2;
-    }
-    &_h3 {
-      @include font-h3;
-    }
-    &_body {
-      @include font-body;
-    }
+
+  &__item {
+    margin-bottom: 9rem;
+    padding-right: 4.4rem;
   }
 }

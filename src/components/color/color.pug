@@ -2,7 +2,7 @@ mixin color(colors = [])
   .color
     each item in colors
       .color__item
-        .color__box(class= item.classColor)
+        .color__box(class= `color__box_theme_${item.theme}`)
         .color__info
           p.color__text= item.text
-          span.color__code= item.code
+          p.color__code= item.code

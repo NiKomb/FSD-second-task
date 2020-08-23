@@ -2,14 +2,43 @@
   width: 336px;
 
   &__item {
+    display: block;
     position: relative;
     margin-bottom: 50px;
+
+    &_theme {
+      &_h1 {
+        @include font-h1;
+      }
+
+      &_h2 {
+        @include font-h2;
+      }
+
+      &_h3 {
+        @include font-h3;
+      }
+
+      &_body {
+        @include font-body;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-  &__tag {
-    text-align: right;
+
+  &__mark {
+    display: block;
     position: absolute;
-    left: -50px;
+    left: -4.786rem;
+
+    width: 100%;
+    max-width: 2.643rem;
+
     color: $dark-shade-25;
-    font-weight: 400;
+    font-weight: normal;
+    text-align: end;
   }
 }
