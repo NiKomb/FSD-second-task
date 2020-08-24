@@ -26,7 +26,7 @@
           +input-text({view:"arrow", title:"subscription text field", subtitle: "", placeholder: "Email", name:"email", type:"email"})
     .form-element__col
       .form-element__item-list
-        .form-element__item(extra-name="")="Checkbox buttons"
+        .form-element__item Checkbox buttons
           +checkbox-list({
             title:"Checkbox buttons",
             subtitle: "Доп имя",
@@ -49,26 +49,26 @@
                 }
               ]
             })
-        .form-element__item(extra-name="")="Radio buttons"
+        .form-element__item Radio buttons
           .form-element__item_with-radio
             +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
             +radio({text:"Женщина",name:"gender",value:"female"})
-        .form-element__item(extra-name="")="Toogle"
+        .form-element__item Toogle
           .form-element__item_with-toggle
             +toggle({text:"Получать спецпредложение", checked:true})
           .form-element__item_with-toggle
             +toggle({text:"Получать спецпредложение"})
-        .form-element__item(extra-name="")="Like buttons"
+        .form-element__item Like buttons
           .form-element__item_with-like
             +like({count:10})
           .form-element__item_with-like
             +like({name:"количество лайков", like:true, count:12})
-        .form-element__item(extra-name="")="Rate button"
+        .form-element__item Rate button
           .form-element__item_with-rating
             +rating({title:"", rate:4, name: "рейтинг 1 номера"})
             +rating({title:"", rate:5, name: "рейтинг 2 номера"})
       .form-element__item-list
-        .form-element__item(extra-name="")="Pie chart"
+        .form-element__item Pie chart
           +pie-chart({
             title:"Впечатления от номера",
             subtitle:"",
@@ -82,9 +82,9 @@
           })
     .form-element__col
       .form-element__item-list
-        .form-element__item(extra-name="")="Range slider"
+        .form-element__item Range slider
           +range-slider({title:"Range slider", subtitle:"5 000р-10000р", min:0, max:15000, from:5000,to:10000})
-        .form-element__item(extra-name="")="Buttons"
+        .form-element__item Buttons
           .form-element__item_with-btn
             +button({theme:"fill",text:"click me"})
             +button({theme:"fill", text:"click me", size:"big",})
@@ -97,23 +97,23 @@
             +button({theme: "arrow", size:" ", text:"Перейти к оплате"})
             +button({theme: "arrow", size:"big", text:"Перейти к оплате"})
             +button({theme: "arrow", size:"little", text:"Перейти к оплате"})
-        .form-element__item(extra-name="")="Pagination"
+        .form-element__item Pagination
           .form-element__item_with-pagination
             +pagination({current:1, total:15, variant:100})
   .form-element__container
     .form-element__col
       .form-element__item-list
-        .form-element__item(extra-name="Default")="Dropdown"
+        .form-element__item Dropdown
     .form-element__col
       .form-element__item-list
-        .form-element__item(extra-name="")="Dropdown"
+        .form-element__item Dropdown
     .form-element__col
       .form-element__item-list
-        .form-element__item(extra-name="")="Dropdown"
+        .form-element__item Dropdown
   .form-element__container
     .form-element__col
       .form-element__item-list
-        .form-element__item(extra-name="Default")="Дополнительные удобства"
+        .form-element__item Дополнительные удобства
           +checkbox-list({
             title:"Дополнительные удобства",
             subtitle: "Default",
@@ -150,7 +150,7 @@
             })
     .form-element__col
       .form-element__item-list
-        .form-element__item(extra-name="")="Rich Checkbox Buttons"
+        .form-element__item Rich Checkbox Buttons
           +checkbox-list({
             title:"Rich Checkbox Buttons",
             items:[
@@ -166,7 +166,7 @@
             })
     .form-element__col
       .form-element__item-list
-        .form-element__item(extra-name="")="Bullet list"
+        .form-element__item Bullet list
           +info({
             title:"Правила",
             subtitle:" ",
@@ -197,7 +197,7 @@
             })
   .form-element__container
     .form-element__col
-      .form-element__item(extra-name="")
+      .form-element__item Сведения о номере
         +details({
             title:"Сведения о номере",
             subtitle: "",
@@ -220,7 +220,7 @@
               ]
             })
     .form-element__col_expanded
-      .form-element__item(extra-name="")
+      .form-element__item Отзывы посетителей сайта
         +reviews({
             title:"Отзывы посетителей номера",
             subtitle: "2 отзыва",

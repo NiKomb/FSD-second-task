@@ -36,37 +36,6 @@
   &__input {
     display: none;
 
-    &:focus,
-    &:hover {
-      ~ #{$switch}__toggle {
-        filter: drop-shadow(0px 0px 5px $sub-prime-color);
-      }
-    }
-
-    &:checked {
-      ~ #{$switch}__toggle {
-        &_with-cross {
-          path {
-            &#top,
-            &#bottom {
-              stroke-dashoffset: -650px;
-              stroke-dashoffset: -650px;
-            }
-            &#middle {
-              stroke-dashoffset: -115px;
-              stroke-dasharray: 1px 220px;
-            }
-          }
-        }
-      }
-
-      @media (max-width: 950px) {
-        ~ #{$switch}__nav {
-          display: block;
-        }
-      }
-    }
-
     @media (max-width: 950px) {
       display: block;
       position: absolute;
@@ -75,6 +44,38 @@
       overflow: hidden;
       clip: rect(0 0 0 0);
       outline: none;
+    }
+
+    &:focus,
+    &:hover {
+      ~ #{$switch}__toggle {
+        filter: drop-shadow(0px 0px 5px $sub-prime-color);
+      }
+    }
+
+    &:checked {
+      @media (max-width: 950px) {
+        ~ #{$switch}__nav {
+          display: block;
+        }
+      }
+
+      ~ #{$switch}__toggle {
+        &_with-cross {
+          path {
+            &#top,
+            &#bottom {
+              stroke-dashoffset: -650px;
+              stroke-dashoffset: -650px;
+            }
+
+            &#middle {
+              stroke-dashoffset: -115px;
+              stroke-dasharray: 1px 220px;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -107,7 +108,7 @@
     margin-right: 20px;
 
     &_with-menu {
-      ::after {
+      &::after {
         content: "";
         display: inline-block;
         width: 8px;
@@ -122,7 +123,7 @@
         transform: translateY(-50%) rotate(45deg);
       }
 
-      &:hover ::after {
+      &:hover::after {
         border: 2px solid $dark-shade-25;
         border-top: 0;
         border-left: 0;
@@ -175,6 +176,10 @@
     width: 59px;
     top: -3px;
 
+    @media (max-width: 950px) {
+      display: block;
+    }
+
     & svg {
       cursor: pointer;
       transform: translate3d(0, 0, 0);
@@ -182,7 +187,8 @@
 
     & path {
       fill: none;
-      transition: stroke-dashoffset $duration $easing, stroke-dasharray $duration $easing;
+      transition: stroke-dashoffset $duration $easing,
+        stroke-dasharray $duration $easing;
       stroke-width: 40px;
       stroke-linecap: round;
       stroke: $dark-shade;
@@ -196,10 +202,6 @@
       &#middle {
         stroke-dasharray: 240px 240px;
       }
-    }
-
-    @media (max-width: 950px) {
-      display: block;
     }
   }
 }

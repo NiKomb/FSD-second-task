@@ -42,7 +42,6 @@
 
   &__circle {
     transition: 0.5s;
-    cursor: pointer;
 
     &_hovered {
       stroke-width: 3;
@@ -59,6 +58,9 @@
     display: block;
     padding-left: 20px;
     align-self: flex-end;
+
+    cursor: default;
+    user-select: none;
   }
 
   &__item {
@@ -84,32 +86,31 @@
       border-radius: 50%;
     }
 
-    &_color_excellent {
+    &_theme_excellent {
       &::before {
         background: $gradient-excellent;
       }
     }
 
-    &_color_good {
+    &_theme_good {
       &::before {
         background: $gradient-good;
       }
     }
 
-    &_color_satisfied {
+    &_theme_satisfied {
       &::before {
         background: $gradient-satisfied;
       }
     }
 
-    &_color_disappointed {
+    &_theme_disappointed {
       &::before {
         background: $gradient-disappointed;
       }
     }
 
     &:hover {
-      cursor: pointer;
       color: $dark-shade-50;
 
       + #{$switch}__votes {
@@ -155,7 +156,7 @@
       transition: 0.2s;
     }
 
-    &_color_excellent {
+    &_theme_excellent {
       background: $gradient-excellent;
       background-clip: text;
       -webkit-background-clip: text;
@@ -169,7 +170,7 @@
       }
     }
 
-    &_color_good {
+    &_theme_good {
       background: $gradient-good;
       background-clip: text;
       -webkit-background-clip: text;
@@ -183,7 +184,7 @@
       }
     }
 
-    &_color_satisfied {
+    &_theme_satisfied {
       background: $gradient-satisfied;
       background-clip: text;
       -webkit-background-clip: text;
@@ -197,7 +198,7 @@
       }
     }
 
-    &_color_disappointed {
+    &_theme_disappointed {
       background: $gradient-disappointed;
       background-clip: text;
       -webkit-background-clip: text;
@@ -215,7 +216,6 @@
   &__total {
     @include font-h3;
     position: absolute;
-    opacity: 1;
 
     margin: auto;
     top: $lh-h1;
@@ -225,11 +225,13 @@
     text-transform: uppercase;
     height: min-content;
     width: min-content;
+
     transition: 0.5s;
+    opacity: 1;
 
     &_invisible {
-      opacity: 0;
       transition: 0.2s;
+      opacity: 0;
     }
 
     &::before {
