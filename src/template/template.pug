@@ -8,94 +8,101 @@ include /components/header/header
 
 block content
   +header({
-        auth:false,
-        nav:[
-          {
-            name: "О нас",
-            alt: "О нас"
-          },
-          {
-            name: "Услуги",
-            menu: true,
-            alt: "Услуги"
-          },
-          {
-            name: "Вакансии",
-            alt: "Вакансии"
-          },
-          {
-            name: "Новости",
-            alt: "Новости"
-          },
-          {
-            name: "Соглашения",
-            menu: true,
-            alt: "Соглашения"
-          },
-        ]
-      })
+      auth:false,
+      logoRef:"./landing-page.html",
+      btnRefEnter:"./sign-in.html",
+      btnRefRegister:"./registration.html",
+      nav:[
+        {
+          name: "О нас",
+          isBig: true,
+          title: "О нас"
+        },
+        {
+          name: "Услуги",
+          submenu: true,
+          title: "Услуги"
+        },
+        {
+          name: "Вакансии",
+          title: "Вакансии"
+        },
+        {
+          name: "Новости",
+          title: "Новости"
+        },
+        {
+          name: "Соглашения",
+          submenu: true,
+          title: "Соглашения"
+        },
+      ]
+    })
   block main
   +footer({
-      view:"complex"
-      },
-      [
+      theme:"complex",
+      logoRef:"./landing-page.html",
+      info:"Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
+      subscription:"Получайте специальные предложения и новости сервиса",
+      navigation:[
         {
-          groupTitle: "Навигация",
-          groupItems: [
+          title:"Навигация",
+          section: [
             {
-              itemText: 'О нас',
-              itemHref:'#!'
+              text: 'О нас',
+              href:'#!'
             },
             {
-              itemText: 'Новости',
-              itemHref:'#!'
+              text: 'Новости',
+              href:'#!'
             },
             {
-              itemText: 'Служба поддержки',
-              itemHref:'#!'
+              text: 'Служба поддержки',
+              href:'#!'
             },
             {
-              itemText: 'Услуги',
-              itemHref:'#!'
+              text: 'Услуги',
+              href:'#!'
             },
           ]
         },
         {
-          groupTitle: "О нас",
-          groupItems: [
+          title:"О нас",
+          section: [
             {
-              itemText: 'О сервисе',
-              itemHref:'#!'
+              text: 'О сервисе',
+              href:'#!'
             },
             {
-              itemText: 'Наша команда',
-              itemHref:'#!'
+              text: 'Наша команда',
+              href:'#!'
             },
             {
-              itemText: 'Вакансии',
-              itemHref:'#!'
+              text: 'Вакансии',
+              href:'#!'
             },
             {
-              itemText: 'Инвесторы',
-              itemHref:'#!'
+              text: 'Инвесторы',
+              href:'#!'
             },
           ]
         },
         {
-          groupTitle: "Служба поддержки",
-          groupItems: [
+          title:"Служба поддержки",
+          section: [
             {
-              itemText: 'Соглашения',
-              itemHref:'#!'
+              text: 'Соглашения',
+              href:'#!'
             },
             {
-              itemText: 'Сообщества',
-              itemHref:'#!'
+              text: 'Сообщества',
+              href:'#!'
             },
             {
-              itemText: 'Связь с нами',
-              itemHref:'#!'
+              text: 'Связь с нами',
+              href:'#!'
             },
           ]
         },
-      ])
+      ]
+    })

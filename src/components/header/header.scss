@@ -11,8 +11,11 @@
   &__container {
     @include container;
     @include font-body;
-    padding: 0 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+
     position: relative;
+
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
