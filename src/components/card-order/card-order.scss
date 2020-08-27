@@ -20,15 +20,15 @@
   }
 
   &__summary {
+    @include font-body;
+
     display: flex;
     justify-content: space-between;
 
     position: relative;
     padding-bottom: 20px;
 
-    font: normal 14px Montserrat, Arial, sans-serif;
-    color: $dark-shade-75;
-    line-height: 18px;
+    line-height: 1.285rem;
   }
 
   &__summary-item {
@@ -53,14 +53,12 @@
   }
 
   &__total {
+    @include font-h2;
+
     display: flex;
     justify-content: space-between;
-
     padding: 20px 0;
 
-    font: bold 19px Quicksand;
-    line-height: 24px;
-    color: $dark-shade;
     white-space: nowrap;
   }
 

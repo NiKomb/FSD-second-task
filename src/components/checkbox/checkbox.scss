@@ -97,25 +97,22 @@
     }
   }
 
-  &__info {
-    cursor: pointer;
-    font: normal 12px Montserrat, Arial, sans-serif;
-    color: $dark-shade-50;
-    text-transform: initial;
-    padding-left: 30px;
-    line-height: 18px;
+  &__name {
+    color: $dark-shade-75;
+    font-weight: bold;
+    padding-bottom: 5px;
   }
 
-  &__name {
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: bold;
-    color: $dark-shade-75;
-    margin-bottom: 5px;
+  &__info {
+    @include font-body;
+    padding-left: 30px;
+
+    cursor: pointer;
+
+    color: $dark-shade-50;
+    line-height: 1.285rem;
   }
 
   &__text {
-    display: inline-block;
-    vertical-align: middle;
   }
 }

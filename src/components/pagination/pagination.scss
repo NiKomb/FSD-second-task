@@ -1,8 +1,8 @@
 .pagination {
+  @include font-body;
+
   text-align: center;
   position: relative;
-  font: normal 12px Montserrat, Arial, sans-serif;
-  color: $dark-shade-50;
 
   &__pages {
     display: flex;
@@ -32,7 +32,11 @@
     }
 
     &:hover:not(.pagination__page_current):not(.pagination__page_next):not(.pagination__page_skip) {
-      background: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
+      background: linear-gradient(
+        180deg,
+        lighten($prime-color, 10%) 0%,
+        lighten($sub-prime-color, 10%) 100%
+      );
       color: #fff;
     }
 
@@ -41,7 +45,11 @@
     // }
 
     &_current {
-      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
+      background: linear-gradient(
+        180deg,
+        $prime-color 0%,
+        $sub-prime-color 100%
+      );
       font-weight: bold;
       color: #fff;
     }
@@ -70,7 +78,11 @@
       }
 
       &:hover {
-        background: linear-gradient(180deg, lighten($second-color, 10%) 0%, lighten(#66d2ea, 10%) 100%);
+        background: linear-gradient(
+          180deg,
+          lighten($second-color, 10%) 0%,
+          lighten(#66d2ea, 10%) 100%
+        );
       }
     }
   }

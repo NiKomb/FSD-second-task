@@ -2,32 +2,25 @@
   position: relative;
 
   &__title {
+    @include font-h2;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: baseline;
-
-    font: bold 19px Quicksand;
-    line-height: 24px;
-    color: $dark-shade;
-    text-transform: none;
 
     padding-bottom: 16px;
 
     &::after {
       content: attr(data-subtitle);
-      color: $dark-shade-50;
-      font: normal 12px Montserrat, Arial, sans-serif;
+      @include font-body;
     }
   }
 
   &__list {
+    @include font-body;
+
     position: relative;
     list-style-type: none;
-    color: $dark-shade-75;
-    font: normal 14px Montserrat, Arial, sans-serif;
-    line-height: 24px;
-    text-transform: none;
   }
 
   &__text {

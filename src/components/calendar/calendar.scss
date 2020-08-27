@@ -20,9 +20,7 @@
       min-height: 24px;
 
       &-title {
-        font: bold 19px Quicksand, Arial, sans-serif;
-        color: $dark-shade;
-        text-transform: none;
+        @include font-h2;
 
         i {
           color: inherit;
@@ -57,11 +55,12 @@
 
     &--day {
       &-name {
-        font: bold 12px Montserrat, Arial, sans-serif;
+        @include font-h3;
+
+        height: 40px;
+
         color: $prime-color;
         text-transform: none;
-        margin: 0;
-        height: 40px;
       }
     }
 

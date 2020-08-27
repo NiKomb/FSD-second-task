@@ -3,10 +3,12 @@
   display: block;
 
   &__label {
+    @include font-body;
+
     position: relative;
-    font: normal 14px Montserrat, Arial, sans-serif;
+
     color: $dark-shade-50;
-    text-transform: initial;
+    line-height: 21px;
     cursor: pointer;
   }
 

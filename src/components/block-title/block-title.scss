@@ -1,11 +1,9 @@
 .block-title {
+  @include font-h3;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
-  font: bold 12px Montserrat, Arial, sans-serif;
-  text-transform: uppercase;
-  color: $dark-shade;
 
   &::after {
     content: attr(data-subtitle);

@@ -3,22 +3,20 @@
   $switch: &;
 
   &__title {
+    @include font-h2;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: baseline;
-
-    font: bold 19px Quicksand;
-    line-height: 24px;
-    color: $dark-shade;
-    text-transform: none;
 
     padding-bottom: 23px;
+    align-items: baseline;
 
     &::after {
+      @include font-body;
       content: attr(subtitle);
+
       color: $dark-shade-50;
-      font: normal 14px Montserrat, Arial, sans-serif;
     }
   }
 
@@ -43,12 +41,9 @@
   }
 
   &__info {
-    margin-left: 12px;
+    @include font-body;
 
-    font: normal 14px Montserrat, Arial, sans-serif;
-    color: $dark-shade-75;
-    text-transform: none;
-    line-height: 24px;
+    margin-left: 12px;
   }
 
   &__time {

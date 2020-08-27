@@ -3,23 +3,30 @@
   display: block;
 
   &__label {
+    @include font-h3;
+
     display: inline-block;
     position: relative;
-    font: normal 10px Montserrat, Arial, sans-serif;
+
+    font-size: 10px;
     line-height: 12px;
+    font-weight: normal;
     color: $dark-shade-50;
-    text-transform: initial;
+
     cursor: pointer;
   }
 
   &__box {
     display: inline-block;
     padding: 3px 7px 3px 22px;
+
+    min-width: 40px;
+
     border-radius: 10px;
     border: solid 1px transparent;
+
     background-color: #fff;
     background-clip: padding-box;
-    min-width: 40px;
 
     &::before {
       content: "";
