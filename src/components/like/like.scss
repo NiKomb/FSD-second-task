@@ -51,7 +51,11 @@
         color: $prime-color;
 
         &::before {
-          background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+          background: linear-gradient(
+            180deg,
+            $prime-color 0%,
+            $sub-prime-color 100%
+          );
         }
 
         &::after {
@@ -73,7 +77,11 @@
     &:checked:focus {
       + #{$switch}__box {
         &::before {
-          background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+          background: linear-gradient(
+            180deg,
+            $prime-color 0%,
+            $sub-prime-color 100%
+          );
           box-shadow: 0 0 2px 1px $dark-shade-10;
         }
       }

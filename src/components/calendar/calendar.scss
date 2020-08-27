@@ -72,19 +72,23 @@
         border-radius: 50%;
         color: $dark-shade-50;
 
+        &.-disabled- {
+          color: $dark-shade-25;
+        }
+
         &.-current- {
           color: white;
           font-weight: bold;
-          background: linear-gradient(
-            180deg,
-            $second-color,
-            rgba(139, 164, 249, 0.25)
-          );
+          background: $gradient-good;
         }
 
         &.-selected- {
           font-weight: bold;
-          background: linear-gradient(180deg, $prime-color, $sub-prime-color);
+          background: linear-gradient(
+            180deg,
+            $prime-color 0%,
+            $sub-prime-color 100%
+          );
           color: white;
         }
 
