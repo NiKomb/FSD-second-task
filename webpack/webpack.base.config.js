@@ -18,15 +18,17 @@ const PATHS = {
 const PAGES_DIR = `${PATHS.src}/pages/`;
 const PAGES = fs.readdirSync(PAGES_DIR);
 
-const createEntry = (pagesDir) => {
+const createEntryPoints = (dir) => {
   const entryPoints = {};
 
-  fs.readdirSync(pagesDir).forEach((pageSubDir) => {
-    entryPoints[pageSubDir] = [
-      "@babel/polyfill",
-      path.join(pagesDir, pageSubDir, `${pageSubDir}.js`),
-    ];
-  });
+  fs.readdirSync(dir)
+    .filter((childDir) => childDir !== "template")
+    .forEach((childDir) => {
+      entryPoints[childDir] = [
+        "@babel/polyfill",
+        path.join(dir, childDir, `${childDir}.js`),
+      ];
+    });
   return entryPoints;
 };
 
@@ -40,7 +42,7 @@ module.exports = {
 
   context: path.resolve(__dirname, "src"),
 
-  entry: createEntry(PAGES_DIR),
+  entry: createEntryPoints(PAGES_DIR),
 
   output: {
     filename: filename("js"),
@@ -174,7 +176,7 @@ module.exports = {
       "window.jQuery": "jquery",
     }),
 
-    ...PAGES.map(
+    ...PAGES.filter((value) => value !== "template").map(
       (page) =>
         new HTMLWebpackPlugin({
           template: `${PAGES_DIR}/${page}/${page}.pug`,
