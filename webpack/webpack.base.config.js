@@ -55,8 +55,7 @@ module.exports = {
     alias: {
       "@": PATHS.src,
       "@components": `${PATHS.src}/components`,
-      "@layouts": `${PATHS.src}/layouts`,
-      "@fonts": `${PATHS.src}/fonts`,
+      "@chunks": `${PATHS.src}/chunks`,
     },
   },
 

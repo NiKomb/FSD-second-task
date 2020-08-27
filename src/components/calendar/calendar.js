@@ -1,8 +1,6 @@
 import "air-datepicker/dist/js/datepicker";
 import "air-datepicker/dist/css/datepicker.min.css";
 
-import "./calendar.scss";
-
 class Calendar {
   constructor(calendarField, additionalOptions) {
     this.calendarField = calendarField;

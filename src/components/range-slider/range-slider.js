@@ -1,6 +1,5 @@
 import "ion-rangeslider";
 import "ion-rangeslider/css/ion.rangeSlider.css";
-import "./range-slider";
 
 document.addEventListener(
   "DOMContentLoaded",

@@ -1,5 +1,3 @@
-@import "./variables.scss";
-
 @mixin container {
   width: 100%;
   min-width: 320px;
@@ -29,9 +27,9 @@
     font-weight: $font-weight;
     font-style: $font-style;
     font-display: swap;
-    src: url("../../chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff2")
+    src: url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff2")
         format("woff2"),
-      url("../../chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff")
+      url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff")
         format("woff");
   }
 }
