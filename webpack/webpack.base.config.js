@@ -181,7 +181,7 @@ module.exports = {
         new HTMLWebpackPlugin({
           template: `${PAGES_DIR}/${page}/${page}.pug`,
           filename: `pages/${page}.html`,
-          favicon: `${PATHS.src}/favicon/favicon.ico`,
+          favicon: `${PATHS.src}/chunks/favicon/favicon.ico`,
           minify: {
             collapseWhitespace: isProd,
             removeComments: isProd,
@@ -193,7 +193,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: `${PATHS.src}/favicon`, to: `${PATHS.assets}/favicon` },
+        { from: `${PATHS.src}/chunks/favicon`, to: `${PATHS.assets}/favicon` },
       ],
     }),
     new webpack.HashedModuleIdsPlugin({
