@@ -2,7 +2,13 @@ mixin header(options)
   -
     const {
       auth=false,
-      nav=[],
+      nav=[{
+          name: "Lorem",
+          isBig: true,
+          submenu: true,
+          title: "Lorem",
+          href:"/mock-address/change-me"
+      }],
       logoRef="/mock-address/change-me",
       btnRefEnter="/mock-address/change-me",
       btnRefRegister="/mock-address/change-me",
@@ -24,7 +30,7 @@ mixin header(options)
               li.header__item(
                 class=((item.submenu===true) ? 'header__item_with-menu' : ''),
                 class=((item.isBig===true) ? 'header__item_bold' : ''))
-                  a.header__link(href="/mock-address/change-me" title=item.title)=item.name
+                  a.header__link(href=item.href title=item.title)=item.name
           ul.header__menu.header__menu_with-buttons
             if auth === true
               li.header__item

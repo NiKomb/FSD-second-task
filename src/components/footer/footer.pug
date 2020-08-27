@@ -1,15 +1,27 @@
-mixin footer(options={})
+mixin footer(options)
+  -
+    const {
+      theme="lorem",
+      logoRef="/mock-address/change-me",
+      info="Lorem",
+      subscription="Lorem",
+      navigation=[{
+          title:"Lorem",
+          section: [{text: "Lorem", href:"/mock-address/change-me"}]
+      }]
+    } = options
+
   footer.footer
-    case options.theme
+    case theme
       when "complex"
         .footer__main
           .footer__container
             .footer__description
               a.footer__logo(href=logoRef, title="Toxin", target="_blank", tabindex=0)
                 +logo
-              p.footer__text=options.info
+              p.footer__text=info
             nav.footer__navigation
-              each nav in options.navigation
+              each nav in navigation
                 .footer__section
                   .footer__item.footer__item_is-title=nav.title
                   ul.footer__section-links
@@ -18,7 +30,7 @@ mixin footer(options={})
                         a(href=`${item.href}`).footer__item_with-link= item.text
             form.footer__subscription
               h3.footer__item.footer__item_is-title="Подписка"
-              p.footer__text=options.subscription
+              p.footer__text=subscription
               .footer__item
                 +input-text({view:"arrow", title:"", placeholder: "Email", name:"email", type:"email"})
         .footer__main
