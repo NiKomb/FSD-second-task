@@ -3,12 +3,17 @@ mixin footer(options)
     const {
       theme="lorem",
       logoRef="/mock-address/change-me",
-      info="Lorem",
+      description="Lorem",
       subscription="Lorem",
-      navigation=[{
+      copyright="Lorem",
+      navItems=[
+        {
           title:"Lorem",
-          section: [{text: "Lorem", href:"/mock-address/change-me"}]
-      }]
+          section: [
+            {text: "Lorem", href:"/mock-address/change-me"}
+          ]
+        }
+      ]
     } = options
 
   footer.footer
@@ -19,9 +24,9 @@ mixin footer(options)
             .footer__description
               a.footer__logo(href=logoRef, title="Toxin", target="_blank", tabindex=0)
                 +logo
-              p.footer__text=info
+              p.footer__text=description
             nav.footer__navigation
-              each nav in navigation
+              each nav in navItems
                 .footer__section
                   .footer__item.footer__item_is-title=nav.title
                   ul.footer__section-links
@@ -35,7 +40,7 @@ mixin footer(options)
                 +input-text({view:"arrow", title:"", placeholder: "Email", name:"email", type:"email"})
         .footer__main
           .footer__container.footer__container_lowercase
-            p.footer__text.footer__text_lowercase="Copyright © 2019 Toxin отель. Все права зачищены."
+            p.footer__text.footer__text_lowercase=copyright
             .footer__icons
                a.footer__icon(href="https://twitter.com" alt='Twitter' target='_blank ' rel='noreferrer').footer__icon_link_1
                a.footer__icon(href="https://facebook.com" alt='Facebook' target='_blank ' rel='noreferrer').footer__icon_link_2
@@ -46,7 +51,7 @@ mixin footer(options)
             .footer__description.footer__description_plain
               a.footer__logo(href=logoRef, title="Toxin", target="_blank", tabindex=0).footer__logo_plain
                 +logo
-              p.footer__text.footer__text_plain="Copyright © 2019 Toxin отель. Все права зачищены."
+              p.footer__text.footer__text_plain=description
               .footer__icons
                 a.footer__icon(href="https://twitter.com" alt='Twitter' target='_blank ' rel='noreferrer').footer__icon_link_1
                 a.footer__icon(href="https://facebook.com" alt='Facebook' target='_blank ' rel='noreferrer').footer__icon_link_2

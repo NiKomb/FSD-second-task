@@ -168,33 +168,33 @@
     }
 
     &_link_1 {
-      mask-image: url(../../components/footer/img/twit.svg);
-      -webkit-mask-image: url(../../components/footer/img/twit.svg);
       background: linear-gradient(
         180deg,
         $prime-color 0%,
         $sub-prime-color 100%
       );
+      -webkit-mask-image: url(../../components/footer/img/twit.svg);
+      mask-image: url(../../components/footer/img/twit.svg);
     }
 
     &_link_2 {
-      mask-image: url(../../components/footer/img/faceb.svg);
-      -webkit-mask-image: url(../../components/footer/img/faceb.svg);
       background: linear-gradient(
         180deg,
         $prime-color 0%,
         $sub-prime-color 100%
       );
+      -webkit-mask-image: url(../../components/footer/img/faceb.svg);
+      mask-image: url(../../components/footer/img/faceb.svg);
     }
 
     &_link_3 {
-      mask-image: url(../../components/footer/img/instagram.svg);
-      -webkit-mask-image: url(../../components/footer/img/instagram.svg);
       background: linear-gradient(
         180deg,
         $prime-color 0%,
         $sub-prime-color 100%
       );
+      -webkit-mask-image: url(../../components/footer/img/instagram.svg);
+      mask-image: url(../../components/footer/img/instagram.svg);
     }
   }
 }

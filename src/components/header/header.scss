@@ -36,58 +36,18 @@
     }
   }
 
-  &__input {
-    display: none;
-
-    @media (max-width: 950px) {
-      display: block;
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      outline: none;
-    }
-
-    &:focus,
-    &:hover {
-      ~ #{$switch}__toggle {
-        filter: drop-shadow(0px 0px 5px $sub-prime-color);
-      }
-    }
-
-    &:checked {
-      @media (max-width: 950px) {
-        ~ #{$switch}__nav {
-          display: block;
-        }
-      }
-
-      ~ #{$switch}__toggle {
-        &_with-cross {
-          path {
-            &#top,
-            &#bottom {
-              stroke-dashoffset: -650px;
-              stroke-dashoffset: -650px;
-            }
-
-            &#middle {
-              stroke-dashoffset: -115px;
-              stroke-dasharray: 1px 220px;
-            }
-          }
-        }
-      }
-    }
-  }
-
   &__nav {
     display: flex;
     flex-flow: row wrap;
 
     @media (max-width: 950px) {
       display: none;
+    }
+
+    &_is-open {
+      @media (max-width: 950px) {
+        display: block;
+      }
     }
   }
 
@@ -98,10 +58,10 @@
     @media (max-width: 950px) {
       padding-top: 10px;
       flex-direction: column;
-      align-items: flex-start;
 
       &_with-buttons {
         flex-direction: row;
+        justify-content: space-between;
       }
     }
   }
@@ -109,6 +69,10 @@
   &__item {
     display: inline-block;
     margin-right: 20px;
+
+    @media (max-width: 950px) {
+      margin: 0;
+    }
 
     &_with-menu {
       &::after {
@@ -142,20 +106,11 @@
     }
   }
 
-  &__user {
-    border-left: 1px solid $dark-shade-10;
-    padding: 6px 0 7px 29px;
-
-    @media (max-width: 950px) {
-      border: 0;
-      border-top: 1px solid $dark-shade-10;
-      padding: 3px 0 0 0;
-    }
-  }
-
   &__link {
     text-decoration: none;
     color: $dark-shade-50;
+
+    cursor: pointer;
     outline: none;
 
     &:hover {
@@ -167,6 +122,17 @@
     }
   }
 
+  &__user {
+    border-left: 1px solid $dark-shade-10;
+    padding: 6px 0 7px 29px;
+
+    @media (max-width: 950px) {
+      border: 0;
+      border-top: 1px solid $dark-shade-10;
+      padding: 3px 0 0 0;
+    }
+  }
+
   // special thanks to https://codepen.io/Zaku/pen/vcaFr
   &__toggle {
     $easeOutBack: cubic-bezier(0.25, -0.25, 0.75, 1.25);
@@ -175,9 +141,10 @@
 
     display: none;
     position: absolute;
-    right: 2px;
-    width: 59px;
-    top: -3px;
+    top: 5px;
+    right: 15px;
+    width: 35px;
+    outline: none;
 
     @media (max-width: 950px) {
       display: block;
@@ -205,6 +172,26 @@
       &#middle {
         stroke-dasharray: 240px 240px;
       }
+    }
+
+    &_active {
+      path {
+        &#top,
+        &#bottom {
+          stroke-dashoffset: -650px;
+          stroke-dashoffset: -650px;
+        }
+
+        &#middle {
+          stroke-dashoffset: -115px;
+          stroke-dasharray: 1px 220px;
+        }
+      }
+    }
+
+    &:focus,
+    &:hover {
+      filter: drop-shadow(0px 0px 5px $sub-prime-color);
     }
   }
 }

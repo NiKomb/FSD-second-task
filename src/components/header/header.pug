@@ -2,35 +2,32 @@ mixin header(options)
   -
     const {
       auth=false,
-      nav=[{
-          name: "Lorem",
-          isBig: true,
-          submenu: true,
-          title: "Lorem",
-          href:"/mock-address/change-me"
-      }],
       logoRef="/mock-address/change-me",
       btnRefEnter="/mock-address/change-me",
       btnRefRegister="/mock-address/change-me",
       userRef="/mock-address/change-me",
+      navItems=[{
+          name: "Lorem",
+          isBig: true,
+          submenu: true,
+          title: "Lorem",
+          href: "/mock-address/change-me"
+      }],
     } = options
-
-  //- create a unique id for the toggle
-  - const ID = Math.random().toFixed(5)
 
   header.header
     .header__main
       .header__container
         a.header__logo(href=logoRef title="Toxin" target="_blank")
           +logo
-        input.header__input(type="checkbox" id=ID )
-        nav.header__nav
+
+        nav.header__nav.js-header__nav
           ul.header__menu
-            for item in nav
+            for item in navItems
               li.header__item(
                 class=((item.submenu===true) ? 'header__item_with-menu' : ''),
                 class=((item.isBig===true) ? 'header__item_bold' : ''))
-                  a.header__link(href=item.href title=item.title)=item.name
+                  a.header__link(href=item.href title=item.title tabindex=0)=item.name
           ul.header__menu.header__menu_with-buttons
             if auth === true
               li.header__item
@@ -43,5 +40,6 @@ mixin header(options)
               li.header__item
                 a.header__button(href=btnRefRegister alt="Register" tabindex=-1)
                   +button({theme:"fill", text:"Зарегистрироваться", size:"little"})
-        label.header__toggle(label for=ID).header__toggle_with-cross
+
+        .header__toggle.js-header__toggle
           include ./images/icon.svg
