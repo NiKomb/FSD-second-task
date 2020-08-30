@@ -66,63 +66,60 @@ block main
             +input-text({title:"Удобства номера", subtitle: "",view:"guest",placeholder: "Сколько гостей",name:"guests",})
 
           .search-room__parameters
+            -
+              const checkboxItems=[
+                {text: "Завтрак"},
+                {text: "Письменный стол",check: true},
+                {text: "Стул для кормления",check: true},
+                {text: "Кроватка",check: true},
+                {text: "Телевизор"},
+                {text: "Шампунь"},
+                {text: "Интернет"},
+                {text: "Связь с космосом"}
+              ]
+
             +checkbox-list({
             title:"Дополнительные удобства",
             subtitle: "",
             expand:true,
-            items:[
-                  {
-                    text: "Завтрак"
-                  },
-                  {
-                    text: "Письменный стол",
-                    check: true
-                  },
-                  {
-                    text: "Стул для кормления",
-                    check: true
-                  },
-                  {
-                    text: "Кроватка",
-                    check: true
-                  },
-                  {
-                    text: "Телевизор"
-                  },
-                  {
-                    text: "Шампунь"
-                  },
-                  {
-                    text: "Интернет"
-                  },
-                  {
-                    text: "Связь с космосом"
-                  }
-                ]
+            items:checkboxItems
             })
 
         .search-room__result
           .search-room__title Номера, которые мы для вас подобрали
 
           .search-room__items
-            - for (var i = 1; i <= 12; i+=1)
+            -
+              const getImagesPaths = (arr) => {
+              return arr.map(
+                (item) => require(`./images/room-${item}`).default);
+              }
+              const rooms=[
+                {images:[1, 10, 6, 4], dotIMG:1, number:888, luxury:true, price:9990, rate:5, reviews: 145},
+                {images:[2, 9, 3, 4], dotIMG:1, number:840, luxury:false, price:9900, rate:4, reviews: 65},
+                {images:[11, 8, 5, 4], dotIMG:1, number:980, luxury:true, price:8500, rate:3, reviews: 35},
+                {images:[10, 2, 3, 4], dotIMG:1, number:856, luxury:false, price:7300, rate:5, reviews: 19},
+                {images:[9, 10, 11, 8], dotIMG:1, number:740, luxury:false, price:6000, rate:4, reviews: 44},
+                {images:[12, 1, 2, 3], dotIMG:1, number:982, luxury:false, price:5800, rate:3, reviews: 56},
+                {images:[8, 3, 7, 9], dotIMG:1, number:678, luxury:false, price:5500, rate:5, reviews: 45},
+                {images:[6, 8, 3, 4], dotIMG:1, number:450, luxury:false, price:5300, rate:4, reviews: 39},
+                {images:[3, 6, 9, 4], dotIMG:1, number:350, luxury:false, price:5000, rate:3, reviews: 77},
+                {images:[7, 2, 7, 4], dotIMG:1, number:666, luxury:false, price:5000, rate:5, reviews: 25},
+                {images:[5, 2, 3, 4], dotIMG:1, number:444, luxury:false, price:5000, rate:3, reviews: 15},
+                {images:[4, 5, 6, 4], dotIMG:1, number:352, luxury:false, price:5000, rate:3, reviews: 55},
+              ]
+            each room in rooms
               .search-room__item
                 +card-room({
                   form:"card-room",
-                  images:[
-                    require(`./images/room-${i}`).default,
-                    require("./images/room-2").default,
-                    require("./images/room-3").default,
-                    require("./images/room-5").default,
-                    require("./images/room-4").default,
-                  ],
-                  dotIMG:1,
-                  href:"/../page-room/page-room.pug",
-                  number:888,
-                  luxury:true,
-                  price:9990,
-                  rate:5,
-                  reviews: 145,
+                  images:getImagesPaths(room.images),
+                  dotIMG:room.dotIMG,
+                  href:"./room-details.html",
+                  number:room.number,
+                  luxury:room.luxury,
+                  price:room.price,
+                  rate:room.rate,
+                  reviews: room.reviews,
                 })
 
           .search-room__pagination
