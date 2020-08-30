@@ -65,10 +65,11 @@ mixin card-order(options)
       | #{(price * days) + service + addService - discount}₽
 
     .card-order__button
-       +button({
-         type:"submit",
-         form:form,
-         theme: "arrow",
-         size:" ",
-         text:"Забронировать"
-         })
+      a.card-registration__link(href="./mock-address/change-me")
+        +button({
+          type:"submit",
+          form:form,
+          theme: "arrow",
+          size:" ",
+          text:"Забронировать"
+          })

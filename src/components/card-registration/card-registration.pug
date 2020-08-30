@@ -32,30 +32,19 @@ mixin card-registration({ title, form, auth=true }='')
       .card-registration__item
         +toggle({text:"Получать спецпредложение", checked:false})
 
-    .card-registration__btn
-       +button({
-         type:"submit",
-         form:form,
-         theme: "arrow",
-         size:" ",
-         text:"перейти к оплате"
-         })
+    a.card-registration__link(href="/mock-address/change-me")
+      .card-registration__btn
+        +button({type:"button", form:form, theme: "arrow",size:" ", text:"перейти к оплате" })
 
     fieldset.card-registration__field
       .card-registration__group
         if auth===true
           .card-registration__account Уже есть аккаунт на Toxin
-          +button({
-          type:"botton",
-          form:form,
-          size:" ",
-          text:"Войти"
-          })
+
+          a.card-registration__link(href="./sign-in.html")
+            +button({type:"button", form:form, size:" ", text:"Войти"})
         else
           .card-registration__account Нет аккаунта на Toxin
-          +button({
-          type:"botton",
-          form:form,
-          size:" ",
-          text:"Создать"
-          })
+
+          a.card-registration__link(href="./registration.html")
+            +button({type:"button", form:form, size:" ", text:"Создать"})

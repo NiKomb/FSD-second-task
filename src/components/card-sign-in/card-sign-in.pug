@@ -11,24 +11,27 @@ mixin card-sign-in({ title, auth=true}='')
       .card-sign-in__item
         +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
 
-    .card-sign-in__btn
-       +button({theme: "arrow", size:" ", text:"Подобрать номер"})
+    a.card-registration__link(href="./search-room.html")
+      .card-sign-in__btn
+        +button({type:"button", theme: "arrow", size:" ", text:"Подобрать номер"})
 
     fieldset.card-sign-in__field
       .card-sign-in__group
         if auth===true
           .card-sign-in__account Уже есть аккаунт на Toxin
-          +button({
-          type:"botton",
-          form:form,
-          size:" ",
-          text:"Войти"
-          })
+          a.card-registration__link(href="./sign-in.html")
+            +button({
+            type:"button",
+            form:form,
+            size:" ",
+            text:"Войти"
+            })
         else
           .card-sign-in__account Нет аккаунта на Toxin
-          +button({
-          type:"botton",
-          form:form,
-          size:" ",
-          text:"Создать"
-          })
+          a.card-registration__link(href="./registration.html")
+            +button({
+            type:"button",
+            form:form,
+            size:" ",
+            text:"Создать"
+            })

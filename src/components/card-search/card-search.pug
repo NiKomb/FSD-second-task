@@ -19,4 +19,5 @@ mixin card-search({title}='')
       +input-text({title:"гости", subtitle: " ",view:"guest",placeholder: "Сколько гостей",name:"guests",})
 
     .card-search__button
-       +button({theme: "arrow", size:" ", text:"Подобрать номер"})
+      a.card-search__link(href="./search-room.html")
+        +button({type:"button", theme: "arrow", size:" ", text:"Подобрать номер"})
