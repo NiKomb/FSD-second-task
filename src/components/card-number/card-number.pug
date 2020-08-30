@@ -1,10 +1,19 @@
-mixin card-number({ number=1, price=1,luxury=false,isMiddleNumber  }='')
+mixin card-number(options)
+  -
+    const {
+      number=1,
+      price=1,
+      luxury=false,
+      isMiddleNumber=false
+    }=options
+
   .card-number
     h3.card-number__left-title
       | №
       span.card-number__number(class=isMiddleNumber ? "card-number__number_size_h2" : "") #{number}
       if luxury
         +button({theme: "string", text:"Люкс"})
+
     h3.card-number__right-title
       b.card-number__price #{price}₽
       | в сутки

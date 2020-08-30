@@ -16,10 +16,13 @@ block main
         aside.search-room__preference
           .search-room__parameters
             +input-text({view:"filterDate", title:"Даты пребывания в отеле", subtitle: "",})
+
           .search-room__parameters
             +input-text({title:"Гости", subtitle: "",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+
           .search-room__parameters
              +range-slider({title:"Диапазон цены", subtitle:"5 000р-10000р", min:0, max:15000, from:5000,to:10000})
+
           .search-room__parameters
             +checkbox-list({
             title:"Checkbox buttons",
@@ -43,6 +46,7 @@ block main
                 }
               ]
             })
+
           .search-room__parameters
             +checkbox-list({
             title:"Доступность",
@@ -57,8 +61,10 @@ block main
                 }
               ]
             })
+
           .search-room__parameters
             +input-text({title:"Удобства номера", subtitle: "",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+
           .search-room__parameters
             +checkbox-list({
             title:"Дополнительные удобства",
@@ -94,8 +100,10 @@ block main
                   }
                 ]
             })
+
         .search-room__result
           .search-room__title Номера, которые мы для вас подобрали
+
           .search-room__items
             - for (var i = 1; i <= 12; i+=1)
               .search-room__item
@@ -116,5 +124,6 @@ block main
                   rate:5,
                   reviews: 145,
                 })
+
           .search-room__pagination
             +pagination({current:1, total:15, variant:100})

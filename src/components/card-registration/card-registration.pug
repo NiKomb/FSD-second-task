@@ -6,24 +6,32 @@ include /components/toggle/toggle
 mixin card-registration({ title, form, auth=true }='')
   form.card-registration(name=form)
     h1.card-registration__title=title
+
     fieldset.card-registration__field
       .card-registration__item
         +input-text({title:"",subtitle:"",placeholder:"Имя", type:"text"})
+
       .card-registration__item
         +input-text({title:"",subtitle:"",placeholder:"Фамилия", type:"text"})
+
       .card-registration__group
         +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
         +radio({text:"Женщина",name:"gender",value:"female"})
+
     fieldset.card-registration__field
       .card-registration__item
         +input-text({title:"дата рождения", subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
+
     fieldset.card-registration__field
       .card-registration__item
-        +input-text({title:"данные для входа в сервис",subtitle:"",placeholder:"email", type:"email"})
+        +input-text({title:"данные для входа в сервис", subtitle:"", placeholder:"email", type:"email"})
+
       .card-registration__item
         +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
+
       .card-registration__item
         +toggle({text:"Получать спецпредложение", checked:false})
+
     .card-registration__btn
        +button({
          type:"submit",
@@ -32,6 +40,7 @@ mixin card-registration({ title, form, auth=true }='')
          size:" ",
          text:"перейти к оплате"
          })
+
     fieldset.card-registration__field
       .card-registration__group
         if auth===true

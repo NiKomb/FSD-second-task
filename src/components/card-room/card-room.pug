@@ -22,6 +22,7 @@ mixin card-room(options)
   form.card-room(name=`${form} № ${number}` aria-label=`${form} № ${number}`)
     fieldset.card-room__field
       +card-slider({dot:true, items:images, href:href, check:dotIMG})
+
     fieldset.card-room__field
       .card-room__number
         +card-number({
@@ -29,6 +30,7 @@ mixin card-room(options)
           price:price,
           luxury:luxury,
           isMiddleNumber:true})
+
       .card-room__group
         +rating({title:"", rate:rate, name: `${form} № ${number} `})
         .card-room__reviews

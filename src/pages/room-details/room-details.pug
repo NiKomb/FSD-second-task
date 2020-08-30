@@ -12,6 +12,7 @@ block pageTitle
 block main
   main.room-details
     .room-details__gallery
+
     .room-details__summary
       .room-details__description
         .room-details__item
@@ -36,6 +37,7 @@ block main
               },
             ]
           })
+
         .room-details__item
           +pie-chart({
             title:"Впечатления от номера",
@@ -48,6 +50,7 @@ block main
               {name:"Разочарован", value: 220},
             ]
           })
+
         .room-details__group
           +reviews({
             title:"Отзывы посетителей номера",
@@ -71,6 +74,7 @@ block main
                 },
               ]
             })
+
         .room-details__item
           +info({
           title:"Правила",
@@ -90,6 +94,7 @@ block main
             },
             ]
           })
+
         .room-details__item
           +info({
           title:"Отмена",
@@ -101,6 +106,7 @@ block main
             },
             ]
           })
+
       .room-details__card
         +card-order({
           form:"Order room",

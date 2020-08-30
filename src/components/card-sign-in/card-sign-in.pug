@@ -4,13 +4,16 @@ include /components/button/button
 mixin card-sign-in({ title, auth=true}='')
   form.card-sign-in
     h1.card-sign-in__title=title
+
     fieldset.card-sign-in__field
       .card-sign-in__item
         +input-text({title:"",subtitle:"",placeholder:"email", type:"email"})
       .card-sign-in__item
         +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
+
     .card-sign-in__btn
        +button({theme: "arrow", size:" ", text:"Подобрать номер"})
+
     fieldset.card-sign-in__field
       .card-sign-in__group
         if auth===true

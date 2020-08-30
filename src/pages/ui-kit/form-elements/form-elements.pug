@@ -1,16 +1,19 @@
-
 .form-element__section
   .form-element__container
     .form-element__col
       .form-element__item-list
         .form-element__item
           +input-text({title:"text field",subtitle:"default",placeholder:"Email", type:"email"})
+
         .form-element__item
           +input-text({title:"text field", subtitle: "Hover / Focus", view:"hover", placeholder: "This is pretty awesome", name:"hover"})
+
         .form-element__item
           +input-text({title:"text field", subtitle: "default",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+
         .form-element__item
           +input-text({title:"masked text field", subtitle: "default", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
+
       .form-element__item-list
         +input-text({
         view:"rangeDate",
@@ -19,11 +22,14 @@
         title1:"выезд",
         subtitle1:"",
         placeholder:"ДД.ММ.ГГГГ"})
+
       .form-element__item-list
         .form-element__item
           +input-text({view:"filterDate", title:"filter date dropdown", subtitle: "",})
+
         .form-element__item
           +input-text({view:"arrow", title:"subscription text field", subtitle: "", placeholder: "Email", name:"email", type:"email"})
+
     .form-element__col
       .form-element__item-list
         .form-element__item Checkbox buttons
@@ -49,24 +55,31 @@
                 }
               ]
             })
+
         .form-element__item Radio buttons
           .form-element__item_with-radio
             +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
             +radio({text:"Женщина",name:"gender",value:"female"})
+
         .form-element__item Toogle
           .form-element__item_with-toggle
             +toggle({text:"Получать спецпредложение", checked:true})
+
           .form-element__item_with-toggle
             +toggle({text:"Получать спецпредложение"})
+
         .form-element__item Like buttons
           .form-element__item_with-like
             +like({count:10})
+
           .form-element__item_with-like
             +like({name:"количество лайков", like:true, count:12})
+
         .form-element__item Rate button
           .form-element__item_with-rating
             +rating({title:"", rate:4, name: "рейтинг 1 номера"})
             +rating({title:"", rate:5, name: "рейтинг 2 номера"})
+
       .form-element__item-list
         .form-element__item Pie chart
           +pie-chart({
@@ -80,36 +93,46 @@
               {name:"Разочарован", value: 0},
             ]
           })
+
     .form-element__col
       .form-element__item-list
         .form-element__item Range slider
           +range-slider({title:"Range slider", subtitle:"5 000р-10000р", min:0, max:15000, from:5000,to:10000})
+
         .form-element__item Buttons
           .form-element__item_with-btn
             +button({theme:"fill",text:"click me"})
             +button({theme:"fill", text:"click me", size:"big",})
+
           .form-element__item_with-btn
             +button({text:"click me"})
             +button({text:"click me", size:"little",})
+
           .form-element__item_with-btn
             +button({theme: "string", text:"click me"})
+
           .form-element__item_with-btn
             +button({theme: "arrow", size:" ", text:"Перейти к оплате"})
             +button({theme: "arrow", size:"big", text:"Перейти к оплате"})
             +button({theme: "arrow", size:"little", text:"Перейти к оплате"})
+
         .form-element__item Pagination
           .form-element__item_with-pagination
             +pagination({current:1, total:15, variant:100})
+
   .form-element__container
     .form-element__col
       .form-element__item-list
         .form-element__item Dropdown
+
     .form-element__col
       .form-element__item-list
         .form-element__item Dropdown
+
     .form-element__col
       .form-element__item-list
         .form-element__item Dropdown
+
   .form-element__container
     .form-element__col
       .form-element__item-list
@@ -148,6 +171,7 @@
                   }
                 ]
             })
+
     .form-element__col
       .form-element__item-list
         .form-element__item Rich Checkbox Buttons
@@ -164,6 +188,7 @@
                 }
                 ]
             })
+
     .form-element__col
       .form-element__item-list
         .form-element__item Bullet list
@@ -195,6 +220,7 @@
               },
               ]
             })
+
   .form-element__container
     .form-element__col
       .form-element__item Сведения о номере
@@ -219,6 +245,7 @@
                 },
               ]
             })
+
     .form-element__col_expanded
       .form-element__item Отзывы посетителей сайта
         +reviews({

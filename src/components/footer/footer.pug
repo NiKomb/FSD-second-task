@@ -25,6 +25,7 @@ mixin footer(options)
               a.footer__logo(href=logoRef, title="Toxin", target="_blank", tabindex=0)
                 +logo
               p.footer__text=description
+
             nav.footer__navigation
               each nav in navItems
                 .footer__section
@@ -33,14 +34,17 @@ mixin footer(options)
                     each item in nav.section
                       li.footer__item
                         a(href=`${item.href}`).footer__item_with-link= item.text
+
             form.footer__subscription
               h3.footer__item.footer__item_is-title="Подписка"
               p.footer__text=subscription
               .footer__item
                 +input-text({view:"arrow", title:"", placeholder: "Email", name:"email", type:"email"})
+
         .footer__main
           .footer__container.footer__container_lowercase
             p.footer__text.footer__text_lowercase=copyright
+
             .footer__icons
                a.footer__icon(href="https://twitter.com" alt='Twitter' target='_blank ' rel='noreferrer').footer__icon_link_1
                a.footer__icon(href="https://facebook.com" alt='Facebook' target='_blank ' rel='noreferrer').footer__icon_link_2
@@ -51,6 +55,7 @@ mixin footer(options)
             .footer__description.footer__description_plain
               a.footer__logo(href=logoRef, title="Toxin", target="_blank", tabindex=0).footer__logo_plain
                 +logo
+
               p.footer__text.footer__text_plain=description
               .footer__icons
                 a.footer__icon(href="https://twitter.com" alt='Twitter' target='_blank ' rel='noreferrer').footer__icon_link_1

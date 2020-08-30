@@ -28,11 +28,13 @@ mixin header(options)
                 class=((item.submenu===true) ? 'header__item_with-menu' : ''),
                 class=((item.isBig===true) ? 'header__item_bold' : ''))
                   a.header__link(href=item.href title=item.title tabindex=0)=item.name
+
           ul.header__menu.header__menu_with-buttons
             if auth === true
               li.header__item
                 span.header__user
                   a.header__link(href=userRef)="Юлий Цезарь"
+
             else
               li.header__item
                 a.header__button(href=btnRefEnter alt="Sign-In" tabindex=-1)

@@ -3,12 +3,14 @@
     .cards__column
       .cards__item
         +card-search({title:"Найдём номера под ваши пожелания"})
+
       .cards__item
         +card-registration({
           title:"Регистрация номера",
           form:"registration",
           auth:true,
         })
+
     .cards__column
       .cards__item
         +card-order({
@@ -23,9 +25,11 @@
         })
       .cards__item
         +card-sign-in({title:"Войти", auth:false})
+
     .cards__column
       .cards__item
         .cards__item_with-calendar
+
       .cards__item
         +card-room({
           form:"card-room",
@@ -44,6 +48,7 @@
           rate:5,
           reviews: 145,
           })
+
       .cards__item
         +card-room({
           form:"card-room",

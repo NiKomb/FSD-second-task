@@ -23,6 +23,7 @@ mixin card-order(options)
         luxury:luxury,
         price:price
         })
+
     .card-order__arrive
       +input-text({
         view:"rangeDate",
@@ -32,6 +33,7 @@ mixin card-order(options)
         subtitle1:"",
         placeholder:"ДД.ММ.ГГГГ"
         })
+
     .card-order__guest
       +input-text({
         title:"гости",
@@ -40,23 +42,28 @@ mixin card-order(options)
         placeholder: "Сколько гостей",
         name:"guests"
         })
+
     .card-order__summary
       .card-order__summary-item #{price}₽ х #{days} суток
       .card-order__summary-item #{price * days}₽
+
     .card-order__summary
       .card-order__summary-item
         | Сбор за услуги: скидка #{discount}₽
         .card-order__summary-mark i
       .card-order__summary-item #{service}₽
+
     .card-order__summary
       .card-order__summary-item
         | Сбор за дополнительные услуги
         .card-order__summary-mark i
       .card-order__summary-item #{addService}₽
+
     .card-order__total
       | Итого
       .card-order__total-line
       | #{(price * days) + service + addService - discount}₽
+
     .card-order__button
        +button({
          type:"submit",

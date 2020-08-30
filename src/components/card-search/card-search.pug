@@ -5,6 +5,7 @@ include /components/button/button
 mixin card-search({title}='')
   form.card-search
     h1.card-search__title=title
+
     .card-search__arrive
       +input-text({
             view:"rangeDate",
@@ -13,7 +14,9 @@ mixin card-search({title}='')
             title1:"выезд",
             subtitle1:"",
             placeholder:"ДД.ММ.ГГГГ"})
+
     .card-search__guest
       +input-text({title:"гости", subtitle: " ",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+
     .card-search__button
        +button({theme: "arrow", size:" ", text:"Подобрать номер"})
