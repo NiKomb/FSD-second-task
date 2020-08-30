@@ -1,7 +1,10 @@
 .checkbox {
   $switch: &;
-  display: block;
-  min-height: 20px;
+  display: inline-block;
+
+  &:hover {
+    filter: drop-shadow(0 0 2px $dark-shade-25);
+  }
 
   &__box {
     cursor: pointer;
@@ -98,21 +101,19 @@
   }
 
   &__name {
-    color: $dark-shade-75;
-    font-weight: bold;
+    display: inline-block;
     padding-bottom: 5px;
+    color: $dark-shade-75;
   }
 
   &__info {
     @include font-body;
     padding-left: 30px;
+    padding-top: 1px;
 
     cursor: pointer;
 
     color: $dark-shade-50;
     line-height: 1.285rem;
-  }
-
-  &__text {
   }
 }

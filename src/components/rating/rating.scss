@@ -16,6 +16,10 @@
     &:focus-within {
       filter: drop-shadow(0 0 2px $dark-shade-25);
     }
+
+    &:hover {
+      filter: drop-shadow(0 0 2px $dark-shade-25);
+    }
   }
 
   &__star {

@@ -2,6 +2,10 @@
   $switch: &;
   display: block;
 
+  &:hover {
+    filter: drop-shadow(0 0 2px $dark-shade-25);
+  }
+
   &__label {
     @include font-body;
 
