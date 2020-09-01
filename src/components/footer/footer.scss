@@ -143,6 +143,12 @@
     }
   }
 
+  &__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__icon {
     margin-left: 20px;
     list-style: none;
@@ -156,11 +162,7 @@
     }
 
     &:hover {
-      background-image: linear-gradient(
-        180deg,
-        lighten($prime-color, 10%) 0%,
-        lighten($sub-prime-color, 10%) 100%
-      );
+      background-image: linear-gradient(180deg, lighten($prime-color, 10%) 0%, lighten($sub-prime-color, 10%) 100%);
     }
 
     &:focus {
@@ -168,31 +170,19 @@
     }
 
     &_link_1 {
-      background: linear-gradient(
-        180deg,
-        $prime-color 0%,
-        $sub-prime-color 100%
-      );
+      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
       -webkit-mask-image: url(../../components/footer/img/twit.svg);
       mask-image: url(../../components/footer/img/twit.svg);
     }
 
     &_link_2 {
-      background: linear-gradient(
-        180deg,
-        $prime-color 0%,
-        $sub-prime-color 100%
-      );
+      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
       -webkit-mask-image: url(../../components/footer/img/faceb.svg);
       mask-image: url(../../components/footer/img/faceb.svg);
     }
 
     &_link_3 {
-      background: linear-gradient(
-        180deg,
-        $prime-color 0%,
-        $sub-prime-color 100%
-      );
+      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
       -webkit-mask-image: url(../../components/footer/img/instagram.svg);
       mask-image: url(../../components/footer/img/instagram.svg);
     }

@@ -1,6 +1,7 @@
 .form-element {
   &__container {
     @include container;
+    @include font-h3;
     display: flex;
     justify-content: space-between;
   }
@@ -8,9 +9,11 @@
   &__col {
     margin-bottom: 100px;
     width: 320px;
+    text-transform: none;
 
     &_expanded {
       width: 640px;
+      text-transform: none;
     }
   }
 
@@ -22,34 +25,14 @@
   &__item {
     position: relative;
     margin-bottom: 21px;
-    color: $dark-shade;
+  }
 
-    &_with-btn {
-      padding: 16px 0 14px 0;
-    }
+  &__item-pack {
+    display: flex;
+    padding-top: 16px;
+  }
 
-    &_with-radio {
-      display: flex;
-      padding-top: 16px;
-    }
-
-    &_with-toggle {
-      padding: 15px 0 0 0;
-    }
-
-    &_with-rating {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    &_with-like {
-      padding-top: 16px;
-      display: flex;
-    }
-
-    &_with-pagination {
-      padding-top: 16px;
-      display: flex;
-    }
+  &__item-box {
+    padding-right: 20px;
   }
 }

@@ -1,6 +1,8 @@
 .input {
   @include font-body;
   margin: 0;
+  width: 100%;
+  max-width: 320px;
 
   $switch: &;
 
