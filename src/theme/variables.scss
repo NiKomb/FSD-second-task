@@ -1,5 +1,9 @@
-// Colors
+// Breakpoints
+$smallDesktopBreakpoint: 1200px;
+$tabletBreakpoint: 900px;
+$mobileBreakpoint: 600px;
 
+// Colors
 $dark-shade: #1f2041;
 
 $dark-shade-75: rgba($dark-shade, 0.75);
@@ -14,11 +18,7 @@ $second-color: #6fcf97;
 
 $gradient-excellent: linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%);
 $gradient-good: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
-$gradient-satisfied: linear-gradient(
-  180deg,
-  $prime-color 0%,
-  $sub-prime-color 100%
-);
+$gradient-satisfied: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
 $gradient-disappointed: linear-gradient(180deg, #919191 0%, #3d4975 100%);
 
 // Fonts sizes

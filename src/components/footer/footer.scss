@@ -13,7 +13,7 @@
     padding-top: 100px;
     padding-bottom: 100px;
 
-    @media screen and (max-width: 61.7143rem) {
+    @include breakpoint($smallDesktopBreakpoint) {
       justify-content: space-evenly;
     }
 
@@ -30,7 +30,7 @@
 
     text-align: left;
 
-    @media screen and (max-width: 61.7143rem) {
+    @include breakpoint($tabletBreakpoint) {
       text-align: center;
       margin: 0;
     }
@@ -47,7 +47,7 @@
     outline: none;
     margin-bottom: 17px;
 
-    @media screen and (max-width: 61.7143rem) {
+    @include breakpoint($tabletBreakpoint) {
       display: flex;
       justify-content: center;
     }
@@ -81,7 +81,7 @@
   &__navigation {
     display: flex;
 
-    @media screen and (max-width: 81.7143rem) {
+    @include breakpoint($smallDesktopBreakpoint) {
       display: none;
     }
   }
@@ -138,7 +138,7 @@
     width: 100%;
     min-width: 260px;
 
-    @media screen and (max-width: 41.1429rem) {
+    @include breakpoint($mobileBreakpoint) {
       display: none;
     }
   }

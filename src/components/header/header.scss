@@ -20,8 +20,13 @@
     justify-content: space-between;
     flex-flow: row wrap;
 
-    @media (max-width: 950px) {
+    @include breakpoint($smallDesktopBreakpoint) {
       flex-direction: column;
+      align-items: center;
+    }
+
+    @include breakpoint($tabletBreakpoint) {
+      align-items: stretch;
     }
   }
 
@@ -40,12 +45,12 @@
     display: flex;
     flex-flow: row wrap;
 
-    @media (max-width: 950px) {
+    @include breakpoint($tabletBreakpoint) {
       display: none;
     }
 
     &_is-open {
-      @media (max-width: 950px) {
+      @include breakpoint($tabletBreakpoint) {
         display: block;
       }
     }
@@ -55,7 +60,13 @@
     display: flex;
     align-items: center;
 
-    @media (max-width: 950px) {
+    @include breakpoint($smallDesktopBreakpoint) {
+      &_with-buttons {
+        justify-content: center;
+      }
+    }
+
+    @include breakpoint($tabletBreakpoint) {
       padding-top: 10px;
       flex-direction: column;
 
@@ -70,7 +81,7 @@
     display: inline-block;
     margin-right: 20px;
 
-    @media (max-width: 950px) {
+    @include breakpoint($tabletBreakpoint) {
       margin: 0;
     }
 
@@ -126,7 +137,7 @@
     border-left: 1px solid $dark-shade-10;
     padding: 6px 0 7px 29px;
 
-    @media (max-width: 950px) {
+    @include breakpoint($tabletBreakpoint) {
       border: 0;
       border-top: 1px solid $dark-shade-10;
       padding: 3px 0 0 0;
@@ -146,7 +157,7 @@
     width: 35px;
     outline: none;
 
-    @media (max-width: 950px) {
+    @include breakpoint($tabletBreakpoint) {
       display: block;
     }
 
@@ -157,8 +168,7 @@
 
     & path {
       fill: none;
-      transition: stroke-dashoffset $duration $easing,
-        stroke-dasharray $duration $easing;
+      transition: stroke-dashoffset $duration $easing, stroke-dasharray $duration $easing;
       stroke-width: 40px;
       stroke-linecap: round;
       stroke: $dark-shade;

@@ -27,10 +27,8 @@
     font-weight: $font-weight;
     font-style: $font-style;
     font-display: swap;
-    src: url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff2")
-        format("woff2"),
-      url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff")
-        format("woff");
+    src: url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff2") format("woff2"),
+      url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff") format("woff");
   }
 }
 
@@ -73,4 +71,10 @@
   line-height: $lh-body;
   font-family: Montserrat, Arial, sans-serif;
   color: $dark-shade-75;
+}
+
+@mixin breakpoint($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
 }
