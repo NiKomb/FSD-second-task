@@ -4,29 +4,63 @@
     display: flex;
     margin: auto;
     padding-top: 30px;
+
+    @include breakpoint($mobileBreakpoint) {
+      flex-direction: column;
+    }
   }
 
   &__preference {
-    min-width: 266px;
-    margin: 0 60px 15px 0;
+    width: 23%;
+    min-width: 260px;
+    margin-right: 58px;
+
+    @include breakpoint($tabletBreakpoint) {
+      min-width: 200px;
+      margin-right: 36px;
+    }
+
+    @include breakpoint($mobileBreakpoint) {
+      width: 100%;
+      margin: 0;
+    }
   }
 
   &__parameters {
     margin-bottom: 30px;
   }
 
+  &__result {
+    flex: 1;
+    @include breakpoint($mobileBreakpoint) {
+      width: 100%;
+    }
+  }
+
   &__title {
     @include font-h1;
+    padding-bottom: 21px;
   }
+
   &__items {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
+
   &__item {
-    margin-top: 19px;
+    width: calc(100% / 3 - 9px);
+    margin-bottom: 20px;
+
+    @include breakpoint($smallDesktopBreakpoint) {
+      width: calc(100% / 2 - 12px);
+    }
+
+    @include breakpoint($tabletBreakpoint) {
+      width: 100%;
+    }
   }
+
   &__pagination {
     margin-top: 40px;
   }

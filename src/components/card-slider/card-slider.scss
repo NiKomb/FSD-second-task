@@ -78,13 +78,23 @@
     &_prev {
       left: 0;
       background: #000;
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0) 99.99%,
+        rgba(255, 255, 255, 0) 100%
+      );
       z-index: 4;
     }
 
     &_next {
       right: 0;
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0) 99.99%,
+        rgba(255, 255, 255, 0) 100%
+      );
       transform: rotate(-180deg);
       z-index: 4;
     }
@@ -98,14 +108,13 @@
 
   // Create rules for  a track
   &__track {
-    transition: transform 0.5s ease 0s;
-    height: 151px;
-    display: block;
+    display: flex;
+    transition: 0.5s;
   }
 
   &__slide {
-    display: block;
-    position: absolute;
+    flex: 0 0 100%;
+    width: 100%;
 
     @for $num from 1 through 10 {
       &:nth-of-type(#{$num}) {
@@ -129,6 +138,7 @@
   }
 
   &__img {
+    display: block;
     width: 100%;
     height: auto;
   }
