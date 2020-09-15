@@ -1,0 +1,19 @@
+mixin room-number(options)
+  -
+    const {
+      number=1,
+      price=1,
+      luxury=false,
+      isMiddleNumber=false
+    }=options
+
+  .room-number
+    h3.room-number__left-title
+      | №
+      span.room-number__number(class=isMiddleNumber ? "room-number__number_size_h2" : "") #{number}
+      if luxury
+        +button({theme: "string", text:"Люкс"})
+
+    h3.room-number__right-title
+      b.room-number__price #{price}₽
+      | в сутки

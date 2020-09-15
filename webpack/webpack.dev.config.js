@@ -10,10 +10,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: 4200,
     overlay: true,
     hot: true,
-    openPage: [
-      // 'rooms-page.html',
-      "pages/ui-kit.html",
-    ],
+    compress: true,
+    // openPage: [
+    // 'rooms-page.html',
+    // "pages/ui-kit.html",
+    // ],
   },
 
   watchOptions: {

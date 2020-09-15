@@ -1,6 +1,6 @@
 extends /pages/template/template
 
-include /components/card-search/card-search
+include /components/room-search/room-search
 
 block pageTitle
   title Landing page
@@ -10,5 +10,5 @@ block main
     .landing-page__background
       .landing-page__content
         .landing-page__selection
-          +card-search({title:"Найдём номера под ваши пожелания"})
+          +room-search({title:"Найдём номера под ваши пожелания"})
         p.landing-page__description Лучшие номера для вашей работы, отдыха и просто вдохновения

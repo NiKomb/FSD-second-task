@@ -1,9 +1,9 @@
 include /components/input-text/input-text
 include /components/button/button
-include /components/card-number/card-number
+include /components/room-number/room-number
 
 
-mixin card-order(options)
+mixin room-reserve(options)
   -
     const {
       form= "Order",
@@ -16,15 +16,15 @@ mixin card-order(options)
       addService=0,
     } = options
 
-  form.card-order(name=`${form} № ${number}`)
-    .card-order__number
-      +card-number({
+  form.room-reserve(name=`${form} № ${number}`)
+    .room-reserve__number
+      +room-number({
         number:number,
         luxury:luxury,
         price:price
         })
 
-    .card-order__arrive
+    .room-reserve__arrive
       +input-text({
         view:"rangeDate",
         title:"прибытие",
@@ -34,7 +34,7 @@ mixin card-order(options)
         placeholder:"ДД.ММ.ГГГГ"
         })
 
-    .card-order__guest
+    .room-reserve__guest
       +input-text({
         title:"гости",
         subtitle: " ",
@@ -43,29 +43,29 @@ mixin card-order(options)
         name:"guests"
         })
 
-    .card-order__summary
-      .card-order__summary-item #{price}₽ х #{days} суток
-      .card-order__summary-item #{price * days}₽
+    .room-reserve__summary
+      .room-reserve__summary-item #{price}₽ х #{days} суток
+      .room-reserve__summary-item #{price * days}₽
 
-    .card-order__summary
-      .card-order__summary-item
+    .room-reserve__summary
+      .room-reserve__summary-item
         | Сбор за услуги: скидка #{discount}₽
-        .card-order__summary-mark i
-      .card-order__summary-item #{service}₽
+        .room-reserve__summary-mark i
+      .room-reserve__summary-item #{service}₽
 
-    .card-order__summary
-      .card-order__summary-item
+    .room-reserve__summary
+      .room-reserve__summary-item
         | Сбор за дополнительные услуги
-        .card-order__summary-mark i
-      .card-order__summary-item #{addService}₽
+        .room-reserve__summary-mark i
+      .room-reserve__summary-item #{addService}₽
 
-    .card-order__total
+    .room-reserve__total
       | Итого
-      .card-order__total-line
+      .room-reserve__total-line
       | #{(price * days) + service + addService - discount}₽
 
-    .card-order__button
-      a.card-registration__link(href="./mock-address/change-me")
+    .room-reserve__button
+      a.room-reserve__link(href="./mock-address/change-me")
         +button({
           type:"submit",
           form:form,

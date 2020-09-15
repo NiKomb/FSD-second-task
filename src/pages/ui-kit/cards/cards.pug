@@ -2,18 +2,18 @@
   .cards__grid
     .cards__column
       .cards__item
-        +card-search({title:"Найдём номера под ваши пожелания"})
+        +room-search({title:"Найдём номера под ваши пожелания"})
 
       .cards__item
-        +card-registration({
-          title:"Регистрация номера",
+        +account-registration({
+          title:"Регистрация аккаунта",
           form:"registration",
           auth:true,
         })
 
     .cards__column
       .cards__item
-        +card-order({
+        +room-reserve({
           form:"Order",
           number:888,
           luxury:true,
@@ -24,15 +24,15 @@
           addService:300
         })
       .cards__item
-        +card-sign-in({title:"Войти", auth:false})
+        +account-sign-in({title:"Войти", auth:false})
 
     .cards__column
       .cards__item
         .cards__item_with-calendar
 
       .cards__item
-        +card-room({
-          form:"card-room",
+        +room-info({
+          form:"room-info",
           images:[
             require("./cards/images/room-1").default,
             require("./cards/images/room-2").default,
@@ -50,8 +50,8 @@
           })
 
       .cards__item
-        +card-room({
-          form:"card-room",
+        +room-info({
+          form:"room-info",
           images:[
             require("./cards/images/room-2").default,
             require("./cards/images/room-1").default,

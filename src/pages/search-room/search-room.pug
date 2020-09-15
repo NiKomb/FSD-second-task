@@ -4,7 +4,7 @@ include /components/input-text/input-text
 include /components/range-slider/range-slider
 include /components/range-slider/range-slider
 include /components/checkbox-list/checkbox-list
-include /components/card-room/card-room
+include /components/room-info/room-info
 include /components/pagination/pagination
 
 block pageTitle
@@ -110,8 +110,8 @@ block main
               ]
             each room in rooms
               .search-room__item
-                +card-room({
-                  form:"card-room",
+                +room-info({
+                  form:"room-info",
                   images:getImagesPaths(room.images),
                   dotIMG:room.dotIMG,
                   href:"./room-details.html",

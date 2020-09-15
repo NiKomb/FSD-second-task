@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --watch --config ./webpack/webpack.dev.config.js",
-    "stream": "cross-env NODE_ENV=development webpack-dev-server --open --config ./webpack/webpack.dev.config.js",
+    "stream": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.build.config.js"
   },
   "browserslist": ">0.25%, not dead",

@@ -3,48 +3,48 @@ include /components/button/button
 include /components/radio/radio
 include /components/toggle/toggle
 
-mixin card-registration({ title, form, auth=true }='')
-  form.card-registration(name=form)
-    h1.card-registration__title=title
+mixin account-registration({ title, form, auth=true }='')
+  form.account-registration(name=form)
+    h1.account-registration__title=title
 
-    fieldset.card-registration__field
-      .card-registration__item
+    fieldset.account-registration__field
+      .account-registration__item
         +input-text({title:"",subtitle:"",placeholder:"Имя", type:"text"})
 
-      .card-registration__item
+      .account-registration__item
         +input-text({title:"",subtitle:"",placeholder:"Фамилия", type:"text"})
 
-      .card-registration__group
+      .account-registration__group
         +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
         +radio({text:"Женщина",name:"gender",value:"female"})
 
-    fieldset.card-registration__field
-      .card-registration__item
+    fieldset.account-registration__field
+      .account-registration__item
         +input-text({title:"дата рождения", subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
 
-    fieldset.card-registration__field
-      .card-registration__item
+    fieldset.account-registration__field
+      .account-registration__item
         +input-text({title:"данные для входа в сервис", subtitle:"", placeholder:"email", type:"email"})
 
-      .card-registration__item
+      .account-registration__item
         +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
 
-      .card-registration__item
+      .account-registration__item
         +toggle({text:"Получать спецпредложение", checked:false})
 
-    a.card-registration__link(href="/mock-address/change-me")
-      .card-registration__btn
+    a.account-registration__link(href="/mock-address/change-me")
+      .account-registration__btn
         +button({type:"button", form:form, theme: "arrow",size:" ", text:"перейти к оплате" })
 
-    fieldset.card-registration__field
-      .card-registration__group
+    fieldset.account-registration__field
+      .account-registration__group
         if auth===true
-          .card-registration__account Уже есть аккаунт на Toxin
+          .account-registration__account Уже есть аккаунт на Toxin
 
-          a.card-registration__link(href="./sign-in.html")
+          a.account-registration__link(href="./sign-in.html")
             +button({type:"button", form:form, size:" ", text:"Войти"})
         else
-          .card-registration__account Нет аккаунта на Toxin
+          .account-registration__account Нет аккаунта на Toxin
 
-          a.card-registration__link(href="./registration.html")
+          a.account-registration__link(href="./registration.html")
             +button({type:"button", form:form, size:" ", text:"Создать"})

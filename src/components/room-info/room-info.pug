@@ -1,13 +1,13 @@
 include /components/button/button
 include /components/rating/rating
 include /components/card-slider/card-slider
-include /components/card-number/card-number
+include /components/room-number/room-number
 
 
-mixin card-room(options)
+mixin room-info(options)
   -
     const {
-      form= "card-room",
+      form= "room-info",
       srcIMG="/mock-address/change-me",
       dotIMG=1,
       images,
@@ -19,20 +19,20 @@ mixin card-room(options)
       reviews=0
     } = options;
 
-  form.card-room(name=`${form} № ${number}` aria-label=`${form} № ${number}`)
-    fieldset.card-room__field
+  form.room-info(name=`${form} № ${number}` aria-label=`${form} № ${number}`)
+    fieldset.room-info__field
       +card-slider({dot:true, items:images, href:href, check:dotIMG})
 
-    fieldset.card-room__field
-      .card-room__number
-        +card-number({
+    fieldset.room-info__field
+      .room-info__number
+        +room-number({
           number:number,
           price:price,
           luxury:luxury,
           isMiddleNumber:true})
 
-      .card-room__group
+      .room-info__group
         +rating({title:"", rate:rate, name: `${form} № ${number} `})
-        .card-room__reviews
-          b.card-room__reviews-bold| #{reviews}
+        .room-info__reviews
+          b.room-info__reviews-bold| #{reviews}
           |Отзывов

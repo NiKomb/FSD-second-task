@@ -1,25 +1,25 @@
 include /components/input-text/input-text
 include /components/button/button
 
-mixin card-sign-in({ title, auth=true}='')
-  form.card-sign-in
-    h1.card-sign-in__title=title
+mixin account-sign-in({ title, auth=true}='')
+  form.account-sign-in
+    h1.account-sign-in__title=title
 
-    fieldset.card-sign-in__field
-      .card-sign-in__item
+    fieldset.account-sign-in__field
+      .account-sign-in__item
         +input-text({title:"",subtitle:"",placeholder:"email", type:"email"})
-      .card-sign-in__item
+      .account-sign-in__item
         +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
 
-    a.card-registration__link(href="./search-room.html")
-      .card-sign-in__btn
+    a.account-sign-in__link(href="./search-room.html")
+      .account-sign-in__btn
         +button({type:"button", theme: "arrow", size:" ", text:"Подобрать номер"})
 
-    fieldset.card-sign-in__field
-      .card-sign-in__group
+    fieldset.account-sign-in__field
+      .account-sign-in__group
         if auth===true
-          .card-sign-in__account Уже есть аккаунт на Toxin
-          a.card-registration__link(href="./sign-in.html")
+          .account-sign-in__account Уже есть аккаунт на Toxin
+          a.account-sign-in__link(href="./sign-in.html")
             +button({
             type:"button",
             form:form,
@@ -27,8 +27,8 @@ mixin card-sign-in({ title, auth=true}='')
             text:"Войти"
             })
         else
-          .card-sign-in__account Нет аккаунта на Toxin
-          a.card-registration__link(href="./registration.html")
+          .account-sign-in__account Нет аккаунта на Toxin
+          a.account-sign-in__link(href="./registration.html")
             +button({
             type:"button",
             form:form,
