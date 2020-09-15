@@ -7,6 +7,8 @@
       .cards__item
         +account-registration({
           title:"Регистрация аккаунта",
+          titleBirth:"дата рождения",
+          titleSign:"данные для входа в сервис",
           form:"registration",
           auth:true,
         })
@@ -15,6 +17,8 @@
       .cards__item
         +room-reserve({
           form:"Order",
+          discountText:"Сбор за услуги: скидка",
+          addServiceText:"Сбор за дополнительные услуги",
           number:888,
           luxury:true,
           price:9990,

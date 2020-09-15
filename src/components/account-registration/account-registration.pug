@@ -3,7 +3,16 @@ include /components/button/button
 include /components/radio/radio
 include /components/toggle/toggle
 
-mixin account-registration({ title, form, auth=true }='')
+mixin account-registration(options)
+  -
+    const {
+      title="title",
+      titleBirth="title birth",
+      titleSign="title sign",
+      form="form",
+      auth=true
+    } = options
+
   form.account-registration(name=form)
     h1.account-registration__title=title
 
@@ -20,11 +29,11 @@ mixin account-registration({ title, form, auth=true }='')
 
     fieldset.account-registration__field
       .account-registration__item
-        +input-text({title:"дата рождения", subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
+        +input-text({title:titleBirth, subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
 
     fieldset.account-registration__field
       .account-registration__item
-        +input-text({title:"данные для входа в сервис", subtitle:"", placeholder:"email", type:"email"})
+        +input-text({title:titleSign, subtitle:"", placeholder:"email", type:"email"})
 
       .account-registration__item
         +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
