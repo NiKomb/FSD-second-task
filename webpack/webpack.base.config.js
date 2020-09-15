@@ -180,7 +180,6 @@ module.exports = {
         new HTMLWebpackPlugin({
           template: `${PAGES_DIR}/${page}/${page}.pug`,
           filename: `pages/${page}.html`,
-          favicon: `${PATHS.src}/chunks/favicon/favicon.ico`,
           minify: {
             collapseWhitespace: isProd,
             removeComments: isProd,
