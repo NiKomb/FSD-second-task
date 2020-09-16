@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --watch --config ./webpack/webpack.dev.config.js",
     "stream": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.build.config.js"
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.build.config.js",
+    "deploy": "gh-pages -d dist"
   },
   "browserslist": ">0.25%, not dead",
   "keywords": [
@@ -29,6 +30,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.3.0",
     "image-webpack-loader": "^6.0.0",
     "ion-rangeslider": "^2.3.1",
