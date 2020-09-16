@@ -18,5 +18,9 @@ html(lang="ru")
 
     block pageTitle
 
-  body
+  body(class= `main main_is-inactive`)
+    .main__loader.js-main__loader
+      .main__loader_with-icon
+        include /components/spinner/spinner
+
     block content
