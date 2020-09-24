@@ -3,71 +3,45 @@ include /components/block-title/block-title
 mixin input-text(options={})
   -
     const {
-      title,
-      title1,
-      subtitle,
-      subtitle1,
-      view,
-      placeholder,
-      name,
-      type
+      view="",
+      title="",
+      subtitle="",
+      arrival="",
+      departure="",
+      placeholder="",
+      name="",
+      type="",
     } = options;
 
-  case view
-    when "hover"
-      .input.input_view-hover
-        .input__container_view-hover
-          .input__title
-            +block-title({title:title, subtitle:subtitle})
-          input.input__field(placeholder=placeholder, name=name, type=type)
+  .input
+    if title
+      .input__title
+        +block-title({title:title, subtitle:subtitle})
+    case view
+      when "arrow"
+        .input__container.input__container_with-arrow
+          input.input__field.input__field_with-arrow(placeholder=placeholder, name=name, type=type)
 
-    when "arrow"
-      .input.input_view-arrow
-        .input__container_view-arrow
-          .input__title
-            +block-title({title:title, subtitle:subtitle})
-          input.input__field(placeholder=placeholder, name=name, type=type)
-          svg.input__field_svg
-            include ./img/arrow-forward.svg
+      when "masked"
+        .input__container.input__container_masked
+          input.input__field(placeholder=placeholder, name=name, type="type")
 
-    when "guest"
-      .input.input_view-guest
-        .input__container_view-guest
-          .input__title
-            +block-title({title:title, subtitle:subtitle})
-          input.input__field(placeholder=placeholder, name=name, type=type)
+      when "filterDate"
+        .input__container.input__container_with-date
+          input.input__field.input__field_with-date(placeholder=placeholder, name=name, type=type)
 
-    when "masked"
-      .input.input_view-masked
-        .input__container_view-masked
-          .input__title
-            +block-title({title:title, subtitle:subtitle})
-          input.input__field(disabled placeholder=placeholder, name=name, type="type")
+      when "rangeDate"
+        .input__date-range
+          .input__box
+            .input__title
+              +block-title({title:arrival, subtitle:""})
+            .input__container.input__container_with-date
+              input.input__field.input__field_with-date(placeholder=placeholder, name=name, type=type)
+          .input__box
+            .input__title
+              +block-title({title:departure, subtitle:""})
+            .input__container.input__container_with-date
+              input.input__field.input__field_with-date(placeholder=placeholder, name=name, type=type)
 
-    when "filterDate"
-      .input.input_with-filter-date
-        .input__container_view-filter-date.input_with-filter-date-calendar
-          .input__title
-            +block-title({title:title, subtitle:subtitle})
-          .input__field-wrapper(data-field="calendar")
-            input.input__field(placeholder=placeholder, name=name, type=type, data-field="calendar")
-
-    when "rangeDate"
-      .input.input_view-range.input_with-range-calendar
-        .input__container_view-range
-          .input__title
-            +block-title({title:title, subtitle:subtitle})
-          .input__field-wrapper(data-field="calendar").input_with-range-calendar_arrival
-            input.input__field(placeholder=placeholder, name=name, type=type, data-field="calendar")
-        .input__container_view-range
-          .input__title
-            +block-title({title:title1, subtitle:subtitle1})
-          .input__field-wrapper(data-field="calendar").input_with-range-calendar_check-out
-            input.input__field(placeholder=placeholder, name=name, type=type, data-field="calendar")
-
-    default
-      .input
-        .input__container_view-default
-          .input__title
-            +block-title({title:title, subtitle:subtitle})
-          input.input__field(placeholder=placeholder name="default" type=type)
+      default
+        input.input__field(placeholder=placeholder name="default" type=type)
