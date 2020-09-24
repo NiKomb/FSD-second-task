@@ -51,9 +51,9 @@ mixin account-registration(options)
           .account-registration__account Уже есть аккаунт на Toxin
 
           a.account-registration__link(href="./sign-in.html")
-            +button({type:"button", form:form, size:" ", text:"Войти"})
+            +button({type:"button", form:form, size:"big", text:"Войти"})
         else
           .account-registration__account Нет аккаунта на Toxin
 
           a.account-registration__link(href="./registration.html")
-            +button({type:"button", form:form, size:" ", text:"Создать"})
+            +button({type:"button", form:form, size:"big", text:"Создать"})

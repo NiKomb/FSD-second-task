@@ -15,4 +15,8 @@ block main
   main.registration
     .registration__background
       .registration__content
-          +account-registration({title:"Регистрация аккаунта"})
+          +account-registration({
+            title:"Регистрация аккаунта",  titleBirth:"дата рождения",
+            titleSign:"данные для входа в сервис",form:"registration",
+            auth:true,
+          })
