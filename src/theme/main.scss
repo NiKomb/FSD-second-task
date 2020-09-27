@@ -14,7 +14,7 @@
 
 html {
   max-width: 1920px;
-  font-size: 14px;
+  font-size: $main-font-size;
   font-family: Arial, Helvetica, sans-serif;
   color: $dark-shade;
   height: 100%;
@@ -34,4 +34,19 @@ header {
 
 footer {
   flex: 0 0 auto;
+}
+
+a {
+  text-decoration: none;
+
+  &:active,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
 }

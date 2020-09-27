@@ -14,7 +14,7 @@
     margin: 0 0.2857rem 0 0.2857rem;
 
     &_size_h2 {
-      font-size: $fs-h2;
+      font-size: toRem($fs-h2);
     }
   }
 

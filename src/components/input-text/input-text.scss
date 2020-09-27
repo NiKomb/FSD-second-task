@@ -22,19 +22,14 @@
     }
 
     &_with-date {
+      @include icon-expand($dark-shade-50);
+
       &::after {
-        content: "";
-        display: inline-block;
         position: absolute;
-        bottom: 13px;
+        margin: auto;
+        bottom: 0;
         right: 18px;
-        width: 10px;
-        height: 10px;
-        border: 2px solid $dark-shade-50;
-        border-top: 0;
-        border-left: 0;
-        transform: translateY(-50%) rotate(45deg);
-        cursor: pointer;
+        top: 0;
       }
     }
   }
@@ -50,7 +45,7 @@
   }
 
   &__title {
-    padding-bottom: 7px;
+    padding-bottom: 6px;
   }
 
   &__field {

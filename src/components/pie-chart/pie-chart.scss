@@ -143,7 +143,7 @@
 
       margin: auto;
       left: 0;
-      bottom: $lh-h1 + $lh-h3;
+      bottom: toRem($lh-h1) + toRem($lh-h3);
       right: 0;
       top: 0;
 
@@ -218,7 +218,7 @@
     position: absolute;
 
     margin: auto;
-    top: $lh-h1;
+    top: toRem($lh-h1);
     left: 28px;
     bottom: 0;
 
@@ -242,7 +242,7 @@
 
       margin: auto;
       left: 0;
-      bottom: $lh-h1 + $lh-h3;
+      bottom: toRem($lh-h1) + toRem($lh-h3);
       right: 0;
       top: 0;
 

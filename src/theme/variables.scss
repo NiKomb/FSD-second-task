@@ -22,14 +22,16 @@ $gradient-satisfied: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 1
 $gradient-disappointed: linear-gradient(180deg, #919191 0%, #3d4975 100%);
 
 // Fonts sizes
-$fs-h1: 1.7143rem;
-$lh-h1: 2.1429rem;
+$main-font-size: 14px;
 
-$fs-h2: 1.3571rem;
-$lh-h2: 1.7142rem;
+$fs-h1: 24px;
+$lh-h1: 30px;
 
-$fs-h3: 0.8571rem;
-$lh-h3: 1.0714rem;
+$fs-h2: 19px;
+$lh-h2: 24px;
 
-$fs-body: 1rem;
-$lh-body: 1.7143rem;
+$fs-h3: 12;
+$lh-h3: 14;
+
+$fs-body: 14;
+$lh-body: 24;

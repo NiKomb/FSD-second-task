@@ -6,21 +6,6 @@
   padding: 1.0714rem;
 }
 
-%mixin reset-link {
-  text-decoration: none;
-
-  &:active,
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    outline: none;
-  }
-
-  &:visited {
-    text-decoration: none;
-  }
-}
-
 @mixin require-font($family, $dir, $font-weight: normal, $font-style: normal) {
   @font-face {
     font-family: "#{$family}";
@@ -36,8 +21,8 @@
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
-  font-size: $fs-h1;
-  line-height: $lh-h1;
+  font-size: toRem($fs-h1);
+  line-height: toRem($lh-h1);
   font-family: Quicksand, Arial, sans-serif;
   color: $dark-shade;
 }
@@ -46,8 +31,8 @@
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
-  font-size: $fs-h2;
-  line-height: $lh-h2;
+  font-size: toRem($fs-h2);
+  line-height: toRem($lh-h2);
   font-family: Quicksand, Arial, sans-serif;
   color: $dark-shade;
 }
@@ -56,8 +41,8 @@
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
-  font-size: $fs-h3;
-  line-height: $lh-h3;
+  font-size: toRem($fs-h3);
+  line-height: toRem($lh-h3);
   font-family: Montserrat, Arial, sans-serif;
   color: $dark-shade;
   text-transform: uppercase;
@@ -67,8 +52,8 @@
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
-  font-size: $fs-body;
-  line-height: $lh-body;
+  font-size: toRem($fs-body);
+  line-height: toRem($lh-body);
   font-family: Montserrat, Arial, sans-serif;
   color: $dark-shade-75;
 }

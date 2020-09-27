@@ -104,6 +104,8 @@ module.exports = {
               resources: [
                 `${PATHS.src}/theme/variables.scss`,
                 `${PATHS.src}/theme/mixins.scss`,
+                `${PATHS.src}/theme/icons.scss`,
+                `${PATHS.src}/theme/functions.scss`,
               ],
             },
           },
