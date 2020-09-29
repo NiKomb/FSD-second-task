@@ -1,0 +1,149 @@
+.dropdown-menu {
+  position: relative;
+
+  &__header {
+    @include icon-expand($dark-shade-50);
+
+    width: 100%;
+    min-height: toRem(44px);
+    border: none;
+    background: white;
+    color: $dark-shade-75;
+    line-height: toRem(18px);
+    border: 1px solid $dark-shade-25;
+    border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 17px;
+    padding-left: 14px;
+    border: 1px solid $dark-shade-25 {
+      radius: 4px;
+    }
+
+    background: white;
+    cursor: pointer;
+    font-size: toRem(14px);
+
+    &::after {
+      margin-bottom: 3px;
+    }
+  }
+
+  &_opened &__header {
+    border-color: $dark-shade-50;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 10px 20px $dark-shade-5;
+  }
+
+  &__text {
+    overflow: hidden;
+    max-width: 67%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    width: 100%;
+    height: auto;
+    padding: 0 6px 5px 14px;
+    border: 1px solid $dark-shade-25;
+    background: white;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 10px 20px $dark-shade-5;
+    color: $dark-shade;
+    font-size: toRem(12px);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &_opened &__content {
+    display: initial;
+    border-color: $dark-shade-50;
+  }
+
+  &__item {
+    display: flex;
+    min-height: toRem(37px);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__item-text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: toRem(15px);
+  }
+
+  &__counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__count {
+    width: toRem(32px);
+    border: none;
+    background: white;
+    font: inherit;
+    line-height: toRem(15px);
+    text-align: center;
+  }
+
+  &__decrement,
+  &__increment {
+    height: toRem(30px);
+    border: 1px solid $dark-shade-25;
+    background: white;
+    border-radius: 50%;
+    width: toRem(30px);
+    color: $dark-shade-50;
+    cursor: pointer;
+    font-size: toRem(18px);
+    line-height: toRem(22px);
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.38;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  &__button {
+    border: none;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    background: white;
+    cursor: pointer;
+    font-size: toRem(12px);
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &_type_confirm {
+      color: $prime-color;
+
+      &:hover {
+        color: $dark-shade-50;
+      }
+    }
+
+    &_type_cancel {
+      color: $dark-shade-50;
+    }
+
+    &_hidden {
+      display: none;
+    }
+  }
+}

@@ -12,8 +12,10 @@
     font-weight: $font-weight;
     font-style: $font-style;
     font-display: swap;
-    src: url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff2") format("woff2"),
-      url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff") format("woff");
+    src: url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff2")
+        format("woff2"),
+      url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff")
+        format("woff");
   }
 }
 
