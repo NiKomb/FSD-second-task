@@ -4,7 +4,7 @@ mixin dropdown-menu(data, {title, subtitle, isOpened, isInline, withActions})
 
   div(class=isOpened ? "dropdown-menu_opened" : "").dropdown-menu
     +block-title({title, subtitle})
-    button(type="button").dropdown-menu__header
+    button(type="button").dropdown-menu__header.js-dropdown-menu__header
       .dropdown-menu__text
     fieldset.dropdown-menu__content
       for item in data
@@ -16,7 +16,7 @@ mixin dropdown-menu(data, {title, subtitle, isOpened, isInline, withActions})
               value=item.count || 0
               name=item.name
               readonly
-            ).dropdown-menu__count
+            ).dropdown-menu__count.js-dropdown-menu__count
             button(type="button").dropdown-menu__increment +
       if withActions
         .dropdown-menu__buttons

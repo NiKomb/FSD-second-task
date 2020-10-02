@@ -1,0 +1,27 @@
+include /components/dropdown-menu/dropdown-menu
+
+mixin guests-dropdown(options)
+  -
+    const {
+      title,
+      subtitle,
+      counts=[0,0,0],
+      isOpened,
+      isInline
+    }=options
+
+  .guests-dropdown.js-guests-dropdown
+    +dropdown-menu(
+      [
+        {name: "adults", text: "Взрослые", count: counts[0]},
+        {name: "children", text: "Дети", count: counts[1]},
+        {name: "babies", text: "Младенцы", count: counts[2]},
+      ],
+      {
+        title,
+        subtitle,
+        isOpened,
+        isInline,
+        withActions: true
+      }
+    )
