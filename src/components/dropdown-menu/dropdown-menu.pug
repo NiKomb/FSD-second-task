@@ -11,7 +11,7 @@ mixin dropdown-menu(data, {title, subtitle, isOpened, isInline, withActions})
         .dropdown-menu__item
           span.dropdown-menu__item-text=item.text
           .dropdown-menu__counter
-            button(type="button").dropdown-menu__decrement.js-dropdown-menu__decrement -
+            button(type="button" disabled=true).dropdown-menu__decrement.js-dropdown-menu__decrement -
             input(
               value=item.count || 0
               name=item.name
@@ -21,4 +21,4 @@ mixin dropdown-menu(data, {title, subtitle, isOpened, isInline, withActions})
       if withActions
         .dropdown-menu__buttons
           button(type="button").dropdown-menu__button.dropdown-menu__button_type_confirm.js-dropdown-menu__button_type_confirm Применить
-          button(type="button").dropdown-menu__button.dropdown-menu__button_type_cancel.js-dropdown-menu__button_type_cancel Очистить
+          button(type="button" hidden=true).dropdown-menu__button.dropdown-menu__button_type_cancel.js-dropdown-menu__button_type_cancel Очистить
