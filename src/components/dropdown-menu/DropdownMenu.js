@@ -7,8 +7,10 @@ class DropdownMenu {
 
   create(anchor) {
     this.menu = anchor;
+
     this.header = this.menu.querySelector(".js-dropdown-menu__header");
     this.content = this.header.nextElementSibling;
+
     this.increments = this.content.querySelectorAll(".js-dropdown-menu__increment");
     this.decrements = this.content.querySelectorAll(".js-dropdown-menu__decrement");
     this.inputs = this.content.querySelectorAll(".js-dropdown-menu__count");
@@ -16,7 +18,6 @@ class DropdownMenu {
     this.cancel = this.content.querySelector(".js-dropdown-menu__button_type_cancel");
 
     document.addEventListener("click", this._handleDocumentClick.bind(this));
-
     this.header.addEventListener("click", this._handleHeaderClick.bind(this));
 
     this.decrements.forEach((decrement) => {
@@ -26,13 +27,56 @@ class DropdownMenu {
       increment.addEventListener("click", this._handleIncrementClick.bind(this));
     });
 
-    this.confirm.addEventListener("click", this._handleConfirmButtonClick.bind(this));
-    this.cancel.addEventListener("click", this._handleCancelButtonClick.bind(this));
+    this.isWithAction = Boolean(this.confirm && this.cancel);
+
+    if (this.isWithAction) {
+      this.confirm.addEventListener("click", this._handleConfirmButtonClick.bind(this));
+      this.cancel.addEventListener("click", this._handleCancelButtonClick.bind(this));
+    }
+
+    this._createState(this.isWithAction);
+  }
+
+  _createState(withActions) {
+    if (withActions) {
+      this.valuesData = [];
+      this.isStateChanged = false;
+    }
+    this._prepareInputs();
+    this._rewriteHeader(this._getInputValues());
+    this._hideCancelButton(this._isSummaryZero());
+  }
+
+  _prepareInputs() {
+    this.inputs.forEach((input, index) => {
+      if (this.valuesData !== undefined) {
+        this.valuesData[index] = Number(input.value);
+      }
+      if (Number(input.value) === 0) {
+        input.previousElementSibling.disabled = true;
+      }
+    });
+  }
+
+  _isRecoverRequired() {
+    return this.valuesData !== undefined && this.isStateChanged;
+  }
+
+  _recoverState() {
+    if (this._isRecoverRequired()) {
+      this.inputs.forEach((input, index) => {
+        input.value = this.valuesData[index];
+        this.decrements[index].disabled = Number(this.valuesData[index]) === 0;
+      });
+      this._hideCancelButton(this._isSummaryZero());
+      this.isStateChanged = true;
+    }
   }
 
   _handleDocumentClick(event) {
     if (!this.menu.contains(event.target)) {
       this.menu.classList.remove("dropdown-menu_opened");
+      this._recoverState();
     }
   }
 
@@ -47,8 +91,11 @@ class DropdownMenu {
     input.value = count - 1;
     if (Number(input.value) === 0) {
       input.previousElementSibling.disabled = true;
-      this._hideCancelButton(!this._isSummaryZero());
+      this._hideCancelButton(this._isSummaryZero());
     }
+
+    this._rewriteHeaderIfRequired();
+    this.isStateChanged = true;
   }
 
   _handleIncrementClick(event) {
@@ -59,7 +106,10 @@ class DropdownMenu {
     if (count === 0) {
       input.previousElementSibling.disabled = false;
     }
-    this._hideCancelButton(true);
+    this._hideCancelButton(!this._isSummaryZero);
+
+    this._rewriteHeaderIfRequired();
+    this.isStateChanged = true;
   }
 
   _handleConfirmButtonClick() {
@@ -72,18 +122,18 @@ class DropdownMenu {
     this._cleanInputValues();
     this.valuesData = this._getInputValues();
     this._rewriteHeader(this.valuesData);
-    this._hideCancelButton(false);
+    this._hideCancelButton(true);
   }
 
   _toggleMenu() {
     this.menu.classList.toggle("dropdown-menu_opened");
   }
 
-  _hideCancelButton(isVisible) {
-    if (isVisible) {
-      this.cancel.hidden = false;
-    } else {
+  _hideCancelButton(isHidden) {
+    if (isHidden && this.isWithAction) {
       this.cancel.hidden = true;
+    } else if (this.isWithAction) {
+      this.cancel.hidden = false;
     }
   }
 
@@ -101,6 +151,12 @@ class DropdownMenu {
 
   _rewriteHeader(values) {
     this.header.firstElementChild.textContent = this.rewriteValues(values);
+  }
+
+  _rewriteHeaderIfRequired() {
+    if (this.valuesData === undefined) {
+      this._rewriteHeader(this._getInputValues());
+    }
   }
 
   _isSummaryZero() {

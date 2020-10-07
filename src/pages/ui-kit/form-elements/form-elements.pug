@@ -28,10 +28,17 @@
 
         .form-element__item
           +guests-dropdown({
-            counts:[2, 3, 4],
+            counts:[1, 2, 3],
+            title: "Dropdown",
+            subtitle: "Default"
+          })
+
+        .form-element__item
+          +guests-dropdown({
             title: "Dropdown",
             subtitle: "Default",
             isOpened: true,
+            withActions:false,
           })
 
         .form-element__item

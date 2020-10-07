@@ -7,7 +7,8 @@ mixin guests-dropdown(options)
       subtitle,
       counts=[0,0,0],
       isOpened,
-      isInline
+      isInline,
+      withActions=true
     }=options
 
   .guests-dropdown.js-guests-dropdown
@@ -22,6 +23,6 @@ mixin guests-dropdown(options)
         subtitle,
         isOpened,
         isInline,
-        withActions: true
+        withActions
       }
     )

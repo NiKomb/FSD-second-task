@@ -8,13 +8,21 @@ class GuestsDropdownMenu extends DropdownMenu {
   }
 
   static writeGuestsValues(countArray) {
-    let guestsInfo = RussianLangUtil.selectWordByCount(
-      countArray[0] + countArray[1],
-      ["Сколько гостей", "гость", "гостя", "гостей"],
-      { withNumber: true },
-    );
+    let guestsInfo = `Сколько гостей`;
 
-    if (countArray[2] > 0) {
+    if (countArray[0] > 0 || countArray[1] > 0) {
+      guestsInfo = RussianLangUtil.selectWordByCount(
+        countArray[0] + countArray[1],
+        ["Сколько гостей", "гость", "гостя", "гостей"],
+        { withNumber: true },
+      );
+    }
+
+    if (countArray[0] == 0 && countArray[2] !== 0) {
+      guestsInfo = `Укажите взрослых`;
+    }
+
+    if (countArray[2] > 0 && countArray[0]) {
       guestsInfo += `, ${RussianLangUtil.selectWordByCount(
         countArray[2],
         ["", "младенец", "младенца", "младенцев"],
