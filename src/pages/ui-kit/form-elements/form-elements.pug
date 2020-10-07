@@ -42,6 +42,22 @@
           })
 
         .form-element__item
+          +furniture-dropdown({
+            title: "Dropdown",
+            subtitle: "Default",
+            isOpened: true,
+            withActions:false,
+          })
+
+        .form-element__item
+          +furniture-dropdown({
+            title: "Dropdown",
+            subtitle: "Default",
+            isOpened: false,
+            withActions:true,
+          })
+
+        .form-element__item
           +input-text({
             view:"masked",
             title:"masked text field",

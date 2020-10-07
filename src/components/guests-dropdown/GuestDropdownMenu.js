@@ -1,5 +1,4 @@
 import RussianLangUtil from "@/utils/RussianLangUtil";
-
 import DropdownMenu from "@/components/dropdown-menu/DropdownMenu";
 
 class GuestsDropdownMenu extends DropdownMenu {
