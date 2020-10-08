@@ -1,6 +1,10 @@
 .dropdown-menu {
   position: relative;
 
+  &__title {
+    padding-bottom: 4px;
+  }
+
   &__header {
     @include icon-expand($dark-shade-50);
 
@@ -11,16 +15,14 @@
     color: $dark-shade-75;
     line-height: toRem(18px);
     border: 1px solid $dark-shade-25;
-    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-right: 17px;
     padding-left: 14px;
-    border: 1px solid $dark-shade-25 {
-      radius: 4px;
-    }
 
     background: white;
     cursor: pointer;
@@ -52,15 +54,13 @@
     display: none;
     width: 100%;
     height: auto;
-    padding: 0 6px 5px 14px;
+    padding: 3px 6px 4px 14px;
     border: 1px solid $dark-shade-25;
     background: white;
     border-radius: 0 0 4px 4px;
     box-shadow: 0 10px 20px $dark-shade-5;
-    color: $dark-shade;
-    font-size: toRem(12px);
-    font-weight: bold;
-    text-transform: uppercase;
+
+    @include font-h3;
   }
 
   &_opened &__content {
@@ -76,9 +76,9 @@
   }
 
   &__item-text {
-    margin-top: 5px;
+    margin-top: 2px;
     margin-bottom: 5px;
-    line-height: toRem(15px);
+    line-height: toRem(14.63);
   }
 
   &__counter {
@@ -92,7 +92,7 @@
     border: none;
     background: white;
     font: inherit;
-    line-height: toRem(15px);
+    line-height: toRem(14.63);
     text-align: center;
   }
 
@@ -121,29 +121,7 @@
   }
 
   &__button {
-    border: none;
     margin-top: 18px;
     margin-bottom: 7px;
-    background: white;
-    cursor: pointer;
-    font-size: toRem(12px);
-    font-weight: bold;
-    text-transform: uppercase;
-
-    &_type_confirm {
-      color: $prime-color;
-
-      &:hover {
-        color: $dark-shade-50;
-      }
-    }
-
-    &_type_cancel {
-      color: $dark-shade-50;
-    }
-
-    &_hidden {
-      display: none;
-    }
   }
 }

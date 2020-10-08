@@ -32,11 +32,11 @@ class GuestsDropdownMenu extends DropdownMenu {
     return guestsInfo;
   }
 
-  static initAll({ selector = ".js-guests-dropdown", parent = document }) {
+  static initAll({ selector = ".js-guests-dropdown", parent = document } = {}) {
     parent.querySelectorAll(selector).forEach((element) => {
       new GuestsDropdownMenu().create(element.firstChild);
     });
   }
 }
 
-export default GuestsDropdownMenu;
+GuestsDropdownMenu.initAll();

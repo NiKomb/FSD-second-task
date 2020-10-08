@@ -15,13 +15,13 @@ mixin header(options)
       }],
     } = options
 
-  header.header
+  header.header.js-header
     .header__main
       .header__container
         a.header__logo(href=logoRef title="Toxin" target="_blank")
           +logo
 
-        nav.header__nav.js-header__nav
+        nav.header__navigation.js-header__navigation
           ul.header__menu
             for item in navItems
               li.header__item(

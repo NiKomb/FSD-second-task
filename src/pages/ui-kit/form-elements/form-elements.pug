@@ -22,39 +22,11 @@
 
         .form-element__item
           +guests-dropdown({
-            title: "Dropdown",
-            subtitle: "Default"
-          })
-
-        .form-element__item
-          +guests-dropdown({
-            counts:[1, 2, 3],
-            title: "Dropdown",
-            subtitle: "Default"
-          })
-
-        .form-element__item
-          +guests-dropdown({
-            title: "Dropdown",
-            subtitle: "Default",
-            isOpened: true,
-            withActions:false,
-          })
-
-        .form-element__item
-          +furniture-dropdown({
-            title: "Dropdown",
-            subtitle: "Default",
-            isOpened: true,
-            withActions:false,
-          })
-
-        .form-element__item
-          +furniture-dropdown({
-            title: "Dropdown",
-            subtitle: "Default",
-            isOpened: false,
-            withActions:true,
+            title:"dropdown",
+            subtitle:"",
+            counts:[0,0,0],
+            isOpened:false,
+            withActions:true
           })
 
         .form-element__item
@@ -170,16 +142,35 @@
 
   .form-element__container
     .form-element__col
-      .form-element__item-list Dropdown
+      .form-element__item-list
         .form-element__item
+          +furniture-dropdown({
+            subtitle:"Default"
+          })
+
+        .form-element__item
+          +furniture-dropdown({
+            subtitle:"Expanded",
+            isOpened:true,
+            withActions:false,
+          })
 
     .form-element__col
-      .form-element__item-list Dropdown
+      .form-element__item-list
         .form-element__item
+          +guests-dropdown({
+            title:"dropdown",
+            isOpened:true,
+          })
 
     .form-element__col
-      .form-element__item-list Dropdown
+      .form-element__item-list
         .form-element__item
+          +guests-dropdown({
+            title:"dropdown",
+            counts:[2,1,0],
+            isOpened:true,
+          })
 
   .form-element__container
     .form-element__col

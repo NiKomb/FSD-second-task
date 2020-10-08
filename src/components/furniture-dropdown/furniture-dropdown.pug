@@ -1,13 +1,12 @@
 include /components/dropdown-menu/dropdown-menu
 
-mixin furniture-dropdown(options)
+mixin furniture-dropdown(options={})
   -
     const {
-      title,
-      subtitle,
+      title="Dropdown",
+      subtitle="",
       counts=[0,0,0],
-      isOpened,
-      isInline,
+      isOpened=false,
       withActions=true
     }=options
 
@@ -22,7 +21,6 @@ mixin furniture-dropdown(options)
         title,
         subtitle,
         isOpened,
-        isInline,
         withActions
       }
     )

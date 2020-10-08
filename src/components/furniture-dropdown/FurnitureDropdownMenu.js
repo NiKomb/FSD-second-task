@@ -25,11 +25,11 @@ class FurnitureDropdownMenu extends DropdownMenu {
     return headerRow.length > 0 ? headerRow.join(`, `) : `Удобства не выбраны`;
   }
 
-  static initAll({ selector = ".js-furniture-dropdown", parent = document }) {
+  static initAll({ selector = ".js-furniture-dropdown", parent = document } = {}) {
     parent.querySelectorAll(selector).forEach((element) => {
       new FurnitureDropdownMenu().create(element.firstChild);
     });
   }
 }
 
-export default FurnitureDropdownMenu;
+FurnitureDropdownMenu.initAll();

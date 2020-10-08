@@ -1,17 +1,22 @@
-const onMenuIconClick = () => {
-  document
-    .querySelector(".js-header__nav")
-    .classList.toggle("header__nav_is-open");
-  document
-    .querySelector(".js-header__toggle")
-    .classList.toggle("header__toggle_active");
-};
+class Header {
+  create(element) {
+    this.header = element;
+    this.navigation = this.header.querySelector(".js-header__navigation");
+    this.toggle = this.header.querySelector(".js-header__toggle");
 
-const init = () => {
-  const menuIcon = document.querySelector(".js-header__toggle");
-  if (menuIcon) menuIcon.addEventListener("click", onMenuIconClick);
-};
+    this.toggle.addEventListener("click", this._handleToggleClick.bind(this));
+  }
 
-export default {
-  init,
-};
+  _handleToggleClick() {
+    this.navigation.classList.toggle("header__navigation_is-open");
+    this.toggle.classList.toggle("header__toggle_active");
+  }
+
+  static initAll({ selector = ".js-header", parent = document } = {}) {
+    parent.querySelectorAll(selector).forEach((item) => {
+      new Header().create(item);
+    });
+  }
+}
+
+Header.initAll();

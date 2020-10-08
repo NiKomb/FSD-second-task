@@ -1,9 +1,11 @@
 include /components/block-title/block-title
+include /components/button/button
 
 mixin dropdown-menu(data, {title, subtitle, isOpened, isInline, withActions=true})
 
   div(class=isOpened ? "dropdown-menu_opened" : "").dropdown-menu
-    +block-title({title, subtitle})
+    .dropdown-menu__title
+      +block-title({title, subtitle})
     button(type="button").dropdown-menu__header.js-dropdown-menu__header
       .dropdown-menu__text
     fieldset.dropdown-menu__content
@@ -20,5 +22,7 @@ mixin dropdown-menu(data, {title, subtitle, isOpened, isInline, withActions=true
             button(type="button").dropdown-menu__increment.js-dropdown-menu__increment +
       if withActions
         .dropdown-menu__buttons.js-dropdown-menu__buttons
-          button(type="button").dropdown-menu__button.dropdown-menu__button_type_confirm.js-dropdown-menu__button_type_confirm Применить
-          button(type="button" hidden=true).dropdown-menu__button.dropdown-menu__button_type_cancel.js-dropdown-menu__button_type_cancel Очистить
+          .dropdown-menu__button.js-dropdown-menu__button_type_confirm
+            +button({theme:"string", form:form, text:"Применить"})
+          .dropdown-menu__button.js-dropdown-menu__button_type_cancel(hidden = true)
+            +button({theme:"string", form:form, text:"Очистить"})

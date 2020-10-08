@@ -1,13 +1,12 @@
 include /components/dropdown-menu/dropdown-menu
 
-mixin guests-dropdown(options)
+mixin guests-dropdown(options={})
   -
     const {
-      title,
-      subtitle,
+      title="Guests dropdown",
+      subtitle="",
       counts=[0,0,0],
-      isOpened,
-      isInline,
+      isOpened=false,
       withActions=true
     }=options
 
@@ -22,7 +21,6 @@ mixin guests-dropdown(options)
         title,
         subtitle,
         isOpened,
-        isInline,
         withActions
       }
     )
