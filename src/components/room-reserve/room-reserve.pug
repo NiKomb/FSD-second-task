@@ -1,4 +1,4 @@
-include /components/input-text/input-text
+include /components/text-field/text-field
 include /components/button/button
 include /components/room-number/room-number
 
@@ -27,7 +27,7 @@ mixin room-reserve(options)
         })
 
     .room-reserve__arrive
-      +input-text({
+      +text-field({
         view:"rangeDate",
         title:"прибытие",
         subtitle:"",
@@ -37,7 +37,7 @@ mixin room-reserve(options)
         })
 
     .room-reserve__guest
-      +input-text({
+      +text-field({
         title:"гости",
         subtitle: " ",
         view:"guest",

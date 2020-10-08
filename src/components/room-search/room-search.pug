@@ -1,4 +1,4 @@
-include /components/input-text/input-text
+include /components/text-field/text-field
 include /components/button/button
 
 
@@ -7,7 +7,7 @@ mixin room-search({title}='')
     h1.room-search__title=title
 
     .room-search__arrive
-      +input-text({
+      +text-field({
             view:"rangeDate",
             title:"прибытие",
             subtitle:"",
@@ -16,7 +16,7 @@ mixin room-search({title}='')
             placeholder:"ДД.ММ.ГГГГ"})
 
     .room-search__guest
-      +input-text({title:"гости", subtitle: " ",view:"guest",placeholder: "Сколько гостей",name:"guests",})
+      +text-field({title:"гости", subtitle: " ",view:"guest",placeholder: "Сколько гостей",name:"guests",})
 
     .room-search__button
       a.room-search__link(href="./search-room.html")

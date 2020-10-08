@@ -1,4 +1,4 @@
-include /components/input-text/input-text
+include /components/text-field/text-field
 include /components/button/button
 
 mixin account-sign-in({ title, auth=true}='')
@@ -7,9 +7,9 @@ mixin account-sign-in({ title, auth=true}='')
 
     fieldset.account-sign-in__field
       .account-sign-in__item
-        +input-text({title:"",subtitle:"",placeholder:"email", type:"email"})
+        +text-field({title:"",subtitle:"",placeholder:"email", type:"email"})
       .account-sign-in__item
-        +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
+        +text-field({title:"",subtitle:"", placeholder:"password", type:"password"})
 
     a.account-sign-in__link(href="./search-room.html")
       .account-sign-in__btn

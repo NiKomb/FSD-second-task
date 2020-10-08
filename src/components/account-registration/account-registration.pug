@@ -1,4 +1,4 @@
-include /components/input-text/input-text
+include /components/text-field/text-field
 include /components/button/button
 include /components/radio/radio
 include /components/toggle/toggle
@@ -18,10 +18,10 @@ mixin account-registration(options)
 
     fieldset.account-registration__field
       .account-registration__item
-        +input-text({title:"",subtitle:"",placeholder:"Имя", type:"text"})
+        +text-field({title:"",subtitle:"",placeholder:"Имя", type:"text"})
 
       .account-registration__item
-        +input-text({title:"",subtitle:"",placeholder:"Фамилия", type:"text"})
+        +text-field({title:"",subtitle:"",placeholder:"Фамилия", type:"text"})
 
       .account-registration__group
         +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
@@ -29,14 +29,14 @@ mixin account-registration(options)
 
     fieldset.account-registration__field
       .account-registration__item
-        +input-text({title:titleBirth, subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
+        +text-field({title:titleBirth, subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
 
     fieldset.account-registration__field
       .account-registration__item
-        +input-text({title:titleSign, subtitle:"", placeholder:"email", type:"email"})
+        +text-field({title:titleSign, subtitle:"", placeholder:"email", type:"email"})
 
       .account-registration__item
-        +input-text({title:"",subtitle:"", placeholder:"password", type:"password"})
+        +text-field({title:"",subtitle:"", placeholder:"password", type:"password"})
 
       .account-registration__item
         +toggle({text:"Получать спецпредложение", checked:false})

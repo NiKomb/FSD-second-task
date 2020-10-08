@@ -1,4 +1,4 @@
-.input {
+.text-field {
   @include font-body;
   margin: 0;
   width: 100%;
@@ -9,7 +9,7 @@
 
     &_with-arrow {
       &::after {
-        content: url(../../components/input-text/img/arrow-forward.svg);
+        content: url(../../components/text-field/img/arrow-forward.svg);
         position: absolute;
         cursor: pointer;
         right: 7px;

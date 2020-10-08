@@ -1,4 +1,4 @@
-import Calendar from "../../components/calendar/calendar";
+import Calendar from "../calendar/calendar";
 
 // const arrivalCalendar = new Calendar(".input_with-range-calendar", {
 //   className: "js-input_with-range-calendar",
