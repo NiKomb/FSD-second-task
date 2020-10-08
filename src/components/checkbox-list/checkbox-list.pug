@@ -1,14 +1,28 @@
 include /components/checkbox/checkbox
 include /components/block-title/block-title
 
-mixin checkbox-list({expand, items, title, subtitle})
-  .checkbox-list
+mixin checkbox-list(options={})
+  -
+    const {
+      title="Checkbox title",
+      subtitle="",
+      expand=false,
+      items=[
+        {
+          richName: "Checkbox title",
+          text:"checkbox text",
+          dis:false,
+          check:false,
+        },
+      ],
+    }=options
+
+  .checkbox-list.js-checkbox-list
     if expand===true&&title
-      input.checkbox-list__toggle(type="checkbox" id="checkbox-list-toggle")
-      label.checkbox-list__title(for="checkbox-list-toggle")
+      .checkbox-list__title.js-checkbox-list__title
         +block-title({title:title, subtitle:subtitle})
-        .checkbox-list__mark
-      ul.checkbox-list__items
+        .checkbox-list__mark.js-checkbox-list__mark
+      ul.checkbox-list__items.js-checkbox-list__items
         each item in items
           li.checkbox-list__item
             +checkbox(item)
