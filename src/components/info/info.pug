@@ -1,4 +1,16 @@
-mixin info({title="info", subtitle, items=[]}='')
+mixin info(options={})
+  -
+    const {
+      title="information",
+      subtitle="",
+      items=[
+        {
+          bullet: false,
+          text: "marked text"
+        }
+      ]
+    }=options
+
   article.info
     h3.info__title(data-subtitle=subtitle)= title
     ul.info__list

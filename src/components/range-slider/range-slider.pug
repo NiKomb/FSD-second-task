@@ -1,6 +1,16 @@
 include /components/block-title/block-title
 
-mixin range-slider({title, subtitle, max, min, from, to,}='')
+mixin range-slider(options={})
+  -
+    const {
+      title="Range slider",
+      subtitle="0 р-10 000р",
+      max=15000,
+      min=0,
+      from=0,
+      to=10000,
+    }=options
+
   .slider
     .slider__container
       .slider__title

@@ -1,4 +1,11 @@
-mixin like({count=1, name, like=false}='')
+mixin like(options={})
+  -
+    const {
+      count=1,
+      name="like",
+      like=false
+    }=options
+
   span.like
     label.like__label
       input.like__input(type="checkbox" name=name checked=like)

@@ -1,4 +1,14 @@
-mixin button({theme, size, type="button", form=1, href='#', text="Button"}="")
+mixin button(options={})
+  -
+    const {
+      text="Button",
+      theme="",
+      size="",
+      type="button",
+      form="form",
+      href='#',
+    }=options
+
   .button
     case theme
       when "string"

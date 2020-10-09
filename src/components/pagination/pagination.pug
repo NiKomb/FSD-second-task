@@ -1,4 +1,12 @@
-mixin pagination({ current=1, total, variant=1, href="/mock-address/change-me"} = "" )
+mixin pagination(options = {})
+  -
+    const {
+      current=1,
+      total=12,
+      variant=1,
+      href="/mock-address/change-me"
+    }=options
+
   .pagination
     .pagination__pages
       a(tabindex=0 href=href, target="_blank").pagination__page.pagination__page_current=current

@@ -1,9 +1,19 @@
-mixin rating({ rate=3, name}='')
-  fieldset.rating
+mixin rating(options={})
+  -
+    const {
+      rate=5,
+      name="star rating",
+      form="form"
+    }=options
+
+  fieldset.rating(form=form)
     .rating__group(aria-label="rating")
-      - for (var i = 1; i <= 5; i+=1)
+      - for (let i = 1; i <= 5; i+=1)
           input.rating__star(
+            form=form
             type="radio",
-            name=name value=`${i}`,
+            name=name,
+            value=`${i}`,
             aria-label= (i==1) ?"Ужасный": (i==2) ? "Плохой": (i==3) ? "Средний": (i==4) ? "Хороший": "Отличный",
-            checked=(i<=rate) ? true : false,)
+            checked=(i<=rate) ? true : false,
+          )

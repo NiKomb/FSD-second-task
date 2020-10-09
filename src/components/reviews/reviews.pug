@@ -3,10 +3,17 @@ include /components/like/like
 mixin reviews(options={})
   -
     const {
-      title="#",
+      title="reviews",
       subtitle="",
       review=[
-        avatar="#",
+        {
+          avatar:require("../ui-kit/form-elements/images/author_1.png").default,
+          like:true,
+          count: 1,
+          author:"Мурад Сарафанов",
+          time:"time",
+          text:"text"
+        },
       ]
     } = options
 

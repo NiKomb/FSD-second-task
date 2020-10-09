@@ -1,4 +1,17 @@
-mixin details({title, subtitle, items=[]}="")
+mixin details(options={})
+  -
+    const {
+      title,
+      subtitle,
+      items=[
+        {
+          icon:"smile",
+          name: "name",
+          text:"text",
+        }
+      ]
+    }=options
+
   .details
     label.details__title(subtitle=subtitle)= title
     ul.details__list
