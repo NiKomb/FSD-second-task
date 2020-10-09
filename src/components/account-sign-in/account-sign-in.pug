@@ -1,7 +1,7 @@
 include /components/text-field/text-field
 include /components/button/button
 
-mixin account-sign-in({ title, auth=true}='')
+mixin account-sign-in({title="Войти", auth=true}={})
   form.account-sign-in
     h1.account-sign-in__title=title
 

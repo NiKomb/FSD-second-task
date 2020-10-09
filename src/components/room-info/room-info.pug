@@ -4,18 +4,18 @@ include /components/card-slider/card-slider
 include /components/room-number/room-number
 
 
-mixin room-info(options)
+mixin room-info(options={})
   -
     const {
-      form= "room-info",
+      form= "info",
       srcIMG="/mock-address/change-me",
       dotIMG=1,
-      images,
+      images=[],
       href="/mock-address/change-me",
       number=1,
       luxury=false,
       price=0,
-      rate=3,
+      rate=5,
       reviews=0
     } = options;
 
