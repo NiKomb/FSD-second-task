@@ -1,0 +1,40 @@
+include /components/block-title/block-title
+
+mixin dropdown-date(options={})
+  -
+    const {
+      view="",
+      title="Dropdown date",
+      subtitle="",
+      arrival="arrival",
+      departure="departure",
+      placeholder="ДД.ММ.ГГГГ",
+      name="",
+      type="",
+    } = options;
+
+  .dropdown-date
+    if title
+      .dropdown-date__title
+        +block-title({title:title, subtitle:subtitle})
+    case view
+
+      when "filterDate"
+        .dropdown-date__container.js-dropdown-date_date-filter
+          input.dropdown-date__field.dropdown-date__field_with-date.js-dropdown-date__field(placeholder=placeholder, name=name, type=type)
+
+      when "rangeDate"
+        .dropdown-date__date-range.js-dropdown-date_date-range
+          .dropdown-date__box
+            .dropdown-date__title
+              +block-title({title:arrival, subtitle:""})
+            .dropdown-date__container
+              input.dropdown-date__field.dropdown-date__field_with-date.js-dropdown-date__field.js-dropdown-date__field_arrival(placeholder=placeholder, name=name, type=type)
+          .dropdown-date__box
+            .dropdown-date__title
+              +block-title({title:departure, subtitle:""})
+            .dropdown-date__container.dropdown-date__container_with-date
+              input.dropdown-date__field.dropdown-date__field_with-date.js-dropdown-date__field.js-dropdown-date__field_departure(placeholder=placeholder, name=name, type=type)
+
+      default
+        input.dropdown-date__field(placeholder=placeholder name="default" type=type)

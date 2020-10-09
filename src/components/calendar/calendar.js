@@ -2,25 +2,13 @@ import "air-datepicker/dist/js/datepicker";
 import "air-datepicker/dist/css/datepicker.min.css";
 
 class Calendar {
-  constructor(calendarField, additionalOptions) {
-    this.calendarField = calendarField;
-
-    this.initDatePicker(additionalOptions);
-    this.changeButtonsNames();
-
-    this.addEventListeners();
-
-    this.calendar = $(calendarField).data("datepicker").$datepicker;
-
-    this.calendar.hide();
-  }
-
-  initDatePicker(additionalOptions) {
+  constructor(anchor, additionalOptions) {
     const defaultOptions = {
-      classes: additionalOptions.className,
-      inline: true,
-      range: true,
       minDate: new Date(),
+      classes: additionalOptions.className,
+      range: true,
+      multipleDatesSeparator: " - ",
+
       clearButton: true,
       todayButton: true,
       prevHtml:
@@ -29,14 +17,23 @@ class Calendar {
         '<svg><path d="M8.36301 0.984375L16.3786 9L8.36301 17.0156L6.95676 15.6094L12.5349 9.98438H0.347383V8.01562H12.5349L6.95676 2.39062L8.36301 0.984375Z"></path></svg>',
     };
 
-    $(this.calendarField).datepicker({
-      ...defaultOptions,
-      ...additionalOptions,
-    });
+    this.$anchor = anchor;
+    this.fields = this.$anchor.querySelectorAll(".js-dropdown-date__field");
+
+    this.calendar = $(this.$anchor)
+      .datepicker({
+        ...defaultOptions,
+        ...additionalOptions,
+      })
+      .data("datepicker").$datepicker;
+
+    this._changeButtonsNames();
+    this._addEventListeners();
+    this.calendar.hide();
   }
 
-  changeButtonsNames() {
-    const datePickerButtons = $(this.calendarField)
+  _changeButtonsNames() {
+    const datePickerButtons = $(this.$anchor)
       .data("datepicker")
       .$datepicker[0].querySelector(".datepicker--buttons");
 
@@ -46,39 +43,24 @@ class Calendar {
 
     datePickerButtons.insertAdjacentHTML(
       "beforeend",
-      [clearButtonWrapper, applyButtonWrapper].join("")
+      [clearButtonWrapper, applyButtonWrapper].join(""),
     );
   }
 
-  addEventListeners() {
-    const clickOnCalendar = this.showCalendar.bind(this);
-    const clickOnDocument = this.hideCalendar.bind(this);
+  _addEventListeners() {
+    this.fields.forEach((field) => {
+      field.addEventListener("click", this._handleFieldClick.bind(this));
+    });
 
-    $(this.calendarField).on("click", clickOnCalendar);
-    $(document).on("click", clickOnDocument);
+    document.addEventListener("click", this._handleDocumentClick.bind(this));
   }
 
-  hideCalendar(event) {
-    const clickOnDocument = event.target.className.match(/(datepicker|input)/g);
-
-    if (!clickOnDocument) {
-      this.calendar.hide();
-    }
+  _handleFieldClick() {
+    this.calendar.show();
   }
 
-  showCalendar(event) {
-    const clickOnField = event.target.dataset.field;
-    const clickOnButton = event.target.dataset.action;
-
-    console.log(event.target.className);
-
-    if (clickOnField === "calendar") {
-      if (this.calendar[0].style.display === "") {
-        this.calendar.hide();
-      } else {
-        this.calendar.show();
-      }
-    } else if (clickOnButton === "today") {
+  _handleDocumentClick(event) {
+    if (!this.$anchor.contains(event.target)) {
       this.calendar.hide();
     }
   }

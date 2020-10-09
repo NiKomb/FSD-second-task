@@ -1,7 +1,7 @@
 .datepicker-inline {
   display: block;
   position: absolute;
-  top: 81px;
+  top: 50px;
 
   .datepicker {
     position: absolute;
@@ -83,11 +83,7 @@
 
         &.-selected- {
           font-weight: bold;
-          background: linear-gradient(
-            180deg,
-            $prime-color 0%,
-            $sub-prime-color 100%
-          );
+          background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
           color: white;
         }
 
@@ -103,11 +99,7 @@
           right: 0;
           bottom: 0;
           top: 0;
-          background: linear-gradient(
-            180deg,
-            rgba(188, 156, 255, 0.25),
-            rgba(139, 164, 249, 0.25)
-          );
+          background: linear-gradient(180deg, rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
           z-index: -1;
         }
 
@@ -129,11 +121,7 @@
         }
 
         &.-in-range- {
-          background: linear-gradient(
-            180deg,
-            rgba(188, 156, 255, 0.25),
-            rgba(139, 164, 249, 0.25)
-          );
+          background: linear-gradient(180deg, rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
           color: $dark-shade-50;
           border-radius: 0;
         }
