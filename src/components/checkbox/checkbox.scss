@@ -33,11 +33,7 @@
           width: 8px;
           left: 5px;
           top: 5px;
-          background-image: linear-gradient(
-            180deg,
-            $prime-color 0%,
-            $sub-prime-color 100%
-          );
+          background-image: $gradient-satisfied;
           transform: rotate(-45deg);
         }
 
@@ -87,10 +83,11 @@
         color: #f4f4f5;
 
         &::after {
-          background: #f4f4f5;
+          display: none;
         }
+
         &::before {
-          background: #bfbfc8;
+          display: none;
         }
 
         + #{$switch}__info {
