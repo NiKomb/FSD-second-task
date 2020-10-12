@@ -26,22 +26,5 @@ mixin text-field(options={})
         .text-field__container.text-field__container_masked.js-text-field_masked
           input.text-field__field.js-text-field__input(placeholder=placeholder, name=name, type="type")
 
-      when "filterDate"
-        .text-field__container.text-field__container_with-date
-          input.text-field__field.text-field__field_with-date(placeholder=placeholder, name=name, type=type)
-
-      when "rangeDate"
-        .text-field__date-range
-          .text-field__box
-            .text-field__title
-              +block-title({title:arrival, subtitle:""})
-            .text-field__container.text-field__container_with-date
-              input.text-field__field.text-field__field_with-date(placeholder=placeholder, name=name, type=type)
-          .text-field__box
-            .text-field__title
-              +block-title({title:departure, subtitle:""})
-            .text-field__container.text-field__container_with-date
-              input.text-field__field.text-field__field_with-date(placeholder=placeholder, name=name, type=type)
-
       default
         input.text-field__field(placeholder=placeholder name="default" type=type)
