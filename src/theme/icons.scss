@@ -9,3 +9,45 @@
     transform: rotate(45deg);
   }
 }
+
+@mixin arrow($color, $isGradient: false) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &::before {
+    width: 60%;
+    height: 60%;
+    content: "";
+    transform: rotate(45deg);
+
+    @if ($isGradient) {
+      border-top: 2px solid;
+      border-right: 2px solid;
+      border-image: $color 2;
+      border-radius: 3px;
+    } @else {
+      border-top: 2px solid $color;
+      border-right: 2px solid $color;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    width: 14px;
+    left: 2px;
+    height: 2px;
+    margin: auto;
+    background: $color;
+    content: "";
+  }
+}

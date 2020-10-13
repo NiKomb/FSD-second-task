@@ -6,28 +6,6 @@
 
   &__container {
     position: relative;
-
-    &_with-arrow {
-      &::after {
-        content: url(../../components/text-field/img/arrow-forward.svg);
-        position: absolute;
-        cursor: pointer;
-        right: 7px;
-        bottom: 0;
-        top: 0;
-        width: 20px;
-        height: 20px;
-        margin: auto;
-      }
-    }
-  }
-
-  &__box {
-    flex-basis: 150px;
-  }
-
-  &__title {
-    padding-bottom: 6px;
   }
 
   &__field {
@@ -54,5 +32,23 @@
         color: $dark-shade-50;
       }
     }
+  }
+
+  &__icon {
+    @include arrow($gradient-satisfied, true);
+
+    left: auto;
+    right: 12px;
+
+    width: 20px;
+    height: 20px;
+  }
+
+  &__box {
+    flex-basis: 150px;
+  }
+
+  &__title {
+    padding-bottom: 6px;
   }
 }
