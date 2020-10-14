@@ -10,20 +10,18 @@ mixin card-slider(options)
       check=1
     } = options
 
-  - const ID = Math.random().toFixed(5)
-
-  .card-slider
-    .card-slider__carousel
-      for image, i in items
-        input.card-slider__input(type="radio", id=`${ID}-${i}`, name="dot", checked=((i=== check - 1) ? true : false))
-      for image, i in items
-        .card-slider__controls
-          label.card-slider__control.card-slider__control_prev(for=(i === 0) ? `${ID}-${items.length - 1}` : `${ID}-${i-1}`)
-          label.card-slider__control.card-slider__control_next(for=(i === items.length - 1) ? `${ID}-${0}` : `${ID}-${i+1}`)
-      a.card-slider__track(href=href, target="_blank", aria-label="open link view")
+  .card-slider.js-card-slider
+    ul.card-slider__carousel
+      .card-slider__controls
+        .card-slider__control.card-slider__control_prev.js-card-slider__control_prev
+        .card-slider__control.card-slider__control_next.js-card-slider__control_next
+      a.card-slider__track(href=href, target="_blank", aria-label="open link view").js-card-slider__track
         for image in items
-          .card-slider__slide(data-subtitle="➦")
+          li.card-slider__slide(data-subtitle="➦").js-card-slider__slide
             img.card-slider__img(src=image, alt="Room View")
       .card-slider__dots(hidden=isHideDots)
         for image, i in items
-          label.card-slider__dot(for=`${ID}-${i}` aria-label="Room views")
+          if (i===check)
+            .card-slider__dot.card-slider__dot_active.js-card-slider__dot
+          else
+            .card-slider__dot.js-card-slider__dot
