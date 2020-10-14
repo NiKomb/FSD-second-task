@@ -7,6 +7,10 @@ class PieChart {
     this.votes = this.chart.querySelectorAll(".js-pie-chart__votes");
     this.total = this.chart.querySelector(".js-pie-chart__total");
 
+    this._initEventListeners();
+  }
+
+  _initEventListeners() {
     this.items.forEach((item, i) => {
       item.addEventListener("mouseover", this._handleItemMouseOver.bind(this, i));
       item.addEventListener("mouseout", this._handleItemMouseOut.bind(this, i));

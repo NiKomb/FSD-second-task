@@ -17,24 +17,27 @@ class DropdownMenu {
     this.confirm = this.content.querySelector(".js-dropdown-menu__button_type_confirm");
     this.cancel = this.content.querySelector(".js-dropdown-menu__button_type_cancel");
 
+    this.isWithAction = Boolean(this.confirm && this.cancel);
+    this._initEventListeners();
+    this._createState(this.isWithAction);
+  }
+
+  _initEventListeners() {
     document.addEventListener("click", this._handleDocumentClick.bind(this));
     this.header.addEventListener("click", this._handleHeaderClick.bind(this));
 
     this.decrements.forEach((decrement) => {
       decrement.addEventListener("click", this._handleDecrementClick.bind(this));
     });
+
     this.increments.forEach((increment) => {
       increment.addEventListener("click", this._handleIncrementClick.bind(this));
     });
-
-    this.isWithAction = Boolean(this.confirm && this.cancel);
 
     if (this.isWithAction) {
       this.confirm.addEventListener("click", this._handleConfirmButtonClick.bind(this));
       this.cancel.addEventListener("click", this._handleCancelButtonClick.bind(this));
     }
-
-    this._createState(this.isWithAction);
   }
 
   _createState(withActions) {
