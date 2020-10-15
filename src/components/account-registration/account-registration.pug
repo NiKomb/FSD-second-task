@@ -3,25 +3,38 @@ include /components/button/button
 include /components/radio/radio
 include /components/toggle/toggle
 
-mixin account-registration(options)
+mixin account-registration(options={})
   -
     const {
       title="title",
       titleBirth="title birth",
       titleSign="title sign",
       form="form",
+      name="name",
       auth=true
     } = options
 
-  form.account-registration(name=form)
+  form.account-registration(name=name, form=form)
     h1.account-registration__title=title
 
     fieldset.account-registration__field
       .account-registration__item
-        +text-field({title:"",subtitle:"",placeholder:"Имя", type:"text"})
+        +text-field({
+            view:"",
+            title:"",
+            subtitle:"",
+            placeholder:"Имя",
+            form:form,
+          })
 
       .account-registration__item
-        +text-field({title:"",subtitle:"",placeholder:"Фамилия", type:"text"})
+        +text-field({
+            view:"",
+            title:"",
+            subtitle:"",
+            placeholder:"Фамилия",
+            form:form,
+          })
 
       .account-registration__group
         +radio({text:"Мужчина",name:"gender",value:"male",checked: true})
@@ -29,21 +42,48 @@ mixin account-registration(options)
 
     fieldset.account-registration__field
       .account-registration__item
-        +text-field({title:titleBirth, subtitle: "", view:"masked", placeholder: "ДД.ММ.ГГГГ", name:"masked"})
+        +text-field({
+            view:"masked",
+            title:"дата рождения",
+            subtitle: "",
+            placeholder: "ДД.ММ.ГГГГ",
+            name:"masked",
+            form:form,
+          })
 
     fieldset.account-registration__field
       .account-registration__item
-        +text-field({title:titleSign, subtitle:"", placeholder:"email", type:"email"})
+         +text-field({
+            view:"",
+            title:"Данные для входа в сервис",
+            subtitle:"",
+            type:"email",
+            placeholder:"Email",
+            form:form
+          })
 
       .account-registration__item
-        +text-field({title:"",subtitle:"", placeholder:"password", type:"password"})
+        +text-field({
+            view:"",
+            title:"",
+            subtitle:"",
+            type:"password",
+            placeholder:"Пароль",
+            form:form
+          })
 
       .account-registration__item
         +toggle({text:"Получать спецпредложение", checked:false})
 
     a.account-registration__link(href="/mock-address/change-me")
       .account-registration__btn
-        +button({type:"button", form:form, theme: "arrow",size:"big", text:"перейти к оплате" })
+        +button({
+          type:"button",
+          form:form,
+          theme: "arrow",
+          size:"big",
+          text:"перейти к оплате"
+        })
 
     fieldset.account-registration__field
       .account-registration__group
@@ -51,9 +91,19 @@ mixin account-registration(options)
           .account-registration__account Уже есть аккаунт на Toxin
 
           a.account-registration__link(href="./sign-in.html")
-            +button({type:"button", form:form, size:"big", text:"Войти"})
+            +button({
+              type:"button",
+              form:form,
+              size:"",
+              text:"Войти"
+            })
         else
           .account-registration__account Нет аккаунта на Toxin
 
           a.account-registration__link(href="./registration.html")
-            +button({type:"button", form:form, size:"big", text:"Создать"})
+            +button({
+              type:"button",
+              form:form,
+              size:"",
+              text:"Создать"
+            })

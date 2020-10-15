@@ -6,8 +6,14 @@ class DropdownDate {
       new Calendar(element, {
         className: "js-dropdown-date__field-calendar",
         onSelect(formattedDate) {
-          $(".js-dropdown-date__field_arrival").val(formattedDate.split("-")[0]);
-          $(".js-dropdown-date__field_departure").val(formattedDate.split("-")[1]);
+          this.element = element;
+          this.element.querySelector(
+            ".js-dropdown-date__field_arrival",
+          ).value = formattedDate.split("-")[0];
+
+          this.element.querySelector(
+            ".js-dropdown-date__field_departure",
+          ).value = formattedDate.split("-")[1];
         },
       });
     });
@@ -19,7 +25,8 @@ class DropdownDate {
         className: "js-dropdown-date__field-calendar",
         dateFormat: "dd M",
         onSelect(formattedDate) {
-          $(".js-dropdown-date_date-filter .js-dropdown-date__field").val(formattedDate);
+          this.element = element;
+          this.element.querySelector(".js-dropdown-date__field").value = formattedDate;
         },
       });
     });

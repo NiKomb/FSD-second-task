@@ -3,7 +3,6 @@ class CardSlider {
     this.slider = element;
     this.prev = this.slider.querySelector(".js-card-slider__control_prev");
     this.next = this.slider.querySelector(".js-card-slider__control_next");
-    this.track = this.slider.querySelector(".js-card-slider__track");
     this.slides = this.slider.querySelectorAll(".js-card-slider__slide");
     this.dots = this.slider.querySelectorAll(".js-card-slider__dot");
 

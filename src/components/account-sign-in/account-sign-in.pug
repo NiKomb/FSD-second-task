@@ -1,19 +1,40 @@
 include /components/text-field/text-field
 include /components/button/button
 
-mixin account-sign-in({title="Войти", auth=true}={})
-  form.account-sign-in
+mixin account-sign-in({title="Войти", auth=true, form="sign-in"}={})
+  form.account-sign-in(form=form)
     h1.account-sign-in__title=title
 
     fieldset.account-sign-in__field
       .account-sign-in__item
-        +text-field({title:"",subtitle:"",placeholder:"email", type:"email"})
+        +text-field({
+          view:"",
+          title:"",
+          subtitle:"",
+          type:"email",
+          placeholder:"Email",
+          form:form,
+        })
+
       .account-sign-in__item
-        +text-field({title:"",subtitle:"", placeholder:"password", type:"password"})
+        +text-field({
+          view:"",
+          title:"",
+          subtitle:"",
+          type:"password",
+          placeholder:"Пароль",
+          form:form,
+        })
 
     a.account-sign-in__link(href="./search-room.html")
       .account-sign-in__btn
-        +button({type:"button", theme: "arrow", size:" ", text:"Подобрать номер"})
+        +button({
+          type:"button",
+          theme: "arrow",
+          size:" ",
+          text:"Подобрать номер",
+          form:form
+        })
 
     fieldset.account-sign-in__field
       .account-sign-in__group

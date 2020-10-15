@@ -1,4 +1,5 @@
-include /components/text-field/text-field
+include /components/dropdown-date/dropdown-date
+include /components/guests-dropdown/guests-dropdown
 include /components/button/button
 include /components/room-number/room-number
 
@@ -6,7 +7,7 @@ include /components/room-number/room-number
 mixin room-reserve(options={})
   -
     const {
-      form= "Order",
+      form= "Reserve",
       discountText="discount",
       addServiceText="service text",
       number=1,
@@ -16,9 +17,10 @@ mixin room-reserve(options={})
       discount=0,
       service=0,
       addService=0,
+      name="name",
     } = options
 
-  form.room-reserve(name=`${form} № ${number}`)
+  form.room-reserve(name=`${name} № ${number}`, form=form)
     .room-reserve__number
       +room-number({
         number:number,
@@ -27,23 +29,23 @@ mixin room-reserve(options={})
         })
 
     .room-reserve__arrive
-      +text-field({
+      +dropdown-date({
         view:"rangeDate",
-        title:"прибытие",
-        subtitle:"",
-        title1:"выезд",
-        subtitle1:"",
-        placeholder:"ДД.ММ.ГГГГ"
-        })
+        title:"",
+        arrival:"прибытие",
+        departure:"выезд",
+        form:form
+      })
 
     .room-reserve__guest
-      +text-field({
+      +guests-dropdown({
         title:"гости",
-        subtitle: " ",
-        view:"guest",
-        placeholder: "Сколько гостей",
-        name:"guests"
-        })
+        subtitle:"",
+        counts:[0,0,0],
+        isOpened:false,
+        withActions:true,
+        form:form
+      })
 
     .room-reserve__summary
       .room-reserve__summary-item #{price}₽ х #{days} суток

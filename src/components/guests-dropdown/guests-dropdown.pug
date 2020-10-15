@@ -7,7 +7,8 @@ mixin guests-dropdown(options={})
       subtitle="",
       counts=[0,0,0],
       isOpened=false,
-      withActions=true
+      withActions=true,
+      form="form"
     }=options
 
   .guests-dropdown.js-guests-dropdown
@@ -21,6 +22,7 @@ mixin guests-dropdown(options={})
         title,
         subtitle,
         isOpened,
-        withActions
+        withActions,
+        form
       }
     )

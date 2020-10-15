@@ -11,6 +11,7 @@ mixin text-field(options={})
       placeholder="placeholder",
       name="",
       type="",
+      form=""
     } = options;
 
   .text-field
@@ -20,11 +21,11 @@ mixin text-field(options={})
     case view
       when "arrow"
         .text-field__container
-          input.text-field__field.text-field__field_with-arrow(placeholder=placeholder, name=name, type=type)
+          input.text-field__field.text-field__field_with-arrow(placeholder=placeholder, name=name, type=type, form=form)
           .text-field__icon
       when "masked"
         .text-field__container.js-text-field_masked
-          input.text-field__field.js-text-field__input(placeholder=placeholder, name=name, type="type")
+          input.text-field__field.js-text-field__input(placeholder=placeholder, name=name, type=type, form=form)
 
       default
-        input.text-field__field(placeholder=placeholder name="default" type=type)
+        input.text-field__field(placeholder=placeholder name="default" type=type, form=form)

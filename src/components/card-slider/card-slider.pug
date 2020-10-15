@@ -12,7 +12,7 @@ mixin card-slider(options)
       .card-slider__controls
         .card-slider__control.card-slider__control_prev.js-card-slider__control_prev
         .card-slider__control.card-slider__control_next.js-card-slider__control_next
-      a.card-slider__track(href=href, target="_blank", aria-label="open link view").js-card-slider__track
+      a.card-slider__track(href=href, target="_blank", aria-label="open link view")
         for image in items
           li.card-slider__slide(data-subtitle="➦").js-card-slider__slide
             img.card-slider__img(src=image, alt="Room View")
