@@ -1,6 +1,3 @@
-//- thanks to: https://codepen.io/jh3y/pen/WwVKLN
-
-
 mixin card-slider(options)
   -
     const {
@@ -21,7 +18,7 @@ mixin card-slider(options)
             img.card-slider__img(src=image, alt="Room View")
       .card-slider__dots(hidden=isHideDots)
         for image, i in items
-          if (i===check)
-            .card-slider__dot.card-slider__dot_active.js-card-slider__dot
+          if (i===(check-1))
+            .card-slider__dot.card-slider__dot_active.js-card-slider__dot(data-index=i)
           else
-            .card-slider__dot.js-card-slider__dot
+            .card-slider__dot.js-card-slider__dot(data-index=i)

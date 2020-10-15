@@ -9,6 +9,9 @@ class CardSlider {
 
     this.prev.addEventListener("click", this._handlePrevButtonClick.bind(this));
     this.next.addEventListener("click", this._handleNextButtonClick.bind(this));
+
+    this._makeCount();
+    this._moveSlides();
   }
 
   _handleNextButtonClick() {
@@ -19,25 +22,50 @@ class CardSlider {
     this._moveSlideLeft();
   }
 
-  _makeDotActive(index) {
-    this.dots.forEach((dot) => {
-      dot.classList.remove(".card-slider__dot_active");
-    });
-    this.dots[index + 1].classList.add(".card-slider__dot_active");
-  }
-
   _moveSlideRight() {
-    this.slides.forEach((slide, index) => {
-      slide.style.transform = "translateX(-100%)";
-      // this._makeDotActive(index);
-    });
+    this.count += 1;
+
+    this._moveSlides();
+    this._toggleDots(this.count);
   }
 
   _moveSlideLeft() {
-    this.slides.forEach((slide, index) => {
-      slide.style.transform = "translateX(100%)";
-      // this._makeDotActive(index);
+    this.count -= 1;
+
+    this._moveSlides();
+    this._toggleDots(this.count);
+  }
+
+  _makeCount() {
+    this.dots.forEach((dot) => {
+      if (dot.classList.contains("card-slider__dot_active")) {
+        this.count = Number(dot.dataset.index);
+      }
     });
+  }
+
+  _moveSlides() {
+    this.slides.forEach((slide) => {
+      if (this.count < 0) {
+        slide.style.transform = `translateX(-${100 * (this.slides.length - 1)}%)`;
+        this.count = this.slides.length - 1;
+      }
+
+      if (this.count > this.slides.length - 1) {
+        slide.style.transform = `translateX(0%)`;
+        this.count = 0;
+      }
+      slide.style.transform = `translateX(-${100 * this.count}%)`;
+    });
+
+    this._toggleDots(this.count);
+  }
+
+  _toggleDots(count) {
+    this.dots.forEach((dot) => {
+      dot.classList.remove("card-slider__dot_active");
+    });
+    this.dots[count].classList.add("card-slider__dot_active");
   }
 
   static initAll({ selector = ".js-card-slider", parent = document } = {}) {

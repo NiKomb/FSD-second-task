@@ -25,29 +25,6 @@
     }
   }
 
-  // &__controls {
-  //   display: none;
-  // }
-
-  // special thanks to https://codepen.io/jh3y/pen/WwVKLN?editors=1100
-  @for $num from 1 through 10 {
-    &__input:nth-of-type(#{$num}) {
-      &:checked ~ .card-slider__track {
-        transform: translateX(-(($num - 1) * 100%));
-      }
-
-      &:checked ~ .card-slider__controls:nth-of-type(#{$num}) {
-        display: block;
-        opacity: 1;
-      }
-
-      &:checked ~ .card-slider__dots .card-slider__dot:nth-of-type(#{$num}) {
-        background-color: #fff;
-      }
-    }
-  }
-
-  // Create style for slider button
   &__control {
     display: block;
     position: absolute;
@@ -105,23 +82,16 @@
     }
   }
 
-  // Create rules for  a track
   &__track {
     display: flex;
-    transition: 0.5s;
   }
 
   &__slide {
     flex: 0 0 100%;
     width: 100%;
+    transition: 0.5s;
+    display: block;
 
-    @for $num from 1 through 10 {
-      &:nth-of-type(#{$num}) {
-        transform: translateX(($num - 1) * 100%);
-      }
-    }
-
-    // Create style for arrow on a link-img
     &:hover::after {
       @include font-h1;
       content: attr(data-subtitle);
