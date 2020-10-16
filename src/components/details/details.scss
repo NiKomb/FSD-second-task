@@ -1,6 +1,7 @@
 .details {
-  position: relative;
   $switch: &;
+
+  position: relative;
 
   &__title {
     @include font-h2;
@@ -10,8 +11,8 @@
     justify-content: space-between;
 
     &::after {
-      content: attr(subtitle);
       color: $dark-shade-50;
+      content: attr(subtitle);
     }
   }
 
@@ -30,26 +31,26 @@
   }
 
   &__icon {
-    padding: 4px;
-    width: 48x;
+    width: 48px;
     height: 48px;
+    padding: 4px;
 
     &_with-smile {
-      content: url(../../components/details/images/insert_emoticon.svg);
+      content: url('../../components/details/images/insert_emoticon.svg');
     }
 
     &_with-city {
-      content: url(../../components/details/images/location_city.svg);
+      content: url('../../components/details/images/location_city.svg');
     }
 
     &_with-fire {
-      content: url(../../components/details/images/whatshot.svg);
+      content: url('../../components/details/images/whatshot.svg');
     }
   }
 
   &__info {
     @include font-body;
 
-    margin: 0px 30px 0 10px;
+    margin: 0 30px 0 10px;
   }
 }

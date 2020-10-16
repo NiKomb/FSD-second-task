@@ -2,8 +2,9 @@
   position: relative;
 
   &__title {
-    outline: none;
     cursor: pointer;
+    outline: none;
+
     &:hover,
     &:focus {
       filter: drop-shadow(0 0 2px $dark-shade-25);
@@ -11,16 +12,16 @@
   }
 
   &__mark {
-    display: inline-block;
     position: absolute;
-    right: 1px;
     top: 5px;
+    right: 1px;
+    display: inline-block;
     width: 10px;
     height: 10px;
     border: 2px solid $dark-shade-50;
     border-top: 0;
-    transform: translateY(0%) rotate(-135deg);
     border-left: 0;
+    transform: translateY(0%) rotate(-135deg);
     transition: 0.3s;
 
     &_active {

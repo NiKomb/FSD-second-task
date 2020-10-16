@@ -2,36 +2,39 @@
   @include font-h3;
 
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   &__left-title {
-    font-family: Quicksand;
+    @include font-h1;
+
+    font-size: to-rem($fs-body);
   }
 
   &__number {
     @include font-h1;
-    margin: 0 0.2857rem 0 0.2857rem;
+
+    margin: 0 0.2857rem;
 
     &_size_h2 {
-      font-size: toRem($fs-h2);
+      font-size: to-rem($fs-h2);
     }
   }
 
   &__right-title {
     @include font-h3;
-    font-weight: normal;
+
     display: flex;
     align-items: center;
-
     color: $dark-shade-50;
+    font-weight: normal;
   }
 
   &__price {
     @include font-body;
-    font-weight: bold;
 
     margin-right: 4px;
     color: $dark-shade-50;
+    font-weight: bold;
   }
 }

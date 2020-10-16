@@ -2,6 +2,7 @@
   $switch: &;
   $width: 24;
   $height: 19;
+
   padding: 2px 0 2px 2px;
   border: 0;
 
@@ -9,9 +10,9 @@
     position: relative;
     width: #{$width * 5}px;
     height: #{$height}px;
-    background-image: url(../../components/rating/images/off.svg);
-    background-size: #{$width}px #{$height}px;
+    background-image: url('../../components/rating/images/off.svg');
     background-repeat: repeat-x;
+    background-size: #{$width}px #{$height}px;
 
     &:focus-within {
       filter: drop-shadow(0 0 2px $dark-shade-25);
@@ -23,28 +24,18 @@
   }
 
   &__star {
-    cursor: pointer;
     position: absolute;
-    appearance: none;
     top: 0;
     left: 0;
     height: #{$height}px;
     margin: 0;
-    background-size: #{$width}px #{$height}px;
+    appearance: none;
     background-repeat: repeat-x;
+    background-size: #{$width}px #{$height}px;
+    cursor: pointer;
 
     &:focus {
       outline: none;
-    }
-
-    &:checked,
-    &:hover {
-      background-image: url(../../components/rating/images/on.svg);
-      background-size: #{$width}px #{$height}px;
-    }
-
-    &:hover ~ .rating__star {
-      background-image: url(../../components/rating/images/off.svg);
     }
 
     // stars from 1 to 5
@@ -71,6 +62,16 @@
     &:nth-of-type(5) {
       z-index: 1;
       width: #{$width * 5}px;
+    }
+
+    &:checked,
+    &:hover {
+      background-image: url('../../components/rating/images/on.svg');
+      background-size: #{$width}px #{$height}px;
+    }
+
+    &:hover ~ .rating__star {
+      background-image: url('../../components/rating/images/off.svg');
     }
   }
 }

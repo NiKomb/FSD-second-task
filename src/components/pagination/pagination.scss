@@ -1,8 +1,8 @@
 .pagination {
   @include font-body;
 
-  text-align: center;
   position: relative;
+  text-align: center;
 
   &__pages {
     display: flex;
@@ -10,18 +10,16 @@
   }
 
   &__page {
-    cursor: pointer;
     display: block;
-    outline: none;
-
-    color: $dark-shade-50;
-    line-height: 40px;
-    text-align: center;
-    text-decoration: none;
-
-    border-radius: 20px;
     width: 40px;
     height: 40px;
+    border-radius: 20px;
+    color: $dark-shade-50;
+    cursor: pointer;
+    line-height: 40px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
 
     &:focus {
       filter: drop-shadow(0 0 2px $dark-shade-50);
@@ -32,12 +30,11 @@
     }
 
     &:hover:not(.pagination__page_current):not(.pagination__page_next):not(.pagination__page_skip) {
-      background: linear-gradient(
-        180deg,
+      background:
+        linear-gradient(180deg,
         lighten($prime-color, 10%) 0%,
-        lighten($sub-prime-color, 10%) 100%
-      );
-      color: #fff;
+        lighten($sub-prime-color, 10%) 100%);
+      color: white;
     }
 
     // &:visited {
@@ -45,13 +42,9 @@
     // }
 
     &_current {
-      background: linear-gradient(
-        180deg,
-        $prime-color 0%,
-        $sub-prime-color 100%
-      );
+      background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
+      color: white;
       font-weight: bold;
-      color: #fff;
     }
 
     &_skip {
@@ -64,32 +57,29 @@
       background: linear-gradient(180deg, $second-color 0%, #66d2ea 100%);
 
       &::after {
-        content: url(../../components/pagination/images/arrow.svg);
         position: absolute;
-        margin: auto;
-
         top: 0;
+        right: 0;
         bottom: 0;
         left: 0;
-        right: 0;
-
         width: min-content;
         height: min-content;
+        margin: auto;
+        content: url('../../components/pagination/images/arrow.svg');
       }
 
       &:hover {
-        background: linear-gradient(
-          180deg,
+        background:
+          linear-gradient(180deg,
           lighten($second-color, 10%) 0%,
-          lighten(#66d2ea, 10%) 100%
-        );
+          lighten(#66d2ea, 10%) 100%);
       }
     }
   }
 
   &__total {
     padding-top: 11px;
-    text-transform: none;
     color: $dark-shade-75;
+    text-transform: none;
   }
 }

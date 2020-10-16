@@ -1,5 +1,6 @@
 .like {
   $switch: &;
+
   display: block;
 
   &:hover {
@@ -9,46 +10,41 @@
   &__label {
     @include font-h3;
 
-    display: inline-block;
     position: relative;
-
-    font-size: 10px;
-    line-height: 12px;
-    font-weight: normal;
+    display: inline-block;
     color: $dark-shade-50;
-
     cursor: pointer;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 12px;
   }
 
   &__box {
     display: inline-block;
-    padding: 3px 7px 3px 22px;
-
     min-width: 40px;
-
-    border-radius: 10px;
+    padding: 3px 7px 3px 22px;
     border: solid 1px transparent;
-
-    background-color: #fff;
     background-clip: padding-box;
+    background-color: white;
+    border-radius: 10px;
 
     &::before {
-      content: "";
       position: absolute;
       z-index: -1;
-      border-radius: 10px;
       top: 0;
-      left: 0;
-      bottom: 0;
       right: 0;
+      bottom: 0;
+      left: 0;
       background-color: $dark-shade-25;
+      border-radius: 10px;
+      content: '';
     }
 
     &::after {
-      content: url(../../components/like/images/favorite_border.svg);
       position: absolute;
       top: 5px;
       left: 5px;
+      content: url('../../components/like/images/favorite_border.svg');
     }
   }
 
@@ -62,15 +58,11 @@
         color: $prime-color;
 
         &::before {
-          background: linear-gradient(
-            180deg,
-            $prime-color 0%,
-            $sub-prime-color 100%
-          );
+          background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
         }
 
         &::after {
-          content: url(../../components/like/images/favorite.svg);
+          content: url('../../components/like/images/favorite.svg');
         }
       }
     }
@@ -88,11 +80,7 @@
     &:checked:focus {
       + #{$switch}__box {
         &::before {
-          background: linear-gradient(
-            180deg,
-            $prime-color 0%,
-            $sub-prime-color 100%
-          );
+          background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
           box-shadow: 0 0 2px 1px $dark-shade-10;
         }
       }

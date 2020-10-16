@@ -7,7 +7,9 @@
     "dev": "cross-env NODE_ENV=development webpack --watch --config ./webpack/webpack.dev.config.js",
     "stream": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.build.config.js",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "stylelint": "stylelint **/*.scss",
+    "stylelint-fix": "stylelint **/*.scss --fix"
   },
   "browserslist": ">0.25%, not dead",
   "keywords": [
@@ -42,6 +44,10 @@
     "sass-node": "^4.11.2",
     "sass-resources-loader": "^2.0.3",
     "style-loader": "^1.2.1",
+    "stylelint": "^13.7.2",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-sass-guidelines": "^7.1.0",
+    "stylelint-config-standard": "^20.0.0",
     "terser-webpack-plugin": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",

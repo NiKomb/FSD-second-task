@@ -5,18 +5,19 @@
   display: block;
 
   &__title {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-bottom: 23px;
-
     @include font-h2;
 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 23px;
+
     &::after {
-      content: attr(data-subtitle);
       @include font-h3;
+
       color: $dark-shade-50;
+      content: attr(data-subtitle);
       font-weight: normal;
     }
   }
@@ -24,8 +25,8 @@
   &__container {
     position: relative;
     display: flex;
-    justify-content: space-between;
     max-width: 311px;
+    justify-content: space-between;
   }
 
   &__graph {
@@ -56,9 +57,8 @@
 
   &__legend {
     display: block;
-    padding-left: 20px;
     align-self: flex-end;
-
+    padding-left: 20px;
     cursor: default;
     user-select: none;
   }
@@ -66,24 +66,20 @@
   &__item {
     @include font-body;
 
-    display: block;
     position: relative;
-
+    display: block;
     text-transform: none;
 
     &::before {
-      content: "";
-
       position: absolute;
-      margin: auto;
       top: 0;
-      left: -15px;
       bottom: 0;
-
+      left: -15px;
       width: 10px;
       height: 10px;
-
+      margin: auto;
       border-radius: 50%;
+      content: '';
     }
 
     &_theme_excellent {
@@ -122,33 +118,30 @@
 
   &__votes {
     @include font-h3;
+
     position: absolute;
-    opacity: 0;
-
-    margin: auto;
     top: $lh-h1;
-    left: 28px;
     bottom: 0;
-
-    text-transform: uppercase;
-    height: min-content;
+    left: 28px;
     width: min-content;
+    height: min-content;
+    margin: auto;
+    opacity: 0;
+    text-transform: uppercase;
     transition: 0.5s;
 
     &::before {
       @include font-h1;
 
-      content: attr(data-votes);
       position: absolute;
-
-      margin: auto;
-      left: 0;
-      bottom: toRem($lh-h1) + toRem($lh-h3);
-      right: 0;
       top: 0;
-
-      height: min-content;
+      right: 0;
+      bottom: to-rem($lh-h1) + to-rem($lh-h3);
+      left: 0;
       width: min-content;
+      height: min-content;
+      margin: auto;
+      content: attr(data-votes);
     }
 
     &_visible {
@@ -158,56 +151,56 @@
 
     &_theme_excellent {
       background: $gradient-excellent;
-      background-clip: text;
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
 
       &::before {
         background: $gradient-excellent;
-        background-clip: text;
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
     }
 
     &_theme_good {
       background: $gradient-good;
-      background-clip: text;
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
 
       &::before {
         background: $gradient-good;
-        background-clip: text;
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
     }
 
     &_theme_satisfied {
       background: $gradient-satisfied;
-      background-clip: text;
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
 
       &::before {
         background: $gradient-satisfied;
-        background-clip: text;
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
     }
 
     &_theme_disappointed {
       background: $gradient-disappointed;
-      background-clip: text;
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
 
       &::before {
         background: $gradient-disappointed;
-        background-clip: text;
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
     }
@@ -215,39 +208,35 @@
 
   &__total {
     @include font-h3;
+
     position: absolute;
-
-    margin: auto;
-    top: toRem($lh-h1);
-    left: 28px;
+    top: to-rem($lh-h1);
     bottom: 0;
-
-    text-transform: uppercase;
-    height: min-content;
+    left: 28px;
     width: min-content;
-
-    transition: 0.5s;
+    height: min-content;
+    margin: auto;
     opacity: 1;
+    text-transform: uppercase;
+    transition: 0.5s;
 
     &_invisible {
-      transition: 0.2s;
       opacity: 0;
+      transition: 0.2s;
     }
 
     &::before {
       @include font-h1;
 
-      content: attr(data-votes);
       position: absolute;
-
-      margin: auto;
-      left: 0;
-      bottom: toRem($lh-h1) + toRem($lh-h3);
-      right: 0;
       top: 0;
-
-      height: min-content;
+      right: 0;
+      bottom: to-rem($lh-h1) + to-rem($lh-h3);
+      left: 0;
       width: min-content;
+      height: min-content;
+      margin: auto;
+      content: attr(data-votes);
     }
   }
 }

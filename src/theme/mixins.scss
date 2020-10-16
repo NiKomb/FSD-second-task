@@ -2,62 +2,61 @@
   width: 100%;
   min-width: 320px;
   max-width: 1190px;
-  margin: 0 auto;
   padding: 1.0714rem;
+  margin: 0 auto;
 }
 
 @mixin require-font($family, $dir, $font-weight: normal, $font-style: normal) {
   @font-face {
-    font-family: "#{$family}";
-    font-weight: $font-weight;
-    font-style: $font-style;
     font-display: swap;
-    src: url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff2")
-        format("woff2"),
-      url("@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff")
-        format("woff");
+    font-family: '#{$family}';
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src:
+      url('@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff2') format('woff2'),
+      url('@/chunks/fonts/#{$dir}/#{$dir}-#{$font-weight}-#{$font-style}.woff') format('woff');
   }
 }
 
 @mixin font-h1 {
+  color: $dark-shade;
+  font-family: Quicksand, Arial, sans-serif;
+  font-size: to-rem($fs-h1);
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
-  font-size: toRem($fs-h1);
-  line-height: toRem($lh-h1);
-  font-family: Quicksand, Arial, sans-serif;
-  color: $dark-shade;
+  line-height: to-rem($lh-h1);
 }
 
 @mixin font-h2 {
+  color: $dark-shade;
+  font-family: Quicksand, Arial, sans-serif;
+  font-size: to-rem($fs-h2);
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
-  font-size: toRem($fs-h2);
-  line-height: toRem($lh-h2);
-  font-family: Quicksand, Arial, sans-serif;
-  color: $dark-shade;
+  line-height: to-rem($lh-h2);
 }
 
 @mixin font-h3 {
+  color: $dark-shade;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: to-rem($fs-h3);
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
-  font-size: toRem($fs-h3);
-  line-height: toRem($lh-h3);
-  font-family: Montserrat, Arial, sans-serif;
-  color: $dark-shade;
+  line-height: to-rem($lh-h3);
   text-transform: uppercase;
 }
 
 @mixin font-body {
+  color: $dark-shade-75;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: to-rem($fs-body);
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
-  font-size: toRem($fs-body);
-  line-height: toRem($lh-body);
-  font-family: Montserrat, Arial, sans-serif;
-  color: $dark-shade-75;
+  line-height: to-rem($lh-body);
 }
 
 @mixin breakpoint($width) {

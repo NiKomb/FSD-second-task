@@ -1,9 +1,11 @@
-@function toRem($pixels, $context: $main-font-size) {
+@function to-rem($pixels, $context: $main-font-size) {
   @if (unitless($pixels)) {
     $pixels: $pixels * 1px;
   }
+
   @if (unitless($context)) {
     $context: $context * 1px;
   }
+
   @return $pixels / $context * 1rem;
 }

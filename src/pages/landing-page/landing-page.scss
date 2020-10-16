@@ -1,11 +1,11 @@
 .landing-page {
   &__background {
+    display: block;
     width: 100%;
     max-width: 1920px;
-    margin: 0 auto;
     height: 830px;
-    display: block;
-    background-image: url("../landing-page/images/landing-page.jpg");
+    margin: 0 auto;
+    background-image: url('../landing-page/images/landing-page.jpg');
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,6 +13,7 @@
 
   &__content {
     @include container;
+
     position: relative;
     width: 100%;
     height: 100%;
@@ -21,11 +22,12 @@
 
   &__description {
     @include font-body;
-    width: 100%;
-    max-width: 290px;
+
     position: absolute;
     right: 0.5714rem;
     bottom: 1.5rem;
+    width: 100%;
+    max-width: 290px;
     text-align: right;
   }
 }

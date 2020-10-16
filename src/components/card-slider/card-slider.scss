@@ -2,82 +2,68 @@
   $switch: &;
 
   &__carousel {
-    width: 100%;
     position: relative;
     overflow: hidden;
-    border-top-right-radius: 4px;
+    width: 100%;
     border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 
     &:focus-within {
-      box-shadow: 0px 5px 5px #1f20414d;
-    }
-  }
-
-  &__input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-
-    &:focus ~ .card-slider__dots {
-      filter: drop-shadow(0px 0px 1px #000);
+      box-shadow: 0 5px 5px #1f20414d;
     }
   }
 
   &__control {
-    display: block;
     position: absolute;
+    z-index: 3;
     top: 0;
     right: 0;
+    display: block;
     width: 40px;
     height: 100%;
-    z-index: 3;
     opacity: 0;
 
     &::before {
-      content: "";
       position: absolute;
-      margin: auto;
-      right: 20px;
+      z-index: 3;
       top: 0;
+      right: 20px;
       bottom: 0;
-      height: 10px;
       width: 10px;
-      border: 2px solid #fff;
+      height: 10px;
+      border: 2px solid white;
       border-top: 0;
       border-left: 0;
+      margin: auto;
+      content: '';
       transform: rotate(135deg);
-      z-index: 3;
     }
 
     &_prev {
+      z-index: 4;
       left: 0;
-      background: #000;
-      background: linear-gradient(
-        90deg,
+      background: black;
+      background:
+        linear-gradient(90deg,
         rgba(0, 0, 0, 0.5) 0%,
         rgba(0, 0, 0, 0) 99.99%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      z-index: 4;
+        rgba(255, 255, 255, 0) 100%);
     }
 
     &_next {
+      z-index: 4;
       right: 0;
-      background: linear-gradient(
-        90deg,
+      background:
+        linear-gradient(90deg,
         rgba(0, 0, 0, 0.5) 0%,
         rgba(0, 0, 0, 0) 99.99%,
-        rgba(255, 255, 255, 0) 100%
-      );
+        rgba(255, 255, 255, 0) 100%);
       transform: rotate(-180deg);
-      z-index: 4;
     }
 
     &:hover {
-      opacity: 1;
       cursor: pointer;
+      opacity: 1;
       transition: 0.5s;
     }
   }
@@ -87,22 +73,23 @@
   }
 
   &__slide {
-    flex: 0 0 100%;
-    width: 100%;
-    transition: 0.5s;
     display: block;
+    width: 100%;
+    flex: 0 0 100%;
+    transition: 0.5s;
 
     &:hover::after {
       @include font-h1;
-      content: attr(data-subtitle);
-      display: block;
+
       position: absolute;
       top: 0;
       right: 0;
-      color: #fff;
-      opacity: 0.7;
+      display: block;
+      color: white;
+      content: attr(data-subtitle);
+      filter: drop-shadow(0 0 1px #1f20414d);
       line-height: 1rem;
-      filter: drop-shadow(0px 0px 1px #1f20414d);
+      opacity: 0.7;
     }
   }
 
@@ -114,23 +101,23 @@
 
   &__dots {
     position: absolute;
-    bottom: 15px;
     right: 15px;
+    bottom: 15px;
   }
 
   &__dot {
-    height: 8px;
-    width: 8px;
-    border-radius: 100%;
-    display: inline-block;
     z-index: 2;
-    cursor: pointer;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid white;
     margin: 0 0 0 3.75px;
-    border: 1px solid #fff;
-    box-shadow: 0px 5px 5px #1f20414d;
+    border-radius: 100%;
+    box-shadow: 0 5px 5px rgba(31, 32, 65, 0.3);
+    cursor: pointer;
 
     &_active {
-      background-color: #fff;
+      background-color: white;
     }
   }
 }

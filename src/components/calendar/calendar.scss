@@ -1,45 +1,58 @@
 .datepicker-inline {
-  display: block;
   position: absolute;
   top: 50px;
+  display: block;
 
   .datepicker {
     position: absolute;
     display: block;
     width: 320px;
-    padding: 18px;
-    background: #fff;
-    border: 1px solid $dark-shade-25;
     box-sizing: border-box;
-    box-shadow: 0px 10px 20px $dark-shade-5;
+    padding: 18px;
+    border: 1px solid $dark-shade-25;
+    background: white;
     border-radius: 4px;
+    box-shadow: 0 10px 20px $dark-shade-5;
 
     &--nav {
-      border-bottom: 0;
-      padding: 0;
-      min-height: 24px;
+      position: relative;
+      display: flex;
+      border-bottom: 1px solid transparent;
 
       &-title {
         @include font-h2;
 
+        margin: auto;
+
         i {
-          color: inherit;
+          @include font-h2;
         }
       }
 
       &-action {
-        width: 24px;
-        height: 24px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        color: $prime-color;
+        cursor: pointer;
 
-        & path {
-          fill: $prime-color;
-          stroke: none;
+        &.-disabled- {
+          display: none;
         }
 
-        & svg {
-          width: 18px;
-          height: 18px;
+        &[data-action='next'] {
+          right: 0;
         }
+      }
+    }
+
+    &--arrow {
+      @include arrow($prime-color, false);
+
+      margin: 2px;
+
+      &-reverted {
+        transform: rotate(180deg);
       }
     }
 
@@ -58,7 +71,6 @@
         @include font-h3;
 
         height: 40px;
-
         color: $prime-color;
         text-transform: none;
       }
@@ -66,25 +78,25 @@
 
     &--cell {
       &-day {
-        font: 12px Montserrat, Arial, sans-serif;
         height: 40px;
         border-radius: 50%;
         color: $dark-shade-50;
+        font: 12px Montserrat, Arial, sans-serif;
 
         &.-disabled- {
           color: $dark-shade-25;
         }
 
         &.-current- {
+          background: $gradient-good;
           color: white;
           font-weight: bold;
-          background: $gradient-good;
         }
 
         &.-selected- {
-          font-weight: bold;
           background: linear-gradient(180deg, $prime-color 0%, $sub-prime-color 100%);
           color: white;
+          font-weight: bold;
         }
 
         &.-other-month- {
@@ -93,14 +105,14 @@
 
         &.-range-from-::after,
         &.-range-to-::after {
-          content: "";
           position: absolute;
-          left: 0;
+          z-index: -1;
+          top: 0;
           right: 0;
           bottom: 0;
-          top: 0;
+          left: 0;
           background: linear-gradient(180deg, rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
-          z-index: -1;
+          content: '';
         }
 
         &.-range {
@@ -111,6 +123,7 @@
               border-radius: 50% 0 0 50%;
             }
           }
+
           &-to- {
             border: 0;
 
@@ -122,35 +135,35 @@
 
         &.-in-range- {
           background: linear-gradient(180deg, rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
-          color: $dark-shade-50;
           border-radius: 0;
+          color: $dark-shade-50;
         }
       }
     }
 
     &--buttons {
-      border-top: 0;
-      padding: 0;
       display: flex;
       justify-content: space-between;
+      padding: 0;
+      border-top: 0;
     }
 
     &--button {
       flex: none;
+      color: $dark-shade-50;
+      font-family: montserrat, sans-serif;
       font-size: 12px;
+      font-weight: 700;
       line-height: 15px;
       text-transform: uppercase;
-      font-family: montserrat, sans-serif;
-      font-weight: 700;
-      color: $dark-shade-50;
 
-      &[data-action="today"] {
+      &[data-action='today'] {
         color: $prime-color;
       }
 
       &:hover {
-        color: lighten($prime-color, 10%);
         background: 0;
+        color: lighten($prime-color, 10%);
       }
     }
   }

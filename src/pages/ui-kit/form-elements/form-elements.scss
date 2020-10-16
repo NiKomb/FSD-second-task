@@ -2,13 +2,14 @@
   &__container {
     @include container;
     @include font-h3;
+
     display: flex;
     justify-content: space-between;
   }
 
   &__col {
-    margin-bottom: 100px;
     width: 320px;
+    margin-bottom: 100px;
     text-transform: none;
 
     &_expanded {

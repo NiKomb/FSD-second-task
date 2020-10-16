@@ -1,25 +1,22 @@
 .account-registration {
   display: block;
-
   max-width: 380px;
-  padding: 40px 30px 30px 30px;
-
+  padding: 40px 30px 30px;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  background-color: white;
   border-radius: 4px;
-
-  background-color: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 
   &__title {
     @include font-h1;
 
-    margin: 0;
     padding-bottom: 20px;
+    margin: 0;
   }
 
   &__field {
-    padding: 0 0 20px 0;
-    border: none;
+    padding: 0 0 20px;
+    border-width: 0;
 
     &:last-child {
       padding: 0;
@@ -27,10 +24,10 @@
   }
 
   &__group {
-    padding: 0;
-    border: none;
     display: flex;
     justify-content: space-between;
+    padding: 0;
+    border-width: 0;
   }
 
   &__item {
@@ -51,7 +48,6 @@
 
     display: flex;
     align-items: center;
-
-    color: #000;
+    color: black;
   }
 }

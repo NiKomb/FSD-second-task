@@ -1,6 +1,6 @@
 .info {
-  padding-left: 20px;
   position: relative;
+  padding-left: 20px;
 
   &__title {
     @include font-h2;
@@ -8,12 +8,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
     padding-bottom: 16px;
 
     &::after {
-      content: attr(data-subtitle);
       @include font-body;
+
+      content: attr(data-subtitle);
     }
   }
 
@@ -29,18 +29,18 @@
     padding-bottom: 10px;
 
     &_with-bullet {
-      padding-bottom: 10px;
       position: relative;
+      padding-bottom: 10px;
 
       &::before {
-        content: "";
+        position: absolute;
+        top: 7px;
+        left: -20px;
         width: 10px;
         height: 10px;
         background-color: $dark-shade-25;
         border-radius: 50%;
-        position: absolute;
-        top: 7px;
-        left: -20px;
+        content: '';
       }
     }
   }

@@ -1,11 +1,12 @@
 .search-room {
   &__content {
     @include container;
-    display: flex;
-    margin: auto;
-    padding-top: 30px;
 
-    @include breakpoint($mobileBreakpoint) {
+    display: flex;
+    padding-top: 30px;
+    margin: auto;
+
+    @include breakpoint($mobile-breakpoint) {
       flex-direction: column;
     }
   }
@@ -15,12 +16,12 @@
     min-width: 260px;
     margin-right: 58px;
 
-    @include breakpoint($tabletBreakpoint) {
+    @include breakpoint($tablet-breakpoint) {
       min-width: 200px;
       margin-right: 36px;
     }
 
-    @include breakpoint($mobileBreakpoint) {
+    @include breakpoint($mobile-breakpoint) {
       width: 100%;
       margin: 0;
     }
@@ -32,31 +33,33 @@
 
   &__result {
     flex: 1;
-    @include breakpoint($mobileBreakpoint) {
+
+    @include breakpoint($mobile-breakpoint) {
       width: 100%;
     }
   }
 
   &__title {
     @include font-h1;
+
     padding-bottom: 21px;
   }
 
   &__items {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   &__item {
     width: calc(100% / 3 - 9px);
     margin-bottom: 20px;
 
-    @include breakpoint($smallDesktopBreakpoint) {
+    @include breakpoint($small-desktop-breakpoint) {
       width: calc(100% / 2 - 12px);
     }
 
-    @include breakpoint($tabletBreakpoint) {
+    @include breakpoint($tablet-breakpoint) {
       width: 100%;
     }
   }

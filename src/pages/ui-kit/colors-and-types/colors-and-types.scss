@@ -1,13 +1,14 @@
 .color-and-types {
   &__section {
     @include container;
+
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   &__item {
-    margin-bottom: 9rem;
     padding-right: 4.4rem;
+    margin-bottom: 9rem;
   }
 }

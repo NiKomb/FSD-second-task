@@ -1,8 +1,9 @@
 .text-field {
   @include font-body;
-  margin: 0;
+
   width: 100%;
   max-width: 320px;
+  margin: 0;
 
   &__container {
     position: relative;
@@ -10,11 +11,12 @@
 
   &__field {
     @include font-body;
-    border: 1px solid $dark-shade-25;
+
     width: 100%;
     height: 44px;
-    border-radius: 4px;
     padding: 7px 14px 8px;
+    border: 1px solid $dark-shade-25;
+    border-radius: 4px;
     outline: none;
 
     &_with-arrow {
@@ -28,6 +30,7 @@
     &:hover,
     &:focus {
       border: 1px solid $dark-shade-50;
+
       &::placeholder {
         color: $dark-shade-50;
       }
@@ -37,9 +40,8 @@
   &__icon {
     @include arrow($gradient-satisfied, true);
 
-    left: auto;
     right: 12px;
-
+    left: auto;
     width: 20px;
     height: 20px;
   }

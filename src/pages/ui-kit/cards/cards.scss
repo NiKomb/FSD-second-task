@@ -8,22 +8,16 @@
 
   &__column {
     @include container;
+
     display: flex;
     width: min-content;
-
+    flex-direction: column;
     align-content: center;
     justify-content: center;
-    flex-direction: column;
   }
 
   &__item {
-    margin-bottom: 40px;
     display: flex;
+    margin-bottom: 40px;
   }
-}
-
-.js-cards__calendar {
-  left: 0 !important;
-  width: 22.7143rem !important;
-  position: static !important;
 }
